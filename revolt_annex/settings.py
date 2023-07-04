@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'schedule',
+    'django_celery_results',
 ]
 
 MIDDLEWARE = [
@@ -133,4 +134,19 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 DATE_INPUT_FORMATS = ["%m.%d.%Y"]
 USE_L10N = False
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# CELERY SETTINGS
+CELERY_BROKER_URL = 'redis://127.0.0.1:6379'
+CELERY_ACCEPT_CONTENT = {'application/json'}
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_TIMEZONE = 'Europe/Paris'
+CELERY_RESULT_BACKEND = 'django-db'
+
+# SMTP SETTINGS
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_USE_TLS = True
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_PORT = 587
+EMAIL_HOST_USER = "taos.haus.thumps@gmail.com"
+EMAIL_HOST_PASSWORD = "noghywsrezbdbrkm"
+DEFAULT_FROM_EMAIL = 'taos.haus.thumps@gmail.com'

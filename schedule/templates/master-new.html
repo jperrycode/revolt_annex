@@ -50,7 +50,7 @@
 
       <div id="logo" class="me-auto custom-font">
         <!-- Uncomment below if you prefer to use a text logo -->
-        <h1><a href="index.html">Revolt<span>Annex</span></a></h1>
+        <h1><a href="/revolt-art/">Revolt<span>Annex</span></a></h1>
       
       </div>
 
@@ -827,9 +827,10 @@
         </div>
 
         <div class="form">
-          <form method="post" action='{% url "annex_home" %}' role="form" class="php-email-form">
+          <form method="POST" action='{% url "contact_us" %}' role="form" class="php-email-form">
           {% csrf_token %}
             <div class="row">
+            <p>{{contact_form.non_field_errors }}</p>
               <div class="form-group col-md-6">
                 <input type="text" name="{{ contact_form.name.name }}" {% if contact_form.name.value != None %} value="{{ contact_form.name.value|stringformat:'s' }}"{% endif %}
                       maxlength="{{ contact_form.name.field.max_length }}" class='form-control' id='{{ contact_form.name.name }}' placeholder='Your Name' required/>
@@ -848,9 +849,9 @@
               <textarea id="{{ contact_form.message.name }}" class="form-control" name="{{ contact_form.message.name }}" {% if contact_form.message.value != None %} value="{{ contact_form.message.value|stringformat:'s' }}"{% endif %} rows="5" placeholder="Message" required></textarea>
             </div>
             <div class="my-3">
-              <div class="loading">Loading</div>
-              <div class="error-message"></div>
-              <div class="sent-message">Your message has been sent. Thank you!</div>
+              <div class="loading" id='loading'>Loading</div>
+              <div class="error-message" id='error-message'></div>
+              <div class="sent-message" id='sent-message'>Email sent successfully, Thank you!</div>
             </div>
             <div class="text-center"><button type="submit">Send Message</button></div>
           </form>

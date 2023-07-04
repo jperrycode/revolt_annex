@@ -3,45 +3,46 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.template import loader
 from .models import Music_artist_listing, Visual_artist_listing, Extra_curriucular_listing, Nearby_accomodations
 import requests
-from django.shortcuts import render
 from .forms import ContactForm
-from django.core.mail import send_mail, BadHeaderError
+from django.core.mail import send_mail, BadHeaderError, EmailMessage
 
+import environ
+import os
 
+env = environ.Env()
+environ.Env.read_env()
 
-
-
-
-def annex_home_hotel_data():
-  pass
 
 # send email functionality 
 def contact_us(request):
-	if request.method == 'POST':
-		contact_form = ContactForm(request.POST)
-		if contact_form.is_valid():
-			subject = contact_form.cleaned_data['subject'] 
-			body = {            
+  if request.method == 'POST':
+    print('method-post')
+    contact_form = ContactForm(request.POST)
+    if contact_form.is_valid():
+      print('is valid')
+      subject = contact_form.cleaned_data['subject'] 
+      body = {            
 			'name': contact_form.cleaned_data['name'],  
 			'email': contact_form.cleaned_data['email'], 
 			'message': contact_form.cleaned_data['message'], 
 			}
-			message = "\n".join(body.values())
-
-			try:
-				send_mail(subject, message, 'admin@example.com', ['admin@example.com']) 
-			except BadHeaderError:
-				return HttpResponse('Invalid header found.')
-		return render(request, "annex_home")
       
-	contact_form = ContactForm()
-  
-  
-	return render(request, "contact_redirect", {'contact_form':contact_form})
+      message = "\n".join(body.values())
+      print(message)
+      try:
+        send_mail(subject, message, 'admin@example.com', ['admin@example.com']) 
+      except BadHeaderError:
+        print('fucked')
+        return HttpResponse('Invalid header found.')
+      return redirect ('annex_home')
+    contact_form = ContactForm()
+  print(contact_form.errors)
+  return redirect(request, 'annex_home')
+    
 
 
 def contact_redirect(request):
-     return redirect (annex_home)
+     return redirect (request, annex_home)
 
 
 def annex_music_schedule(request):
@@ -51,9 +52,9 @@ def annex_music_schedule(request):
   return HttpResponse(template.render(context, request))
 
 def annex_home(request):
-  google_api_key = "&key=AIzaSyBlib4QaWTu_44UfVXhmg3vJAgtAuU8PAM"
+  google_api_key = str(os.environ.get('GOOGLE_API_KEY'))
   # google_key = os.eviron.get('')
-  pass_api_key = 'AIzaSyBlib4QaWTu_44UfVXhmg3vJAgtAuU8PAM'
+  pass_api_key = str(os.environ.get('GOOGLE_API_KEY'))
   nearby_api_params_keys = ("rankby=","&location=","&radius=","&type=")
   nearby_api_params_values = ("prominence","36.4107818%2C-105.5711364","1500","lodging")
   places_info_api = 'https://maps.googleapis.com/maps/api/place/details/json?place_id='
