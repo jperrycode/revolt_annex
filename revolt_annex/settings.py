@@ -18,7 +18,7 @@ import os
 env = environ.Env()
 environ.Env.read_env()
 
-google_api_key = os.environ.get('GOOGLE_API_KEY')
+google_api_key = 'AIzaSyBlib4QaWTu_44UfVXhmg3vJAgtAuU8PAM'
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent

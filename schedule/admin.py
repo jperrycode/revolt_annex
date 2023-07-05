@@ -1,12 +1,18 @@
 from django.contrib import admin
 
+
 # Register your models here.
 
-from .models import Music_artist_listing, Visual_artist_listing, Extra_curriucular_listing, Nearby_accomodations
+from .models import Music_artist_listing, Visual_artist_listing, Extra_curriucular_listing, Nearby_accomodations, Heads_up_music
 
 #register artist listing model
+
+
+
 class MusicScheduleAdmin(admin.ModelAdmin):
     list_display = ("artist_name", "show_date", "entry_price",)
+    
+
 
 #register artist listing model
 admin.site.register(Music_artist_listing, MusicScheduleAdmin)
@@ -30,4 +36,9 @@ class AccomodationAdmin(admin.ModelAdmin):
     list_display = ("accom_name", "accom_phone", "accom_phone")
 
 admin.site.register(Nearby_accomodations, AccomodationAdmin)
+
+class HeadsUpMusicAdmin(admin.ModelAdmin):
+    list_display = ("event_name", "event_time", "artist_name")
+
+admin.site.register(Heads_up_music, HeadsUpMusicAdmin)
 

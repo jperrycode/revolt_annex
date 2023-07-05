@@ -5,12 +5,8 @@ from .models import Music_artist_listing, Visual_artist_listing, Extra_curriucul
 import requests
 from .forms import ContactForm
 from django.core.mail import send_mail, BadHeaderError, EmailMessage
+from revolt_annex.settings import google_api_key as apkey
 
-import environ
-import os
-
-env = environ.Env()
-environ.Env.read_env()
 
 
 # send email functionality 
@@ -31,13 +27,13 @@ def contact_us(request):
       print(message)
       try:
         send_mail(subject, message, 'admin@example.com', ['admin@example.com']) 
+        print('email sent')
       except BadHeaderError:
-        print('fucked')
         return HttpResponse('Invalid header found.')
-      return redirect ('annex_home')
+      # return redirect ('annex_home')
     contact_form = ContactForm()
   print(contact_form.errors)
-  return redirect(request, 'annex_home')
+  return redirect('annex_home')
     
 
 
@@ -52,9 +48,9 @@ def annex_music_schedule(request):
   return HttpResponse(template.render(context, request))
 
 def annex_home(request):
-  google_api_key = str(os.environ.get('GOOGLE_API_KEY'))
+  google_api_key = str(apkey)
   # google_key = os.eviron.get('')
-  pass_api_key = str(os.environ.get('GOOGLE_API_KEY'))
+  pass_api_key = str(apkey)
   nearby_api_params_keys = ("rankby=","&location=","&radius=","&type=")
   nearby_api_params_values = ("prominence","36.4107818%2C-105.5711364","1500","lodging")
   places_info_api = 'https://maps.googleapis.com/maps/api/place/details/json?place_id='
@@ -64,9 +60,10 @@ def annex_home(request):
   
 
 
-  nearby_api_url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?"+nearby_api_params_keys[0]+nearby_api_params_values[0]+nearby_api_params_keys[1]+nearby_api_params_values[1]+nearby_api_params_keys[2]+nearby_api_params_values[2]+nearby_api_params_keys[3]+nearby_api_params_values[3]+google_api_key
+  nearby_api_url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?"+nearby_api_params_keys[0]+nearby_api_params_values[0]+nearby_api_params_keys[1]+nearby_api_params_values[1]+nearby_api_params_keys[2]+nearby_api_params_values[2]+nearby_api_params_keys[3]+nearby_api_params_values[3]+str(apkey)
   con_1 = requests.get(nearby_api_url)
   nearby_data = con_1.json()
+  print(nearby_data)
   place_id_list = [place_id_value for hotel_data in nearby_data['results'] for place_id_key,place_id_value in hotel_data.items() if place_id_key == "place_id"]
   place_image_list = [place_image_value for hotel_image_data in nearby_data['results'] for place_image_key,place_image_value in hotel_image_data.items() if place_image_key == "photos"]
   for place_id_inter in place_id_list[0:3]: 
@@ -75,7 +72,7 @@ def annex_home(request):
     hotel_nearby.append(hotel_data_1)  
 
   hotel_nearby_data_context = dict(zip(hotels,hotel_nearby)) 
-  show_listing = Music_artist_listing.objects.all().values()
+  show_listing = Music_artist_listing.objects.all().order_by('show_date').values()
   gallery_listing = Visual_artist_listing.objects.all().values()
   extra_curriucular_listing = Extra_curriucular_listing.objects.all().values()
   contact_form = ContactForm()
@@ -85,7 +82,8 @@ def annex_home(request):
              'nearby_accomodations': hotel_nearby_data_context,
              'place_image_list': place_image_list,
              'api_key': pass_api_key,
-              'contact_form': contact_form,}
+              'contact_form': contact_form,
+              'range': range(5),}
              )
 
 def annex_home_new(request):

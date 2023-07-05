@@ -40,10 +40,10 @@ class Music_artist_listing(models.Model):
   class Meta:
     verbose_name = "Musician"
     verbose_name_plural = "Musicians"
-    ordering = ["-show_date"]
+    ordering = ["show_date"]
 
   def __str__(self):
-        return self.title  
+        return self.artist_name 
 
 
 # gallery information model
@@ -59,6 +59,7 @@ class Visual_artist_listing(models.Model):
   age_restriction = models.BooleanField(default=False)
 
   class Meta:
+    ordering = ['show_date_start']
     verbose_name = "Visual Artist"
     verbose_name_plural = "Visual Artists"
 
@@ -73,6 +74,7 @@ class Extra_curriucular_listing(models.Model):
   class_location = models.CharField(max_length=50, default='Revolt Annex', null=False, blank=False)
 
   class Meta:
+    ordering = ['class_date']
     verbose_name = "Class listing"
     verbose_name_plural = "Class Listings"
 
@@ -90,3 +92,16 @@ class Nearby_accomodations(models.Model):
 
 #     def is_edm(self):
 #         return self.genre_type in self.EVENT_GENRE_CHOICES
+
+
+class Heads_up_music(models.Model):
+  event_name = models.CharField(max_length=50, blank=False, null=False)
+  event_date = models.DateField(auto_now=False,auto_now_add=False)
+  event_time = models.TimeField(auto_now=False, auto_now_add=False)
+  artist_name = models.TimeField(auto_now=False)
+  event_description = models.CharField(max_length=255, blank=False, null=False)
+
+  class Meta:
+    ordering = ['event_date']
+    verbose_name = "HUM Event"
+    verbose_name_plural = "HUM Events"
