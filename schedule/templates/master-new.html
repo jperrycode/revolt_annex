@@ -238,17 +238,10 @@
 
           <!-- Schdule Music 1 -->
           <div role="tabpanel" class="col-lg-9 tab-pane fade show active" id="day-1">
-{% comment %} 
-            <div class="row schedule-item">
-              <div class="col-md-2"><time>09:30 AM</time></div>
-              <div class="col-md-10">
-                <h4>Registration</h4>
-                <p>Fugit voluptas iusto maiores temporibus autem numquam magnam.</p>
-              </div>
-            </div> {% endcomment %}
+
         {% for obj in show_listing|slice:'5' %}
           
-            <div id="change" class="row schedule-item" onclick="changeInner()">
+            <div id="change" class="row schedule-item">
               <div class="col-md-2"><time>{{ obj.show_date|date:"M j" }} - {{ obj.show_time|time:'g:i'}}</time></div>
               <div class="col-md-10">
                 <div class="speaker">
@@ -256,13 +249,19 @@
                 </div>
                     
                     <div class="hide-1">
-                    <h4 id="row1change">Headliner: {{ obj.artist_name }} </h4>
-              <div id='row2change'><span>Genre: {{ obj.artist_genre }} || Price: {{ obj.entry_price|floatformat:2 }}</span> <br> <button class='btn btn-danger mt-1' onclick="showThisDialog{{ forloop.counter0 }}()">More Info</button></div>
+                    <h4 id="row1change" class='text-capitalize'>Headliner: {{ obj.artist_name }} </h4>
+              <div id='row2change'><span>Genre: {{ obj.artist_genre }} || Price: {{ obj.entry_price|floatformat:2 }}</span> <br> <button class='btn btn-outline-danger mt-1' onclick="showThisDialog{{ forloop.counter0 }}()">More Info</button></div>
                     
-                    <dialog id="music-dialog_{{ forloop.counter0 }}">
-              <p>{{ obj.artist_name }}</p><br>
-              <p>{{ obj.artist_bio}}</p>
-              <button onclick="hideThisDialog{{ forloop.counter0 }}()">Close Me! </button>
+              <dialog id="music-dialog_{{ forloop.counter0 }}" class='dialog-box-style border border-danger border-3 p-3'>
+                <div class='mr-4 dialog-text p-3'>
+                <span class='text-center'><h3 class='font-weight-bold text-capitalize'>{{ obj.artist_name }}</h3></span>
+                <p><span class="fw-bold">Info:</span> {{ obj.artist_bio}} this is some extra text just in case this is some extra text just in case this is some extra text just in case this is some extra text just in case this is some extra text just in case </p>
+                <p><span class="fw-bold">Artist Website:</span> {{ obj.artist_website}}</p>
+                <p><span class="fw-bold">Music:</span> {{ obj.artist_music_page}} || Insta: {{ obj.artist_insta }}</p>
+                
+                
+                <button onclick="hideThisDialog{{ forloop.counter0 }}()" class='btn btn-outline-danger mb-3 mt-3'>Close Me! </button>
+                </div>
             </dialog> 
             
                     </div>
@@ -280,7 +279,7 @@
           </div>
           <!-- End Schdule Day 1 -->
 
-          <!-- Schdule Day 2 -->
+          <!-- Gallery -->
           <div role="tabpanel" class="col-lg-9  tab-pane fade" id="day-2">
     {% for obj in gallery_listing|slice:'5' %}
             <div class="row schedule-item">
@@ -296,8 +295,21 @@
                 <div class="speaker">
                   <img src="{% static 'schedule/img/speakers/1.jpg' %}" alt="Brenden Legros">
                 </div>
-                <h4 id="row1change">Show-Name: {{ obj.visual_show_name }}</h4>
-                    <div id='row2change'><span>Artist-Name: {{ obj.artist_name }}</span> <p>Click box for more info</p></div>
+                <h4 id="row1change">Show-Name: <span>{{ obj.visual_show_name }}</span></h4>
+                    <div id='row2change'>
+                    <h6><span class="fw-bold">Artist-Name:</span> {{ obj.artist_name }}</h6>
+                    <button class='btn btn-outline-danger mt-1' onclick="showGalleryDialog{{ forloop.counter0 }}()">More Info</button></div>
+
+                <dialog id="gallery-dialog_{{ forloop.counter0 }}" class='dialog-box-style border border-danger border-3 p-3'>
+                  <div class='mr-4 dialog-text p-3'>
+                    <span class='text-center'><h3 class='font-weight-bold text-capitalize'>{{ obj.artist_name }}</h3></span>
+                    <p><span class="fw-bold">Info:</span> {{ obj.artist_bio}} this is some extra text just in case this is some extra text just in case this is some extra text just in case this is some extra text just in case this is some extra text just in case </p>
+                    <p><span class="fw-bold">Artist Website:</span> {{ obj.artist_website}}</p>
+                    <p><span class="fw-bold">Medium:</span> {{ obj.artist_medium}} || <span class="fw-bold">Price:</span> {{ obj.entry_price }}</p>
+                <button onclick="hideGalleryDialog{{ forloop.counter0 }}()" class='btn btn-outline-danger mb-3 mt-3'>Close Me! </button>
+                </div>
+            </dialog>
+            
               </div>
             </div>
     {% endfor %}
@@ -306,7 +318,7 @@
           </div>
           <!-- End Schdule gallery -->
 
-          <!-- Schdule Day 3 -->
+          <!-- Schdule Class 3 -->
           <div role="tabpanel" class="col-lg-9  tab-pane fade" id="day-3">
 {% for obj in extra_curriucular_listing %}
             <div class="row schedule-item">
@@ -316,7 +328,19 @@
                   <img src="{% static 'schedule/img/speakers/2.jpg' %}" alt="Hubert Hirthe">
                 </div>
                 <h4>Class: {{obj.class_name}}</h4>
-                <div id='row2change'><span>Teacher: {{ obj.class_teacher }} || Location: {{ obj.class_location }}</span> <p>Click box for more info</p></div>
+                <div id='row2change'><span>Teacher: {{ obj.class_teacher }} || Location: {{ obj.class_location }}</span><br> <button class='btn btn-outline-danger mt-1' onclick="showClassDialog{{ forloop.counter0 }}()">More Info</button></div>
+              
+               <dialog id="class-dialog_{{ forloop.counter0 }}" class='dialog-box-style border border-danger border-3 p-3'>
+                  <div class='mr-4 dialog-text p-3'>
+                    <span class='text-center'><h3 class='font-weight-bold text-capitalize'>{{ obj.class_name }}</h3></span>
+                    <p><span class="fw-bold">Teacher:</span> {{ obj.class_teacher}}</p>
+                    <p><span class="fw-bold">Info:</span> {{ obj.class_description}} this is some extra text just in case this is some extra text just in case this is some extra text just in case this is some extra text just in case this is some extra text just in case </p>
+                    
+                    <p><span class="fw-bold">Location:</span> {{ obj.class_location }} || <span class="fw-bold">Price:</span> {{ obj.class_price }}</p>
+                <button onclick="hideClassDialog{{ forloop.counter0 }}()" class='btn btn-outline-danger mb-3 mt-3'>Close Me! </button>
+                </div>
+            </dialog>
+              
               </div>
             </div>
     {% endfor %}
@@ -649,7 +673,7 @@
               <textarea id="{{ contact_form.message.name }}" class="form-control" name="{{ contact_form.message.name }}" {% if contact_form.message.value != None %} value="{{ contact_form.message.value|stringformat:'s' }}"{% endif %} rows="5" placeholder="Message" required></textarea>
             </div>
            
-            <div class="text-center mt-3"><button type="submit" class='btn btn-danger'>Send Message</button></div>
+            <div class="text-center mt-3"><button type="submit" class='btn btn-outline-danger'>Send Message</button></div>
           </form>
         </div>
 

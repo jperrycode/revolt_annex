@@ -72,6 +72,7 @@ class Extra_curriucular_listing(models.Model):
   class_date = models.DateField(auto_now=False, auto_now_add=False)
   class_time = models.TimeField(auto_now=False, auto_now_add=False)
   class_location = models.CharField(max_length=50, default='Revolt Annex', null=False, blank=False)
+  class_price = models.FloatField(null=True, blank=True)
 
   class Meta:
     ordering = ['class_date']
