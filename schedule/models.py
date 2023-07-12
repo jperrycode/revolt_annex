@@ -29,7 +29,7 @@ class Music_artist_listing(models.Model):
   artist_genre = models.CharField(max_length=255, choices=EVENT_GENRE_CHOICES, default='')
   # music_show_datetime = models.DateTimeField(blank=True, verbose_name="date and time", default='2025-07-01 10:10')
   show_date = models.DateField(auto_now=False, auto_now_add=False)
-  show_time = models.TimeField(auto_now=False)
+  show_time = models.TimeField(auto_now=False, auto_now_add=False)
   artist_bio = models.CharField(max_length=255, default='', blank=True, null=False)
   artist_insta = models.CharField(max_length=255, blank=True, null=True)
   artist_website = models.CharField(max_length=255, blank=True, null=True)
@@ -99,7 +99,7 @@ class Heads_up_music(models.Model):
   event_name = models.CharField(max_length=50, blank=False, null=False)
   event_date = models.DateField(auto_now=False,auto_now_add=False)
   event_time = models.TimeField(auto_now=False, auto_now_add=False)
-  artist_name = models.TimeField(auto_now=False)
+  artist_name = models.CharField(max_length=50, blank=False, null=False)
   event_description = models.CharField(max_length=255, blank=False, null=False)
 
   class Meta:

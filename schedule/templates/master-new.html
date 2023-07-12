@@ -11,7 +11,7 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="{% static 'schedule/img/favicon.png' %}" rel="icon">
+  <link href="{% static 'schedule/img/guardian-left.png' %}" rel="icon">
   <link href="{% static 'schedule/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
@@ -58,14 +58,17 @@
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
           <li><a class="nav-link scrollto" href="#about">About</a></li>
-          <li><a class="nav-link scrollto" href="#speakers">The Players</a></li>
-          <li><a class="nav-link scrollto" href="#schedule">Schedule</a></li>
           <li><a class="nav-link scrollto" href="#venue">The Annex</a></li>
-          <li><a class="nav-link scrollto" href="#hotels">Accomodations</a></li>
+          <li><a class="nav-link scrollto" href="#speakers">The Players</a></li>
+          
           <li><a class="nav-link scrollto" href="#gallery">The Gallery</a></li>
-          <li><a class="nav-link scrollto" href="#supporters">Sponsors</a></li>
-         
+          <li><a class="nav-link scrollto" href="#schedule">Schedule</a></li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+          {% comment %} <li><a class="nav-link scrollto" href="#hotels">Accomodations</a></li> {% endcomment %}
+          <li><a class="nav-link scrollto" href="https://www.taosrevolt.com/art">Gallery Archive</a></li>
+          {% comment %} <li><a class="nav-link scrollto" href="#supporters">Sponsors</a></li> {% endcomment %}
+         
+          
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -87,14 +90,15 @@
   <main id="main">
 
     <!-- ======= About Section ======= -->
-    <section id="about">
-      <div class="container" data-aos="fade-up">
+    <section id="about" class=''>
+    
+      <div id='about-forward' class="container" data-aos="fade-up">
         <div class="row">
           <div class="col-lg-6">
-            <h2>About Revolt Gallery</h2>
-            <p>Sed nam ut dolor qui repellendus iusto odit. Possimus inventore eveniet accusamus error amet eius aut
-              accusantium et. Non odit consequatur repudiandae sequi ea odio molestiae. Enim possimus sunt inventore in
-              est ut optio sequi unde.</p>
+            <h2>About Revolt Gallery and Annex</h2>
+            <p>Revolt Gallery and Music space offers an incredibly vast offering of different arts to help free your mind from
+            the norm.  Owner and operator, Steve McFarland opens his instalation filled property to any passer by.  On the weekends, the Annex right next door hosts a wide array of different bands and DJ's
+            to stimulate the mind.</p>
           </div>
           <div class="col-lg-3">
             <h3>Where</h3>
@@ -102,11 +106,115 @@
           </div>
           <div class="col-lg-3">
             <h3>When</h3>
-            <p>When ever the hell we want<br>24/7/365</p>
+            <p>When ever the hell we want<br>24/7/365<br>
+            or check the Schedule below</p>
+            <button class='btn btn-warning' onclick="scrollToSchedFunc()"><a href='#schedule'>schedule</a></button>
           </div>
         </div>
       </div>
-    </section><!-- End About Section -->
+    </section>
+    
+
+    <!-- End About Section -->
+
+    <!-- ======= Venue Section ======= -->
+    <section id="venue">
+
+      <div class="container-fluid" data-aos="fade-up">
+
+        <div class="section-header">
+          <h2>The Revolt Annex</h2>
+          <p class="text-uppercase">Annex venue location and past events</p>
+        </div>
+
+        <div class="row g-0">
+          <div class="col-lg-6 venue-map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2254.507198903464!2d-105.57068365223667!3d36.410068554771954!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8717651628705279%3A0x99877053ad57b16e!2sRevolt%20Gallery!5e0!3m2!1sen!2sus!4v1686441245361!5m2!1sen!2sus" frameborder="0" style="border:0" allowfullscreen></iframe>
+          </div>
+
+          <div class="col-lg-6 venue-info">
+            <div class="row justify-content-center">
+              <div class="col-11 col-lg-8 position-relative">
+                <h3>Right next to Revolt Gallery</h3>
+                <p>Iste nobis eum sapiente sunt enim dolores labore accusantium autem. Cumque beatae ipsam. Est quae sit qui voluptatem corporis velit. Qui maxime accusamus possimus. Consequatur sequi et ea suscipit enim nesciunt quia velit.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="container-fluid venue-gallery-container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row g-0">
+
+          <div class="col-lg-3 col-md-4">
+            <div class="venue-gallery">
+              <a href="assets/img/venue-gallery/1.jpg" class="glightbox" data-gall="venue-gallery">
+                <img src="{% static 'schedule/img/venue-gallery/1.jpg' %}" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="venue-gallery">
+              <a href="assets/img/venue-gallery/2.jpg" class="glightbox" data-gall="venue-gallery">
+                <img src="{% static 'schedule/img/venue-gallery/1.jpg' %}" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="venue-gallery">
+              <a href="assets/img/venue-gallery/3.jpg" class="glightbox" data-gall="venue-gallery">
+                <img src="{% static 'schedule/img/venue-gallery/1.jpg' %}" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="venue-gallery">
+              <a href="assets/img/venue-gallery/4.jpg" class="glightbox" data-gall="venue-gallery">
+                <img src="{% static 'schedule/img/venue-gallery/1.jpg' %}" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="venue-gallery">
+              <a href="assets/img/venue-gallery/5.jpg" class="glightbox" data-gall="venue-gallery">
+                <img src="{% static 'schedule/img/venue-gallery/1.jpg' %}" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="venue-gallery">
+              <a href="assets/img/venue-gallery/6.jpg" class="glightbox" data-gall="venue-gallery">
+                <img src="{% static 'schedule/img/venue-gallery/1.jpg' %}" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="venue-gallery">
+              <a href="assets/img/venue-gallery/7.jpg" class="glightbox" data-gall="venue-gallery">
+                <img src="{% static 'schedule/img/venue-gallery/1.jpg' %}" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="venue-gallery">
+              <a href="assets/img/venue-gallery/8.jpg" class="glightbox" data-gall="venue-gallery">
+                <img src="{% static 'schedule/img/venue-gallery/1.jpg' %}" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </section><!-- End Venue Section -->
 
     <!-- ======= Speakers Section ======= -->
     <section id="speakers">
@@ -212,9 +320,35 @@
 
     </section><!-- End Speakers Section -->
 
+    <!-- ======= Gallery Section ======= -->
+    <section id="gallery">
+
+      <div class="container" data-aos="fade-up">
+        <div class="section-header">
+          <h2>Gallery</h2>
+          <p>Check our gallery from the recent events</p>
+        </div>
+      </div>
+
+      <div class="gallery-slider swiper">
+        <div class="swiper-wrapper align-items-center">
+          <div class="swiper-slide square-contain"><a href="{% static 'schedule/img/img-new/img-square/clark shot cropped.jpg' %}" class="gallery-lightbox"><img src="{% static 'schedule/img/img-new/img-square/clark shot cropped.jpg' %}" class="img-fluid" alt=""></a></div>
+          <div class="swiper-slide square-contain"><a href="{% static 'schedule/img/img-new/img-square/hoff cropped.jpg' %}" class="gallery-lightbox"><img src="{% static 'schedule/img/img-new/img-square/hoff cropped.jpg' %}" class="img-fluid" alt=""></a></div>
+          <div class="swiper-slide square-contain"><a href="{% static 'schedule/img/img-new/img-square/clark shot cropped.jpg' %}" class="gallery-lightbox"><img src="{% static 'schedule/img/img-new/img-square/clark shot cropped.jpg' %}" class="img-fluid" alt=""></a></div>
+          <div class="swiper-slide square-contain"><a href="{% static 'schedule/img/img-new/img-square/hoff cropped.jpg' %}" class="gallery-lightbox"><img src="{% static 'schedule/img/img-new/img-square/hoff cropped.jpg' %}" class="img-fluid" alt=""></a></div>
+          <div class="swiper-slide square-contain"><a href="{% static 'schedule/img/img-new/img-square/clark shot cropped.jpg' %}" class="gallery-lightbox"><img src="{% static 'schedule/img/img-new/img-square/clark shot cropped.jpg' %}" class="img-fluid" alt=""></a></div>
+          <div class="swiper-slide square-contain"><a href="{% static 'schedule/img/img-new/img-square/hoff cropped.jpg' %}" class="gallery-lightbox"><img src="{% static 'schedule/img/img-new/img-square/hoff cropped.jpg' %}" class="img-fluid" alt=""></a></div>
+          <div class="swiper-slide square-contain"><a href="{% static 'schedule/img/img-new/img-square/clark shot cropped.jpg' %}" class="gallery-lightbox"><img src="{% static 'schedule/img/img-new/img-square/clark shot cropped.jpg' %}" class="img-fluid" alt=""></a></div>
+          <div class="swiper-slide square-contain"><a href="{% static 'schedule/img/img-new/img-square/hoff cropped.jpg' %}" class="gallery-lightbox"><img src="{% static 'schedule/img/img-new/img-square/hoff cropped.jpg' %}" class="img-fluid" alt=""></a></div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+
+    </section><!-- End Gallery Section -->
+
     <!-- ======= Schedule Section ======= -->
     <section id="schedule" class="section-with-bg">
-      <div class="container" data-aos="fade-up">
+      <div class="container" data-aos="fade-up"><a id='schedule-1'></a>
         <div class="section-header">
           <h2>Who? What? Where? When?</h2>
           <p>Upcoming music, art instalations and classes</p>
@@ -249,8 +383,8 @@
                 </div>
                     
                     <div class="hide-1">
-                    <h4 id="row1change" class='text-capitalize'>Headliner: {{ obj.artist_name }} </h4>
-              <div id='row2change'><span>Genre: {{ obj.artist_genre }} || Price: {{ obj.entry_price|floatformat:2 }}</span> <br> <button class='btn btn-outline-danger mt-1' onclick="showThisDialog{{ forloop.counter0 }}()">More Info</button></div>
+                    <h4 id="row1change" class='text-capitalize'>Headliner:<span class='text-capitalize'> {{ obj.artist_name }}</span> </h4>
+              <div id='row2change'><span>Genre: {{ obj.artist_genre }} || Price: {{ obj.entry_price|floatformat:2 }}</span> <br> <button class='btn btn-outline-danger mt-3' onclick="toggleDialog('music', {{ forloop.counter0 }}, 'show')">More Info</button></div>
                     
               <dialog id="music-dialog_{{ forloop.counter0 }}" class='dialog-box-style border border-danger border-3 p-3'>
                 <div class='mr-4 dialog-text p-3'>
@@ -260,7 +394,7 @@
                 <p><span class="fw-bold">Music:</span> {{ obj.artist_music_page}} || Insta: {{ obj.artist_insta }}</p>
                 
                 
-                <button onclick="hideThisDialog{{ forloop.counter0 }}()" class='btn btn-outline-danger mb-3 mt-3'>Close Me! </button>
+                <button onclick="toggleDialog('music', {{ forloop.counter0 }}, 'hide')" class='btn btn-outline-danger mb-3 mt-3'>Close Me! </button>
                 </div>
             </dialog> 
             
@@ -298,7 +432,7 @@
                 <h4 id="row1change">Show-Name: <span>{{ obj.visual_show_name }}</span></h4>
                     <div id='row2change'>
                     <h6><span class="fw-bold">Artist-Name:</span> {{ obj.artist_name }}</h6>
-                    <button class='btn btn-outline-danger mt-1' onclick="showGalleryDialog{{ forloop.counter0 }}()">More Info</button></div>
+                    <button class='btn btn-outline-danger mt-3' onclick="toggleDialog('gallery', {{ forloop.counter0 }}, 'show')">More Info</button></div>
 
                 <dialog id="gallery-dialog_{{ forloop.counter0 }}" class='dialog-box-style border border-danger border-3 p-3'>
                   <div class='mr-4 dialog-text p-3'>
@@ -306,7 +440,7 @@
                     <p><span class="fw-bold">Info:</span> {{ obj.artist_bio}} this is some extra text just in case this is some extra text just in case this is some extra text just in case this is some extra text just in case this is some extra text just in case </p>
                     <p><span class="fw-bold">Artist Website:</span> {{ obj.artist_website}}</p>
                     <p><span class="fw-bold">Medium:</span> {{ obj.artist_medium}} || <span class="fw-bold">Price:</span> {{ obj.entry_price }}</p>
-                <button onclick="hideGalleryDialog{{ forloop.counter0 }}()" class='btn btn-outline-danger mb-3 mt-3'>Close Me! </button>
+                <button onclick="toggleDialog('gallery', {{ forloop.counter0 }}, 'hide')" class='btn btn-outline-danger mb-3 mt-3'>Close More Information</button>
                 </div>
             </dialog>
             
@@ -328,7 +462,7 @@
                   <img src="{% static 'schedule/img/speakers/2.jpg' %}" alt="Hubert Hirthe">
                 </div>
                 <h4>Class: {{obj.class_name}}</h4>
-                <div id='row2change'><span>Teacher: {{ obj.class_teacher }} || Location: {{ obj.class_location }}</span><br> <button class='btn btn-outline-danger mt-1' onclick="showClassDialog{{ forloop.counter0 }}()">More Info</button></div>
+                <div id='row2change'><span>Teacher: {{ obj.class_teacher }} || Location: {{ obj.class_location }}</span><br> <button class='btn btn-outline-danger mt-3' onclick="toggleDialog('class', {{ forloop.counter0 }}, 'show')">More Info</button></div>
               
                <dialog id="class-dialog_{{ forloop.counter0 }}" class='dialog-box-style border border-danger border-3 p-3'>
                   <div class='mr-4 dialog-text p-3'>
@@ -337,7 +471,7 @@
                     <p><span class="fw-bold">Info:</span> {{ obj.class_description}} this is some extra text just in case this is some extra text just in case this is some extra text just in case this is some extra text just in case this is some extra text just in case </p>
                     
                     <p><span class="fw-bold">Location:</span> {{ obj.class_location }} || <span class="fw-bold">Price:</span> {{ obj.class_price }}</p>
-                <button onclick="hideClassDialog{{ forloop.counter0 }}()" class='btn btn-outline-danger mb-3 mt-3'>Close Me! </button>
+                <button onclick="toggleDialog('class', {{ forloop.counter0 }}, 'hide')" class='btn btn-outline-danger mb-3 mt-3'>Close Me! </button>
                 </div>
             </dialog>
               
@@ -355,107 +489,10 @@
 
     </section><!-- End Schedule Section -->
 
-    <!-- ======= Venue Section ======= -->
-    <section id="venue">
-
-      <div class="container-fluid" data-aos="fade-up">
-
-        <div class="section-header">
-          <h2>The Revolt Annex</h2>
-          <p class="text-uppercase">Annex venue location and past events</p>
-        </div>
-
-        <div class="row g-0">
-          <div class="col-lg-6 venue-map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2254.507198903464!2d-105.57068365223667!3d36.410068554771954!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8717651628705279%3A0x99877053ad57b16e!2sRevolt%20Gallery!5e0!3m2!1sen!2sus!4v1686441245361!5m2!1sen!2sus" frameborder="0" style="border:0" allowfullscreen></iframe>
-          </div>
-
-          <div class="col-lg-6 venue-info">
-            <div class="row justify-content-center">
-              <div class="col-11 col-lg-8 position-relative">
-                <h3>Right next to Revolt Gallery</h3>
-                <p>Iste nobis eum sapiente sunt enim dolores labore accusantium autem. Cumque beatae ipsam. Est quae sit qui voluptatem corporis velit. Qui maxime accusamus possimus. Consequatur sequi et ea suscipit enim nesciunt quia velit.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="container-fluid venue-gallery-container" data-aos="fade-up" data-aos-delay="100">
-        <div class="row g-0">
-
-          <div class="col-lg-3 col-md-4">
-            <div class="venue-gallery">
-              <a href="assets/img/venue-gallery/1.jpg" class="glightbox" data-gall="venue-gallery">
-                <img src="{% static 'schedule/img/venue-gallery/1.jpg' %}" alt="" class="img-fluid">
-              </a>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4">
-            <div class="venue-gallery">
-              <a href="assets/img/venue-gallery/2.jpg" class="glightbox" data-gall="venue-gallery">
-                <img src="{% static 'schedule/img/venue-gallery/1.jpg' %}" alt="" class="img-fluid">
-              </a>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4">
-            <div class="venue-gallery">
-              <a href="assets/img/venue-gallery/3.jpg" class="glightbox" data-gall="venue-gallery">
-                <img src="{% static 'schedule/img/venue-gallery/1.jpg' %}" alt="" class="img-fluid">
-              </a>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4">
-            <div class="venue-gallery">
-              <a href="assets/img/venue-gallery/4.jpg" class="glightbox" data-gall="venue-gallery">
-                <img src="{% static 'schedule/img/venue-gallery/1.jpg' %}" alt="" class="img-fluid">
-              </a>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4">
-            <div class="venue-gallery">
-              <a href="assets/img/venue-gallery/5.jpg" class="glightbox" data-gall="venue-gallery">
-                <img src="{% static 'schedule/img/venue-gallery/1.jpg' %}" alt="" class="img-fluid">
-              </a>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4">
-            <div class="venue-gallery">
-              <a href="assets/img/venue-gallery/6.jpg" class="glightbox" data-gall="venue-gallery">
-                <img src="{% static 'schedule/img/venue-gallery/1.jpg' %}" alt="" class="img-fluid">
-              </a>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4">
-            <div class="venue-gallery">
-              <a href="assets/img/venue-gallery/7.jpg" class="glightbox" data-gall="venue-gallery">
-                <img src="{% static 'schedule/img/venue-gallery/1.jpg' %}" alt="" class="img-fluid">
-              </a>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4">
-            <div class="venue-gallery">
-              <a href="assets/img/venue-gallery/8.jpg" class="glightbox" data-gall="venue-gallery">
-                <img src="{% static 'schedule/img/venue-gallery/1.jpg' %}" alt="" class="img-fluid">
-              </a>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-    </section><!-- End Venue Section -->
+    
 
     <!-- ======= Hotels Section ======= -->
-    <section id="hotels" class="section-with-bg">
+    {% comment %} <section id="hotels" class="section-with-bg">
 
       <div class="container" data-aos="fade-up">
         <div class="section-header">
@@ -518,40 +555,16 @@
         </div>
       </div>
 
-    </section><!-- End Hotels Section -->
+    </section><!-- End Hotels Section --> {% endcomment %}
 
-    <!-- ======= Gallery Section ======= -->
-    <section id="gallery">
+    
 
-      <div class="container" data-aos="fade-up">
-        <div class="section-header">
-          <h2>Gallery</h2>
-          <p>Check our gallery from the recent events</p>
-        </div>
-      </div>
-
-      <div class="gallery-slider swiper">
-        <div class="swiper-wrapper align-items-center">
-          <div class="swiper-slide"><a href="assets/img/gallery/1.jpg" class="gallery-lightbox"><img src="{% static 'schedule/img/img-new/clark 2.jpeg' %}" class="img-fluid" alt=""></a></div>
-          <div class="swiper-slide"><a href="assets/img/gallery/2.jpg" class="gallery-lightbox"><img src="{% static 'schedule/img/img-new/clark opening.jpeg' %}" class="img-fluid" alt=""></a></div>
-          <div class="swiper-slide"><a href="assets/img/gallery/3.jpg" class="gallery-lightbox"><img src="{% static 'schedule/img/img-new/fellows_westward-small.jpg' %}" class="img-fluid" alt=""></a></div>
-          <div class="swiper-slide"><a href="assets/img/gallery/4.jpg" class="gallery-lightbox"><img src="{% static 'schedule/img/img-new/clark install.jpeg' %}" class="img-fluid" alt=""></a></div>
-          <div class="swiper-slide"><a href="assets/img/gallery/5.jpg" class="gallery-lightbox"><img src="{% static 'schedule/img/img-new/5.jpg' %}" class="img-fluid" alt=""></a></div>
-          <div class="swiper-slide"><a href="assets/img/gallery/6.jpg" class="gallery-lightbox"><img src="{% static 'schedule/img/img-new/6.jpg' %}" class="img-fluid" alt=""></a></div>
-          <div class="swiper-slide"><a href="assets/img/gallery/7.jpg" class="gallery-lightbox"><img src="{% static 'schedule/img/img-new/7.jpg' %}" class="img-fluid" alt=""></a></div>
-          <div class="swiper-slide"><a href="assets/img/gallery/8.jpg" class="gallery-lightbox"><img src="{% static 'schedule/img/img-new/8.jpg' %}" class="img-fluid" alt=""></a></div>
-        </div>
-        <div class="swiper-pagination"></div>
-      </div>
-
-    </section><!-- End Gallery Section -->
-
-    <!-- ======= Supporters Section ======= -->
+    {% comment %} <!-- ======= Supporters Section ======= -->
     <section id="supporters" class="section-with-bg">
 
       <div class="container" data-aos="fade-up">
         <div class="section-header">
-          <h2>Sponsors</h2>
+          <h2>Local Supporters</h2>
         </div>
 
         <div class="row no-gutters supporters-wrap clearfix" data-aos="zoom-in" data-aos-delay="100">
@@ -564,7 +577,7 @@
 
           <div class="col-lg-3 col-md-4 col-xs-6">
             <div class="supporter-logo">
-              <img src="{% static 'schedule/img/supporters/2.png' %}" class="img-fluid" alt="">
+              <img src="{% static 'schedule/img/taos-support-comps/knce-logo-main.png' %}" class="img-fluid" alt="">
             </div>
           </div>
 
@@ -608,7 +621,7 @@
 
       </div>
 
-    </section><!-- End Sponsors Section -->
+    </section><!-- End Sponsors Section --> {% endcomment %}
 
    
 
@@ -755,9 +768,13 @@
   <script src='{% static "schedule/vendor/aos/aos.js" %}'></script>
 
   <script src="https://smtpjs.com/v3/smtp.js"></script>
+
+  <script>
+  bringDivForwardOnVisible('about');
+</script>
   
 
-  <script src='{% static "schedule/vendor/bootstrap/js/bootstrap.bundle.min.js" %}'></script>
+<script src='{% static "schedule/vendor/bootstrap/js/bootstrap.bundle.min.js" %}'></script>
 <script src='{% static "schedule/vendor/glightbox/js/glightbox.min.js" %}'></script>
 <script src='{% static "schedule/vendor/swiper/swiper-bundle.min.js" %}'></script>
 <script src='{% static "schedule/vendor/php-email-form/validate.js" %}'></script>
@@ -766,6 +783,10 @@
   <script src='{% static "schedule/js/main.js" %}'></script>
 
   <script src="{% static 'schedule/js/custom-js.js' %}"></script>
+
+<script>
+  bringDivForwardOnVisible('about-forward');
+</script>
 
 </body>
 

@@ -37,15 +37,10 @@ def contact_us(request):
     
 
 
-def contact_redirect(request):
-     return redirect (request, annex_home)
 
 
-def annex_music_schedule(request):
-  show_listing = Music_artist_listing.objects.all().values()
-  template = loader.get_template('annex_music_schedule.html')
-  context = {'show_listing':show_listing}
-  return HttpResponse(template.render(context, request))
+
+
 
 def annex_home(request):
   google_api_key = str(apkey)
@@ -82,24 +77,29 @@ def annex_home(request):
              'nearby_accomodations': hotel_nearby_data_context,
              'place_image_list': place_image_list,
              'api_key': pass_api_key,
-              'contact_form': contact_form,
-              'range': range(5),}
+              'contact_form': contact_form,}
              )
 
-def annex_home_new(request):
-  show_listing = Music_artist_listing.objects.all().values()
-  template = loader.get_template('annex_home_new.html')
-  context = {'show_listing':show_listing}
-  return HttpResponse(template.render(context, request))
+# def annex_home_new(request):
+#   show_listing = Music_artist_listing.objects.all().values()
+#   template = loader.get_template('annex_home_new.html')
+#   context = {'show_listing':show_listing}
+#   return HttpResponse(template.render(context, request))
 
-def gallery_schedule(request):
-  show_listing = Visual_artist_listing.objects.all().values()
-  template = loader.get_template('annex_home.html')
-  context = {'show_listing':show_listing}
-  return HttpResponse(template.render(context, request))
+# def gallery_schedule(request):
+#   show_listing = Visual_artist_listing.objects.all().values()
+#   template = loader.get_template('annex_home.html')
+#   context = {'show_listing':show_listing}
+#   return HttpResponse(template.render(context, request))
 
 # # def contact_us(request):
 #   show_listing = Visual_artist_listing.objects.all().values()
 #   template = loader.get_template('contact-us.html')
+#   context = {'show_listing':show_listing}
+#   return HttpResponse(template.render(context, request))
+
+# def annex_music_schedule(request):
+#   show_listing = Music_artist_listing.objects.all().values()
+#   template = loader.get_template('annex_music_schedule.html')
 #   context = {'show_listing':show_listing}
 #   return HttpResponse(template.render(context, request))
