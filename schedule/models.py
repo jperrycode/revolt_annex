@@ -36,6 +36,7 @@ class Music_artist_listing(models.Model):
   artist_music_page = models.CharField(max_length=200, default='search your self')
   # artist_image = models.ImageField(upload_to='images/')
   entry_price = models.FloatField(null=True)
+  image_url = models.URLField(max_length=250, null=True, blank=True)
 
   class Meta:
     verbose_name = "Musician"
@@ -57,6 +58,7 @@ class Visual_artist_listing(models.Model):
   artist_website = models.CharField(max_length=255, blank=True, null=True)
   entry_price = models.FloatField(null=True, blank=True)
   age_restriction = models.BooleanField(default=False)
+  image_url = models.URLField(max_length=250, null=True, blank=True)
 
   class Meta:
     ordering = ['show_date_start']
@@ -73,6 +75,7 @@ class Extra_curriucular_listing(models.Model):
   class_time = models.TimeField(auto_now=False, auto_now_add=False)
   class_location = models.CharField(max_length=50, default='Revolt Annex', null=False, blank=False)
   class_price = models.FloatField(null=True, blank=True)
+  image_url = models.URLField(max_length=250, null=True, blank=True)
 
   class Meta:
     ordering = ['class_date']

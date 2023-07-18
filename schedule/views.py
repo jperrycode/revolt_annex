@@ -5,7 +5,8 @@ from .models import Music_artist_listing, Visual_artist_listing, Extra_curriucul
 import requests
 from .forms import ContactForm
 from django.core.mail import send_mail, BadHeaderError, EmailMessage
-from revolt_annex.settings import google_api_key as apkey
+from revolt_annex.settings import GOOGLE_API_KEY as apkey
+from revolt_annex.settings import DEFAULT_FROM_EMAIL as from_email
 
 
 
@@ -15,18 +16,17 @@ def contact_us(request):
     print('method-post')
     contact_form = ContactForm(request.POST)
     if contact_form.is_valid():
-      print('is valid')
       subject = contact_form.cleaned_data['subject'] 
+      user_email=contact_form.cleaned_data['email']
       body = {            
-			'name': contact_form.cleaned_data['name'],  
-			'email': contact_form.cleaned_data['email'], 
+			'name': contact_form.cleaned_data['name'],   
 			'message': contact_form.cleaned_data['message'], 
 			}
       
       message = "\n".join(body.values())
       print(message)
       try:
-        send_mail(subject, message, 'admin@example.com', ['admin@example.com']) 
+        send_mail(subject, message, from_email, [user_email]) 
         print('email sent')
       except BadHeaderError:
         return HttpResponse('Invalid header found.')
