@@ -22,14 +22,16 @@ environ.Env.read_env()
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 env = environ.Env(
-    DEBUG=(bool, False)
+DEBUG=(bool, False)
 )
+    
 # environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 
 
 
-GOOGLE_API_KEY = env('GOOGLE_API_KEY')
+
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent

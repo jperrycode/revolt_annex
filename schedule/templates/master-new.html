@@ -19,6 +19,8 @@
 
 <!-- Wester Font IMport Link-->
 <link href="https://fonts.cdnfonts.com/css/revolution" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/octin-spraypaint" rel="stylesheet">
+                
 
 
   <!-- Vendor CSS Files -->
@@ -58,10 +60,11 @@
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
           <li><a class="nav-link scrollto" href="#about">About</a></li>
+          <li><a class="nav-link scrollto" href="#gallery">The Gallery</a></li>
           <li><a class="nav-link scrollto" href="#venue">The Annex</a></li>
           <li><a class="nav-link scrollto" href="#speakers">The Players</a></li>
           
-          <li><a class="nav-link scrollto" href="#gallery">The Gallery</a></li>
+          
           <li><a class="nav-link scrollto" href="#schedule">Schedule</a></li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
           {% comment %} <li><a class="nav-link scrollto" href="#hotels">Accomodations</a></li> {% endcomment %}
@@ -95,20 +98,22 @@
       <div id='about-forward' class="container" data-aos="fade-up">
         <div class="row">
           <div class="col-lg-6">
-            <h2>About Revolt Gallery and Annex</h2>
+            <h2>Gallery and Annex</h2>
             <p>Revolt Gallery and Music space offers an incredibly vast offering of different arts to help free your mind from
             the norm.  Owner and operator, Steve McFarland opens his instalation filled property to any passer by.  On the weekends, the Annex right next door hosts a wide array of different bands and DJ's
             to stimulate the mind.</p>
           </div>
           <div class="col-lg-3">
             <h3>Where</h3>
-            <p>222 Paseo Del Pueblo Norte, Taos, NM</p>
+            <p>Located right in downtown Taos, Mew Mexico</p>
           </div>
           <div class="col-lg-3">
             <h3>When</h3>
             <p>When ever the hell we want<br>24/7/365<br>
-            or check the Schedule below</p>
-            <button class='btn btn-warning' onclick="scrollToSchedFunc()"><a href='#schedule'>schedule</a></button>
+            or <a href='#schedule'>check the Schedule</a></p>
+            
+            
+            
           </div>
         </div>
       </div>
@@ -116,6 +121,48 @@
     
 
     <!-- End About Section -->
+
+    <!-- ======= Gallery Section ======= -->
+    <section id="gallery">
+
+      <div class="container" data-aos="fade-up">
+        <div class="section-header">
+          <h2>The Revolt Gallery</h2>
+          <p>Check our gallery from the recent events</p>
+        </div>
+
+        
+        <div class="row section-header">
+          <div class="col-lg-6 text-center p-4">
+            <h5>Curator</h5>
+            <p class=''>information about the curator</p>
+          </div>
+          <div class="col-lg-6 text-center p-4">
+            <h5>Message</h5>
+            <p class=''>What does the gallery stand for and what kind of events do we have in the place </p>
+          </div>
+      </div>
+
+
+      
+
+      <div class="gallery-slider swiper">
+        <div class="swiper-wrapper align-items-center">
+          <div class="swiper-slide square-contain"><a href="{% static 'schedule/img/img-new/img-square/clark shot cropped.jpg' %}" class="gallery-lightbox"><img src="{% static 'schedule/img/img-new/img-square/clark shot cropped.jpg' %}" class="img-fluid" alt=""></a></div>
+          <div class="swiper-slide square-contain"><a href="{% static 'schedule/img/img-new/img-square/hoff cropped.jpg' %}" class="gallery-lightbox"><img src="{% static 'schedule/img/img-new/img-square/hoff cropped.jpg' %}" class="img-fluid" alt=""></a></div>
+          <div class="swiper-slide square-contain"><a href="{% static 'schedule/img/img-new/img-square/clark 2 crop.jpg' %}" class="gallery-lightbox"><img src="{% static 'schedule/img/img-new/img-square/clark 2 crop.jpg' %}" class="img-fluid" alt=""></a></div>
+          <div class="swiper-slide square-contain"><a href="{% static 'schedule/img/img-new/img-square/clark opening.jpeg' %}" class="gallery-lightbox"><img src="{% static 'schedule/img/img-new/img-square/clark opening.jpeg' %}" class="img-fluid" alt=""></a></div>
+          <div class="swiper-slide square-contain"><a href="{% static 'schedule/img/img-new/img-square/ext view.jpeg' %}" class="gallery-lightbox"><img src="{% static 'schedule/img/img-new/img-square/ext view.jpeg' %}" class="img-fluid" alt=""></a></div>
+          <div class="swiper-slide square-contain"><a href="{% static 'schedule/img/img-new/img-square/DSC_.7011.jpg' %}" class="gallery-lightbox"><img src="{% static 'schedule/img/img-new/img-square/dsc_7011.jpg' %}" class="img-fluid" alt=""></a></div>
+          <div class="swiper-slide square-contain"><a href="{% static 'schedule/img/img-new/img-square/img_5848.jpg' %}" class="gallery-lightbox"><img src="{% static 'schedule/img/img-new/img-square/img_5848.jpg' %}" class="img-fluid" alt=""></a></div>
+          <div class="swiper-slide square-contain"><a href="{% static 'schedule/img/img-new/img-square/JWAnderson_Unfurl_2023.jpg' %}" class="gallery-lightbox"><img src="{% static 'schedule/img/img-new/img-square/JWAnderson_Unfurl_2023.jpg' %}" class="img-fluid" alt=""></a></div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+
+   
+
+    </section><!-- End Gallery Section -->
 
     <!-- ======= Venue Section ======= -->
     <section id="venue">
@@ -216,7 +263,7 @@
 
     </section><!-- End Venue Section -->
 
-    <!-- ======= Speakers Section ======= -->
+    <!-- ======= DJ Section ======= -->
     <section id="speakers">
       <div class="container" data-aos="fade-up">
         <div class="section-header">
@@ -227,7 +274,7 @@
         <div class="row">
           <div class="col-lg-4 col-md-6">
             <div class="speaker" data-aos="fade-up" data-aos-delay="100">
-              <img src="{% static 'schedule/img/speakers/1.jpg' %}" alt="Speaker 1" class="img-fluid">
+              <img src="{% static 'schedule/img/speakers/jperry.jpg' %}" alt="Speaker 1" class="img-fluid">
               <div class="details">
                 <h3><a href="speaker-details.html">Justin Perry</a></h3>
                 <p>DJ This Justin</p>
@@ -257,7 +304,7 @@
           </div>
           <div class="col-lg-4 col-md-6">
             <div class="speaker" data-aos="fade-up" data-aos-delay="300">
-              <img src="{% static 'schedule/img/speakers/3.jpg' %}" alt="Speaker 3" class="img-fluid">
+              <img src="{% static 'schedule/img/speakers/d-steve.jpg' %}" alt="Speaker 3" class="img-fluid">
               <div class="details">
                 <h3><a href="speaker-details.html">Steve McFarland</a></h3>
                 <p>DJ Dirty Steve</p>
@@ -272,7 +319,7 @@
           </div>
           <div class="col-lg-4 col-md-6">
             <div class="speaker" data-aos="fade-up" data-aos-delay="100">
-              <img src="{% static 'schedule/img/speakers/4.jpg' %}" alt="Speaker 4" class="img-fluid">
+              <img src="{% static 'schedule/img/speakers/arielimg.jpg' %}" alt="Speaker 4" class="img-fluid">
               <div class="details">
                 <h3><a href="speaker-details.html">Ariel Vackni</a></h3>
                 <p>MagicWomen Music</p>
@@ -302,7 +349,7 @@
           </div>
           <div class="col-lg-4 col-md-6">
             <div class="speaker" data-aos="fade-up" data-aos-delay="300">
-              <img src="{% static 'schedule/img/speakers/6.jpg' %}" alt="Speaker 6" class="img-fluid">
+              <img src="{% static 'schedule/img/speakers/vinyl_dj.jpg' %}" alt="Speaker 6" class="img-fluid">
               <div class="details">
                 <h3><a href="speaker-details.html">Swamp</a></h3>
                 <p>THE DJ SWAMP</p>
@@ -320,31 +367,7 @@
 
     </section><!-- End Speakers Section -->
 
-    <!-- ======= Gallery Section ======= -->
-    <section id="gallery">
-
-      <div class="container" data-aos="fade-up">
-        <div class="section-header">
-          <h2>Gallery</h2>
-          <p>Check our gallery from the recent events</p>
-        </div>
-      </div>
-
-      <div class="gallery-slider swiper">
-        <div class="swiper-wrapper align-items-center">
-          <div class="swiper-slide square-contain"><a href="{% static 'schedule/img/img-new/img-square/clark shot cropped.jpg' %}" class="gallery-lightbox"><img src="{% static 'schedule/img/img-new/img-square/clark shot cropped.jpg' %}" class="img-fluid" alt=""></a></div>
-          <div class="swiper-slide square-contain"><a href="{% static 'schedule/img/img-new/img-square/hoff cropped.jpg' %}" class="gallery-lightbox"><img src="{% static 'schedule/img/img-new/img-square/hoff cropped.jpg' %}" class="img-fluid" alt=""></a></div>
-          <div class="swiper-slide square-contain"><a href="{% static 'schedule/img/img-new/img-square/clark 2 crop.jpg' %}" class="gallery-lightbox"><img src="{% static 'schedule/img/img-new/img-square/clark 2 crop.jpg' %}" class="img-fluid" alt=""></a></div>
-          <div class="swiper-slide square-contain"><a href="{% static 'schedule/img/img-new/img-square/clark opening.jpeg' %}" class="gallery-lightbox"><img src="{% static 'schedule/img/img-new/img-square/clark opening.jpeg' %}" class="img-fluid" alt=""></a></div>
-          <div class="swiper-slide square-contain"><a href="{% static 'schedule/img/img-new/img-square/ext view.jpeg' %}" class="gallery-lightbox"><img src="{% static 'schedule/img/img-new/img-square/ext view.jpeg' %}" class="img-fluid" alt=""></a></div>
-          <div class="swiper-slide square-contain"><a href="{% static 'schedule/img/img-new/img-square/DSC_.7011.jpg' %}" class="gallery-lightbox"><img src="{% static 'schedule/img/img-new/img-square/dsc_7011.jpg' %}" class="img-fluid" alt=""></a></div>
-          <div class="swiper-slide square-contain"><a href="{% static 'schedule/img/img-new/img-square/img_5848.jpg' %}" class="gallery-lightbox"><img src="{% static 'schedule/img/img-new/img-square/img_5848.jpg' %}" class="img-fluid" alt=""></a></div>
-          <div class="swiper-slide square-contain"><a href="{% static 'schedule/img/img-new/img-square/JWAnderson_Unfurl_2023.jpg' %}" class="gallery-lightbox"><img src="{% static 'schedule/img/img-new/img-square/JWAnderson_Unfurl_2023.jpg' %}" class="img-fluid" alt=""></a></div>
-        </div>
-        <div class="swiper-pagination"></div>
-      </div>
-
-    </section><!-- End Gallery Section -->
+    
 
     <!-- ======= Schedule Section ======= -->
     <section id="schedule" class="section-with-bg">
@@ -377,14 +400,14 @@
           
             <div id="change" class="row schedule-item">
               <div class="col-md-2"><time>{{ obj.show_date|date:"M j" }} - {{ obj.show_time|time:'g:i'}}</time></div>
-              <div class="col-md-10">
+              <div class="col-md-10 ps-5">
                 <div class="speaker">
                   <img src="{% static 'schedule/img/speakers/1.jpg' %}" alt="Brenden Legros">
                 </div>
                     
                     <div class="hide-1">
                     <h4 id="row1change" class='text-capitalize'>Headliner:<span class='text-capitalize'> {{ obj.artist_name }}</span> </h4>
-              <div id='row2change'><span><span class='fw-bold'>Genre:</span> {{ obj.artist_genre }} || <span class='fw-bold'>Price:</span> {{ obj.entry_price|floatformat:2 }}</span> <br> <button class='btn btn-outline-danger mt-3' onclick="toggleDialog('music', {{ forloop.counter0 }}, 'show')">More Info</button></div>
+              <div id='row2change'><span><span class='fw-bold'>Genre:</span> {{ obj.artist_genre }} || <span class='fw-bold'>Price:</span> {{ obj.entry_price|floatformat:2 }}</span>  <button class='btn btn-outline-danger btn-sm ms-2 float-end' onclick="toggleDialog('music', {{ forloop.counter0 }}, 'show')">More Info</button></div>
                     
               <dialog id="music-dialog_{{ forloop.counter0 }}" class='dialog-box-style border border-danger border-3 p-3'>
                 <div class='mr-4 dialog-text p-3'>
@@ -430,9 +453,9 @@
                   <img src="{% static 'schedule/img/speakers/1.jpg' %}" alt="Brenden Legros">
                 </div>
                 <h4 id="row1change">Show-Name: <span>{{ obj.visual_show_name }}</span></h4>
-                    <div id='row2change'>
-                    <h6><span class="fw-bold">Artist-Name:</span> {{ obj.artist_name }}</h6>
-                    <button class='btn btn-outline-danger mt-3' onclick="toggleDialog('gallery', {{ forloop.counter0 }}, 'show')">More Info</button></div>
+                    
+                    {% comment %} <h6><span class="fw-bold">Artist-Name:</span> {{ obj.artist_name }}</h6><button class='btn btn-outline-danger mt-3 btn-sm ms-2' onclick="toggleDialog('gallery', {{ forloop.counter0 }}, 'show')">More Info</button></div> {% endcomment %}
+                    <div id='row2change'><span><span class='fw-bold'>Artist-Name:</span> {{ obj.artist_name }} || <span class='fw-bold'>Location:</span> Revolt Gallery</span> <button class='btn btn-outline-danger btn-sm ms-2' onclick="toggleDialog('gallery', {{ forloop.counter0 }}, 'show')">More Info</button></div>
 
                 <dialog id="gallery-dialog_{{ forloop.counter0 }}" class='dialog-box-style border border-danger border-3 p-3'>
                   <div class='mr-4 dialog-text p-3'>
@@ -462,7 +485,7 @@
                   <img src="{% static 'schedule/img/speakers/2.jpg' %}" alt="Hubert Hirthe">
                 </div>
                 <h4>Class: {{obj.class_name}}</h4>
-                <div id='row2change'><span><span class='fw-bold'>Teacher:</span> {{ obj.class_teacher }} || <span class='fw-bold'>Location:</span> {{ obj.class_location }}</span><br> <button class='btn btn-outline-danger mt-3' onclick="toggleDialog('class', {{ forloop.counter0 }}, 'show')">More Info</button></div>
+                <div id='row2change'><span><span class='fw-bold'>Teacher:</span> {{ obj.class_teacher }} || <span class='fw-bold'>Location:</span> {{ obj.class_location }}</span> <button class='btn btn-outline-danger btn-sm ms-2' onclick="toggleDialog('class', {{ forloop.counter0 }}, 'show')">More Info</button></div>
               
                <dialog id="class-dialog_{{ forloop.counter0 }}" class='dialog-box-style border border-danger border-3 p-3'>
                   <div class='mr-4 dialog-text p-3'>
@@ -491,13 +514,13 @@
 
     
 
-    <!-- ======= Hotels Section ======= -->
-    {% comment %} <section id="hotels" class="section-with-bg">
+    {% comment %} <!-- ======= Hotels Section ======= -->
+    <section id="hotels" class="section-with-bg">
 
       <div class="container" data-aos="fade-up">
         <div class="section-header">
-          <h2>Traveling from out of Town?</h2>
-          <p>Some exceptional accomodations to after part...I mean sleep at</p>
+          <h2>Food and Bars</h2>
+          <p>Local Bars with Serious Libations</p>
         </div>
 
         <div class="row" data-aos="fade-up" data-aos-delay="100">
@@ -507,7 +530,7 @@
               <div class="hotel-img">
                 <img src="https://maps.googleapis.com/maps/api/place/photo?maxheight=800&photo_reference={{ place_image_list.0.0.photo_reference }}&key={{ api_key }}" alt="Hotel 1" class="img-fluid">
               </div>
-              <h3><a href="#">{{nearby_accomodations.hotel1.result.name }}</a></h3>
+              <h3><a href="#">{{nearby_accomodations.bar1.result.name }}</a></h3>
               <div class="stars">
                 <i class="bi bi-star-fill"></i>
                 <i class="bi bi-star-fill"></i>
@@ -515,7 +538,7 @@
                 <i class="bi bi-star-fill"></i>
                 <i class="bi bi-star-fill"></i>
               </div>
-              <p>{{nearby_accomodations.hotel1.result.formatted_phone_number}}</p>
+              <p>{{nearby_accomodations.bar1.result.formatted_phone_number}}</p>
             </div>
           </div>
 
@@ -524,7 +547,7 @@
               <div class="hotel-img">
                 <img src="https://maps.googleapis.com/maps/api/place/photo?maxheight=800&photo_reference={{ place_image_list.1.0.photo_reference }}&key={{ api_key }}" alt="Hotel 2" class="img-fluid">
               </div>
-              <h3><a href="#">{{nearby_accomodations.hotel2.result.name }}</a></h3>
+              <h3><a href="#">{{nearby_accomodations.bar2.result.name }}</a></h3>
               <div class="stars">
                 <i class="bi bi-star-fill"></i>
                 <i class="bi bi-star-fill"></i>
@@ -532,7 +555,7 @@
                 <i class="bi bi-star-fill"></i>
                 <i class="bi bi-star-fill-half-full"></i>
               </div>
-              <p>{{nearby_accomodations.hotel2.result.formatted_phone_number}}</p>
+              <p>{{nearby_accomodations.bar2.result.formatted_phone_number}}</p>
             </div>
           </div>
 
@@ -541,19 +564,22 @@
               <div class="hotel-img">
                 <img src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photo_reference={{ place_image_list.2.0.photo_reference }}&key={{ api_key }}" alt="Hotel 3" class="img-fluid">
               </div>
-              <h3><a href="#">{{nearby_accomodations.hotel3.result.name }}</a></h3>
+              <h3><a href="#">{{nearby_accomodations.bar3.result.name }}</a></h3>
               <div class="stars">
                 <i class="bi bi-star-fill"></i>
                 <i class="bi bi-star-fill"></i>
                 <i class="bi bi-star-fill"></i>
                 <i class="bi bi-star-fill"></i>
               </div>
-              <p>{{nearby_accomodations.hotel3.result.formatted_phone_number}}</p>
+              <p>{{nearby_accomodations.bar3.result.formatted_phone_number}}</p>
             </div>
           </div>
 
         </div>
       </div>
+
+
+ 
 
     </section><!-- End Hotels Section --> {% endcomment %}
 
@@ -631,7 +657,7 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-header">
-          <h2>Contact Us</h2>
+          <h2>Contact Revolt</h2>
           <p>Nihil officia ut sint molestiae tenetur.</p>
         </div>
 
@@ -641,7 +667,7 @@
             <div class="contact-address">
               <i class="bi bi-geo-alt"></i>
               <h3>Address</h3>
-              <address>A108 Adam Street, NY 535022, USA</address>
+              <address>222 Paseo Del Pueblo Norte, Taos, NM 87571</address>
             </div>
           </div>
 
@@ -701,35 +727,21 @@
       <div class="container">
         <div class="row">
 
-          <div class="col-lg-3 col-md-6 footer-info">
-            <img src="{% static 'schedule/img/logo.png' %}" alt="TheEvenet">
-            <p>In alias aperiam. Placeat tempore facere. Officiis voluptate ipsam vel eveniet est dolor et totam porro. Perspiciatis ad omnis fugit molestiae recusandae possimus. Aut consectetur id quis. In inventore consequatur ad voluptate cupiditate debitis accusamus repellat cumque.</p>
-          </div>
+        
 
           <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Useful Links</h4>
+            <h4>Friends and Fam</h4>
             <ul>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">Home</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">About us</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">Services</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">Terms of service</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">Privacy policy</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="https://thetaoshum.com/">Heads Up Music</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="https://www.hpshaveco.com/">Hitching Post Shave Co.</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="https://www.aceqrestaurant.com/">Aceq</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="https://www.yelp.com/biz/sabor-real-restaurant-taos">Sabor Real</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="http://www.salonxtaos.com/">Salon X</a></li> 
             </ul>
-          </div>
-
-          <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Useful Links</h4>
-            <ul>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">Home</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">About us</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">Services</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">Terms of service</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">Privacy policy</a></li>
-            </ul>
-          </div>
+          </div> 
 
           <div class="col-lg-3 col-md-6 footer-contact">
-            <h4>Contact Us</h4>
+            <h4>Come See the Gallery</h4>
             <p>
               252 Paseo del Pueblo Norte <br>
               Taos, NM 87571<br>
@@ -738,11 +750,11 @@
             </p>
 
             <div class="social-links">
-              <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-              <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-              <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-              <a href="#" class="google-plus"><i class="bi bi-instagram"></i></a>
-              <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+              {% comment %} <a href="#" class="twitter"><i class="bi bi-twitter"></i></a> {% endcomment %}
+              <a href="https://www.facebook.com/TaosRevolt/" class="facebook"><i class="bi bi-facebook"></i></a>
+              <a href="https://www.instagram.com/revolt_gallery/" class="instagram"><i class="bi bi-instagram"></i></a>
+              {% comment %} <a href="#" class="google-plus"><i class="bi bi-instagram"></i></a>
+              <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a> {% endcomment %}
             </div>
 
           </div>
