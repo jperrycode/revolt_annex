@@ -10,7 +10,7 @@ from .models import Music_artist_listing, Visual_artist_listing, Extra_curriucul
 
 
 class MusicScheduleAdmin(admin.ModelAdmin):
-    list_display = ("artist_name", "show_date", "entry_price",)
+    list_display = ("artist_name", "show_date", "entry_price", "music_artist_image")
     
 
 

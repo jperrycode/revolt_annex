@@ -1,58 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
+{% extends "base.html" %}
 {% load static %}
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+{% block title%} Revolt Gallery {% endblock %}
 
-  <title>Revolt Annex Music</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
-
-  <!-- Favicons -->
-  <link href="{% static 'schedule/img/guardian-left.png' %}" rel="icon">
-  <link href="{% static 'schedule/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet">
-
-<!-- Wester Font IMport Link-->
-<link href="https://fonts.cdnfonts.com/css/revolution" rel="stylesheet">
-<link href="https://fonts.cdnfonts.com/css/octin-spraypaint" rel="stylesheet">
-                
-
-
-  <!-- Vendor CSS Files -->
-  <link href="{% static '/schedule/vendor/aos/aos.css' %}" rel="stylesheet">
-  <link href="{% static '/schedule/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-
-
-  <link href="{% static '/schedule/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
-  <link href="{% static '/schedule/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
-  <link href="{% static '/schedule/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
-
-  <!-- Template Main CSS File -->
-  <link href="{% static '/schedule/css/style.css' %}" rel="stylesheet">
-
-  <!-- =======================================================
-  * Template Name: TheEvent
-  * Updated: May 30 2023 with Bootstrap v5.3.0
-  * Template URL: https://bootstrapmade.com/theevent-conference-event-bootstrap-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
-</head>
-
-<body>
-
-  <!-- ======= Header ======= -->
-  <header id="header" class="d-flex align-items-center ">
+{% block bodycontent %}
+ <header id="header" class="d-flex align-items-center ">
     <div class="container-fluid container-xxl d-flex align-items-center">
 
       <div id="logo" class="me-auto custom-font">
         <!-- Uncomment below if you prefer to use a text logo -->
-        <h1><a href="/revolt-art/">Revolt<span>Annex</span></a></h1>
+        <h1><a href="/revolt-art/">Revolt<span>Gallery</span></a></h1>
       
       </div>
 
@@ -84,7 +40,7 @@
   <section id="hero">
     <div class="hero-container" data-aos="zoom-in" data-aos-delay="100">
       <h1 class="mb-4 pb-0">Revolt Gallery<br><span> The Annex</span> Music and Events</h1>
-      <p class="mb-4 pb-0">An underground venue for everything electronic</p>
+      <p class="mb-4 pb-0">Where Art Breaks Free from the System</p>
       <a href="https://www.youtube.com/watch?v=oI5mr7F5MR4" class="glightbox play-btn mb-4"></a>
       <a href="#about" class="about-btn scrollto">About Revolt Gallery</a>
     </div>
@@ -110,7 +66,8 @@
           <div class="col-lg-3">
             <h3>When</h3>
             <p>When ever the hell we want<br>24/7/365<br>
-            or <a href='#schedule'>check the Schedule</a></p>
+            or <a href='#schedule' id='schedule-link' class="text-light">Check the Line-up</a></p>
+
             
             
             
@@ -182,7 +139,7 @@
           <div class="col-lg-6 venue-info">
             <div class="row justify-content-center">
               <div class="col-11 col-lg-8 position-relative">
-                <h3>Right next to Revolt Gallery</h3>
+                <h3>Look for the Big Metal Bird</h3>
                 <p>Iste nobis eum sapiente sunt enim dolores labore accusantium autem. Cumque beatae ipsam. Est quae sit qui voluptatem corporis velit. Qui maxime accusamus possimus. Consequatur sequi et ea suscipit enim nesciunt quia velit.</p>
               </div>
             </div>
@@ -402,12 +359,12 @@
               <div class="col-md-2"><time>{{ obj.show_date|date:"M j" }} - {{ obj.show_time|time:'g:i'}}</time></div>
               <div class="col-md-10 ps-5">
                 <div class="speaker">
-                  <img src="{% static 'schedule/img/speakers/1.jpg' %}" alt="Brenden Legros">
+                  <img src="/media/{{ obj.music_artist_image }}" alt="{{ obj.music_artist_image }}">
                 </div>
                     
                     <div class="hide-1">
                     <h4 id="row1change" class='text-capitalize'>Headliner:<span class='text-capitalize'> {{ obj.artist_name }}</span> </h4>
-              <div id='row2change'><span><span class='fw-bold'>Genre:</span> {{ obj.artist_genre }} || <span class='fw-bold'>Price:</span> {{ obj.entry_price|floatformat:2 }}</span>  <button class='btn btn-outline-danger btn-sm ms-2 float-end' onclick="toggleDialog('music', {{ forloop.counter0 }}, 'show')">More Info</button></div>
+              <div id='row2change'><span><span class='fw-bold'>Genre:</span> {{ obj.artist_genre }} || <span class='fw-bold'>Price:</span> {{ obj.entry_price|floatformat:2 }}</span>  <button class='float-end btn btn-outline-danger btn-sm ms-2 float-end' onclick="toggleDialog('music', {{ forloop.counter0 }}, 'show')">More Info</button></div>
                     
               <dialog id="music-dialog_{{ forloop.counter0 }}" class='dialog-box-style border border-danger border-3 p-3'>
                 <div class='mr-4 dialog-text p-3'>
@@ -450,20 +407,23 @@
               </div>
               <div class="col-md-10">
                 <div class="speaker">
-                  <img src="{% static 'schedule/img/speakers/1.jpg' %}" alt="Brenden Legros">
+                  <img src="/media/{{ obj.visual_artist_image }}" alt="{{ obj.visual_artist_name }}">
                 </div>
                 <h4 id="row1change">Show-Name: <span>{{ obj.visual_show_name }}</span></h4>
                     
                     {% comment %} <h6><span class="fw-bold">Artist-Name:</span> {{ obj.artist_name }}</h6><button class='btn btn-outline-danger mt-3 btn-sm ms-2' onclick="toggleDialog('gallery', {{ forloop.counter0 }}, 'show')">More Info</button></div> {% endcomment %}
-                    <div id='row2change'><span><span class='fw-bold'>Artist-Name:</span> {{ obj.artist_name }} || <span class='fw-bold'>Location:</span> Revolt Gallery</span> <button class='btn btn-outline-danger btn-sm ms-2' onclick="toggleDialog('gallery', {{ forloop.counter0 }}, 'show')">More Info</button></div>
+                    <div id='row2change'><span><span class='fw-bold'>Artist-Name:</span> {{ obj.artist_name }} || <span class='fw-bold'>Location:</span> Revolt Gallery</span> <button class='btn btn-outline-danger btn-sm ms-2 float-end' onclick="toggleDialog('gallery', {{ forloop.counter0 }}, 'show')">More Info</button></div>
 
-                <dialog id="gallery-dialog_{{ forloop.counter0 }}" class='dialog-box-style border border-danger border-3 p-3'>
-                  <div class='mr-4 dialog-text p-3'>
+                <dialog id="gallery-dialog_{{ forloop.counter0 }}" class='bg-light bg-gradient overflow-visible dialog-box-style border border-danger p-3'>
+                  <div style="background-image: url('/media/{{ obj.visual_artist_image }}'); background-size: cover;">
+  
+                  <div class='mr-4 dialog-text p-3 text-center'>
                     <span class='text-center'><h3 class='font-weight-bold text-capitalize'>{{ obj.artist_name }}</h3></span>
                     <p><span class="fw-bold">Info:</span> {{ obj.artist_bio}} this is some extra text just in case this is some extra text just in case this is some extra text just in case this is some extra text just in case this is some extra text just in case </p>
-                    <p><span class="fw-bold">Artist Website:</span> {{ obj.artist_website}}</p>
+                    <p><a hre='{{ obj.artist_website}}'><span class="fw-bold">Artist Website:</span></a></p>
                     <p><span class="fw-bold">Medium:</span> {{ obj.artist_medium}} || <span class="fw-bold">Price:</span> {{ obj.entry_price }}</p>
                 <button onclick="toggleDialog('gallery', {{ forloop.counter0 }}, 'hide')" class='btn btn-outline-danger mb-3 mt-3'>Close More Information</button>
+                </div>
                 </div>
             </dialog>
             
@@ -482,12 +442,12 @@
               <div class="col-md-2"><time>{{ obj.class_date|date:"M j" }} - {{ obj.class_time|time:'g:i'}}</time></div>
               <div class="col-md-10">
                 <div class="speaker">
-                  <img src="{% static 'schedule/img/speakers/2.jpg' %}" alt="Hubert Hirthe">
+                  <img src="/media/{{ obj.class_artist_image }}" alt="teacher">
                 </div>
                 <h4>Class: {{obj.class_name}}</h4>
-                <div id='row2change'><span><span class='fw-bold'>Teacher:</span> {{ obj.class_teacher }} || <span class='fw-bold'>Location:</span> {{ obj.class_location }}</span> <button class='btn btn-outline-danger btn-sm ms-2' onclick="toggleDialog('class', {{ forloop.counter0 }}, 'show')">More Info</button></div>
+                <div id='row2change'><span><span class='fw-bold'>Teacher:</span> {{ obj.class_teacher }} || <span class='fw-bold'>Location:</span> {{ obj.class_location }}</span> <button class='btn btn-outline-danger btn-sm ms-2 float-end' onclick="toggleDialog('class', {{ forloop.counter0 }}, 'show')">More Info</button></div>
               
-               <dialog id="class-dialog_{{ forloop.counter0 }}" class='dialog-box-style border border-danger border-3 p-3'>
+               <dialog id="class-dialog_{{ forloop.counter0 }}" class='overflow-visible dialog-box-style border border-danger border-3 p-3'>
                   <div class='mr-4 dialog-text p-3'>
                     <span class='text-center'><h3 class='font-weight-bold text-capitalize'>{{ obj.class_name }}</h3></span>
                     <p><span class="fw-bold">Teacher:</span> {{ obj.class_teacher}}</p>
@@ -514,140 +474,6 @@
 
     
 
-    {% comment %} <!-- ======= Hotels Section ======= -->
-    <section id="hotels" class="section-with-bg">
-
-      <div class="container" data-aos="fade-up">
-        <div class="section-header">
-          <h2>Food and Bars</h2>
-          <p>Local Bars with Serious Libations</p>
-        </div>
-
-        <div class="row" data-aos="fade-up" data-aos-delay="100">
-
-          <div class="col-lg-4 col-md-6">
-            <div class="hotel">
-              <div class="hotel-img">
-                <img src="https://maps.googleapis.com/maps/api/place/photo?maxheight=800&photo_reference={{ place_image_list.0.0.photo_reference }}&key={{ api_key }}" alt="Hotel 1" class="img-fluid">
-              </div>
-              <h3><a href="#">{{nearby_accomodations.bar1.result.name }}</a></h3>
-              <div class="stars">
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-              </div>
-              <p>{{nearby_accomodations.bar1.result.formatted_phone_number}}</p>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6">
-            <div class="hotel">
-              <div class="hotel-img">
-                <img src="https://maps.googleapis.com/maps/api/place/photo?maxheight=800&photo_reference={{ place_image_list.1.0.photo_reference }}&key={{ api_key }}" alt="Hotel 2" class="img-fluid">
-              </div>
-              <h3><a href="#">{{nearby_accomodations.bar2.result.name }}</a></h3>
-              <div class="stars">
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill-half-full"></i>
-              </div>
-              <p>{{nearby_accomodations.bar2.result.formatted_phone_number}}</p>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6">
-            <div class="hotel">
-              <div class="hotel-img">
-                <img src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photo_reference={{ place_image_list.2.0.photo_reference }}&key={{ api_key }}" alt="Hotel 3" class="img-fluid">
-              </div>
-              <h3><a href="#">{{nearby_accomodations.bar3.result.name }}</a></h3>
-              <div class="stars">
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-              </div>
-              <p>{{nearby_accomodations.bar3.result.formatted_phone_number}}</p>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-
- 
-
-    </section><!-- End Hotels Section --> {% endcomment %}
-
-    
-
-    {% comment %} <!-- ======= Supporters Section ======= -->
-    <section id="supporters" class="section-with-bg">
-
-      <div class="container" data-aos="fade-up">
-        <div class="section-header">
-          <h2>Local Supporters</h2>
-        </div>
-
-        <div class="row no-gutters supporters-wrap clearfix" data-aos="zoom-in" data-aos-delay="100">
-
-          <div class="col-lg-3 col-md-4 col-xs-6">
-            <div class="supporter-logo">
-              <img src="{% static 'schedule/img/supporters/1.png' %}" class="img-fluid" alt="">
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4 col-xs-6">
-            <div class="supporter-logo">
-              <img src="{% static 'schedule/img/taos-support-comps/knce-logo-main.png' %}" class="img-fluid" alt="">
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4 col-xs-6">
-            <div class="supporter-logo">
-              <img src="{% static 'schedule/img/supporters/3.png' %}" class="img-fluid" alt="">
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4 col-xs-6">
-            <div class="supporter-logo">
-              <img src="{% static 'schedule/img/supporters/4.png' %}" class="img-fluid" alt="">
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4 col-xs-6">
-            <div class="supporter-logo">
-              <img src="{% static 'schedule/img/supporters/5.png' %}" class="img-fluid" alt="">
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4 col-xs-6">
-            <div class="supporter-logo">
-              <img src="{% static 'schedule/img/supporters/6.png' %}" class="img-fluid" alt="">
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4 col-xs-6">
-            <div class="supporter-logo">
-              <img src="{% static 'schedule/img/supporters/7.png' %}" class="img-fluid" alt="">
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4 col-xs-6">
-            <div class="supporter-logo">
-              <img src="{% static 'schedule/img/supporters/8.png' %}" class="img-fluid" alt="">
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-
-    </section><!-- End Sponsors Section --> {% endcomment %}
 
    
 
@@ -776,30 +602,4 @@
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-  <!-- Vendor JS Files -->
-  <script src='{% static "schedule/vendor/aos/aos.js" %}'></script>
-
-  <script src="https://smtpjs.com/v3/smtp.js"></script>
-
-  <script>
-  bringDivForwardOnVisible('about');
-</script>
-  
-
-<script src='{% static "schedule/vendor/bootstrap/js/bootstrap.bundle.min.js" %}'></script>
-<script src='{% static "schedule/vendor/glightbox/js/glightbox.min.js" %}'></script>
-<script src='{% static "schedule/vendor/swiper/swiper-bundle.min.js" %}'></script>
-<script src='{% static "schedule/vendor/php-email-form/validate.js" %}'></script>
-  <!-- Template Main JS File -->
-
-  <script src='{% static "schedule/js/main.js" %}'></script>
-
-  <script src="{% static 'schedule/js/custom-js.js' %}"></script>
-
-<script>
-  bringDivForwardOnVisible('about-forward');
-</script>
-
-</body>
-
-</html>
+{% endblock %}

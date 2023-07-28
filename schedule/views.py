@@ -72,7 +72,7 @@ def annex_home(request):
   gallery_listing = Visual_artist_listing.objects.all().values()
   extra_curriucular_listing = Extra_curriucular_listing.objects.all().values()
   contact_form = ContactForm()
-  return render(request, 'master-new.html',{'show_listing':show_listing,
+  return render(request, 'annex_master_backup.html',{'show_listing':show_listing,
              'gallery_listing':gallery_listing,
              'extra_curriucular_listing':extra_curriucular_listing,
              'bars_nearby': bar_nearby_data_context,
