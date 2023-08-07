@@ -3,7 +3,7 @@ from django.contrib import admin
 
 # Register your models here.
 
-from .models import Music_artist_listing, Visual_artist_listing, Extra_curriucular_listing, Nearby_accomodations, Heads_up_music
+from .models import Music_artist_listing, Visual_artist_listing, Extra_curriucular_listing, Nearby_accomodations, Heads_up_music, Receive_email_updates
 
 #register artist listing model
 
@@ -42,3 +42,7 @@ class HeadsUpMusicAdmin(admin.ModelAdmin):
 
 admin.site.register(Heads_up_music, HeadsUpMusicAdmin)
 
+class EmailConsent(admin.ModelAdmin):
+    list_display = (all)
+
+admin.site.register(Receive_email_updates, EmailConsent)
