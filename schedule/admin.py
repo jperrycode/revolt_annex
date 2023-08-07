@@ -43,6 +43,6 @@ class HeadsUpMusicAdmin(admin.ModelAdmin):
 admin.site.register(Heads_up_music, HeadsUpMusicAdmin)
 
 class EmailConsent(admin.ModelAdmin):
-    list_display = (all)
+    list_display = ("emailform_name", "emailform_email", "emailform_consent")
 
 admin.site.register(Receive_email_updates, EmailConsent)

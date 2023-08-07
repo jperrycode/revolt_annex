@@ -10,5 +10,5 @@ class ContactForm(forms.Form):
     email = forms.EmailField(validators=[EmailValidator()], required=True, max_length=50)
     subject = forms.CharField(required=True, max_length=100)
     message = forms.CharField(widget=forms.Textarea, max_length=2000)
-    email_consent = forms.BooleanField(default=True)
+    email_consent = forms.BooleanField()
 
