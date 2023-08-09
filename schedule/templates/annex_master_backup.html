@@ -384,7 +384,17 @@
             </div>
 
             <!-- Modal -->
+            {% empty %} 
+
+       <div class="row schedule-item align-items-center">
+              <div class='text-center p-4'>
+              <div class="section-header">
+                <h2>No Scheduled Shows <br> Contact us with any questions!</h2>
             
+              </div>
+              
+              </div>
+          </div>
 
         {% endfor %}
 
@@ -429,6 +439,18 @@
             
               </div>
             </div>
+
+            {% empty %} 
+
+       <div class="row schedule-item align-items-center">
+              <div class='text-center p-4'>
+              <div class="section-header">
+                <h2>No Scheduled Instalations <br> Contact us with any questions!</h2>
+            
+              </div>
+              
+              </div>
+          </div>
     {% endfor %}
            
 
@@ -456,10 +478,23 @@
                     <p><span class="fw-bold">Location:</span> {{ obj.class_location }} || <span class="fw-bold">Price:</span> {{ obj.class_price }}</p>
                 <button onclick="toggleDialog('class', {{ forloop.counter0 }}, 'hide')" class='btn btn-outline-danger mb-3 mt-3'>Close Me! </button>
                 </div>
-            </dialog>
+             </dialog>
               
               </div>
             </div>
+
+    {% empty %} 
+
+       <div class="row schedule-item align-items-center">
+              <div class='text-center p-4'>
+              <div class="section-header">
+                <h2>No Scheduled Classes <br> Contact us with any questions!</h2>
+            
+              </div>
+              
+              </div>
+          </div>
+
     {% endfor %}
             
 

@@ -1,5 +1,5 @@
 from django.db import models
-from django.conf import settings 
+
 
 
 
@@ -34,7 +34,7 @@ class Music_artist_listing(models.Model):
   artist_insta = models.CharField(max_length=255, blank=True, null=True)
   artist_website = models.CharField(max_length=255, blank=True, null=True)
   artist_music_page = models.CharField(max_length=200, default='search your self')
-  music_artist_image = models.ImageField(upload_to ='uploads/', null=True, blank=True)
+  music_artist_image = models.ImageField(upload_to ='media/', null=True, blank=True)
 
   entry_price = models.FloatField(null=True)
   
@@ -59,7 +59,7 @@ class Visual_artist_listing(models.Model):
   entry_price = models.FloatField(null=True, blank=True)
   age_restriction = models.BooleanField(default=False)
   image_url = models.URLField(max_length=250, null=True, blank=True)
-  visual_artist_image = models.ImageField(upload_to ='uploads/', null=True, blank=True)
+  visual_artist_image = models.ImageField(upload_to ='media/', null=True, blank=True)
 
 
   class Meta:
@@ -78,7 +78,7 @@ class Extra_curriucular_listing(models.Model):
   class_location = models.CharField(max_length=50, default='Revolt Annex', null=False, blank=False)
   class_price = models.FloatField(null=True, blank=True)
   image_url = models.URLField(max_length=250, null=True, blank=True)
-  class_artist_image = models.ImageField(upload_to ='uploads/', null=True, blank=True)
+  class_artist_image = models.ImageField(upload_to ='media/', null=True, blank=True)
 
   class Meta:
     ordering = ['class_date']
@@ -107,7 +107,7 @@ class Heads_up_music(models.Model):
   event_time = models.TimeField(auto_now=False, auto_now_add=False)
   artist_name = models.CharField(max_length=50, blank=False, null=False)
   event_description = models.CharField(max_length=255, blank=False, null=False)
-  artist_image = models.ImageField(upload_to ='uploads/', null=True, blank=True)
+  artist_image = models.ImageField(upload_to ='media/', null=True, blank=True)
 
   class Meta:
     ordering = ['event_date']

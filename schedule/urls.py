@@ -1,13 +1,13 @@
 from django.urls import path
 from . import views
 from .views import *
-from django.conf import settings 
-from django.conf.urls.static import static 
+from django.views.generic import RedirectView
+
 
 urlpatterns = [
-    path('', views.annex_home, name='home_redirect'),
-    path('revolt-art/', views.annex_home, name='annex_home'),
-    path('contact_us/', views.contact_us, name='contact_us'),
+    path('', RedirectView.as_view(url='revolt-art/')),
+    path('revolt-art/', AnnexHomeView.as_view(), name='annex_home'),
+    path('contact_us/', ContactUsView.as_view(), name='contact_us'),
    
 ]
 
