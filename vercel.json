@@ -1,0 +1,14 @@
+{
+    "builds": [
+      {
+        "src": "revolt_annex/wsgi.py",
+        "use": "@vercel/python"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "revolt_annex/wsgi.py"
+      }
+    ]
+}

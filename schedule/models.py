@@ -1,5 +1,6 @@
 from django.db import models
-from revolt_annex import settings
+
+
 
 
 EVENT_GENRE_CHOICES = [
@@ -27,17 +28,16 @@ ACCOM_TYPE_CHOICES = [
 class Music_artist_listing(models.Model):
   artist_name = models.CharField(max_length=50, default='', blank=True, null=False)
   artist_genre = models.CharField(max_length=255, choices=EVENT_GENRE_CHOICES, default='')
-  # music_show_datetime = models.DateTimeField(blank=True, verbose_name="date and time", default='2025-07-01 10:10')
   show_date = models.DateField(auto_now=False, auto_now_add=False)
   show_time = models.TimeField(auto_now=False, auto_now_add=False)
   artist_bio = models.CharField(max_length=255, default='', blank=True, null=False)
   artist_insta = models.CharField(max_length=255, blank=True, null=True)
   artist_website = models.CharField(max_length=255, blank=True, null=True)
   artist_music_page = models.CharField(max_length=200, default='search your self')
-  # artist_image = models.ImageField(upload_to='images/')
-  entry_price = models.FloatField(null=True)
-  image_url = models.URLField(max_length=250, null=True, blank=True)
+  music_artist_image = models.ImageField(upload_to ='media/', null=True, blank=True)
 
+  entry_price = models.FloatField(null=True)
+  
   class Meta:
     verbose_name = "Musician"
     verbose_name_plural = "Musicians"
@@ -59,6 +59,8 @@ class Visual_artist_listing(models.Model):
   entry_price = models.FloatField(null=True, blank=True)
   age_restriction = models.BooleanField(default=False)
   image_url = models.URLField(max_length=250, null=True, blank=True)
+  visual_artist_image = models.ImageField(upload_to ='media/', null=True, blank=True)
+
 
   class Meta:
     ordering = ['show_date_start']
@@ -76,6 +78,7 @@ class Extra_curriucular_listing(models.Model):
   class_location = models.CharField(max_length=50, default='Revolt Annex', null=False, blank=False)
   class_price = models.FloatField(null=True, blank=True)
   image_url = models.URLField(max_length=250, null=True, blank=True)
+  class_artist_image = models.ImageField(upload_to ='media/', null=True, blank=True)
 
   class Meta:
     ordering = ['class_date']
@@ -104,8 +107,20 @@ class Heads_up_music(models.Model):
   event_time = models.TimeField(auto_now=False, auto_now_add=False)
   artist_name = models.CharField(max_length=50, blank=False, null=False)
   event_description = models.CharField(max_length=255, blank=False, null=False)
+  artist_image = models.ImageField(upload_to ='media/', null=True, blank=True)
 
   class Meta:
     ordering = ['event_date']
     verbose_name = "HUM Event"
     verbose_name_plural = "HUM Events"
+
+
+
+class Receive_email_updates(models.Model):
+  emailform_email = models.EmailField(max_length=255)
+  emailform_name = models.CharField(max_length=50, null=True, blank=True)
+  emailform_consent = models.BooleanField()
+  
+
+
+
