@@ -47,7 +47,7 @@ SECRET_KEY = env('SECRET_KEY')
 # DEBUG = False
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = ['www.domain.com','domain.com','localhost','127.0.0.1']
+ALLOWED_HOSTS = ['*.vercel.app','domain.com','localhost','127.0.0.1']
 
 
 # Application definition
@@ -91,7 +91,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'revolt_annex.wsgi.application'
+WSGI_APPLICATION = 'revolt_annex.wsgi.app'
 
 
 # Database
