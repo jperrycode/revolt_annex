@@ -72,7 +72,9 @@ class AnnexHomeView(TemplateView):
         gallery_listing = Visual_artist_listing.objects.all().values()
         extra_curricular_listing = Extra_curriucular_listing.objects.all().values()
         contact_form = ContactForm()
+        range_reset = [str(i) for i in range(2,10)]
 
+        context['range_reset'] = range_reset
         context['show_listing'] = show_listing
         context['gallery_listing'] = gallery_listing
         context['extra_curricular_listing'] = extra_curricular_listing
