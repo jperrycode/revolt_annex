@@ -2,16 +2,25 @@ from django.views import View
 from django.http import HttpResponse
 from django.shortcuts import redirect
 from django.views.generic import TemplateView
-from .models import Music_artist_listing, Visual_artist_listing, Extra_curriucular_listing, Nearby_accomodations
+from .models import Music_artist_listing, Visual_artist_listing, Extra_curriucular_listing, Receive_email_updates
 import requests
 from .forms import ContactForm
 from django.core.mail import send_mail, BadHeaderError
 from django.conf import settings
+from.signals import contact_form_saved
+from django.dispatch import receiver
 import environ
+from .signals import contact_form_saved  # Import the signal
 
 
 environ.Env.read_env()
 env = environ.Env(interpolate=True)
+
+
+# Define a custom signal
+
+
+
 
 class ContactUsView(View):
     def post(self, request):
@@ -21,9 +30,13 @@ class ContactUsView(View):
         if contact_form.is_valid():
             subject = contact_form.cleaned_data['subject']
             user_email = contact_form.cleaned_data['email']
+            name = contact_form.cleaned_data['name']
+            message = contact_form.cleaned_data['message']
+            email_consent = contact_form.cleaned_data['email_consent']
+
             body = {
-                'name': contact_form.cleaned_data['name'],
-                'message': contact_form.cleaned_data['message'],
+                'name': name,
+                'message': message,
             }
             
             message = "\n".join(body.values())
@@ -31,12 +44,21 @@ class ContactUsView(View):
             try:
                 send_mail(subject, message, from_email, [user_email])
                 print('email sent')
+
+                # Emit the custom signal with additional args
+                contact_form_saved.send(
+                    sender=self.__class__,
+                    name=name,
+                    email_consent=email_consent,
+                    user_email=user_email
+                )
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
             
             return redirect('annex_home')
         
         return redirect('annex_home')
+
 
 
 # home class view
@@ -85,6 +107,7 @@ class AnnexHomeView(TemplateView):
         return context
 
     
+
 
 
 

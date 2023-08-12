@@ -575,7 +575,12 @@
             <div class="form-group mt-3">
               <textarea id="{{ contact_form.message.name }}" class="form-control" name="{{ contact_form.message.name }}" {% if contact_form.message.value != None %} value="{{ contact_form.message.value|stringformat:'s' }}"{% endif %} rows="5" placeholder="Message" required></textarea>
             </div>
-           
+{% comment %} Checkbox {% endcomment %}
+            <div class="form-check mt-3">
+        <input type="checkbox" class="form-check-input" id="emailConsentCheckbox" name="{{ contact_form.email_consent.name }}" {% if contact_form.email_consent.value %} checked{% endif %}>
+        <label class="form-check-label" for="emailConsentCheckbox">Subscribe to Email Updates</label>
+          </div>
+           {% comment %} end checkbox  {% endcomment %}
             <div class="text-center mt-3"><button type="submit" class='btn btn-outline-danger'>Send Message</button></div>
           </form>
         </div>
