@@ -53,7 +53,7 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = False
 # DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
-DEBUG = False
+DEBUG = True
 ALLOWED_HOSTS = ['*.vercel.app','domain.com','localhost','127.0.0.1']
 
 
@@ -68,6 +68,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'schedule',
     'django_celery_results',
+    'archive',
 ]
 
 MIDDLEWARE = [
