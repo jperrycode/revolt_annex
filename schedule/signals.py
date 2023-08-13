@@ -12,6 +12,10 @@ def handle_contact_form_saved(sender, **kwargs):
     email_consent = kwargs.get("email_consent")
     user_email = kwargs.get("user_email")
 
-    if email_consent:
-        Receive_email_updates.objects.create(emailform_name=name, emailform_email=user_email, emailform_consent=True)
-        print(f"Saved contact submission: {name}, email_consent={email_consent}, user_email={user_email}")
+    Receive_email_updates.objects.create(
+        emailform_name=name,
+        emailform_email=user_email,
+        emailform_consent=email_consent
+    )
+    print(f"Saved contact submission: {name}, email_consent={email_consent}, user_email={user_email}")
+
