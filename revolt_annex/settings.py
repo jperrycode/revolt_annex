@@ -116,8 +116,17 @@ DATABASES = {
     'PASSWORD': env('DB_PASSWORD'),
     'HOST': env('DB_HOST'),
     'PORT': env('DB_PORT'),
-  }
+  },
+      'cache': {
+        'ENGINE': 'django.db.backends.postgresql',
+       'NAME': env('CACHE_DB_NAME'),
+        'USER': env('CACHE_DB_USER'),
+        'PASSWORD': env('CACHE_DB_PASSWORD'),
+        'HOST': env('CACHE_DB_HOST'),
+        'PORT': env('CACHE_DB_PORT'),
+    }
 }
+
 
 
 # Password validation

@@ -7,6 +7,10 @@ from .models import Music_artist_listing, Visual_artist_listing, Extra_curriucul
 
 #register artist listing model
 
+class MyAdminSite(admin.AdminSite):
+    site_header = "Revolt/Reset Admin"
+
+admin_site = MyAdminSite(name="admin")
 
 
 class MusicScheduleAdmin(admin.ModelAdmin):
@@ -44,5 +48,7 @@ admin.site.register(Heads_up_music, HeadsUpMusicAdmin)
 
 class EmailConsent(admin.ModelAdmin):
     list_display = ("emailform_name", "emailform_email", "emailform_consent")
+    list_display_links = ('emailform_name',)
+    list_filter = ('emailform_consent',)
 
 admin.site.register(Receive_email_updates, EmailConsent)
