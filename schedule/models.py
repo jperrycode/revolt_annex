@@ -127,3 +127,20 @@ class Receive_email_updates(models.Model):
 
 
 
+class Archivedshowimagedata(models.Model):
+    archive_show_name = models.CharField(max_length=50)
+    archive_artist_name = models.CharField(max_length=75, blank=True, null=True)
+    archive_start_date = models.DateField(auto_now=False, auto_now_add=False, blank=True, null=True)
+    archive_end_date = models.DateField(auto_now=False, auto_now_add=False, blank=True, null=True)
+
+    class Meta:
+      ordering = ['archive_end_date']
+      verbose_name = "Archive Image"
+      verbose_name_plural = "Archive Images"
+    def __str__(self):
+        return self.archive_show_name
+    
+
+class Archiveimagefiles(models.Model):
+   archive_image = models.ImageField(upload_to="media/")
+   archive_fk = models.ForeignKey(Archivedshowimagedata, on_delete=models.CASCADE)

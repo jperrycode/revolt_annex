@@ -107,7 +107,13 @@ class AnnexHomeView(TemplateView):
         return context
 
 
-    
+class ArchiveView(TemplateView):
+    template_name = 'archive.html'  # Replace with your actual template path
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['custom_data'] = range(2, 10)
+        return context
 
 
 

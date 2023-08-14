@@ -68,7 +68,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'schedule',
     'django_celery_results',
-    'archive',
+    
 ]
 
 MIDDLEWARE = [
@@ -117,17 +117,9 @@ DATABASES = {
     'HOST': env('DB_HOST'),
     'PORT': env('DB_PORT'),
   },
-      'cache': {
-        'ENGINE': 'django.db.backends.postgresql',
-       'NAME': env('CACHE_DB_NAME'),
-        'USER': env('CACHE_DB_USER'),
-        'PASSWORD': env('CACHE_DB_PASSWORD'),
-        'HOST': env('CACHE_DB_HOST'),
-        'PORT': env('CACHE_DB_PORT'),
-    }
-}
+}   
 
-
+# DATABASE_ROUTERS = ['revolt_annex.database_router.AppBasedRouter']
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
