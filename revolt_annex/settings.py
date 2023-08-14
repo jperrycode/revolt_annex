@@ -27,7 +27,14 @@ DEBUG=(bool, False)
     
 # environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
-
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+SECURE_HSTS_SECONDS = 3600
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
+SECURE_BROWSER_XSS_FILTER = True
 
 
 
@@ -45,8 +52,8 @@ SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = False
-DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
-
+# DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
+DEBUG = True
 ALLOWED_HOSTS = ['*.vercel.app','domain.com','localhost','127.0.0.1']
 
 
@@ -61,6 +68,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'schedule',
     'django_celery_results',
+    
 ]
 
 MIDDLEWARE = [
@@ -92,6 +100,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'revolt_annex.wsgi.app'
+# WSGI_APPLICATION = 'revolt_annex.wsgi.application'
 
 
 # Database
@@ -107,9 +116,10 @@ DATABASES = {
     'PASSWORD': env('DB_PASSWORD'),
     'HOST': env('DB_HOST'),
     'PORT': env('DB_PORT'),
-  }
-}
+  },
+}   
 
+# DATABASE_ROUTERS = ['revolt_annex.database_router.AppBasedRouter']
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators

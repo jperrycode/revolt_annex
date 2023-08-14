@@ -122,7 +122,7 @@
     </section><!-- End Gallery Section -->
 
     <!-- ======= Venue Section ======= -->
-    <section id="venue">
+    <section id="venue" class='border'>
 
       <div class="container-fluid" data-aos="fade-up">
 
@@ -150,70 +150,73 @@
 
       <div class="container-fluid venue-gallery-container" data-aos="fade-up" data-aos-delay="100">
         <div class="row g-0">
-
+       
           <div class="col-lg-3 col-md-4">
+         
+          
+          
             <div class="venue-gallery">
-              <a href="assets/img/venue-gallery/1.jpg" class="glightbox" data-gall="venue-gallery">
-                <img src="{% static 'schedule/img/venue-gallery/1.jpg' %}" alt="" class="img-fluid">
+              <a href="{% static 'schedule/img/img-new/reset/IMG_2674.jpeg' %}" class="glightbox" data-gall="venue-gallery">
+                <img src="{% static 'schedule/img/img-new/reset/IMG_2674.jpeg' %}" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+        
+         <div class="col-lg-3 col-md-4">
+            <div class="venue-gallery">
+              <a href="{% static 'schedule/img/img-new/reset/IMG_267.jpeg' %}" class="glightbox" data-gall="venue-gallery">
+                <img src="{% static 'schedule/img/img-new/reset/IMG_2672.jpeg' %}" alt="" class="img-fluid">
               </a>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-4">
             <div class="venue-gallery">
-              <a href="assets/img/venue-gallery/2.jpg" class="glightbox" data-gall="venue-gallery">
-                <img src="{% static 'schedule/img/venue-gallery/1.jpg' %}" alt="" class="img-fluid">
+              <a href="{% static 'schedule/img/img-new/reset/IMG_2675.jpeg' %}" class="glightbox" data-gall="venue-gallery">
+                <img src="{% static 'schedule/img/img-new/reset/IMG_2675.jpeg' %}" alt="" class="img-fluid">
               </a>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-4">
             <div class="venue-gallery">
-              <a href="assets/img/venue-gallery/3.jpg" class="glightbox" data-gall="venue-gallery">
-                <img src="{% static 'schedule/img/venue-gallery/1.jpg' %}" alt="" class="img-fluid">
+              <a href="{% static 'schedule/img/img-new/reset/IMG_2676.jpeg' %}" class="glightbox" data-gall="venue-gallery">
+                <img src="{% static 'schedule/img/img-new/reset/IMG_2676.jpeg' %}" alt="" class="img-fluid">
               </a>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-4">
             <div class="venue-gallery">
-              <a href="assets/img/venue-gallery/4.jpg" class="glightbox" data-gall="venue-gallery">
-                <img src="{% static 'schedule/img/venue-gallery/1.jpg' %}" alt="" class="img-fluid">
+              <a href="{% static 'schedule/img/img-new/reset/IMG_2548.jpeg' %}" class="glightbox" data-gall="venue-gallery">
+                <img src="{% static 'schedule/img/img-new/reset/IMG_2677.jpeg' %}' %}" alt="" class="img-fluid">
               </a>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-4">
             <div class="venue-gallery">
-              <a href="assets/img/venue-gallery/5.jpg" class="glightbox" data-gall="venue-gallery">
-                <img src="{% static 'schedule/img/venue-gallery/1.jpg' %}" alt="" class="img-fluid">
+              <a href="{% static 'schedule/img/img-new/reset/IMG_2548.jpeg' %}" class="glightbox" data-gall="venue-gallery">
+                <img src="{% static 'schedule/img/img-new/reset/IMG_2552.jpeg' %}" alt="" class="img-fluid">
               </a>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-4">
             <div class="venue-gallery">
-              <a href="assets/img/venue-gallery/6.jpg" class="glightbox" data-gall="venue-gallery">
-                <img src="{% static 'schedule/img/venue-gallery/1.jpg' %}" alt="" class="img-fluid">
+              <a href="{% static 'schedule/img/img-new/reset/IMG_2679.jpeg' %}" class="glightbox" data-gall="venue-gallery">
+                <img src="{% static 'schedule/img/img-new/reset/IMG_2679.jpeg' %}" alt="" class="img-fluid">
               </a>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-4">
             <div class="venue-gallery">
-              <a href="assets/img/venue-gallery/7.jpg" class="glightbox" data-gall="venue-gallery">
-                <img src="{% static 'schedule/img/venue-gallery/1.jpg' %}" alt="" class="img-fluid">
+              <a href="{% static 'schedule/img/img-new/reset/IMG_2672.jpeg' %}" class="glightbox" data-gall="venue-gallery">
+                <img src="{% static 'schedule/img/img-new/reset/IMG_2672.jpeg' %}" alt="" class="img-fluid">
               </a>
             </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4">
-            <div class="venue-gallery">
-              <a href="assets/img/venue-gallery/8.jpg" class="glightbox" data-gall="venue-gallery">
-                <img src="{% static 'schedule/img/venue-gallery/1.jpg' %}" alt="" class="img-fluid">
-              </a>
-            </div>
-          </div>
+          </div> 
 
         </div>
       </div>
@@ -544,7 +547,7 @@
             <div class="contact-email">
               <i class="bi bi-envelope"></i>
               <h3>Email</h3>
-              <p><a href="mailto:taos.haus.thumps@gmail.com">taos.haus.thumps@gmail.com</a></p>
+              <p><a href="mailto:revoltgallery@gmail.com">revoltgallery@gmail.com</a></p>
             </div>
           </div>
 
@@ -572,7 +575,12 @@
             <div class="form-group mt-3">
               <textarea id="{{ contact_form.message.name }}" class="form-control" name="{{ contact_form.message.name }}" {% if contact_form.message.value != None %} value="{{ contact_form.message.value|stringformat:'s' }}"{% endif %} rows="5" placeholder="Message" required></textarea>
             </div>
-           
+{% comment %} Checkbox {% endcomment %}
+            <div class="form-check mt-3">
+        <input type="checkbox" class="form-check-input" id="emailConsentCheckbox" name="{{ contact_form.email_consent.name }}" {% if contact_form.email_consent.value %} checked{% endif %}>
+        <label class="form-check-label" for="emailConsentCheckbox">Subscribe to Email Updates</label>
+          </div>
+           {% comment %} end checkbox  {% endcomment %}
             <div class="text-center mt-3"><button type="submit" class='btn btn-outline-danger'>Send Message</button></div>
           </form>
         </div>
