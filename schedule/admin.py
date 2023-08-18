@@ -31,7 +31,7 @@ admin.site.register(Visual_artist_listing, VisualSheduleAdmin)
 
 #register class schedule
 class ExtraCurricularAdmin(admin.ModelAdmin):
-    list_display = ("class_name", "class_date", "class_location")
+    list_display = ("class_name", "class_day", "class_location")
 
 admin.site.register(Extra_curriucular_listing, ExtraCurricularAdmin)
 

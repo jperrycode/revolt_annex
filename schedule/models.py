@@ -73,7 +73,7 @@ class Extra_curriucular_listing(models.Model):
   class_name = models.CharField(max_length=50, default='', blank=True, null=False)
   class_teacher = models.CharField(max_length=50, default="", blank=False, null=False)
   class_description = models.TextField(blank=False, null=False)
-  class_date = models.DateField(auto_now=False, auto_now_add=False)
+  class_day = models.CharField(max_length=30, null=True, blank=True)
   class_time = models.TimeField(auto_now=False, auto_now_add=False)
   class_location = models.CharField(max_length=50, default='Revolt Annex', null=False, blank=False)
   class_price = models.FloatField(null=True, blank=True)
@@ -81,7 +81,6 @@ class Extra_curriucular_listing(models.Model):
   class_artist_image = models.ImageField(upload_to ='media/', null=True, blank=True)
 
   class Meta:
-    ordering = ['class_date']
     verbose_name = "Class listing"
     verbose_name_plural = "Class Listings"
 

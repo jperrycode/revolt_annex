@@ -64,7 +64,7 @@ class ContactUsView(View):
 
 
 class AnnexHomeView(TemplateView):
-    template_name = 'annex_master_backup.html'
+    template_name = 'schedule/annex_master_backup.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -108,15 +108,55 @@ class AnnexHomeView(TemplateView):
 
 
 class ArchiveView(TemplateView):
-    template_name = 'archive.html'  # Replace with your actual template path
+    template_name = 'schedule/contact-us.html'  # Replace with your actual template path
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['custom_data'] = range(2, 10)
+        context.update({'extra_curricular_listing': Extra_curriucular_listing.objects.all().values(),})
         return context
 
+class AnnexTestView(TemplateView):
+    template_name = 'schedule/dev_template.html'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        google_api_key = env.str('PROXY_GOOGLE')
 
+        nearby_params = {
+            "rankby": "prominence",
+            "location": "36.4107818,-105.5711364",
+            "radius": "1500",
+            "type": "bar",
+            "key": google_api_key,
+        }
+        nearby_api_url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json"
+        nearby_data = requests.get(nearby_api_url, params=nearby_params).json()
+
+        place_ids = [result["place_id"] for result in nearby_data.get("results", [])]
+
+        def get_place_info(place_id):
+            response = requests.get(f"https://maps.googleapis.com/maps/api/place/details/json", params={"place_id": place_id, "key": google_api_key})
+            return response.json()
+
+        bars = ['bar1', 'bar2', 'bar3']
+        bar_nearby_data_context = {
+            bar: get_place_info(place_id)
+            for bar, place_id in zip(bars, place_ids[:3])
+        }
+
+        place_image_list = [place_image_value for result in nearby_data.get("results", []) for place_image_value in result.get("photos", [])]
+
+        context.update({
+            'range_reset': [str(i) for i in range(2, 10)],
+            'show_listing': Music_artist_listing.objects.all().order_by('show_date').values(),
+            'gallery_listing': Visual_artist_listing.objects.all().values(),
+            'extra_curricular_listing': Extra_curriucular_listing.objects.all().values(),
+            'bars_nearby': bar_nearby_data_context,
+            'place_image_list': place_image_list,
+            'contact_form': ContactForm(),
+            'api_key': google_api_key,
+        })
+        return context
 
 
 
