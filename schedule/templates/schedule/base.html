@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+{% load static %}
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>{% block title %} {% endblock %}</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{% static 'schedule/img/guardian-left.png' %}" rel="icon">
+  <link href="{% static 'schedule/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet">
+
+<!-- Wester Font IMport Link-->
+<link href="https://fonts.cdnfonts.com/css/revolution" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/octin-spraypaint" rel="stylesheet">
+                
+
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static '/schedule/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static '/schedule/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+
+  <link href="{% static '/schedule/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static '/schedule/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static '/schedule/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static '/schedule/css/style.css' %}" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+
+ <header id="header" class="d-flex align-items-center ">
+    <div class="container-fluid container-xxl d-flex align-items-center">
+
+      <div id="logo" class="me-auto custom-font">
+        <!-- Uncomment below if you prefer to use a text logo -->
+        <h1><a href="/revolt-art/">Revolt |<span>| Reset</span></a></h1>
+      
+      </div>
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+          <li><a class="nav-link scrollto" href="#about">About</a></li>
+          <li><a class="nav-link scrollto" href="#gallery">The Gallery</a></li>
+          <li><a class="nav-link scrollto" href="#venue">The Venue</a></li>
+          <li><a class="nav-link scrollto" href="#speakers">The Players</a></li>
+          
+          
+          <li><a class="nav-link scrollto" href="#schedule">Schedule</a></li>
+          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+          <li><a class="nav-link scrollto" href="https://www.taosrevolt.com/art">Gallery Archive</a></li>
+         
+          
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+      <!-- <a class="buy-tickets scrollto" href="#buy-tickets">Buy Tickets</a> -->
+
+    </div>
+  </header><!-- End Header -->
+
+ {% block bodycontent %}
+
+{% endblock  %} 
+ 
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+        
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Friends and Fam</h4>
+            <ul>
+              <li><i class="bi bi-chevron-right"></i> <a href="https://thetaoshum.com/">Heads Up Music</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="https://www.hpshaveco.com/">Hitching Post Shave Co.</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="https://www.aceqrestaurant.com/">Aceq</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="https://www.yelp.com/biz/sabor-real-restaurant-taos">Sabor Real</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="http://www.salonxtaos.com/">Salon X</a></li> 
+            </ul>
+          </div> 
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h4>Come See the Gallery</h4>
+            <p>
+              252 Paseo del Pueblo Norte <br>
+              Taos, NM 87571<br>
+              <strong>Phone:</strong> 973-598-5837<br>
+              <strong>Email:</strong> info@example.com<br>
+            </p>
+
+            <div class="social-links">
+              {% comment %} <a href="#" class="twitter"><i class="bi bi-twitter"></i></a> {% endcomment %}
+              <a href="https://www.facebook.com/TaosRevolt/" class="facebook"><i class="bi bi-facebook"></i></a>
+              <a href="https://www.instagram.com/revolt_gallery/" class="instagram"><i class="bi bi-instagram"></i></a>
+              {% comment %} <a href="#" class="google-plus"><i class="bi bi-instagram"></i></a>
+              <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a> {% endcomment %}
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </footer><!-- End  Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src='{% static "schedule/vendor/aos/aos.js" %}'></script>
+
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
+
+  <script>
+  bringDivForwardOnVisible('about');
+</script>
+  
+
+<script src='{% static "schedule/vendor/bootstrap/js/bootstrap.bundle.min.js" %}'></script>
+<script src='{% static "schedule/vendor/glightbox/js/glightbox.min.js" %}'></script>
+<script src='{% static "schedule/vendor/swiper/swiper-bundle.min.js" %}'></script>
+<script src='{% static "schedule/vendor/php-email-form/validate.js" %}'></script>
+  <!-- Template Main JS File -->
+
+  <script src='{% static "schedule/js/main.js" %}'></script>
+
+  <script src="{% static 'schedule/js/custom-js.js' %}"></script>
+
+<script>
+  bringDivForwardOnVisible('about-forward');
+</script>
+
+</body>
+
+</html>
