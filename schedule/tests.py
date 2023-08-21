@@ -3,6 +3,7 @@ from .models import Music_artist_listing, Visual_artist_listing, Extra_curriucul
 from datetime import date, time
 from django.test import TestCase, Client
 from django.urls import reverse
+from django.template import Context, Template
 
 from .forms import ContactForm
 
@@ -155,6 +156,29 @@ class HeadsUpMusicModelTest(TestCase):
 
 
 
+#Templates
+from django.test import TestCase
+from django.template import Context, Template
+
+class TemplateForLoopTest(TestCase):
+    def test_template_for_loop(self):
+        # Prepare your data
+        items = ['Item 1', 'Item 2', 'Item 3']
+
+        # Load the template
+        template = Template("{% include 'my_template.html' %}")
+
+        # Create a Context with your data
+        context = Context({'items': items})
+
+        # Render the template with the data
+        rendered = template.render(context)
+
+        # Check if the rendered output contains the expected items
+        for item in items:
+            self.assertInHTML(f'<li>{item}</li>', rendered)
+
+
 
 # views
 
@@ -231,3 +255,7 @@ class AnnexHomeViewTest(TestCase):
         # Check if the rendered page contains certain content based on the data we created in the setUp method
         self.assertContains(response, 'John Doe')
         self.assertContains(response, 'Art Show')
+
+
+
+        #forloop test
