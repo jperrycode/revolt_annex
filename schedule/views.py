@@ -2,7 +2,7 @@ from django.views import View
 from django.http import HttpResponse
 from django.shortcuts import redirect
 from django.views.generic import TemplateView
-from .models import Music_artist_listing, Visual_artist_listing, Extra_curriucular_listing, Receive_email_updates
+from .models import Music_artist_listing, Visual_artist_listing, Extra_curriucular_listing
 import requests
 from .forms import ContactForm
 from django.core.mail import send_mail, BadHeaderError
@@ -32,7 +32,7 @@ class ContactUsView(View):
             name = contact_form.cleaned_data['name']
             message = contact_form.cleaned_data['message']
             email_consent = contact_form.cleaned_data['email_consent']
-
+            print('got all data')
             body = {
                 'name': name,
                 'message': message,
@@ -51,6 +51,7 @@ class ContactUsView(View):
                     email_consent=email_consent,
                     user_email=user_email
                 )
+                print('signal sent well')
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
             
@@ -147,7 +148,6 @@ class AnnexTestView(TemplateView):
         place_image_list = [place_image_value for result in nearby_data.get("results", []) for place_image_value in result.get("photos", [])]
 
         context.update({
-            'range_reset': [str(i) for i in range(2, 10)],
             'show_listing': Music_artist_listing.objects.all().order_by('show_date').values(),
             'gallery_listing': Visual_artist_listing.objects.all().values(),
             'extra_curricular_listing': Extra_curriucular_listing.objects.all().values(),

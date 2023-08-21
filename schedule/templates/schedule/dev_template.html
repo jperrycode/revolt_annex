@@ -5,10 +5,18 @@ Gallery {% endblock %}
 
 
 
-<div id="slider-content">
-  <!-- ======= Hero Section slider default ======= -->
-  <section id="hero" style="display: block;">
-    <div class="hero-container" data-aos="zoom-in" data-aos-delay="100">
+<div class="sections-move">
+  <div id="carousel-id" class="carousel slide">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carousel-id" data-bs-slide-to="0" class="active bg-danger caro-button-change" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carousel-id" data-bs-slide-to="1" class="bg-danger caro-button-change" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carousel-id" data-bs-slide-to="2" class="bg-danger caro-button-change" aria-label="Slide 3"></button>
+    <button type="button" data-bs-target="#carousel-id" data-bs-slide-to="3" class="bg-danger caro-button-change" aria-label="Slide 4"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+       <section id="hero" class="slide active">
+    <div class="hero-container" data-aos="zoom-in" data-aos-delay="100">  
       <h1 class="mb-4 pb-0">
         Revolt Gallery<br /><span> Performing Arts</span>
       </h1>
@@ -21,11 +29,13 @@ Gallery {% endblock %}
     </div>
   </section>
   <!-- ======= Hero Section ======= -->
+    </div>
 
-  <!-- ======= Gallery Section include schedule ======= -->
-  <section id="gallery" style="display: none;">
+    <!-- gallery slider -->
+    <div class="carousel-item">
+       <section id="gallery" class="slide" >
     <!-- header Gallery Section -->
-    <div class="container" data-aos="fade-up">
+    <div class="container mt-5" data-aos="fade-up">
       <div class="section-header">
         <h2>The Revolt Gallery</h2>
         <p>Check our gallery from the recent events</p>
@@ -266,13 +276,13 @@ Gallery {% endblock %}
         <p>Upcoming Installations</p>
       </div>
 
-      <div role="tabpanel" class="col-lg-9 tab-pane fade" id="day-2">
+      
         {% for obj in gallery_listing|slice:'5' %}
         <div class="row schedule-item">
           <div class="col-md-2">
             <time
-              >{{ obj.show_date_start|date:'M j'}} - {{
-              obj.show_date_end|date:'M j'}}</time
+              >{{ obj.vis_show_date_start|date:'M j'}} - {{
+              obj.vis_show_date_end|date:'M j'}}</time
             >
             {% if obj.age_restriction %}
             <p>Over 21 only</p>
@@ -284,7 +294,7 @@ Gallery {% endblock %}
             <div class="speaker">
               <img
                 src="/media/{{ obj.visual_artist_image }}"
-                alt="{{ obj.visual_artist_name }}"
+                alt="{{ obj.vis_artist_name }}"
               />
             </div>
             <h4 id="row1change">
@@ -305,7 +315,7 @@ Gallery {% endblock %}
           {% endcomment %}
           <div id="row2change">
             <span
-              ><span class="fw-bold">Artist-Name:</span> {{ obj.artist_name }}
+              ><span class="fw-bold">Artist-Name:</span> {{ obj.vis_artist_name }}
               || <span class="fw-bold">Location:</span> Revolt Gallery</span
             >
             <button
@@ -326,23 +336,23 @@ Gallery {% endblock %}
               <div class="mr-4 dialog-text p-3 text-center">
                 <span class="text-center"
                   ><h3 class="font-weight-bold text-capitalize">
-                    {{ obj.artist_name }}
+                    {{ obj.vis_artist_name }}
                   </h3></span
                 >
                 <p>
-                  <span class="fw-bold">Info:</span> {{ obj.artist_bio}} this is
+                  <span class="fw-bold">Info:</span> {{ obj.vis_artist_bio}} this is
                   some extra text just in case this is some extra text just in
                   case this is some extra text just in case this is some extra
                   text just in case this is some extra text just in case
                 </p>
                 <p>
-                  <a hre="{{ obj.artist_website}}"
+                  <a hre="{{ obj.vis_artist_website}}"
                     ><span class="fw-bold">Artist Website:</span></a
                   >
                 </p>
                 <p>
-                  <span class="fw-bold">Medium:</span> {{ obj.artist_medium}} ||
-                  <span class="fw-bold">Price:</span> {{ obj.entry_price }}
+                  <span class="fw-bold">Medium:</span> {{ obj.vis_artist_medium}} ||
+                  <span class="fw-bold">Price:</span> {{ obj.vis_entry_price }}
                 </p>
                 <button
                   onclick="toggleDialog('gallery', {{ forloop.counter0 }}, 'hide')"
@@ -354,7 +364,7 @@ Gallery {% endblock %}
             </div>
           </dialog>
         </div>
-      </div>
+      
 
       {% empty %}
 
@@ -373,10 +383,13 @@ Gallery {% endblock %}
     <!-- End Schdule gallery -->
   </section>
   <!-- End Gallery Section -->
+    </div>
 
-  <!-- ======= Venue Section include schedule ======= -->
-  <section id="venue" class="border" style="display: none">
-    <div class="container-fluid" data-aos="fade-up">
+
+
+    <div class="carousel-item">
+    <section id="venue" class="slide">
+    <div class="container-fluid mt-5" data-aos="fade-up">
       <div class="section-header">
         <h2>Reset Performing Arts</h2>
         <p class="text-uppercase">Venue location and past events</p>
@@ -384,12 +397,17 @@ Gallery {% endblock %}
 
       <div class="row g-0">
         <div class="col-lg-6 venue-map">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2254.507198903464!2d-105.57068365223667!3d36.410068554771954!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8717651628705279%3A0x99877053ad57b16e!2sRevolt%20Gallery!5e0!3m2!1sen!2sus!4v1686441245361!5m2!1sen!2sus"
-            frameborder="0"
-            style="border: 0"
-            allowfullscreen
-          ></iframe>
+             <div class="row justify-content-center">
+            <div class="col-11 col-lg-8 position-relative">
+              <h3>Look for the Big Metal Bird</h3>
+              <p>
+                Iste nobis eum sapiente sunt enim dolores labore accusantium
+                autem. Cumque beatae ipsam. Est quae sit qui voluptatem corporis
+                velit. Qui maxime accusamus possimus. Consequatur sequi et ea
+                suscipit enim nesciunt quia velit.
+              </p>
+            </div>
+          </div>
         </div>
 
         <div class="col-lg-6 venue-info">
@@ -409,7 +427,7 @@ Gallery {% endblock %}
     </div>
 
     <div
-      class="container-fluid venue-gallery-container"
+      class="container-fluid venue-gallery-container mt-3"
       data-aos="fade-up"
       data-aos-delay="100"
     >
@@ -546,12 +564,12 @@ Gallery {% endblock %}
     <!-- reset about and images end -->
 
     <!-- Reset schedule -->
-    <div class="section-header">
-      <h2>Reset Performing Arts</h2>
+    <div class="section-header mt-3">
+      <h2>Reset Music</h2>
       <p>Upcoming Shows</p>
     </div>
 
-    <div role="tabpanel" class="col-lg-9 tab-pane fade show active" id="day-1">
+    {% comment %} <div role="tabpanel" class="col-lg-9 tab-pane fade show active" id="day-1"> {% endcomment %}
       {% for obj in show_listing|slice:'5' %}
 
       <div id="change" class="row schedule-item">
@@ -641,16 +659,20 @@ Gallery {% endblock %}
       </div>
 
       {% endfor %}
-    </div>
+    
 
     <!-- Reset schedule -->
   </section>
   <!-- End reset Section -->
+    </div>
 
-  <!-- Start Classes section -->
 
-  <section id="speakers">
-    <div class="container" data-aos="fade-up">
+
+       <div class="carousel-item">
+      <!-- Start Classes section -->
+
+  <section id="speakers" class="slide">
+    <div class="container mt-5" data-aos="fade-up">
       <div class="section-header">
         <h2>Reset || Performing Arts</h2>
         <p>Community Classes and Gatherings</p>
@@ -789,7 +811,7 @@ Gallery {% endblock %}
         <p>Class Schedule</p>
       </div>
 
-      {% for obj in extra_curriucular_listing %}
+      {% for obj in schedule_extra_curriucular_listing %}
       <div class="row schedule-item">
         <div class="col-md-2">
           <time>{{ obj.class_day }} - {{ obj.class_time|time:'g:i'}}</time>
@@ -869,7 +891,26 @@ Gallery {% endblock %}
   </section>
 
   <!-- end classes section -->
+    </div>
+
+
+    <!-- End cards -->
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carousel-id" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon text-danger" aria-hidden="false"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carousel-id" data-bs-slide="next">
+    <span class="carousel-control-next-icon text-danger" aria-hidden="false"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
 </div>
+
+
+
+</div>
+
+
 <!-- end dynamic slider area section -->
 
 <!-- End Hero Section -->

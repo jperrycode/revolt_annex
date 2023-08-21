@@ -24,7 +24,7 @@ admin.site.register(Music_artist_listing, MusicScheduleAdmin)
 
 #Register visual artist gallery schedule
 class VisualSheduleAdmin(admin.ModelAdmin):
-    list_display = ("artist_name", "show_date_start", "age_restriction",)
+    list_display = ("vis_artist_name", "vis_show_date_start", "age_restriction",)
 
 admin.site.register(Visual_artist_listing, VisualSheduleAdmin)
 

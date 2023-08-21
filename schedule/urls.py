@@ -2,6 +2,7 @@ from django.urls import path
 from . import views
 from .views import *
 from django.views.generic import RedirectView
+from django.contrib import admin
 
 
 urlpatterns = [
@@ -13,3 +14,5 @@ urlpatterns = [
    
 ]
 
+admin.site.site_header = 'Revolt Gallery - Reset Performing Arts'
+admin.site.site_title = 'Revolt and Reset '

@@ -50,20 +50,20 @@ class Music_artist_listing(models.Model):
 # gallery information model
 class Visual_artist_listing(models.Model):
   visual_show_name = models.CharField(max_length=50, default='Show Title', blank=False)
-  artist_name = models.CharField(max_length=50, default='', blank=True, null=False)
-  artist_medium = models.CharField(max_length=255, default='')
-  show_date_start = models.DateField(auto_now=False, auto_now_add=False)
-  show_date_end = models.DateField(auto_now=False, auto_now_add=False)
-  artist_bio = models.CharField(max_length=255, default='', blank=True, null=False)
-  artist_website = models.CharField(max_length=255, blank=True, null=True)
-  entry_price = models.FloatField(null=True, blank=True)
+  vis_artist_name = models.CharField(max_length=50, default='', blank=True, null=False)
+  vis_artist_medium = models.CharField(max_length=255, default='')
+  vis_show_date_start = models.DateField(auto_now=False, auto_now_add=False)
+  vis_show_date_end = models.DateField(auto_now=False, auto_now_add=False)
+  vis_artist_bio = models.CharField(max_length=255, default='', blank=True, null=False)
+  vis_artist_website = models.CharField(max_length=255, blank=True, null=True)
+  vis_entry_price = models.FloatField(null=True, blank=True)
   age_restriction = models.BooleanField(default=False)
-  image_url = models.URLField(max_length=250, null=True, blank=True)
+  vis_image_url = models.URLField(max_length=250, null=True, blank=True)
   visual_artist_image = models.ImageField(upload_to ='media/', null=True, blank=True)
 
 
   class Meta:
-    ordering = ['show_date_start']
+    ordering = ['vis_show_date_start']
     verbose_name = "Visual Artist"
     verbose_name_plural = "Visual Artists"
 
