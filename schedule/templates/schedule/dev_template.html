@@ -5,7 +5,7 @@ Gallery {% endblock %}
 
 
 
-<div class="sections-move">
+<div id="sections-move">
   <div id="carousel-id" class="carousel slide">
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#carousel-id" data-bs-slide-to="0" class="active bg-danger caro-button-change" aria-current="true" aria-label="Slide 1"></button>
@@ -18,7 +18,7 @@ Gallery {% endblock %}
        <section id="hero" class="slide active">
     <div class="hero-container" data-aos="zoom-in" data-aos-delay="100">  
       <h1 class="mb-4 pb-0">
-        Revolt Gallery<br /><span> Performing Arts</span>
+        Revolt Gallery<br><span> Performing Arts</span>
       </h1>
       <p class="mb-4 pb-0">Where Art Breaks Free from the System</p>
       <a
@@ -334,11 +334,9 @@ Gallery {% endblock %}
               style="background-image: url('/media/{{ obj.visual_artist_image }}'); background-size: cover;"
             >
               <div class="mr-4 dialog-text p-3 text-center">
-                <span class="text-center"
-                  ><h3 class="font-weight-bold text-capitalize">
+                <h3 class="font-weight-bold text-capitalize">
                     {{ obj.vis_artist_name }}
-                  </h3></span
-                >
+                  </h3>
                 <p>
                   <span class="fw-bold">Info:</span> {{ obj.vis_artist_bio}} this is
                   some extra text just in case this is some extra text just in
@@ -346,7 +344,7 @@ Gallery {% endblock %}
                   text just in case this is some extra text just in case
                 </p>
                 <p>
-                  <a hre="{{ obj.vis_artist_website}}"
+                  <a href="{{ obj.vis_artist_website}}"
                     ><span class="fw-bold">Artist Website:</span></a
                   >
                 </p>
@@ -372,7 +370,7 @@ Gallery {% endblock %}
         <div class="text-center p-4">
           <div class="section-header">
             <h2>
-              No Scheduled Instalations <br />
+              No Scheduled Instalations <br>
               Contact us with any questions!
             </h2>
           </div>
@@ -569,7 +567,7 @@ Gallery {% endblock %}
       <p>Upcoming Shows</p>
     </div>
 
-    {% comment %} <div role="tabpanel" class="col-lg-9 tab-pane fade show active" id="day-1"> {% endcomment %}
+    
       {% for obj in show_listing|slice:'5' %}
 
       <div id="change" class="row schedule-item">
@@ -651,7 +649,7 @@ Gallery {% endblock %}
         <div class="text-center p-4">
           <div class="section-header">
             <h2>
-              No Scheduled Shows <br />
+              No Scheduled Shows <br>
               Contact us with any questions!
             </h2>
           </div>
@@ -876,7 +874,7 @@ Gallery {% endblock %}
         <div class="text-center p-4">
           <div class="section-header">
             <h2>
-              No Scheduled Classes <br />
+              No Scheduled Classes <br>
               Contact us with any questions!
             </h2>
           </div>
@@ -920,8 +918,12 @@ Gallery {% endblock %}
   <section id="about" class="">
     <div id="about-forward" class="container" data-aos="fade-up">
       <div class="row">
-        <div class="col-lg-7">
-          <h2>Gallery and Performing Arts</h2>
+           <div class="col-lg-1">
+          
+         
+        </div>
+        <div class="col-lg-8">
+          <h2>Why Revolt?</h2>
           <p>
             Since our opening in 2017, Taos Revolt Gallery has sought to offer a
             space for local, emerging, and underground artists to be heard in
@@ -933,21 +935,44 @@ Gallery {% endblock %}
             Indigenous, People of Color, and LGBTQIA+ people. We seek to build
             equality through a strong, inclusive and creative community. Taos
             Revolt Gallery is committed to artistic and creative freedom for
-            all.
+            all.<br>
+              <p>
+           Formerly the location of the Hulse-Warman Gallery, Taos Revolt has 
+           transformed its historic downtown site into a dynamic, thriving facility 
+           for artistic exploration. With unique indoor and outdoor areas, we enjoy 
+           hosting a variety of events and exhibits - from small to large scale installations, 
+           immersive music, art, performances, and more. Taos Revolt is thrilled to present an 
+           ever-changing rotation of exhibits. Come view the art at the gallery, listen to live music, 
+           enjoy local food, and be with community.
+          </p>
+          
           </p>
         </div>
 
-        <div class="col-lg-3">
-          <h3>When</h3>
+        <div class="col-lg-1">
+          
+         
+        </div>
+      </div>
+
+
+      <div class="row">
+     
+
+        <div class="col-lg-1">
+          
+          
+        </div>
+
+           <div class="col-lg-8">
+          <h2>The Revolt</h2>
           <p>
-            When ever the hell we want<br />24/7/365<br />
-            or
-            <a href="#schedule" id="schedule-link" class="text-light"
-              >Check the Line-up</a
-            >
+           Formerly the location of the Hulse-Warman Gallery, Taos Revolt has transformed its historic downtown site into a dynamic, thriving facility for artistic exploration. With unique indoor and outdoor areas, we enjoy hosting a variety of events and exhibits - from small to large scale installations, immersive music, art, performances, and more. Taos Revolt is thrilled to present an ever-changing rotation of exhibits. Come view the art at the gallery, listen to live music, enjoy local food, and be with community.
           </p>
-          <h3>Where</h3>
-          <p>Located right in downtown Taos, Mew Mexico</p>
+        </div>
+            <div class="col-lg-1">
+          
+         
         </div>
       </div>
     </div>
@@ -989,10 +1014,10 @@ Gallery {% endblock %}
 
   <!-- ======= Instagram Section (stay, needs work) ======= -->
   <section id="speakers">
-    <div class="container" data-aos="fade-up">
+    <div id="slide-to-insta" class="container" data-aos="fade-up">
       <div class="section-header">
         <h2>Revolt || Reset</h2>
-        <p>Performing Arts Space</p>
+        <p>Social media</p>
       </div>
 
       <div class="row">
@@ -1304,7 +1329,7 @@ Gallery {% endblock %}
     <div class="container" data-aos="fade-up">
       <div class="section-header">
         <h2>Contact Revolt</h2>
-        <p>Nihil officia ut sint molestiae tenetur.</p>
+        <p>We're all pretty chill people</p>
       </div>
 
       <div class="row contact-info">
