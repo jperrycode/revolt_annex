@@ -21,7 +21,6 @@ idna = "^3.4"
 kombu = "^5.3.1"
 packaging = "^23.1"
 pillow = "^10.0.0"
-psycopg2 = "^2.9.7"
 python-dateutil = "^2.8.2"
 redis = "^5.0.0"
 requests = "^2.31.0"
@@ -30,6 +29,8 @@ sqlparse = "^0.4.4"
 tzdata = "^2023.3"
 urllib3 = "^2.0.4"
 whitenoise = "^6.5.0"
+mysqlclient = "^2.2.0"
+pymysql = "^1.1.0"
 
 
 [build-system]

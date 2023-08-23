@@ -107,17 +107,17 @@ WSGI_APPLICATION = 'revolt_annex.wsgi.app'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 # To use Neon with Django, you have to create a Project on Neon and specify the project connection settings in your settings.py in the same way as for standalone Postgres.
-
 DATABASES = {
-  'default': {
-    'ENGINE': 'django.db.backends.postgresql',
-    'NAME': env('DB_NAME'),
-    'USER': env('DB_USER'),
-    'PASSWORD': env('DB_PASSWORD'),
-    'HOST': env('DB_HOST'),
-    'PORT': env('DB_PORT'),
-  },
-}   
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': env('DB_NAME'),
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
+        'OPTIONS': {'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"},
+    }
+}
 
 # DATABASE_ROUTERS = ['revolt_annex.database_router.AppBasedRouter']
 
