@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.shortcuts import redirect
 from django.views.generic import TemplateView
 from .models import Music_artist_listing, Visual_artist_listing, Extra_curriucular_listing
-
+import requests
 from .forms import ContactForm
 from django.core.mail import send_mail, BadHeaderError
 from django.conf import settings
