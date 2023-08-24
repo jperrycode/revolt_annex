@@ -293,6 +293,17 @@ celery = ">=5.2.7,<6.0"
 Django = ">=3.2.18"
 
 [[package]]
+name = "django-dotenv"
+version = "1.4.2"
+description = "foreman reads from .env. manage.py doesn't. Let's fix that."
+optional = false
+python-versions = "*"
+files = [
+    {file = "django-dotenv-1.4.2.tar.gz", hash = "sha256:3812bb0f4876cf31f902aad140f0645e120e51ee30eb7c40c22050f58a0e4adb"},
+    {file = "django_dotenv-1.4.2-py2.py3-none-any.whl", hash = "sha256:a9b1b40a70bd321acd231926acedb9bd2c5e873e33a1873b34a7276d196a765e"},
+]
+
+[[package]]
 name = "gunicorn"
 version = "21.2.0"
 description = "WSGI HTTP Server for UNIX"
@@ -638,4 +649,4 @@ brotli = ["Brotli"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "f376f53222ff1741afe8644fab767e0da72f849b05d7afe6e98feb0ef98498b4"
+content-hash = "68363f1af8c623e8e0c7b5c6c1a32546f3381da77eba7bd86a788405351b90a8"

@@ -3,17 +3,12 @@ from django.http import HttpResponse
 from django.shortcuts import redirect
 from django.views.generic import TemplateView
 from .models import Music_artist_listing, Visual_artist_listing, Extra_curriucular_listing
-import requests
+
 from .forms import ContactForm
 from django.core.mail import send_mail, BadHeaderError
 from django.conf import settings
 from.signals import contact_form_saved
-import environ
 
-
-
-environ.Env.read_env()
-env = environ.Env(interpolate=True)
 
 
 # Define a custom signal
@@ -69,31 +64,31 @@ class AnnexHomeView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        google_api_key = env.str('PROXY_GOOGLE')
+        # google_api_key = env.str('PROXY_GOOGLE')
 
-        nearby_params = {
-            "rankby": "prominence",
-            "location": "36.4107818,-105.5711364",
-            "radius": "1500",
-            "type": "bar",
-            "key": google_api_key,
-        }
-        nearby_api_url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json"
-        nearby_data = requests.get(nearby_api_url, params=nearby_params).json()
+        # nearby_params = {
+        #     "rankby": "prominence",
+        #     "location": "36.4107818,-105.5711364",
+        #     "radius": "1500",
+        #     "type": "bar",
+        #     "key": google_api_key,
+        # }
+        # nearby_api_url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json"
+        # nearby_data = requests.get(nearby_api_url, params=nearby_params).json()
 
-        place_ids = [result["place_id"] for result in nearby_data.get("results", [])]
+        # place_ids = [result["place_id"] for result in nearby_data.get("results", [])]
 
-        def get_place_info(place_id):
-            response = requests.get(f"https://maps.googleapis.com/maps/api/place/details/json", params={"place_id": place_id, "key": google_api_key})
-            return response.json()
+        # def get_place_info(place_id):
+        #     response = requests.get(f"https://maps.googleapis.com/maps/api/place/details/json", params={"place_id": place_id, "key": google_api_key})
+        #     return response.json()
 
-        bars = ['bar1', 'bar2', 'bar3']
-        bar_nearby_data_context = {
-            bar: get_place_info(place_id)
-            for bar, place_id in zip(bars, place_ids[:3])
-        }
+        # bars = ['bar1', 'bar2', 'bar3']
+        # bar_nearby_data_context = {
+        #     bar: get_place_info(place_id)
+        #     for bar, place_id in zip(bars, place_ids[:3])
+        # }
 
-        place_image_list = [place_image_value for result in nearby_data.get("results", []) for place_image_value in result.get("photos", [])]
+        # place_image_list = [place_image_value for result in nearby_data.get("results", []) for place_image_value in result.get("photos", [])]
 
         context.update({
             'range_reset': [str(i) for i in range(2, 10)],
@@ -103,7 +98,7 @@ class AnnexHomeView(TemplateView):
             # 'bars_nearby': bar_nearby_data_context,
             # 'place_image_list': place_image_list,
             'contact_form': ContactForm(),
-            'api_key': google_api_key,
+            # 'api_key': google_api_key,
         })
         return context
 
