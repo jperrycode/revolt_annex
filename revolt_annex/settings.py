@@ -15,7 +15,7 @@ from pathlib import Path
 import os
 import dotenv
 dotenv_path = os.path.join(os.path.dirname(__file__), '.env')
-dotenv.read_dotenv(dotenv_path)
+dotenv.load_dotenv(dotenv_path)
 
 
 
@@ -112,7 +112,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': str(os.getenv('DB_NAME')),
         'USER': str(os.getenv('DB_USER')),
-        'PASSWORD': str(os.getenv('DB_PASSWORD')),
+        'PASSWORD': '',
         'HOST': str(os.getenv('DB_HOST')),
         'PORT': '3306',
         'OPTIONS': {'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"},
