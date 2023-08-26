@@ -13,10 +13,9 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 
 import os
-from dotenv import load_dotenv
-
+import dotenv
 dotenv_path = os.path.join(os.path.dirname(__file__), '.env')
-load_dotenv(dotenv_path)
+dotenv.read_dotenv(dotenv_path)
 
 
 
@@ -25,7 +24,7 @@ load_dotenv(dotenv_path)
 
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-  
+
 
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
@@ -54,8 +53,8 @@ SECRET_KEY = str(os.getenv('SECRET_KEY'))
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = False
 # DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
-DEBUG = True
-ALLOWED_HOSTS = ['*.pythonanywhere.com','localhost','127.0.0.1']
+DEBUG = False
+ALLOWED_HOSTS = ['justinperryrevolt.pythonanywhere.com','localhost','127.0.0.1']
 
 
 # Application definition
@@ -69,7 +68,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'schedule',
     'django_celery_results',
-    
+
 ]
 
 MIDDLEWARE = [
@@ -112,7 +111,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': str(os.getenv('DB_NAME')),
-        'USER': 'root',
+        'USER': str(os.getenv('DB_USER')),
         'PASSWORD': str(os.getenv('DB_PASSWORD')),
         'HOST': str(os.getenv('DB_HOST')),
         'PORT': '3306',
@@ -158,7 +157,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-MEDIA_URL = '/media/' 
+MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 # Default primary key field type
