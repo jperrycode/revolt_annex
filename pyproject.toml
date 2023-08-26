@@ -2,7 +2,7 @@
 name = "django"
 version = "4.2.1"
 description = ""
-authors = ["Your Name <you@example.com>"]
+authors = ["Justin Perry taos.haus.thumps@gmail.com"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
@@ -32,6 +32,7 @@ whitenoise = "^6.5.0"
 mysqlclient = "^2.2.0"
 pymysql = "^1.1.0"
 django-dotenv = "^1.4.2"
+
 
 
 [build-system]
