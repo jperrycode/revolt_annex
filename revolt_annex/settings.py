@@ -53,7 +53,7 @@ SECRET_KEY = str(os.getenv('SECRET_KEY'))
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = False
 # DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
-DEBUG = False
+DEBUG = True
 ALLOWED_HOSTS = ['justinperryrevolt.pythonanywhere.com','localhost','127.0.0.1']
 
 
