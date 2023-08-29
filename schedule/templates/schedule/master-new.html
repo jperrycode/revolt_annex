@@ -18,7 +18,7 @@ Gallery {% endblock %}
        <section id="hero" class="slide active">
     <div class="hero-container" data-aos="zoom-in" data-aos-delay="100">  
       <h1 class="mb-4 pb-0">
-        Revolt Gallery<br><span> Performing Arts</span>
+        Revolt Art Gallery<br><span>Reset Performing Arts</span>
       </h1>
       <p class="mb-4 pb-0">Where Art Breaks Free from the System</p>
       <a
@@ -338,10 +338,7 @@ Gallery {% endblock %}
                     {{ obj.vis_artist_name }}
                   </h3>
                 <p>
-                  <span class="fw-bold">Info:</span> {{ obj.vis_artist_bio}} this is
-                  some extra text just in case this is some extra text just in
-                  case this is some extra text just in case this is some extra
-                  text just in case this is some extra text just in case
+                  <span class="fw-bold">Info:</span> {{ obj.vis_artist_bio}}
                 </p>
                 <p>
                   <a href="{{ obj.vis_artist_website}}"
@@ -370,7 +367,7 @@ Gallery {% endblock %}
         <div class="text-center p-4">
           <div class="section-header">
             <h2>
-              No Scheduled Instalations <br>
+              No Scheduled Installations <br>
               Contact us with any questions!
             </h2>
           </div>
@@ -394,15 +391,13 @@ Gallery {% endblock %}
       </div>
 
       <div class="row g-0">
-        <div class="col-lg-6 venue-map">
+        <div class="col-lg-6 venue-info" style="background: url('{% static 'schedule/img/img-new/reset/IMG_2674.jpeg' %}') top center no-repeat !important;" >
              <div class="row justify-content-center">
             <div class="col-11 col-lg-8 position-relative">
-              <h3>Look for the Big Metal Bird</h3>
+              <h3>PAST EVENTS</h3>
               <p>
-                Iste nobis eum sapiente sunt enim dolores labore accusantium
-                autem. Cumque beatae ipsam. Est quae sit qui voluptatem corporis
-                velit. Qui maxime accusamus possimus. Consequatur sequi et ea
-                suscipit enim nesciunt quia velit.
+              <a href="https://www.taosrevolt.com/music" target="_blank" class='text-reset'>SINCE 2017, REVOLT HAS HOSTED MANY GALLERY SHOWS, MUSIC EVENTS, AND ART HAPPENINGS. LOCATED IN THE HIGH NEW MEXICO DESERT, REVOLT FLOURISHES IN THE VORTEX OF TAOS, NM AND WOULD BE NOTHING WITHOUT OUR LOCAL ARTIST PARTICIPATION OVER THE YEARS!
+              CLICK THIS BOX TO SEE RESET and REVOLTS PAST EVENTS</a>
               </p>
             </div>
           </div>
@@ -411,12 +406,9 @@ Gallery {% endblock %}
         <div class="col-lg-6 venue-info">
           <div class="row justify-content-center">
             <div class="col-11 col-lg-8 position-relative">
-              <h3>Look for the Big Metal Bird</h3>
+               <h3>FUTURE EVENTS</h3>
               <p>
-                Iste nobis eum sapiente sunt enim dolores labore accusantium
-                autem. Cumque beatae ipsam. Est quae sit qui voluptatem corporis
-                velit. Qui maxime accusamus possimus. Consequatur sequi et ea
-                suscipit enim nesciunt quia velit.
+              <a href="#music-sched" class='text-reset'>REVOLT AND RESET WILL BE PROVIDING A LONG LINE UP OF AMAZING LOCAL AND NON_LOCAL ARTISTS</a>
               </p>
             </div>
           </div>
@@ -429,6 +421,12 @@ Gallery {% endblock %}
       data-aos="fade-up"
       data-aos-delay="100"
     >
+
+ <div class="section-header">
+        <h2>Past Events</h2>
+        <p class="text-uppercase">Past events held at RESET</p>
+      </div>
+
       <div class="row g-0">
         <div class="col-lg-3 col-md-4">
           <div class="venue-gallery">
@@ -497,12 +495,12 @@ Gallery {% endblock %}
         <div class="col-lg-3 col-md-4">
           <div class="venue-gallery">
             <a
-              href="{% static 'schedule/img/img-new/reset/IMG_2548.jpeg' %}"
+              href="{% static 'schedule/img/img-new/reset/IMG_2676.jpeg' %}"
               class="glightbox"
               data-gall="venue-gallery"
             >
               <img
-                src="{% static 'schedule/img/img-new/reset/IMG_2677.jpeg' %}' %}"
+                src="{% static 'schedule/img/img-new/reset/IMG_2676.jpeg' %}"
                 alt=""
                 class="img-fluid"
               />
@@ -513,7 +511,7 @@ Gallery {% endblock %}
         <div class="col-lg-3 col-md-4">
           <div class="venue-gallery">
             <a
-              href="{% static 'schedule/img/img-new/reset/IMG_2548.jpeg' %}"
+              href="{% static 'schedule/img/img-new/reset/IMG_2552.jpeg' %}"
               class="glightbox"
               data-gall="venue-gallery"
             >
@@ -562,7 +560,7 @@ Gallery {% endblock %}
     <!-- reset about and images end -->
 
     <!-- Reset schedule -->
-    <div class="section-header mt-3">
+    <div id="music-sched" class="section-header mt-5">
       <h2>Reset Music</h2>
       <p>Upcoming Shows</p>
     </div>
@@ -666,7 +664,7 @@ Gallery {% endblock %}
 
 
 
-       <div class="carousel-item">
+       <div class="carousel-item mb-5">
       <!-- Start Classes section -->
 
   <section id="speakers" class="slide">
@@ -674,31 +672,80 @@ Gallery {% endblock %}
       <div class="section-header">
         <h2>Reset || Performing Arts</h2>
         <p>Community Classes and Gatherings</p>
+        <p>Revolt and Reset are hosts to weekly classes and workshops provided and lead by local artists, experts or enthusiasts to provide a safe and fun place to practice unique and awesome &nbsp(think of a word here)</p>
       </div>
 
       <div class="row">
         <!-- individual class cards -->
 
-       
+        <div class="text-center">
+        <h3>Weekly Classes</h3>
+      </div>
+
+      {% for class_obj in extra_curricular_listing %}
         <div class="col-lg-4 col-md-6">
           <div class="speaker" data-aos="fade-up" data-aos-delay="100">
             <img
-              src="{% static 'schedule/img/speakers/jperry.jpg' %}"
+              
+              src= "{% static 'schedule/img/speakers/jperry.jpg' %}"
               alt="Speaker 1"
               class="img-fluid"
             />
             <div class="details">
-              <h3><a href="speaker-details.html">Skating</a></h3>
-              <p>DJ This Justin</p>
+              <h3><a href="speaker-details.html">{{ class_obj.class_name }}</a></h3>
+               <p>{{ class_obj.class_day  }} || {{ class_obj.class_time  }}</p>
+              <p>{{ class_obj.class_teacher  }}</p>
+              <p>{{ class_obj.class_location  }}</p>
+              
               <div class="social">
-                <a href=""><i class="bi bi-twitter"></i></a>
-                <a href=""><i class="bi bi-facebook"></i></a>
-                <a href=""><i class="bi bi-instagram"></i></a>
-                <a href=""><i class="bi bi-linkedin"></i></a>
+                <p>{{ class_obj.class_description  }}</p>
+                
               </div>
             </div>
           </div>
         </div>
+  {% endfor %}
+
+              {% comment %} <div class="col-lg-4 col-md-6">
+          <div class="speaker" data-aos="fade-up" data-aos-delay="100">
+            <img
+              
+              src= "{% static 'schedule/img/speakers/jperry.jpg' %}"
+              alt="Speaker 1"
+              class="img-fluid"
+            />
+            <div class="details">
+              <h3><a href="speaker-details.html">{{ extra_curricular_listing.1.class_name }}</a></h3>
+              <p>{{ extra_curricular_listing.1.class_teacher  }}</p>
+              <p>{{ extra_curricular_listing.1.class_description  }}</p>
+              <div class="social">
+                 <p>{{ extra_curricular_listing.1.class_day  }} || {{ extra_curricular_listing.1.class_time  }} {% if class_obj.class_price > 1 %} || {{extra_curricular_listing.1.class_price|floatformat:2 }} {% else %}{%endif%}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+          
+        <div class="col-lg-4 col-md-6">
+          <div class="speaker" data-aos="fade-up" data-aos-delay="100">
+            <img
+              
+              src= "{% static 'schedule/img/speakers/jperry.jpg' %}"
+              alt="Speaker 1"
+              class="img-fluid"
+            />
+            <div class="details">
+              <h3><a href="speaker-details.html">{{ extra_curricular_listing.2.class_name }}</a></h3>
+              <p>{{ extra_curricular_listing.2.class_teacher  }}</p>
+               <p>{{ extra_curricular_listing.2.class_description  }}</p>
+              <div class="social">
+                <p>{{ extra_curricular_listing.2.class_day  }} || {{ extra_curricular_listing.2.class_time  }} || {{extra_curricular_listing.2.class_price|floatformat:2 }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+          
 
        
         <div class="col-lg-4 col-md-6">
@@ -796,20 +843,20 @@ Gallery {% endblock %}
               </div>
             </div>
           </div>
-        </div>
+        </div> 
       </div>
-    </div>
+    </div> {% endcomment %}
 
     <!-- classes schedule -->
 
-    {% comment %} <div role="tabpanel" class="col-lg-9 tab-pane fade" id="day-3"> {% endcomment %}
+    {% comment %} <div role="tabpanel" class="col-lg-9 tab-pane fade" id="day-3">  {% endcomment %}
 
-    <div class="section-header">
+     {% comment %} <div class="section-header">
         <h2>Reset || Special Classes</h2>
         <p>Class Schedule</p>
       </div>
 
-      {% for obj in schedule_extra_curriucular_listing %}
+      {% for obj in extra_curricular_listing %}
       <div class="row schedule-item">
         <div class="col-md-2">
           <time>{{ obj.class_day }} - {{ obj.class_time|time:'g:i'}}</time>
@@ -822,8 +869,7 @@ Gallery {% endblock %}
           <div id="row2change">
             <span
               ><span class="fw-bold">Teacher:</span> {{ obj.class_teacher }} ||
-              <span class="fw-bold">Location:</span> {{ obj.class_location
-              }}</span
+              <span class="fw-bold">Location:</span> {{ obj.class_location}}</span
             >
             <button
               class="btn btn-outline-danger btn-sm ms-2 float-end"
@@ -874,16 +920,16 @@ Gallery {% endblock %}
         <div class="text-center p-4">
           <div class="section-header">
             <h2>
-              No Scheduled Classes <br>
+              Check back for Special Classes <br>
               Contact us with any questions!
             </h2>
           </div>
         </div>
       </div>
 
-      {% endfor %}
+      {% endfor %} {% endcomment %}
     {% comment %} </div> {% endcomment %}
-    <!-- End Schdule Day 2 -->
+    <!-- End Schdule Day 2 --> 
 
     <!-- end classes schedule -->
   </section>
@@ -915,16 +961,13 @@ Gallery {% endblock %}
 
 <main id="main">
   <!-- ======= About Section  Stay ======= -->
-  <section id="about" class="text-center">
-    <div id="about-forward" class="container" data-aos="fade-up">
+  <section id="about" class="">
+    <div id="about-forward" class="" data-aos="fade-up">
       <div class="row">
-           <div class="col-lg-2">
+           <div class="col-lg-6 text-center p-5">
           
-         
-        </div>
-        <div class="col-lg-8">
-          <h2>REVOLT</h2>
-          <p>
+     <h2 class=''>About <span class="text-danger">Revolt</span> Gallery</h2>
+          <p class="fs-5">
             Since our opening in 2017, Taos Revolt Gallery has sought to offer a
             space for local, emerging, and underground artists to be heard in
             the TAOS community. We offer a reflection of New Mexico's unique and
@@ -938,58 +981,51 @@ Gallery {% endblock %}
             all.
           
           </p>
+         <p class="fs-5">
+           Formerly the location of the Hulse-Warman Gallery, Taos Revolt has transformed its historic downtown site into a dynamic, thriving facility for artistic exploration. With unique indoor and outdoor areas, we enjoy hosting a variety of events and exhibits - from small to large scale installations, immersive music, art, performances, and more. Taos Revolt is thrilled to present an ever-changing rotation of exhibits. Come view the art at the gallery, listen to live music, enjoy local food, and be with community.
+          </p>
+          <p class="fs-5">
+          As of 2020, Taos Revolt Gallery renewed its mission to support artists from diverse backgrounds and elevate the voices of Black, Indigenous, People of Color, and LGBTQIA+ people. We seek to build equality through a strong creative community, inclusive of all groups and individuals. Taos Revolt Gallery is committed to artistic and creative freedom for all.          </p>
+
+          </p>
+
+        </div>
+        <div class="col-lg-6 text-center p-5">
+        <div class="">
+        <h2 class="">Owner and Curator</h2>
+        <img class='w-50 img-fluid mx-auto' src="{% static 'schedule/img/speakers/d-steve.jpg' %}" />
+      </div>
+
+       
+     </div> 
         </div>
 
-        <div class="col-lg-2">
-          
-         
-        </div>
+ 
       </div>
 
 
-      <div class="row">
+      {% comment %} <div class="row">
      
 
-        <div class="col-lg-2">
-          
-          
-        </div>
+     
 
-           <div class="col-lg-8">
+           <div class="col-lg-6">
           <h2></h2>
           <p>
            Formerly the location of the Hulse-Warman Gallery, Taos Revolt has transformed its historic downtown site into a dynamic, thriving facility for artistic exploration. With unique indoor and outdoor areas, we enjoy hosting a variety of events and exhibits - from small to large scale installations, immersive music, art, performances, and more. Taos Revolt is thrilled to present an ever-changing rotation of exhibits. Come view the art at the gallery, listen to live music, enjoy local food, and be with community.
           </p>
+          
+As of 2020, Taos Revolt Gallery renewed its mission to support artists from diverse backgrounds and elevate the voices of Black, Indigenous, People of Color, and LGBTQIA+ people. We seek to build equality through a strong creative community, inclusive of all groups and individuals. Taos Revolt Gallery is committed to artistic and creative freedom for all.          </p>
         </div>
-            <div class="col-lg-2">
+            <div class="col-lg-6">
           
          
         </div>
-      </div>
+      </div> {% endcomment %}
 
        
 
-<div class="row">
-     
 
-        <div class="col-lg-2">
-          
-          
-        </div>
-
-           <div class="col-lg-8">
-          
-          <p>
-As of 2020, Taos Revolt Gallery renewed its mission to support artists from diverse backgrounds and elevate the voices of Black, Indigenous, People of Color, and LGBTQIA+ people. We seek to build equality through a strong creative community, inclusive of all groups and individuals. Taos Revolt Gallery is committed to artistic and creative freedom for all.          </p>
-        </div>
-            <div class="col-lg-2">
-          
-         
-        </div>
-      </div>
-
-      
-    </div>
   </section>
   <!-- ======= About Section ======= -->
 
@@ -999,8 +1035,8 @@ As of 2020, Taos Revolt Gallery renewed its mission to support artists from dive
   <section id="venue" class="border">
     <div class="container-fluid" data-aos="fade-up">
       <div class="section-header">
-        <h2>Revolt || Reset Location</h2>
-        <p class="text-uppercase">Downtown Taos</p>
+        <h2>Location</h2>
+        <p class="text-uppercase">We enthusiastically invite you to join us in building this community.</p>
       </div>
 
       <div class="row g-0">
@@ -1016,8 +1052,12 @@ As of 2020, Taos Revolt Gallery renewed its mission to support artists from dive
         <div class="col-lg-6 venue-info">
           <div class="row justify-content-center">
             <div class="col-11 col-lg-8 position-relative">
-              <h3>Look for the Big Metal Bird</h3>
-              <p>We enthusiastically invite you to join us in building this community.</p>
+              <h3>Find the gallery on the NorthSide</h3>
+              <p>Address:<br>
+222 Paseo Del Pueblo Norte, Taos, NM 87571</p>
+<br>
+              <p>The gallery is located in downtown taos nm, walking distance from the plaza and Kit carson park.
+              </p>
             </div>
           </div>
         </div>
@@ -1030,8 +1070,8 @@ As of 2020, Taos Revolt Gallery renewed its mission to support artists from dive
   <section id="speakers">
     <div id="slide-to-insta" class="container" data-aos="fade-up">
       <div class="section-header">
-        <h2>Revolt || Reset</h2>
-        <p>Social media</p>
+        <h2>Social Media</h2>
+        <p>Art Shows, Musical Performances, </p>
       </div>
 
       <div class="row">
@@ -1377,121 +1417,45 @@ As of 2020, Taos Revolt Gallery renewed its mission to support artists from dive
       </div>
 
       <div class="form">
-        <form
-          method="POST"
-          action='{% url "contact_us" %}'
-          role="form"
-          class=""
-        >
-          {% csrf_token %}
-          <div class="row">
-            <p>{{contact_form.non_field_errors }}</p>
-            <div class="form-group col-md-6">
-              <input
-                type="text"
-                name="{{ contact_form.name.name }}"
-                {%
-                if
-                contact_form.name.value
-                !="None"
-                %}
-                value="{{ contact_form.name.value|stringformat:'s' }}"
-                {%
-                endif
-                %}
-                maxlength="{{ contact_form.name.field.max_length }}"
-                class="form-control"
-                id="{{ contact_form.name.name }}"
-                placeholder="Your Name"
-                required
-              />
-            </div>
-            <div class="form-group col-md-6 mt-3 mt-md-0">
-              <input
-                type="email"
-                name="{{ contact_form.email.name }}"
-                {%
-                if
-                contact_form.email.value
-                !="None"
-                %}
-                value="{{ contact_form.email.value|stringformat:'s' }}"
-                {%
-                endif
-                %}
-                maxlength="{{ contact_form.email.field.max_length }}"
-                class="form-control"
-                id="{{ contact_form.email.name }}"
-                placeholder="Your Email"
-                required
-              />
-            </div>
-          </div>
-          <div class="form-group mt-3">
-            <input
-              type="text"
-              name="{{ contact_form.subject.name }}"
-              {%
-              if
-              contact_form.subject.value
-              !="None"
-              %}
-              value="{{ contact_form.subject.value|stringformat:'s' }}"
-              {%
-              endif
-              %}
-              maxlength="{{ contact_form.subject.field.max_length }}"
-              class="form-control"
-              id="{{ contact_form.subject.name }}"
-              placeholder="Subject"
-              required
-            />
-          </div>
-          <div class="form-group mt-3">
-            <textarea
-              id="{{ contact_form.message.name }}"
-              class="form-control"
-              name="{{ contact_form.message.name }}"
-              {%
-              if
-              contact_form.message.value
-              !="None"
-              %}
-              value="{{ contact_form.message.value|stringformat:'s' }}"
-              {%
-              endif
-              %}
-              rows="5"
-              placeholder="Message"
-              required
-            ></textarea>
-          </div>
-          <!-- Checkbox -->
-          <div class="form-check mt-3">
-            <input
-              type="checkbox"
-              class="form-check-input"
-              id="emailConsentCheckbox"
-              name="{{ contact_form.email_consent.name }}"
-              {%
-              if
-              contact_form.email_consent.value
-              %}
-              checked{%
-              endif
-              %}
-            />
-            <label class="form-check-label" for="emailConsentCheckbox"
-              >Subscribe to Email Updates</label
-            >
-          </div>
-          <!-- ENDCheckbox -->
-          <div class="text-center mt-3">
-            <button type="submit" class="btn btn-outline-danger">
-              Send Message
-            </button>
-          </div>
-        </form>
+        <form method="POST" action='{% url "contact_us" %}' role="form" class="">
+  {% csrf_token %}
+  <div class="row">
+    <p>{{ contact_form.non_field_errors }}</p>
+    <div class="form-group col-md-6">
+      <input type="text" name="{{ contact_form.name.name }}" {% if contact_form.name.value is not None %}
+        value="{{ contact_form.name.value|stringformat:'s' }}" {% endif %}
+        maxlength="{{ contact_form.name.field.max_length }}" class="form-control" id="{{ contact_form.name.name }}"
+        placeholder="Your Name" required />
+    </div>
+    <div class="form-group col-md-6 mt-3 mt-md-0">
+      <input type="email" name="{{ contact_form.email.name }}" {% if contact_form.email.value is not None %}
+        value="{{ contact_form.email.value|stringformat:'s' }}" {% endif %}
+        maxlength="{{ contact_form.email.field.max_length }}" class="form-control" id="{{ contact_form.email.name }}"
+        placeholder="Your Email" required />
+    </div>
+  </div>
+  <div class="form-group mt-3">
+    <input type="text" name="{{ contact_form.subject.name }}" {% if contact_form.subject.value is not None %}
+      value="{{ contact_form.subject.value|stringformat:'s' }}" {% endif %}
+      maxlength="{{ contact_form.subject.field.max_length }}" class="form-control" id="{{ contact_form.subject.name }}"
+      placeholder="Subject" required />
+  </div>
+  <div class="form-group mt-3">
+    <textarea id="{{ contact_form.message.name }}" class="form-control" name="{{ contact_form.message.name }}" 
+    {% if contact_form.message.value is not None %} value="{{ contact_form.message.value|stringformat:'s' }}" {% endif %}
+      rows="5" placeholder="Message" required></textarea>
+  </div>
+  <!-- Checkbox -->
+  <div class="form-check mt-3">
+    <input type="checkbox" class="form-check-input" id="emailConsentCheckbox"
+      name="{{ contact_form.email_consent.name }}" {% if contact_form.email_consent.value %} checked{% endif %} />
+    <label class="form-check-label" for="emailConsentCheckbox">Subscribe to Email Updates</label>
+  </div>
+  <!-- ENDCheckbox -->
+  <div class="text-center mt-3">
+    <button type="submit" class="btn btn-outline-danger">Send Message</button>
+  </div>
+</form>
 
         <!-- END HTMX FORM -->
       </div>

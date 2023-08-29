@@ -11,21 +11,21 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-import environ
-import os
 
-environ.Env.read_env()
+import os
+import dotenv
+dotenv_path = os.path.join(os.path.dirname(__file__), '.env')
+dotenv.load_dotenv(dotenv_path)
+
+
 
 
 
 
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-env = environ.Env(
-DEBUG=(bool, False)
-)
-    
-# environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+
+
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 SESSION_COOKIE_SECURE = True
@@ -48,13 +48,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env('SECRET_KEY')
+SECRET_KEY = str(os.getenv('SECRET_KEY'))
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = False
 # DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 DEBUG = True
-ALLOWED_HOSTS = ['*.vercel.app','domain.com','localhost','127.0.0.1']
+ALLOWED_HOSTS = ['justinperryrevolt.pythonanywhere.com','localhost','127.0.0.1']
 
 
 # Application definition
@@ -68,7 +68,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'schedule',
     'django_celery_results',
-    
+
 ]
 
 MIDDLEWARE = [
@@ -110,10 +110,10 @@ WSGI_APPLICATION = 'revolt_annex.wsgi.app'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': env('DB_NAME'),
-        'USER': 'root',
+        'NAME': str(os.getenv('DB_NAME')),
+        'USER': str(os.getenv('DB_USER')),
         'PASSWORD': '',
-        'HOST': '127.0.0.1',
+        'HOST': str(os.getenv('DB_HOST')),
         'PORT': '3306',
         'OPTIONS': {'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"},
     }
@@ -155,9 +155,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = 'staticfiles/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-MEDIA_URL = '/media/' 
+MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 # Default primary key field type
@@ -181,5 +181,5 @@ EMAIL_USE_TLS = True
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
 EMAIL_HOST_USER = "taos.haus.thumps@gmail.com"
-EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
+EMAIL_HOST_PASSWORD = str(os.getenv('EMAIL_HOST_PASSWORD'))
 DEFAULT_FROM_EMAIL = 'taos.haus.thumps@gmail.com'
