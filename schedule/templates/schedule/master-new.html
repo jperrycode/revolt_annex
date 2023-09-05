@@ -32,7 +32,7 @@ Gallery {% endblock %}
     </div>
 
     <!-- gallery slider -->
-    <div class="carousel-item">
+  <div class="carousel-item">
        <section id="gallery" class="slide" >
     <!-- header Gallery Section -->
     <div class="container mt-5" data-aos="fade-up">
@@ -41,130 +41,107 @@ Gallery {% endblock %}
         <p>Check our gallery from the recent events</p>
       </div>
       <!--  current show Gallery Section -->
-      <div class="current-art-show">
-        <div class="row">
-          <div class="col-lg text-center p-4"></div>
-          <div
-            class="col-lg-8 text-center p-2 border-bottom border-danger border-3"
-          >
-            <h3>Current Show</h3>
-            <p class="">
-              Current Artist Name and information will go here
-            </p>
-          </div>
-          <div class="col-lg text-center p-4"></div>
-        </div>
-
-        <div class="gallery-slider swiper">
-          <div class="swiper-wrapper align-items-center">
-            <div
-              class="swiper-slide square-contain"
-              data-swiper-autoplay="2700"
-            >
-              <a
-                href="{% static 'schedule/img/img-new/img-square/clark shot cropped.jpg' %}"
-                class="gallery-lightbox"
-                ><img
-                  src="{% static 'schedule/img/img-new/img-square/clark shot cropped.jpg' %}"
-                  class="img-fluid"
-                  alt=""
-              /></a>
-            </div>
-            <div
-              class="swiper-slide square-contain"
-              data-swiper-autoplay="2700"
-            >
-              <a
-                href="{% static 'schedule/img/img-new/img-square/hoff cropped.jpg' %}"
-                class="gallery-lightbox"
-                ><img
-                  src="{% static 'schedule/img/img-new/img-square/hoff cropped.jpg' %}"
-                  class="img-fluid"
-                  alt=""
-              /></a>
-            </div>
-            <div
-              class="swiper-slide square-contain"
-              data-swiper-autoplay="2700"
-            >
-              <a
-                href="{% static 'schedule/img/img-new/img-square/clark 2 crop.jpg' %}"
-                class="gallery-lightbox"
-                ><img
-                  src="{% static 'schedule/img/img-new/img-square/clark 2 crop.jpg' %}"
-                  class="img-fluid"
-                  alt=""
-              /></a>
-            </div>
-            <div
-              class="swiper-slide square-contain"
-              data-swiper-autoplay="2700"
-            >
-              <a
-                href="{% static 'schedule/img/img-new/img-square/clark opening.jpeg' %}"
-                class="gallery-lightbox"
-                ><img
-                  src="{% static 'schedule/img/img-new/img-square/clark opening.jpeg' %}"
-                  class="img-fluid"
-                  alt=""
-              /></a>
-            </div>
-            <div
-              class="swiper-slide square-contain"
-              data-swiper-autoplay="2700"
-            >
-              <a
-                href="{% static 'schedule/img/img-new/img-square/ext view.jpeg' %}"
-                class="gallery-lightbox"
-                ><img
-                  src="{% static 'schedule/img/img-new/img-square/ext view.jpeg' %}"
-                  class="img-fluid"
-                  alt=""
-              /></a>
-            </div>
-            <div
-              class="swiper-slide square-contain"
-              data-swiper-autoplay="2700"
-            >
-              <a
-                href="{% static 'schedule/img/img-new/img-square/DSC_.7011.jpg' %}"
-                class="gallery-lightbox"
-                ><img
-                  src="{% static 'schedule/img/img-new/img-square/dsc_7011.jpg' %}"
-                  class="img-fluid"
-                  alt=""
-              /></a>
-            </div>
-            <div
-              class="swiper-slide square-contain"
-              data-swiper-autoplay="2700"
-            >
-              <a
-                href="{% static 'schedule/img/img-new/img-square/img_5848.jpg' %}"
-                class="gallery-lightbox"
-                ><img
-                  src="{% static 'schedule/img/img-new/img-square/img_5848.jpg' %}"
-                  class="img-fluid"
-                  alt=""
-              /></a>
-            </div>
-            <div
-              class="swiper-slide square-contain"
-              data-swiper-autoplay="2700"
-            >
-              <a
-                href="{% static 'schedule/img/img-new/img-square/JWAnderson_Unfurl_2023.jpg' %}"
-                class="gallery-lightbox"
-                ><img
-                  src="{% static 'schedule/img/img-new/img-square/JWAnderson_Unfurl_2023.jpg' %}"
-                  class="img-fluid"
-                  alt=""
-              /></a>
-            </div>
-          </div>
-          <div class="swiper-pagination"></div>
-        </div>
+        <!-- new show Gallery Section -->
+<div class="previous-art-show mt-3">
+    <div class="row">
+      <div class="col-lg text-center p-4"></div>
+      <div
+        class="col-lg-8 text-center p-2 border-bottom border-danger border-3"
+      >
+        <h3>Current Show</h3>
+        <p class="">Joerael Numina (b. 1980, San Angelo, Texas)</p>
       </div>
+      <div class="col-lg text-center p-4"></div>
+    </div>
+
+    <div class="gallery-slider swiper">
+      <div class="swiper-wrapper align-items-center">
+        <div class="swiper-slide square-contain">
+          <a
+            href="{% static 'schedule/img/img-new/joerael1.jpeg' %}"
+            class="gallery-lightbox"
+            ><img
+              src="{% static 'schedule/img/img-new/joerael1.jpeg' %}"
+              class="img-fluid"
+              alt=""
+          /></a>
+        </div>
+        <div class="swiper-slide square-contain">
+          <a
+            href="{% static 'schedule/img/img-new/joerael2.jpeg' %}"
+            class="gallery-lightbox"
+            ><img
+              src="{% static 'schedule/img/img-new/joerael2.jpeg' %}"
+              class="img-fluid"
+              alt=""
+          /></a>
+        </div>
+        <div class="swiper-slide square-contain">
+          <a
+            href="{% static 'staticfiles/schedule/img/img-new/joerael3.jpeg' %}"
+            class="gallery-lightbox"
+            ><img
+              src="{% static 'schedule/img/img-new/joerael3.jpeg' %}"
+              class="img-fluid"
+              alt=""
+          /></a>
+        </div>
+        <div class="swiper-slide square-contain">
+          <a
+            href="{% static 'schedule/img/img-new/joerael4.jpeg' %}"
+            class="gallery-lightbox"
+            ><img
+              src="{% static 'schedule/img/img-new/joerael4.jpeg' %}"
+              class="img-fluid"
+              alt=""
+          /></a>
+        </div>
+        <div class="swiper-slide square-contain">
+          <a
+            href="{% static 'schedule/img/img-new/Landcestor_Flyer.jpg' %}"
+            class="gallery-lightbox"
+            ><img
+              src="{% static 'schedule/img/img-new/Landcestor_Flyer.jpg' %}"
+              class="img-fluid"
+              alt=""
+          /></a>
+        </div>
+        <div class="swiper-slide square-contain">
+          <a
+            href="{% static 'schedule/img/img-new/Joerael Numina Headshot.jpg' %}"
+            class="gallery-lightbox"
+            ><img
+              src="{% static 'schedule/img/img-new/Joerael Numina Headshot.jpg' %}"
+              class="img-fluid"
+              alt=""
+          /></a>
+        </div>
+        {% comment %} <div class="swiper-slide square-contain">
+          <a
+            href="{% static 'schedule/img/img-new/img-square/img_5848.jpg' %}"
+            class="gallery-lightbox"
+            ><img
+              src="{% static 'schedule/img/img-new/img-square/img_5848.jpg' %}"
+              class="img-fluid"
+              alt=""
+          /></a>
+        </div> {% endcomment %}
+        {% comment %} <div class="swiper-slide square-contain">
+          <a
+            href="{% static 'schedule/img/img-new/img-square/JWAnderson_Unfurl_2023.jpg' %}"
+            class="gallery-lightbox"
+            ><img
+              src="{% static 'schedule/img/img-new/img-square/JWAnderson_Unfurl_2023.jpg' %}"
+              class="img-fluid"
+              alt=""
+          /></a>
+        </div> {% endcomment %}
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+    <!-- End previous show Gallery Section -->
+  </div>
+  <!-- end new gallery show section --> 
       <!-- End current show Gallery Section -->
 
       <!-- previous show Gallery Section -->
