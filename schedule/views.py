@@ -7,6 +7,10 @@ from .forms import ContactForm
 from django.core.mail import send_mail, BadHeaderError
 from django.conf import settings
 from.signals import contact_form_saved
+import os
+import requests
+import vimeo
+import json
 
 
 
@@ -58,25 +62,90 @@ class ContactUsView(View):
 
 
 
+# class AnnexHomeView(TemplateView):
+#     template_name = 'schedule/master-new.html'
+#     videos_data = []
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         vimeo_client_id = str(os.getenv('VIMEO_CLIENT_ID'))
+#         vimeo_secret = str(os.getenv('VIMEO_SECRET'))
+#         vimeo_token = str(os.getenv('VIMEO_ACCESS_TOKEN'))
+
+#         vimeo_auth_url = 'https://api.vimeo.com/oauth/authorize/client'
+#         auth_data = {
+#             'grant_type': 'client_credentials',
+#             'scope': 'private',
+#                     }
+#         auth_response = requests.post(vimeo_auth_url, data=auth_data, auth=(vimeo_client_id, vimeo_secret))
+#         vimeo_token = auth_response.json()['access_token']
+#         video_url = 'https://api.vimeo.com/me/videos'
+#         headers = {'Authorization': f'Bearer {vimeo_token}',}
+
+#         vimeo_response = requests.get(video_url, headers=headers)
+        
+#         if vimeo_response.status_code == 200:
+#             videos_data = vimeo_response.json()
+#             print(videos_data)
+#         else:
+#             print(f"Failed to fetch videos. Status code: {vimeo_response.status_code}")
+
+ 
+
+
+#         context.update({
+#             'range_reset': [str(i) for i in range(2, 10)],
+#             'show_listing': Music_artist_listing.objects.all().order_by('show_date').values(),
+#             'gallery_listing': Visual_artist_listing.objects.all().values(),
+#             'extra_curricular_listing': Extra_curriucular_listing.objects.all().values(),
+#             'vimeo_video_data': videos_data,
+#             'contact_form': ContactForm(),
+            
+#         })
+#         return context
+
+
+
+
+
+
+
 class AnnexHomeView(TemplateView):
     template_name = 'schedule/master-new.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        
-
-    
-
-        context.update({
-            'range_reset': [str(i) for i in range(2, 10)],
-            'show_listing': Music_artist_listing.objects.all().order_by('show_date').values(),
-            'gallery_listing': Visual_artist_listing.objects.all().values(),
-            'extra_curricular_listing': Extra_curriucular_listing.objects.all().values(),
-          
-            'contact_form': ContactForm(),
-            
-        })
+        context['range_reset'] = [str(i) for i in range(2, 10)]
+        context['gallery_listing'] = Visual_artist_listing.objects.all().values()
+        context['extra_curricular_listing'] = Extra_curriucular_listing.objects.all().values()
+        context['vimeo_video_data'] = self.get_vimeo_videos()
+        context['contact_form'] = ContactForm()
+        context['music_artist_listing'] = Music_artist_listing.objects.all().values()
         return context
+
+    def get_vimeo_videos(self):
+        vimeo_token = str(os.getenv('VIMEO_ACCESS_TOKEN'))  # Replace with your Vimeo access token
+
+        try:
+            # Initialize the Vimeo client with the provided access token
+            client = vimeo.VimeoClient(
+                token=vimeo_token,
+            )
+
+            # Use the client to make API requests
+            videos_data = client.get('/me/videos')
+            videos_context = videos_data.json()
+            
+            # with open('vimeo_data.json', 'w', encoding='utf-8') as f:
+            #     json.dump(videos_context, f, indent=4)
+
+            return videos_context
+        except Exception as e:
+            print(f"Failed to fetch Vimeo videos. Error: {str(e)}")
+
+        return []
+
+
+
 
 
 # class ArchiveView(TemplateView):

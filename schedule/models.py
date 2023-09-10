@@ -54,7 +54,7 @@ class Visual_artist_listing(models.Model):
   vis_artist_medium = models.CharField(max_length=255, default='')
   vis_show_date_start = models.DateField(auto_now=False, auto_now_add=False)
   vis_show_date_end = models.DateField(auto_now=False, auto_now_add=False)
-  vis_artist_bio = models.CharField(max_length=255, default='', blank=True, null=False)
+  vis_artist_bio = models.TextField(default='', blank=True, null=False)
   vis_artist_website = models.CharField(max_length=255, blank=True, null=True)
   vis_entry_price = models.FloatField(null=True, blank=True)
   age_restriction = models.BooleanField(default=False)
@@ -143,3 +143,13 @@ class Archivedshowimagedata(models.Model):
 class Archiveimagefiles(models.Model):
    archive_image = models.ImageField(upload_to="media/")
    archive_fk = models.ForeignKey(Archivedshowimagedata, on_delete=models.CASCADE)
+
+
+class VimeoVideo(models.Model):
+    video_id = models.CharField(max_length=255, unique=True)
+    title = models.CharField(max_length=255)
+    description = models.TextField()
+    # Add other fields as needed
+
+    def __str__(self):
+        return self.title

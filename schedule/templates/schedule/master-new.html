@@ -6,7 +6,7 @@ Gallery {% endblock %}
 
 
 <div id="sections-move">
-  <div id="carousel-id" class="carousel slide">
+  <div id="carousel-id" class="carousel slide carousel-fade">
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#carousel-id" data-bs-slide-to="0" class="active bg-danger caro-button-change" aria-current="true" aria-label="Slide 1"></button>
     <button type="button" data-bs-target="#carousel-id" data-bs-slide-to="1" class="bg-danger caro-button-change" aria-label="Slide 2"></button>
@@ -48,14 +48,29 @@ Gallery {% endblock %}
       <div
         class="col-lg-8 text-center p-2 border-bottom border-danger border-3"
       >
-        <h3>Current Show</h3>
-        <p class="">Joerael Numina (b. 1980, San Angelo, Texas)</p>
+        <h3>Current Show - Joerael Numina</h3>
+       
+       <!-- Button to trigger the modal -->
+<button id="openModalBtn" class='btn btn-outline-danger mb-3'>More About Joerael</button>
       </div>
       <div class="col-lg text-center p-4"></div>
     </div>
 
+ 
+
     <div class="gallery-slider swiper">
       <div class="swiper-wrapper align-items-center">
+
+          <div class="swiper-slide square-contain">
+          <a
+            href="{% static 'schedule/img/img-new/Joerael Numina Headshot.jpg' %}"
+            class="gallery-lightbox"
+            ><img
+              src="{% static 'schedule/img/img-new/Joerael Numina Headshot.jpg' %}"
+              class="img-fluid"
+              alt=""
+          /></a>
+        </div>
         <div class="swiper-slide square-contain">
           <a
             href="{% static 'schedule/img/img-new/joerael1.jpeg' %}"
@@ -78,7 +93,7 @@ Gallery {% endblock %}
         </div>
         <div class="swiper-slide square-contain">
           <a
-            href="{% static 'staticfiles/schedule/img/img-new/joerael3.jpeg' %}"
+            href="{% static 'schedule/img/img-new/joerael3.jpeg' %}"
             class="gallery-lightbox"
             ><img
               src="{% static 'schedule/img/img-new/joerael3.jpeg' %}"
@@ -106,16 +121,7 @@ Gallery {% endblock %}
               alt=""
           /></a>
         </div>
-        <div class="swiper-slide square-contain">
-          <a
-            href="{% static 'schedule/img/img-new/Joerael Numina Headshot.jpg' %}"
-            class="gallery-lightbox"
-            ><img
-              src="{% static 'schedule/img/img-new/Joerael Numina Headshot.jpg' %}"
-              class="img-fluid"
-              alt=""
-          /></a>
-        </div>
+    
         {% comment %} <div class="swiper-slide square-contain">
           <a
             href="{% static 'schedule/img/img-new/img-square/img_5848.jpg' %}"
@@ -144,6 +150,30 @@ Gallery {% endblock %}
   <!-- end new gallery show section --> 
       <!-- End current show Gallery Section -->
 
+<!-- Modal (dialog) learn more -->
+<dialog id="myModal">
+    <div class='background-image'>
+        <div class="text-center"><h2 class="text-danger">Joerael Numina (b. 1980, San Angelo, Texas)</h2> </div>
+        <div class='background-image-small'>
+        <div class="text-secondary">
+        <p>Internationally acclaimed, Albuquerque-based artist activator Guest, has been dedicated to creating art that inspires awareness. Joerael is an activator, muralist, portrait artist, visual artist, tattoo artist and frequent lecturer.</p>
+        <p>A visionary disruptor and art entrepreneur, Joerael is the founder of Mobilize Walls, he was the first artist in residence at the Santa Fe Institute, and was recently commissioned by Sky Railway to paint an exterior mural on a train consist.</p>
+        <p>A self-taught artist, Joerael’s fascination with decoding art came to the fore when watching the fall of the Berlin Wall on his television set as a nine-year-old boy—fully captivated by the graffiti, letters and names of the wall.</p>
+        <p>Joerael Numina’s solo show colorfully captures his personal life experiences into a poetic, rhythmic memory. Landcestor, is an exploration of new images rendered as relations to the land.</p>
+        <p>Joerael expresses this moment of color as an invitation to crumble like a cliff face after rainfall, to roar like a river running wide, and to crack open like a volcano blowing out of a mountain side.</p>
+        <p>The yearly scholarship supports cost of materials for New Mexico artists to show their work at a gallery. Revolt is happy to be working in conjunction with Arroyo Seco Live to provide opportunities to NM based artists. 
+</p>
+     </div> 
+        </div>
+        <div class="text-center mb-4">
+        <button id="closeModalBtn" class='btn btn-outline-danger btn-lg'>Back</button>
+        </div>
+    </div>
+</dialog>
+
+
+
+
       <!-- previous show Gallery Section -->
       <div class="previous-art-show mt-3">
         <div class="row">
@@ -151,8 +181,8 @@ Gallery {% endblock %}
           <div
             class="col-lg-8 text-center p-2 border-bottom border-danger border-3"
           >
-            <h3>Past Show</h3>
-            <p class="">Previous artist information goes here</p>
+            <h3>Past Show - Clark Stoeckley</h3>
+            <p class="">Summer Artist-in-Residence, Clark Stoeckley’s new solo show “Thinking & Praying” will feature seventy-two of his vibrant abstract ink and colored pencil drawings. Clark has painted murals at Revolt and around Taos for the past three summers.</p>
           </div>
           <div class="col-lg text-center p-4"></div>
         </div>
@@ -242,24 +272,97 @@ Gallery {% endblock %}
           </div>
           <div class="swiper-pagination"></div>
         </div>
-        <!-- End previous show Gallery Section -->
+       
       </div>
+       <!-- End previous show Gallery Section -->
       <!-- end gallery show section -->
 
-      <!-- gallery schedule -->
+
+      <!-- hut out front -->
+      <div class='hut-out-front mt-3'>
+<div class="section-header">
+        <h2>The Hut Out Front - 2023 Installation</h2>
+        <p class="text-uppercase">“Vulnerability” by Laura Feierman </p>
+      </div>
+<div class='row'>
+<p>
+Laura Feierman is an interdisciplinary artist that resides and practices out of New Mexico. Laura integrates beauty, identity and personal experiences into 3 dimensional sculpture installments. She is a Summa Cum Laude graduate from the University of New Mexico with a BFA in Studio Art/Sculpture.
+</p>
+
+</div>
+<div class="row gx-2">
+     <div class="col-lg-4 col-md-4 text-center">
+          <div class="venue-gallery p-5">
+            <a
+              href="{% static 'schedule/img/img-new/laura_hut_1_9by16.jpg' %}"
+              class="glightbox"
+              data-gall="venue-gallery"
+            >
+              <img
+                src="{% static 'schedule/img/img-new/laura_hut_1_9by16.jpg' %}"
+                alt=""
+                class="img-fluid"
+              />
+            </a>
+
+            
+          </div>
+        </div>
+<div class="col-lg-4 col-md-4">
+      <div class="venue-gallery p-5">
+            <a
+              href="{% static 'schedule/img/img-new/laura_artist_9by16.jpg' %}"
+              class="glightbox"
+              data-gall="venue-gallery"
+            >
+              <img
+                src="{% static 'schedule/img/img-new/laura_artist_9by16.jpg' %}"
+                alt=""
+                class="img-fluid"
+              />
+            </a>
+          </div>
+
+
+</div>
+    <div class="col-lg-4 col-md-4">
+          <div class="venue-gallery p-5">
+            <a
+              href="{% static 'schedule/img/img-new/laura_hut_2_9by16.jpg' %}"
+              class="glightbox"
+              data-gall="venue-gallery"
+            >
+              <img
+                src="{% static 'schedule/img/img-new/laura_hut_2_9by16.jpg' %}"
+                alt=""
+                class="img-fluid"
+              />
+            </a>
+          </div>
+        </div>
+
+</div>
+</div>
+      <!-- end hut out front -->
+
+      {% comment %} <!-- gallery schedule -->
       <div class="section-header">
         <h2>Revolt Gallery Schedule</h2>
         <p>Upcoming Installations</p>
-      </div>
+      </div> {% endcomment %}
 
       
-        {% for obj in gallery_listing|slice:'5' %}
+        {% comment %} {% for obj in gallery_listing|slice:'5' %}
         <div class="row schedule-item">
           <div class="col-md-2">
             <time
-              >{{ obj.vis_show_date_start|date:'M j'}} - {{
-              obj.vis_show_date_end|date:'M j'}}</time
-            >
+              >{{ obj.vis_show_date_start|date:'M j'}} - 
+              {% if obj.vis_show_date_end %}
+              {{obj.vis_show_date_end|date:'M j'}}
+              {% else %}
+              To be Announced
+              {% endif %}
+              </time>
             {% if obj.age_restriction %}
             <p>Over 21 only</p>
             {% else %}
@@ -267,9 +370,10 @@ Gallery {% endblock %}
             {% endif %}
           </div>
           <div class="col-md-10">
-            <div class="speaker">
+            <div class="speaker artist-img border border-2 rounded-circle">
+          
               <img
-                src="/media/{{ obj.visual_artist_image }}"
+                src="{{ obj.vis_image_url }}"
                 alt="{{ obj.vis_artist_name }}"
               />
             </div>
@@ -288,7 +392,7 @@ Gallery {% endblock %}
               More Info
             </button>
           </div>
-          {% endcomment %}
+         
           <div id="row2change">
             <span
               ><span class="fw-bold">Artist-Name:</span> {{ obj.vis_artist_name }}
@@ -334,7 +438,7 @@ Gallery {% endblock %}
               </div>
             </div>
           </dialog>
-        </div>
+        </div> 
       
 
       {% empty %}
@@ -350,7 +454,7 @@ Gallery {% endblock %}
         </div>
       </div>
       {% endfor %}
-    </div>
+    </div>{% endcomment %}
     <!-- End Schdule gallery -->
   </section>
   <!-- End Gallery Section -->
@@ -358,7 +462,7 @@ Gallery {% endblock %}
 
 
 
-    <div class="carousel-item">
+<div class="carousel-item">
     <section id="venue" class="slide">
     <div class="container-fluid mt-5" data-aos="fade-up">
       <div class="section-header">
@@ -404,136 +508,127 @@ Gallery {% endblock %}
       </div>
 
       <div class="row g-0">
-        <div class="col-lg-3 col-md-4">
-          <div class="venue-gallery">
-            <a
-              href="{% static 'schedule/img/img-new/reset/IMG_2674.jpeg' %}"
-              class="glightbox"
-              data-gall="venue-gallery"
-            >
-              <img
-                src="{% static 'schedule/img/img-new/reset/IMG_2674.jpeg' %}"
-                alt=""
-                class="img-fluid"
-              />
-            </a>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-4">
-          <div class="venue-gallery">
-            <a
-              href="{% static 'schedule/img/img-new/reset/IMG_267.jpeg' %}"
-              class="glightbox"
-              data-gall="venue-gallery"
-            >
-              <img
-                src="{% static 'schedule/img/img-new/reset/IMG_2672.jpeg' %}"
-                alt=""
-                class="img-fluid"
-              />
-            </a>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-4">
-          <div class="venue-gallery">
-            <a
-              href="{% static 'schedule/img/img-new/reset/IMG_2675.jpeg' %}"
-              class="glightbox"
-              data-gall="venue-gallery"
-            >
-              <img
-                src="{% static 'schedule/img/img-new/reset/IMG_2675.jpeg' %}"
-                alt=""
-                class="img-fluid"
-              />
-            </a>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-4">
-          <div class="venue-gallery">
-            <a
-              href="{% static 'schedule/img/img-new/reset/IMG_2676.jpeg' %}"
-              class="glightbox"
-              data-gall="venue-gallery"
-            >
-              <img
-                src="{% static 'schedule/img/img-new/reset/IMG_2676.jpeg' %}"
-                alt=""
-                class="img-fluid"
-              />
-            </a>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-4">
-          <div class="venue-gallery">
-            <a
-              href="{% static 'schedule/img/img-new/reset/IMG_2676.jpeg' %}"
-              class="glightbox"
-              data-gall="venue-gallery"
-            >
-              <img
-                src="{% static 'schedule/img/img-new/reset/IMG_2676.jpeg' %}"
-                alt=""
-                class="img-fluid"
-              />
-            </a>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-4">
-          <div class="venue-gallery">
-            <a
-              href="{% static 'schedule/img/img-new/reset/IMG_2552.jpeg' %}"
-              class="glightbox"
-              data-gall="venue-gallery"
-            >
-              <img
-                src="{% static 'schedule/img/img-new/reset/IMG_2552.jpeg' %}"
-                alt=""
-                class="img-fluid"
-              />
-            </a>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-4">
-          <div class="venue-gallery">
-            <a
-              href="{% static 'schedule/img/img-new/reset/IMG_2679.jpeg' %}"
-              class="glightbox"
-              data-gall="venue-gallery"
-            >
-              <img
-                src="{% static 'schedule/img/img-new/reset/IMG_2679.jpeg' %}"
-                alt=""
-                class="img-fluid"
-              />
-            </a>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-4">
-          <div class="venue-gallery">
-            <a
-              href="{% static 'schedule/img/img-new/reset/IMG_2672.jpeg' %}"
-              class="glightbox"
-              data-gall="venue-gallery"
-            >
-              <img
-                src="{% static 'schedule/img/img-new/reset/IMG_2672.jpeg' %}"
-                alt=""
-                class="img-fluid"
-              />
-            </a>
-          </div>
-        </div>
-      </div>
+<!-- iteration test -->
+  {% for video_data in vimeo_video_data.data|slice:8  %}
+  <div class="col-lg-3 col-md-4">
+  
+    <div class="venue-gallery">
+        <a href="{{ video_data.player_embed_url }}?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" target="_blank">
+            <div class="video-container">
+<iframe src="{{ video_data.player_embed_url }}?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Revolt Gallery New Years 2021"></iframe>                <div class="quote-overlay">
+                    <p class='child-hover'>{{ video_data.name }}</p>
+                </div>
+            </div>
+        </a>
     </div>
-    <!-- reset about and images end -->
+
+</div>
+{% endfor %}
+
+
+<!-- iteration test done-->
+
+
+
+
+{% comment %} <div class="col-lg-3 col-md-4">
+    <div class="venue-gallery">
+        <a href="https://player.vimeo.com/video/511730193?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" target="_blank">
+            <div class="video-container">
+<iframe src="https://player.vimeo.com/video/496080719?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Revolt Gallery New Years 2021"></iframe>                <div class="quote-overlay">
+                    <p class='child-hover'>Miles Bonny and Dirty Sheets <br>New Years 2021</p>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+
+<div class="col-lg-3 col-md-4">
+    <div class="venue-gallery">
+        <a href="https://player.vimeo.com/video/511730193?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" target="_blank">
+            <div class="video-container">
+<iframe src="https://player.vimeo.com/video/511741304?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Girl Wunder's Lunar New Year Gig_Revolt Gallery 2021"></iframe>                <div class="quote-overlay">
+                    <p class='child-hover'>Girl Wunder<br> Lunar New Year 2021</p>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+
+<div class="col-lg-3 col-md-4">
+    <div class="venue-gallery">
+        <a href="https://player.vimeo.com/video/511730193?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" target="_blank">
+            <div class="video-container">
+<iframe src="https://player.vimeo.com/video/525053994?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="St. Patty's Day Poor Man's Blood"></iframe>                <div class="quote-overlay">
+                    <p class='child-hover'>Poor Man's Blood<br>St. Patty's Day 2021</p>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+
+ <div class="col-lg-3 col-md-4">
+    <div class="venue-gallery">
+        <a href="https://player.vimeo.com/video/511730193?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" target="_blank">
+            <div class="video-container">
+<iframe src="https://player.vimeo.com/video/503615713?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Takayo_Halloween 2020_Revolt Gallery_Taos NM"></iframe>                <div class="quote-overlay">
+                    <p class='child-hover'>Takayo - Revolt Gallery<br> Halloween 2020</p>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+
+<div class="col-lg-3 col-md-4">
+    <div class="venue-gallery">
+        <a href="https://player.vimeo.com/video/511730193?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" target="_blank">
+            <div class="video-container">
+                <iframe src="https://player.vimeo.com/video/511730193?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="Wyatt Lawson At Revolt Gallery_Lunar New Year 2021"></iframe>
+                <div class="quote-overlay">
+                    <p class='child-hover'>Wyatt Lawson<br>Lunar New Year 2021</p>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+
+<div class="col-lg-3 col-md-4">
+    <div class="venue-gallery">
+        <a href="https://player.vimeo.com/video/509347943?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" target="_blank">
+            <div class="video-container">
+                <iframe src="https://player.vimeo.com/video/509347943?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="GarryBlackchild_RevoltGallery_Feb2021_02"></iframe>
+                <div class="quote-overlay">
+                    <p class='child-hover'>Gary Blackchild<br>Revolt Gallery 2021</p>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+
+<div class="col-lg-3 col-md-4">
+    <div class="venue-gallery">
+        <a href="https://player.vimeo.com/video/686119738?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" target="_blank">
+            <div class="video-container">
+<iframe src="https://player.vimeo.com/video/686119738?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Klever At Revolt Studios"></iframe>                <div class="quote-overlay">
+                    <p class='child-hover'>Klever<br>Revolt Studios</p>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+
+<div class="col-lg-3 col-md-4">
+    <div class="venue-gallery">
+        <a href="https://player.vimeo.com/video/708471846?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" target="_blank">
+            <div class="video-container">
+                <iframe src="https://player.vimeo.com/video/708471846?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="WiVes WiTh KniVes April28 2022 Coup D'Taos"></iframe>
+                <div class="quote-overlay">
+                    <p class='child-hover'>Wives With Knives<br>Coup D'Taos 2022</p>
+                </div>
+            </div>
+        </a>
+    </div>
+</div> {% endcomment %}
 
     <!-- Reset schedule -->
     <div id="music-sched" class="section-header mt-5">
@@ -541,8 +636,14 @@ Gallery {% endblock %}
       <p>Upcoming Shows</p>
     </div>
 
+
+
+
+
+
+
     
-      {% for obj in show_listing|slice:'5' %}
+      {% comment %} {% for obj in show_listing|slice:'5' %}
 
       <div id="change" class="row schedule-item">
         <div class="col-md-2">
@@ -590,10 +691,7 @@ Gallery {% endblock %}
                   </h3></span
                 >
                 <p>
-                  <span class="fw-bold">Info:</span> {{ obj.artist_bio}} this is
-                  some extra text just in case this is some extra text just in
-                  case this is some extra text just in case this is some extra
-                  text just in case this is some extra text just in case
+                  <span class="fw-bold">Info:</span> {{ obj.artist_bio}} 
                 </p>
                 <p>
                   <span class="fw-bold">Artist Website:</span> {{
@@ -630,10 +728,14 @@ Gallery {% endblock %}
         </div>
       </div>
 
-      {% endfor %}
+      {% endfor %} {% endcomment %}
     
 
     <!-- Reset schedule -->
+
+
+
+    
   </section>
   <!-- End reset Section -->
     </div>
@@ -916,14 +1018,14 @@ Gallery {% endblock %}
 
     <!-- End cards -->
   </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carousel-id" data-bs-slide="prev">
+  {% comment %} <button class="carousel-control-prev" type="button" data-bs-target="#carousel-id" data-bs-slide="prev">
     <span class="carousel-control-prev-icon text-danger" aria-hidden="false"></span>
     <span class="visually-hidden">Previous</span>
   </button>
   <button class="carousel-control-next" type="button" data-bs-target="#carousel-id" data-bs-slide="next">
     <span class="carousel-control-next-icon text-danger" aria-hidden="false"></span>
     <span class="visually-hidden">Next</span>
-  </button>
+  </button> {% endcomment %}
 </div>
 
 
@@ -939,44 +1041,80 @@ Gallery {% endblock %}
   <!-- ======= About Section  Stay ======= -->
   <section id="about" class="">
     <div id="about-forward" class="" data-aos="fade-up">
-      <div class="row">
-           <div class="col-lg-6 p-5">
-          
-     <h2 class='text-center'>About <span class="text-danger">Revolt</span> Gallery</h2>
-          <p class="fs-5">
-            Since our opening in 2017, Taos Revolt Gallery has sought to offer a
-            space for local, emerging, and underground artists to be heard in
-            the TAOS community. We offer a reflection of New Mexico's unique and
-            evolving cultural landscape through Taos' growing local talent,
-            alongside a number of international artists who share our vision. As
-            of 2020, Taos Revolt Gallery renewed its mission to support artists
-            from diverse backgrounds and elevate the voices of Black,
-            Indigenous, People of Color, and LGBTQIA+ people. We seek to build
-            equality through a strong, inclusive and creative community. Taos
-            Revolt Gallery is committed to artistic and creative freedom for
-            all.
-          
-          </p>
-         <p class="fs-5">
-           Formerly the location of the Hulse-Warman Gallery, Taos Revolt has transformed its historic downtown site into a dynamic, thriving facility for artistic exploration. With unique indoor and outdoor areas, we enjoy hosting a variety of events and exhibits - from small to large scale installations, immersive music, art, performances, and more. Taos Revolt is thrilled to present an ever-changing rotation of exhibits. Come view the art at the gallery, listen to live music, enjoy local food, and be with community.
-          </p>
-         
+       <div class="row">
+           <div class="col-lg-6 p-5 text-center">
+            <h2 class='text-center'>About <span class="text-danger">Revolt</span> Gallery</h2>
+            <p class="fs-5">
+                Since our opening in 2017, Taos Revolt Gallery has sought to offer a
+                space for local, emerging, and underground artists to be heard in
+                the TAOS community. We offer a reflection of New Mexico's unique and
+                evolving cultural landscape through Taos' growing local talent,
+                alongside a number of international artists who share our vision. As
+                of 2020, Taos Revolt Gallery renewed its mission to support artists
+                from diverse backgrounds and elevate the voices of Black,
+                Indigenous, People of Color, and LGBTQIA+ people. We seek to build
+                equality through a strong, inclusive and creative community. Taos
+                Revolt Gallery is committed to artistic and creative freedom for
+                all.
+              
+              </p>
+            <p class="fs-5">
+                Formerly the location of the Hulse-Warman Gallery, Taos Revolt has transformed its historic downtown site into a dynamic, thriving facility for artistic exploration. With unique indoor and outdoor areas, we enjoy hosting a variety of events and exhibits - from small to large scale installations, immersive music, art, performances, and more. Taos Revolt is thrilled to present an ever-changing rotation of exhibits. Come view the art at the gallery, listen to live music, enjoy local food, and be with community.
+               </p>
 
         </div>
         <div class="col-lg-6 p-5">
-        <div class="text-center">
-        <h2 class="text-center">Owner and Curator</h2>
-        <img class='w-50 img-fluid mx-auto mt-3' src="{% static 'schedule/img/speakers/d-steve.jpg' %}" />
-         <p class="fs-5 mt-5">
-          Blurb about steve and what he is doing for the Community
-          </p>
-      </div>
+            <div class="text-center">
+                <h2 class="text-center">Curator</h2>
+                <div class="curator-hover">
+                <img class='w-50 img-fluid mx-auto mt-1 border border-danger' src="{% static 'schedule/img/speakers/d-steve.jpg' %}" />
+                </div>
+                <p class="fs-5 mt-3">
+                  Steve McFarland
+                  </p>
+              </div>
+        
 
-       
-     </div> 
+            
         </div>
+        </div>
+        
+        
+        <div class="row">  
+                 <div class="col-lg-6 p-5">
+            <div class="text-center">
+        <h2 class="text-center">Guest Curator</h2>
+        <div class="curator-hover">
+            <div class="image-container">
+                <img class="w-50 img-fluid mx-auto mt-1 border border-danger" src="{% static 'schedule/img/img-new/laurelcurator.webp' %}" alt="Laurel Taylor" />
+                <div class="overlay">
+                    <div class="innertext">
+                        <p class="fs-5">Laurel Taylor, aka Wilde.Ink, is a multidisciplinary artist based in Taos, New Mexico. At her print studio in Arroyo Seco, NM, she hand carves imagery inspired by the surrounding nature, wildlife, and the expanses of the mind and spirit. With Wilde.Ink imagery, Laurel creates apparel and accessories adorned with hand-pulled prints, large-scale hand-dyed and handmade cotton tapestries in meditative patterns, and works on paper.</p>
+                    </div>
+                    <a href="https://www.wildeinkshop.com/artist-bio">
+                        <p class="fs-5 mt-4">Laurel Taylor</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+              
+          </div>
 
- 
+
+
+        <div class="col-lg-6 p-5 text-center" style="vertical-align: middle;">
+            <p class="fs-5 p-2 mt-5">
+As of 2020, Taos Revolt Gallery renewed its mission to support artists from diverse backgrounds and elevate the voices of Black, Indigenous, People of Color, and LGBTQIA+ people. We seek to build equality through a strong creative community, inclusive of all groups and individuals. Taos Revolt Gallery is committed to artistic and creative freedom for all.            
+        </p>
+      <p class="fs-5">
+We enthusiastically invite you to join us in building this community.       
+ </p>
+
+        </div>
+   
+
+        </div>
       </div>
 
 

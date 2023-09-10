@@ -44,6 +44,98 @@
     .highlighted {
       background-color: rgba(6, 12, 34, 0.9); /* Highlight color */
     }
+  .swiper-wrapper {
+  height:auto !important;
+  width:100%;
+}
+/* CSS for the loading overlay */
+.loading-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2; /* Ensure it's above the iframe */
+}
+
+.loading-bar {
+    width: 50%; /* Initial width of the loading bar */
+    height: 20px;
+    background-color: #007BFF; /* Loading bar color */
+}
+
+#videoDialog {
+  width: 80%; /* Adjust the width as needed */
+  max-width: 800px; /* Set a maximum width if desired */
+  height: 80%; /* Adjust the height as needed */
+  max-height: 600px; /* Set a maximum height if desired */
+}
+  #videoDialog iframe {
+    min-height:100%;
+    min-width: 100%;
+  }
+
+
+
+
+  .curator-hover {
+    position: relative;
+}
+
+.image-container {
+    position: relative;
+    max-height: 400px; /* Adjust the height as needed */
+    overflow: hidden;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.image-container:hover img {
+  opacity: .3;
+}
+
+.image-container:hover img {
+    transform: scale(1.1); /* Adjust the scale factor for zoom effect */
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-container:hover .overlay {
+    opacity: 1;
+}
+
+.innertext {
+    padding: 20px;
+    text-align: center;
+}
+
+.overlay a {
+    color: white;
+    text-decoration: underline;
+}
+
   </style>  
 
 
@@ -180,7 +272,37 @@
   });
 </script>
 
+<!-- about current artist script -->
+<script>
+    // Get the modal dialog element
+    const myModal = document.getElementById('myModal');
 
+    // Get the open modal button and add a click event listener
+    const openModalBtn = document.getElementById('openModalBtn');
+    openModalBtn.addEventListener('click', () => {
+        dialog.classList.add('open');
+        myModal.showModal();
+    });
+
+    // Get the close modal button and add a click event listener
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    closeModalBtn.addEventListener('click', () => {
+        dialog.classList.remove('open');
+        myModal.close();
+    });
+
+    // Close the modal when clicking outside the dialog
+    myModal.addEventListener('click', (e) => {
+        if (e.target === myModal) {
+            dialog.classList.remove('open');
+            myModal.close();
+        }
+    });
+</script>
+
+
+
+<script src="https://player.vimeo.com/api/player.js"></script>
 
 
 

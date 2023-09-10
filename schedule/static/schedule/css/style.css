@@ -659,6 +659,21 @@ h6 {
 /*--------------------------------------------------------------
 # About Section
 --------------------------------------------------------------*/
+#myModal {max-width: 60%;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+#myModal.open {
+  opacity: 1;
+
+}
+
+.img-shrink {
+  height: 50%;
+  width: auto;
+}
+
 #about {
   background: url("../img/img-new/dj_about_section.png");
   background-size: cover;
@@ -710,6 +725,14 @@ h6 {
 --------------------------------------------------------------*/
 #speakers {
   padding: 60px 0 30px 0;
+}
+.artist-img {
+  height: 100px;
+  width: 100px;
+}
+.artist-img img {
+  max-width: 100%;
+  height: auto;
 }
 
 #speakers .speaker {
@@ -1001,6 +1024,8 @@ h6 {
   color: #fff;
   margin-bottom: 0;
 }
+
+
 
 
 
@@ -1669,3 +1694,108 @@ h6 {
   font-size: 13px;
   color: #ddd;
 }
+
+
+/* .curator-hover:hover {
+
+  transform: scale(1.05);
+  opacity: .9;
+  transition: 0.7s;
+  
+}
+
+
+
+.curator-hover {
+  transition: all 0.7s ease-in-out;
+} */
+
+/* vimeo */
+
+/* Add this CSS to your stylesheet */
+.video-container {
+  position: relative;
+  padding: 56.25% 0 0 0; /* 16:9 aspect ratio (height:width) for the video iframe */
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.quote-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5); /* Adjust opacity as needed */
+  color: white; /* Text color on the overlay */
+}
+
+.quote-overlay p {
+  font-size: 24px; /* Adjust the font size as needed */
+  text-align: center;
+}
+
+.venue-gallery {
+  position: relative;
+}
+
+.quote-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.child-hover {
+  font-family: 'Octin Spraypaint', sans-serif !important;
+  opacity: .2;
+}
+.video-container:hover {
+  transform: scale(1.1);
+  
+}
+.quote-overlay:hover > p {
+
+  opacity: 1;
+
+}
+
+
+/* .background-image-small {
+  background-image: url('../img/img-new/Landcestor_Flyer.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  color: white;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.background-image::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.0); /* You can adjust the background color and opacity here 
+  z-index: -1;
+} */
+
+.background-image p {
+  font-weight: bold;
+}
+
+
+
