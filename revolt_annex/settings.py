@@ -35,7 +35,8 @@ SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 SECURE_HSTS_PRELOAD = True
 SECURE_CONTENT_TYPE_NOSNIFF = True
 SECURE_BROWSER_XSS_FILTER = True
-X_FRAME_OPTIONS = 'ALLOWALL' 
+X_FRAME_OPTIONS = 'DENY' 
+SECURE_SSL_REDIRECT = True
 
 
 
@@ -54,7 +55,7 @@ SECRET_KEY = str(os.getenv('SECRET_KEY'))
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = False
 # DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
-DEBUG = True
+DEBUG = False
 ALLOWED_HOSTS = ['justinperryrevolt.pythonanywhere.com','localhost','127.0.0.1']
 
 
