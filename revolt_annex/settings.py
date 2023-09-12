@@ -26,7 +26,7 @@ SECURE_HSTS_PRELOAD = True
 SECURE_CONTENT_TYPE_NOSNIFF = True
 SECURE_BROWSER_XSS_FILTER = True
 X_FRAME_OPTIONS = 'DENY' 
-SECURE_SSL_REDIRECT = True
+# SECURE_SSL_REDIRECT = False
 
 
 
@@ -46,7 +46,7 @@ SECRET_KEY = str(os.getenv('SECRET_KEY'))
 # DEBUG = False
 # DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 DEBUG = False
-ALLOWED_HOSTS = ['justinperryrevolt.pythonanywhere.com','localhost','127.0.0.1']
+ALLOWED_HOSTS = ['revolt.on.dockerize.io','localhost','127.0.0.1']
 
 
 # Application definition

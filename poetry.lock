@@ -834,22 +834,6 @@ files = [
 ]
 
 [[package]]
-name = "mysqlclient"
-version = "2.2.0"
-description = "Python interface to MySQL"
-optional = false
-python-versions = ">=3.8"
-files = [
-    {file = "mysqlclient-2.2.0-cp310-cp310-win_amd64.whl", hash = "sha256:68837b6bb23170acffb43ae411e47533a560b6360c06dac39aa55700972c93b2"},
-    {file = "mysqlclient-2.2.0-cp311-cp311-win_amd64.whl", hash = "sha256:5670679ff1be1cc3fef0fa81bf39f0cd70605ba121141050f02743eb878ac114"},
-    {file = "mysqlclient-2.2.0-cp38-cp38-win_amd64.whl", hash = "sha256:004fe1d30d2c2ff8072f8ea513bcec235fd9b896f70dad369461d0ad7e570e98"},
-    {file = "mysqlclient-2.2.0-cp39-cp39-win_amd64.whl", hash = "sha256:9c6b142836c7dba4f723bf9c93cc46b6e5081d65b2af807f400dda9eb85a16d0"},
-    {file = "mysqlclient-2.2.0-pp38-pypy38_pp73-win_amd64.whl", hash = "sha256:955dba905a7443ce4788c63fdb9f8d688316260cf60b20ff51ac3b1c77616ede"},
-    {file = "mysqlclient-2.2.0-pp39-pypy39_pp73-win_amd64.whl", hash = "sha256:530ece9995a36cadb6211b9787f0c9e05cdab6702549bdb4236af5e9b535ed6a"},
-    {file = "mysqlclient-2.2.0.tar.gz", hash = "sha256:04368445f9c487d8abb7a878e3d23e923e6072c04a6c320f9e0dc8a82efba14e"},
-]
-
-[[package]]
 name = "oauthlib"
 version = "3.2.2"
 description = "A generic, spec-compliant, thorough implementation of the OAuth request-signing logic"
@@ -958,6 +942,29 @@ files = [
 
 [package.dependencies]
 wcwidth = "*"
+
+[[package]]
+name = "psycopg"
+version = "3.1.10"
+description = "PostgreSQL database adapter for Python"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "psycopg-3.1.10-py3-none-any.whl", hash = "sha256:8bbeddae5075c7890b2fa3e3553440376d3c5e28418335dee3c3656b06fa2b52"},
+    {file = "psycopg-3.1.10.tar.gz", hash = "sha256:15b25741494344c24066dc2479b0f383dd1b82fa5e75612fa4fa5bb30726e9b6"},
+]
+
+[package.dependencies]
+typing-extensions = ">=4.1"
+tzdata = {version = "*", markers = "sys_platform == \"win32\""}
+
+[package.extras]
+binary = ["psycopg-binary (==3.1.10)"]
+c = ["psycopg-c (==3.1.10)"]
+dev = ["black (>=23.1.0)", "dnspython (>=2.1)", "flake8 (>=4.0)", "mypy (>=1.4.1)", "types-setuptools (>=57.4)", "wheel (>=0.37)"]
+docs = ["Sphinx (>=5.0)", "furo (==2022.6.21)", "sphinx-autobuild (>=2021.3.14)", "sphinx-autodoc-typehints (>=1.12)"]
+pool = ["psycopg-pool"]
+test = ["anyio (>=3.6.2)", "mypy (>=1.4.1)", "pproxy (>=2.7)", "pytest (>=6.2.5)", "pytest-cov (>=3.0)", "pytest-randomly (>=3.5)"]
 
 [[package]]
 name = "psycopg2"
@@ -1392,4 +1399,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "3c7f1a3283fc73fc018a2f9a74cf662fec45d872466dd68a5c709831c0484736"
+content-hash = "41a0b9fa44f0613ba5e44b67cdf6c41de07fd7cc37896b7f00ad3a79aefcb769"
