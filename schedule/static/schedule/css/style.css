@@ -12,7 +12,7 @@
 body {
   background: #fff;
   color: #2f3138;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'FreeMono', monospace;
 }
 
 a {
@@ -1696,7 +1696,7 @@ h6 {
 }
 
 
-/* .curator-hover:hover {
+.curator-hover:hover {
 
   transform: scale(1.05);
   opacity: .9;
@@ -1708,7 +1708,7 @@ h6 {
 
 .curator-hover {
   transition: all 0.7s ease-in-out;
-} */
+}
 
 /* vimeo */
 
@@ -1736,7 +1736,7 @@ h6 {
   justify-content: center;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.5); /* Adjust opacity as needed */
-  color: white; /* Text color on the overlay */
+  color: red; /* Text color on the overlay */
 }
 
 .quote-overlay p {
