@@ -87,3 +87,5 @@ local_settings.py
 
 .env
 db.sqlite3
+staticfiles/django-browser-reload/reload-listener.js
+staticfiles/django-browser-reload/reload-worker.js
