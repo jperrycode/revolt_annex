@@ -6,7 +6,7 @@ from django.contrib import admin
 
 
 urlpatterns = [
-    path('/', RedirectView.as_view(url='revolt-art/')),
+    path('', RedirectView.as_view(url='revolt-art/')),
     path('revolt-art/', AnnexHomeView.as_view(), name='annex_home'),
     # path('revolt-test/', AnnexTestView.as_view(), name='annex_test'),
     path('contact_us/', ContactUsView.as_view(), name='contact_us'),
