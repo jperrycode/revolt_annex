@@ -49,7 +49,7 @@ SECRET_KEY = str(os.getenv('SECRET_KEY'))
 # DEBUG = False
 # DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 DEBUG = False
-ALLOWED_HOSTS = ['revolt-staging-7ab3e7777ea7.herokuapp.com']
+ALLOWED_HOSTS = ['revolt-gallery-ecf8df9a70f7.herokuapp.com','revolt-staging-7ab3e7777ea7.herokuapp.com']
 
 
 # Application definition
