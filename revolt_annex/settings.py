@@ -191,7 +191,7 @@ EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
 EMAIL_HOST_USER = "taos.haus.thumps@gmail.com"
 EMAIL_HOST_PASSWORD = str(os.getenv('EMAIL_HOST_PASSWORD'))
-DEFAULT_FROM_EMAIL = 'revoltgallery@gmail.com'
+DEFAULT_FROM_EMAIL = 'taosrevolt@gmail.com'
 
 
 # db_from_env = dj_database_url.config(conn_max_age=500)
