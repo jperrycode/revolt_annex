@@ -1,6 +1,7 @@
 
 
 from pathlib import Path
+import django_heroku
 
 
 
@@ -196,3 +197,4 @@ DEFAULT_FROM_EMAIL = 'taosrevolt@gmail.com'
 
 # db_from_env = dj_database_url.config(conn_max_age=500)
 # DATABASES['default'].update(db_from_env)
+
