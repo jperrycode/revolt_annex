@@ -118,7 +118,7 @@ trove-classifiers==2023.8.7
 tuspy==1.0.1
 typing_extensions==4.7.1
 tzdata==2023.3
-urllib3==2.0.4
+urllib3==1.26.16
 uvicorn==0.22.0
 vbuild==0.8.2
 vine==5.0.0
