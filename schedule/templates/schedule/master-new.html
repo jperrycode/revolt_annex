@@ -14,7 +14,7 @@ Gallery {% endblock %}
     <button type="button" data-bs-target="#carousel-id" data-bs-slide-to="3" class="bg-danger caro-button-change" aria-label="Slide 4"></button>
   </div>
   <div class="carousel-inner">
-    <div class="carousel-item bg-body active">
+    <div class="carousel-item active">
        <section id="hero" class="slide active">
     <div class="hero-container" data-aos="zoom-in" data-aos-delay="100">  
       <h1 class="mb-4 pb-0">
@@ -22,23 +22,41 @@ Gallery {% endblock %}
       </h1>
       <p class="mb-4 pb-0">Where Art Breaks Free from the System</p>
       <a
-        href="https://www.youtube.com/watch?v=oI5mr7F5MR4"
+        href="https://vimeo.com/760471404?share=copy"
         class="glightbox play-btn mb-4"
       ></a>
-      <a href="#about" class="about-btn scrollto">About Revolt Gallery</a>
+      <a href="#" id="openCustomDialog" class="about-btn">PASEO PRE PARTY</a>
     </div>
   </section>
   <!-- ======= Hero Section ======= -->
     </div>
 
+
+
+    <!-- hero section dialog -->
+   <!-- Custom dialog container -->
+ <!-- Custom dialog container -->
+    <div id="customDialog" class="custom-dialog">
+        <!-- Content container within the popup -->
+        <div class="custom-dialog-content">
+            <!-- Image container with 70% of viewport height -->
+            <div class="custom-dialog-image">
+                <img src="{% static 'schedule/img/img-new/paseopreparty.jpg' %}" alt="Image">
+            </div>
+        </div>
+    </div>
+
+     <!-- hero section dialog -->
+
     <!-- gallery slider -->
-  <div class="carousel-item bg-body">
+  <div class="carousel-item">
        <section id="gallery" class="slide" >
     <!-- header Gallery Section -->
     <div class="container mt-5" data-aos="fade-up">
       <div class="section-header">
-        <h2><span class='text-danger'>Revolt</span> Gallery</h2>
-        <p>The Past <span class='text-danger'>||</span> The Present <span class='text-danger'>||</span> The Future</p>
+              <h2><span class='text-danger'>Revolt</span> Gallery</h2>
+        <p class='text-dark'>The Past <span class='text-danger'>||</span> The Present <span class='text-danger'>||</span> The Future</p>
+
       </div>
       <!--  current show Gallery Section -->
         <!-- new show Gallery Section -->
@@ -50,10 +68,12 @@ Gallery {% endblock %}
       >
         <h3>Gallery Show <span class='text-danger'>Opening</span>- Joerael Numina</h3>
         <h4>Thursday September 14th - <span class='text-danger'>4:30 PM</span></h4>
- >
+                <div class="socialartist m-3">
+<a href='https://www.instagram.com/joerael.art/?hl=en'><i class="fab fa-instagram fa-2x" style="color: #ac2bac;"></i></a> <!-- Facebook --><a href='https://www.linkedin.com/in/joeraelnumina/'><i class="fab fa-linkedin-in fa-2x" style="color: #0082ca;"></i></a>
+</div>
        
        <!-- Button to trigger the modal -->
-<button id="openModalBtn" class='btn btn-outline-danger mb-3'>About Joerael</button>
+<button id="openModalBtn" class='btn btn-danger mb-3'>About Joerael</button>
       </div>
       <div class="col-lg text-center p-4"></div>
     </div>
@@ -155,10 +175,6 @@ Gallery {% endblock %}
         <p>Joerael expresses this moment of color as an invitation to crumble like a cliff face after rainfall, to roar like a river running wide, and to crack open like a volcano blowing out of a mountain side.</p>
         <p>The yearly scholarship supports cost of materials for New Mexico artists to show their work at a gallery. Revolt is happy to be working in conjunction with Arroyo Seco Live to provide opportunities to NM based artists. 
 </p>
-
-               <div class="socialartist m-3">
-<a href='https://www.instagram.com/joerael.art/?hl=en'><i class="fab fa-instagram fa-2x" style="color: #ac2bac;"></i></a> <!-- Facebook --><a href='#'><i class="fab fa-facebook-f fa-2x" style="color: #3b5998;"></i></a>
-</div
      </div> 
         </div>
         <div class="text-center mb-4">
@@ -466,7 +482,7 @@ Laura Feierman is an interdisciplinary artist that resides and practices out of 
 
 
 
-<div class="carousel-item bg-body">
+<div class="carousel-item">
     <section id="venue" class="slide">
     <div class="container-fluid mt-5" data-aos="fade-up">
       <div class="section-header">
@@ -817,7 +833,7 @@ skipproof scratch tool records that are still a staple in turntablism to this da
 
 
 
-       <div class="carousel-item bg-body mb-5">
+       <div class="carousel-item mb-5">
       <!-- Start Classes section -->
 
   <section id="speakers" class="slide">
