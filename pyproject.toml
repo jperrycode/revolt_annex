@@ -38,6 +38,7 @@ psycopg2 = "^2.9.7"
 django-heroku = "^0.3.1"
 urllib3 = "^2.0.4"
 kombu = "^5.3.2"
+dj-database-url = "^2.1.0"
 
 
 [build-system]
