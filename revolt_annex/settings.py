@@ -48,7 +48,7 @@ SECRET_KEY = str(os.getenv('SECRET_KEY'))
 # DEBUG = False
 # DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 DEBUG = False
-ALLOWED_HOSTS = ['3.138.33.133','127.0.0.1', 'localhost', '*.herokuapp.com']
+ALLOWED_HOSTS = ['3.138.33.133','127.0.0.1', 'localhost', 'revolt-staging-7ab3e7777ea7.herokuapp.com/']
 
 
 # Application definition
