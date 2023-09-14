@@ -683,6 +683,13 @@ h6 {
   padding: 60px 0 40px 0;
 }
 
+@media (max-width:500px){
+  #about {
+    background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ),url("../img/img-new/dj_about_section.png");
+    
+  }
+}
+
 @media (min-width: 1024px) {
   #about {
     background-attachment: fixed;
@@ -718,6 +725,14 @@ h6 {
   font-size: 14px;
   margin-bottom: 20px;
   color: #fff;
+}
+
+@media (max-width: 450px){
+
+  #about p {
+    font-size: 12px;
+  }
+
 }
 
 /*--------------------------------------------------------------

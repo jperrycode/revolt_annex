@@ -49,7 +49,7 @@ SECRET_KEY = str(os.getenv('SECRET_KEY'))
 # DEBUG = False
 # DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 DEBUG = False
-ALLOWED_HOSTS = ['revolt-gallery-ecf8df9a70f7.herokuapp.com','revolt-staging-7ab3e7777ea7.herokuapp.com','www.taosrevolt.com', 'taosrevolt.com']
+ALLOWED_HOSTS = ['revolt-staging-7ab3e7777ea7.herokuapp.com','revolt-gallery-ecf8df9a70f7.herokuapp.com/','www.taosrevolt.com', 'taosrevolt.com']
 
 
 # Application definition
@@ -63,7 +63,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'schedule',
     'django_celery_results',
-    "django_browser_reload",
+    
 
 ]
 
@@ -76,6 +76,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+   
     
 ]
 
@@ -150,7 +151,11 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
+# INTERNAL_IPS = [
+#     # ...
+#     "127.0.0.1",
+#     # ...
+# ]
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
@@ -193,7 +198,7 @@ CELERY_BEAT_SCHEDULER = 'celery.beat.PersistentScheduler'
 
 # SMTP SETTINGS
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-SENDGRID_API_KEY = os.getenv('SENDGRID_API_KEY')
+SENDGRID_API_KEY = str(os.getenv('SENDGRID_API_KEY'))
 
 EMAIL_HOST = 'smtp.sendgrid.net'
 EMAIL_HOST_USER = 'apikey' # this is exactly the value 'apikey'
