@@ -47,14 +47,7 @@ dialogPolyfill.registerDialog(dialog);
 
     
         
-        function scrollToSchedFunc() {
-            let e = document.getElementById("schedule");
-            e.scrollIntoView({
-              block: 'start',
-              behavior: 'smooth',
-              inline: 'start'
-            });
-          }
+      
 
 
 
@@ -72,22 +65,4 @@ dialogPolyfill.registerDialog(dialog);
           }
 
 
-          // function bringDivForwardOnVisible(divId) {
-          //   var div = document.getElementById(divId);
-          
-          //   if (div) {
-          //     var observer = new IntersectionObserver(function(entries, observer) {
-          //       entries.forEach(function(entry) {
-          //         if (entry.isIntersecting) {
-          //           div.style.zIndex = "9999"; // Set a higher z-index value to bring the div forward
-          //         } else {
-          //           div.style.zIndex = ""; // Reset the z-index value when the div is not visible
-          //         }
-          //       });
-          //     });
-          
-          //     observer.observe(div);
-          //   }
-          // }
-          
           
