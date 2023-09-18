@@ -190,6 +190,10 @@
             object-fit: contain; /* Maintain aspect ratio and fit within the container */
         }
 
+/* Square images in preview mode */
+
+}
+
 
 
   </style>  
@@ -325,7 +329,7 @@
 </script>
 
 <!-- about current artist script -->
-<script>
+{% comment %} <script>
     // Get the modal dialog element
     const myModal = document.getElementById('myModal');
 
@@ -350,7 +354,44 @@
             myModal.close();
         }
     });
+</script> {% endcomment %}
+<script>
+    // Function to open a modal
+    function openModal(modalId) {
+        const modal = document.getElementById(modalId);
+        modal.showModal();
+    }
+
+    // Function to close a modal
+    function closeModal(modalId) {
+        const modal = document.getElementById(modalId);
+        modal.close();
+    }
+
+    // Get the open modal buttons and add click event listeners
+    const openModalBtn = document.getElementById('openModalBtn');
+    openModalBtn.addEventListener('click', () => {
+        openModal('myModal');
+    });
+
+    const openModalBtn2 = document.getElementById('openModalBtn2');
+    openModalBtn2.addEventListener('click', () => {
+        openModal('myModal2');
+    });
+
+    // Get the close modal buttons and add click event listeners
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    closeModalBtn.addEventListener('click', () => {
+        closeModal('myModal');
+    });
+
+    const closeModalBtn2 = document.getElementById('closeModalBtn2');
+    closeModalBtn2.addEventListener('click', () => {
+        closeModal('myModal2');
+    });
 </script>
+
+
 
 
 
