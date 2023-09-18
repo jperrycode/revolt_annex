@@ -106,7 +106,7 @@ h6 {
 /* Sections Header
 --------------------------------*/
 .section-header {
-  margin-bottom: 60px;
+  margin-bottom: 40px;
   position: relative;
   padding-bottom: 20px;
 }
@@ -491,6 +491,14 @@ h6 {
   overflow: hidden;
   position: relative;
 }
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.fade-effect { animation: fadeIn 5s; }
+
+
 
 @media (min-width: 1024px) {
   #hero {
@@ -660,7 +668,7 @@ h6 {
 # About Section
 --------------------------------------------------------------*/
 #myModal {max-width: 60%;
-  opacity: 0;
+  /* opacity: 0; */
   transition: opacity 0.3s ease-in-out;
 }
 
@@ -1005,6 +1013,15 @@ h6 {
   min-height: 300px;
 }
 
+@media (max-width: 574px) {
+  .venue-map {
+    margin-bottom: 15px;
+  }
+  .venue-info {
+    margin-top: 15px;
+  }
+}
+
 #venue .venue-info {
   background: url("../img/img-new/info-bg.jpg") top center no-repeat;
   background-size: cover;
@@ -1055,7 +1072,7 @@ h6 {
 }
 
 #venue .venue-gallery img {
-  transition: all ease-in-out 0.4s;
+  transition: all ease-in-out 1s;
 }
 
 #venue .venue-gallery:hover img {
@@ -1813,4 +1830,11 @@ h6 {
 }
 
 
+.img-sqr-preview {
+  transition: 1s ease;
+}
+
+.img-sqr-preview:hover {
+  transform: scale(1.3);
+}
 

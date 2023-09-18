@@ -100,7 +100,7 @@
 
 .image-container {
     position: relative;
-    max-height: 400px; /* Adjust the height as needed */
+    max-height: 500px; /* Adjust the height as needed */
     overflow: hidden;
 }
 
@@ -110,13 +110,25 @@
     transition: transform 0.3s ease;
 }
 
-.image-container:hover img {
-  opacity: .3;
+
+
+@media (min-width: 950px){
+
+  .image-container:hover img {
+    transform: scale(1.1); /* Adjust the scale factor for zoom effect */
+    opacity: .3;}
+}
+@media (max-width: 475px) {
+     .mobile-none {
+      display: none;
+    }
+    .image-container img {
+      width:100%;
+      height: auto;
+     
+    }
 }
 
-.image-container:hover img {
-    transform: scale(1.1); /* Adjust the scale factor for zoom effect */
-}
 
 .overlay {
     position: absolute;
@@ -178,6 +190,10 @@
             object-fit: contain; /* Maintain aspect ratio and fit within the container */
         }
 
+/* Square images in preview mode */
+
+}
+
 
 
   </style>  
@@ -220,7 +236,7 @@
         </li> {% endcomment %}
 
         </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
+        {% comment %} <i class="bi bi-list mobile-nav-toggle"></i> {% endcomment %}
       </nav><!-- .navbar -->
       <!-- <a class="buy-tickets scrollto" href="#buy-tickets">Buy Tickets</a> -->
 
@@ -283,9 +299,7 @@
 
   <script src="https://smtpjs.com/v3/smtp.js"></script>
 
-  <script>
-  bringDivForwardOnVisible('about');
-</script>
+
   
 
 <script src='{% static "schedule/vendor/bootstrap/js/bootstrap.bundle.min.js" %}'></script>
@@ -300,9 +314,7 @@
 
   <script src="{% static 'schedule/js/custom-js.js' %}"></script>
 
-<script>
-  bringDivForwardOnVisible('about-forward');
-</script>
+
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
@@ -317,7 +329,7 @@
 </script>
 
 <!-- about current artist script -->
-<script>
+{% comment %} <script>
     // Get the modal dialog element
     const myModal = document.getElementById('myModal');
 
@@ -342,7 +354,44 @@
             myModal.close();
         }
     });
+</script> {% endcomment %}
+<script>
+    // Function to open a modal
+    function openModal(modalId) {
+        const modal = document.getElementById(modalId);
+        modal.showModal();
+    }
+
+    // Function to close a modal
+    function closeModal(modalId) {
+        const modal = document.getElementById(modalId);
+        modal.close();
+    }
+
+    // Get the open modal buttons and add click event listeners
+    const openModalBtn = document.getElementById('openModalBtn');
+    openModalBtn.addEventListener('click', () => {
+        openModal('myModal');
+    });
+
+    const openModalBtn2 = document.getElementById('openModalBtn2');
+    openModalBtn2.addEventListener('click', () => {
+        openModal('myModal2');
+    });
+
+    // Get the close modal buttons and add click event listeners
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    closeModalBtn.addEventListener('click', () => {
+        closeModal('myModal');
+    });
+
+    const closeModalBtn2 = document.getElementById('closeModalBtn2');
+    closeModalBtn2.addEventListener('click', () => {
+        closeModal('myModal2');
+    });
 </script>
+
+
 
 
 
