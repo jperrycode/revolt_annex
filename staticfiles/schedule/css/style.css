@@ -47,7 +47,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Open-sans', sans-serif !important;
+  font-family: Garamond, serif !important;
   font-weight: 400;
   margin: 0 0 20px 0;
   padding: 0;
@@ -58,7 +58,17 @@ h6 {
   margin-top: 70px;
 }
 
-
+/* Prelaoder */
+#preloader {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  /* background: #fff url("../img/preloader.svg") no-repeat center center; */
+}
 
 /*--------------------------------------------------------------
 # Back to top button
@@ -96,7 +106,7 @@ h6 {
 /* Sections Header
 --------------------------------*/
 .section-header {
-  margin-bottom: 60px;
+  margin-bottom: 40px;
   position: relative;
   padding-bottom: 20px;
 }
@@ -481,6 +491,14 @@ h6 {
   overflow: hidden;
   position: relative;
 }
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.fade-effect { animation: fadeIn 5s; }
+
+
 
 @media (min-width: 1024px) {
   #hero {
@@ -650,7 +668,7 @@ h6 {
 # About Section
 --------------------------------------------------------------*/
 #myModal {max-width: 60%;
-  opacity: 0;
+  /* opacity: 0; */
   transition: opacity 0.3s ease-in-out;
 }
 
@@ -671,6 +689,13 @@ h6 {
   position: relative;
   color: #fff;
   padding: 60px 0 40px 0;
+}
+
+@media (max-width:500px){
+  #about {
+    background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ),url("../img/img-new/dj_about_section.png");
+    
+  }
 }
 
 @media (min-width: 1024px) {
@@ -708,6 +733,14 @@ h6 {
   font-size: 14px;
   margin-bottom: 20px;
   color: #fff;
+}
+
+@media (max-width: 450px){
+
+  #about p {
+    font-size: 12px;
+  }
+
 }
 
 /*--------------------------------------------------------------
@@ -980,9 +1013,17 @@ h6 {
   min-height: 300px;
 }
 
+@media (max-width: 574px) {
+  .venue-map {
+    margin-bottom: 15px;
+  }
+  .venue-info {
+    margin-top: 15px;
+  }
+}
+
 #venue .venue-info {
-  background: url("../img/img-new/info-bg.jpg") top center no-repeat;
-  background-size: cover;
+  background: linear-gradient(to bottom, rgba(44, 27, 54, 0.7), rgba(150, 7, 233, 0.9)), url("../img/img-new/info-bg.jpg") center center no-repeat;  background-size: cover;
   position: relative;
   padding-top: 60px;
   padding-bottom: 60px;
@@ -990,7 +1031,7 @@ h6 {
 
 #venue .venue-info:before {
   content: "";
-  background: rgba(13, 20, 41, 0.8);
+  /* background: rgba(150, 7, 233, 0.1); */
   position: absolute;
   bottom: 0;
   top: 0;
@@ -1030,7 +1071,7 @@ h6 {
 }
 
 #venue .venue-gallery img {
-  transition: all ease-in-out 0.4s;
+  transition: all ease-in-out 1s;
 }
 
 #venue .venue-gallery:hover img {
@@ -1788,4 +1829,17 @@ h6 {
 }
 
 
+.img-sqr-preview {
+  transition: 1s ease;
+}
 
+.img-sqr-preview:hover {
+  transform: scale(1.3);
+}
+
+@media (max-width: 500px){
+  .mobile-margin {
+    margin-bottom: 15px;
+  }
+  
+}

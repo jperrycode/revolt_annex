@@ -91,3 +91,4 @@ staticfiles/django-browser-reload/reload-listener.js
 staticfiles/django-browser-reload/reload-worker.js
 
 settings/
+schedule/templates/schedule/staging_template.html
