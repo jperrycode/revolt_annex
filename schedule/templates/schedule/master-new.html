@@ -6,7 +6,7 @@ Gallery {% endblock %}
 
 
 <div id="sections-move">
-  <div id="carousel-id" class="carousel slide carousel-fade">
+  <div id="carousel-id" class="carousel slide carousel-fade" data-bs-ride="true" data-bs-interval='10000'>
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#carousel-id" data-bs-slide-to="0" class="active bg-danger caro-button-change" aria-current="true" aria-label="Slide 1"></button>
     <button type="button" data-bs-target="#carousel-id" data-bs-slide-to="1" class="bg-danger caro-button-change" aria-label="Slide 2"></button>
@@ -805,7 +805,7 @@ Her Wo/Manhouse 2022 installation in the pink bathroom combines her personal exp
    <!-- Monday skating -->
 
     
-<div class="card">
+<div class="card mobile-margin">
   <div class="card-img-darken"></div>
 <img class="card-img" src="{% static 'schedule/img/img-new/skateganglarge_resize.jpeg' %}" alt="Bologna" style="filter: brightness(30%);">
   <div class="card-img-overlay text-white d-flex flex-column justify-content-center">
@@ -1280,8 +1280,8 @@ As of 2020, Taos Revolt Gallery renewed its mission to support artists from dive
   <section id="venue" class="border">
     <div class="container-fluid" data-aos="fade-up">
       <div class="section-header">
-        <h2>Location</h2>
-        <p class="text-uppercase">We enthusiastically invite you to join us in building this community.</p>
+        <h2>Location and Hours</h2>
+        
       </div>
 
       <div class="row g-0">
@@ -1295,18 +1295,34 @@ As of 2020, Taos Revolt Gallery renewed its mission to support artists from dive
         </div>
 
         <div class="col-lg-6 venue-info">
-          <div class="row justify-content-center">
-            <div class="col-11 col-lg-8 position-relative text-center">
-              <h3>Revolt and Reset Location:</h3>
-              <p>Address:<br>
-222 Paseo Del Pueblo Norte<br>Taos, NM 87571</p>
-<br>
-              <p>Revolt Gallery and Reset Performing Arts is a short walk from the downtown plaza.  
-              The entire property will provide many peices of art as you walk through including the <span class='text-danger'>BIG METAL BIRD</span>
-              in the <span class='text-danger'>RESET</span> parking.
-              </p>
-            </div>
-          </div>
+     
+         
+
+       <div class="container text-center">
+  <!-- Row 1 -->
+  <div class="row justify-content-center p-2">
+    <div class="col-lg-4 col-md-6 col-sm-12 p-1">
+      <h3 class="text-danger">Address</h3>
+      <p>
+        222 Paseo Del Pueblo Norte<br>Taos, NM 87571
+      </p>
+    </div>
+    <div class="col-lg-4 col-md-6 col-sm-12 p-1">
+      <h3 class="text-danger">Hours</h3>
+      <p>Revolt Gallery is by Appointment<br>Please Call or Email contacts below</p>
+    </div>
+  </div>
+  <!-- Row 2 -->
+  <div class="row p-4 text-center">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+      <h4 style='color: white;'>Revolt Gallery and Reset Performing Arts is a short walk north from the downtown plaza, located directly off Paseo del Tucano Norte.</h4>
+    </div>
+  </div>
+</div>
+
+            
+            
+            
         </div>
       </div>
     </div>
