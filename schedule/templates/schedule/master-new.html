@@ -1388,46 +1388,8 @@ As of 2020, Taos Revolt Gallery renewed its mission to support artists from dive
       </div>
 
       <div class="form">
-        <form method="POST" action='{% url "contact_us" %}' role="form" class="">
-  {% csrf_token %}
-  <div class="row">
-    <p>{{ contact_form.non_field_errors }}</p>
-    <div class="form-group col-md-6">
-      <input type="text" name="{{ contact_form.name.name }}" {% if contact_form.name.value is not None %}
-        value="{{ contact_form.name.value|stringformat:'s' }}" {% endif %}
-        maxlength="{{ contact_form.name.field.max_length }}" class="form-control" id="{{ contact_form.name.name }}"
-        placeholder="Your Name" required />
-    </div>
-    <div class="form-group col-md-6 mt-3 mt-md-0">
-      <input type="email" name="{{ contact_form.email.name }}" {% if contact_form.email.value is not None %}
-        value="{{ contact_form.email.value|stringformat:'s' }}" {% endif %}
-        maxlength="{{ contact_form.email.field.max_length }}" class="form-control" id="{{ contact_form.email.name }}"
-        placeholder="Your Email" required />
-    </div>
-  </div>
-  <div class="form-group mt-3">
-    <input type="text" name="{{ contact_form.subject.name }}" {% if contact_form.subject.value is not None %}
-      value="{{ contact_form.subject.value|stringformat:'s' }}" {% endif %}
-      maxlength="{{ contact_form.subject.field.max_length }}" class="form-control" id="{{ contact_form.subject.name }}"
-      placeholder="Subject" required />
-  </div>
-  <div class="form-group mt-3">
-    <textarea id="{{ contact_form.message.name }}" class="form-control" name="{{ contact_form.message.name }}" 
-    {% if contact_form.message.value is not None %} value="{{ contact_form.message.value|stringformat:'s' }}" {% endif %}
-      rows="5" placeholder="Message" required></textarea>
-  </div>
-  <!-- Checkbox -->
-  <div class="form-check mt-3">
-    <input type="checkbox" class="form-check-input" id="emailConsentCheckbox"
-      name="{{ contact_form.email_consent.name }}" {% if contact_form.email_consent.value %} checked{% endif %} />
-    <label class="form-check-label" for="emailConsentCheckbox">Subscribe to Email Updates</label>
-  </div>
-  <!-- ENDCheckbox -->
-  <div class="text-center mt-3">
-    <button type="submit" class="btn btn-outline-danger">Send Message</button>
-  </div>
-</form>
-
+      
+  {% include 'schedule/contact_form.html' %}
         <!-- END HTMX FORM -->
       </div>
     </div>
