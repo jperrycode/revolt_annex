@@ -798,6 +798,20 @@ yaml = ["PyYAML (>=3.10)"]
 zookeeper = ["kazoo (>=2.8.0)"]
 
 [[package]]
+name = "mailgun2"
+version = "2.0.1"
+description = "A python client for Mailgun API v2"
+optional = false
+python-versions = "*"
+files = [
+    {file = "mailgun2-2.0.1-py3-none-any.whl", hash = "sha256:5bee53422f685d8b43c52210f510fb1b0bddc2b8f796123bb5264644a9c07d65"},
+    {file = "mailgun2-2.0.1.tar.gz", hash = "sha256:51147f07acd8b62bd7450425f3499370d0bc07ee2b18668eb5394cb9bc191c2a"},
+]
+
+[package.dependencies]
+requests = ">=2.6,<3.0"
+
+[[package]]
 name = "multidict"
 version = "6.0.4"
 description = "multidict implementation"
@@ -1457,4 +1471,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "66fe24d11c6adfe3495920622538d1f5882e0d3c2408a35f1cc326d58b36b0f3"
+content-hash = "31fc8e688d9a933ea6c4e46881abe65b69f902a1acf423d92e2de557933038c4"

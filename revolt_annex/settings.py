@@ -198,14 +198,14 @@ CELERY_BEAT_SCHEDULER = 'celery.beat.PersistentScheduler'
 
 # SMTP SETTINGS
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-SENDGRID_API_KEY = str(os.getenv('SENDGRID_API_KEY'))
 
-EMAIL_HOST = 'smtp.sendgrid.net'
-EMAIL_HOST_USER = 'apikey' # this is exactly the value 'apikey'
-EMAIL_HOST_PASSWORD = SENDGRID_API_KEY
-EMAIL_PORT = 465
+
+EMAIL_HOST = str(os.getenv('MAILGUN_SMTP_SERVER')),
+EMAIL_HOST_USER = str(os.getenv('MAILGUN_USER')), # this is exactly the value 'apikey'
+EMAIL_HOST_PASSWORD = str(os.getenv('MAILGUN_PASSWORD')),
+EMAIL_PORT = os.getenv('MAILGUN_PORT'),
 EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = 'taosrevolt@gmail.com'
+DEFAULT_FROM_EMAIL = str(os.getenv('FROM_EMAIL')),
 
 
 # db_from_env = dj_database_url.config(conn_max_age=500)
