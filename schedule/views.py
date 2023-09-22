@@ -14,6 +14,7 @@ import json
 
 
 
+
 # Define a custom signal
 
 
@@ -25,6 +26,7 @@ class ContactUsView(View):
         contact_form = ContactForm(request.POST)
         
         if contact_form.is_valid():
+
             subject = contact_form.cleaned_data['subject']
             user_email = contact_form.cleaned_data['email']
             name = contact_form.cleaned_data['name']
@@ -33,7 +35,7 @@ class ContactUsView(View):
             print('got all data')
             body = {
                 'name': name,
-                'message': message,
+                'message': f'CONTENT =={subject}, {message}, {user_email} thank you ',
             }
             
             message = "\n".join(body.values())
