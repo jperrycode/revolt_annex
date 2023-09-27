@@ -200,12 +200,13 @@ CELERY_BEAT_SCHEDULER = 'celery.beat.PersistentScheduler'
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 
 
-EMAIL_HOST = str(os.getenv('MAILGUN_SMTP_SERVER')),
-EMAIL_HOST_USER = str(os.getenv('MAILGUN_USER')), # this is exactly the value 'apikey'
-EMAIL_HOST_PASSWORD = str(os.getenv('MAILGUN_PASSWORD')),
-EMAIL_PORT = os.getenv('MAILGUN_PORT'),
+EMAIL_HOST = str(os.getenv('ZOHO_HOST'))
+EMAIL_HOST_USER = str(os.getenv('ZOHO_ACCOUNT_EMAIL'))# this is exactly the value 'apikey'
+EMAIL_HOST_PASSWORD = str(os.getenv('ZOHO_PASSWORD'))
+EMAIL_PORT = os.getenv('ZOHO_PORT')
 EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = str(os.getenv('FROM_EMAIL')),
+EMAIL_USE_TLS = False
+DEFAULT_FROM_EMAIL = str(os.getenv('ZOHO_ACCOUNT_EMAIL'))
 
 
 # db_from_env = dj_database_url.config(conn_max_age=500)

@@ -1,16 +1,19 @@
+import django
+django.setup()
 from django.views import View
-from django.http import HttpResponse
 from django.shortcuts import redirect
 from django.views.generic import TemplateView
-from .models import Music_artist_listing, Visual_artist_listing, Extra_curriucular_listing
-from .forms import ContactForm
-from django.core.mail import send_mail, BadHeaderError
-from django.conf import settings
+from schedule.models import Music_artist_listing, Visual_artist_listing, Extra_curriucular_listing
+from schedule.forms import ContactForm
 from.signals import contact_form_saved
 import os
-import requests
 import vimeo
-import json
+import smtplib 
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+from django.conf import settings
+from django.core.mail import EmailMessage
+
 
 
 
@@ -22,28 +25,47 @@ import json
 
 class ContactUsView(View):
     def post(self, request):
-        from_email = settings.DEFAULT_FROM_EMAIL
         contact_form = ContactForm(request.POST)
         
         if contact_form.is_valid():
+            print('success 1')
+            # smtp_server = str(settings.EMAIL_HOST)
+            # smtp_port = 587  # For TLS/STARTTLS
+
+            # email = str(settings.EMAIL_HOST_USER)
+            # password = str(settings.EMAIL_HOST_PASSWORD)
 
             subject = contact_form.cleaned_data['subject']
+            print('success 2')
             user_email = contact_form.cleaned_data['email']
+            print('success 3')
             name = contact_form.cleaned_data['name']
+            print('success 4')
             message = contact_form.cleaned_data['message']
+            print('success 5')
             email_consent = contact_form.cleaned_data['email_consent']
+            print('success 6')
             print('got all data')
             body = {
-                'name': name,
-                'message': f'CONTENT =={subject}, {message}, {user_email} thank you ',
+                'name': str(name),
+                'message': f'CONTENT == {message}, {user_email} thank you ',
             }
             
             message = "\n".join(body.values())
             
             try:
-                send_mail(subject, message, from_email, [user_email])
-                print('email sent')
+                email = EmailMessage(
+                    subject=str(subject),
+                    body=message,
+                    from_email='contact@taosrevolt.com',
+                    to=['taosrevolt@gmail.com'],
+                    reply_to=['contact@taosrevolt.com'],
+                    headers={'Content-Type': 'text/plain'},
+                    )
+                email.send()
 
+
+                print('Email sent successfully!')    
                 # Emit the custom signal with additional args
                 contact_form_saved.send(
                     sender=self.__class__,
@@ -52,11 +74,16 @@ class ContactUsView(View):
                     user_email=user_email
                 )
                 print('signal sent well')
-            except BadHeaderError:
-                return HttpResponse('Invalid header found.')
+            except Exception as e:
+                print(f'An error occurred: {str(e)}')
             
             return redirect('annex_home')
-        
+        else:
+            # Form is not valid, print error messages to the CLI
+            for field, errors in contact_form.errors.items():
+                for error in errors:
+                    print(f"Field: {field}, Error: {error}")
+
         return redirect('annex_home')
 
 
