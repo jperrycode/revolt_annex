@@ -205,7 +205,7 @@ EMAIL_HOST_USER = str(os.getenv('ZOHO_ACCOUNT_EMAIL'))# this is exactly the valu
 EMAIL_HOST_PASSWORD = str(os.getenv('ZOHO_PASSWORD'))
 EMAIL_PORT = os.getenv('ZOHO_PORT')
 EMAIL_USE_TLS = True
-EMAIL_USE_TLS = False
+EMAIL_USE_SSL = False
 DEFAULT_FROM_EMAIL = str(os.getenv('ZOHO_ACCOUNT_EMAIL'))
 
 
