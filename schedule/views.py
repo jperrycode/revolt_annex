@@ -68,18 +68,27 @@ class ContactUsView(View):
                 print('signal sent well')
 
 
-                next_request = HttpRequest()
-                next_request.method = 'GET'
-                next_request.GET = {
-                'subject': subject,
-                'name': name,
-                'user_email': user_email,
-                'message': message,
-                'email_consent': email_consent,
-            }
+            #     next_request = HttpRequest()
+            #     next_request.method = 'GET'
+            #     next_request.GET = {
+            #     'subject': subject,
+            #     'name': name,
+            #     'user_email': user_email,
+            #     'message': message,
+            #     'email_consent': email_consent,
+            # }
+
+                success_context = {
+                    'subject': subject,
+                    'name': name,
+                    'user_email': user_email,
+                    'message': message,
+                    'email_consent': email_consent,
+                }
                 
-                response = ContactSuccessView(next_request)
-                return response
+                success_view = ContactSuccessView.as_view(extra_context=success_context)
+                return success_view(request)
+                # return redirect('/contact_us/success/', success_context=success_context)
             except Exception as e:
                 print(f'An error occurred: {str(e)}')
             
