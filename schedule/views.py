@@ -85,12 +85,12 @@ class ContactUsView(View):
             return render(request, 'contact_fail.html')
 
 
-class ContactSuccessView(TemplateResponse):
-    template_name = 'schedule/contact_success.html'
+# class ContactSuccessView(TemplateResponse):
+#     template_name = 'schedule/contact_success.html'
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        return context
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         return context
 
 # class AnnexHomeView(TemplateView):
 #     template_name = 'schedule/master-new.html'
