@@ -3,13 +3,14 @@ django.setup()
 from django.views import View
 from django.shortcuts import redirect
 from django.views.generic import TemplateView
-from schedule.models import Music_artist_listing, Visual_artist_listing, Extra_curriucular_listing, Receive_email_updates
+from schedule.models import Music_artist_listing, Visual_artist_listing, Extra_curriucular_listing
 from schedule.forms import ContactForm
 from .signals import contact_form_saved
 import os
 import vimeo
 from django.core.mail import EmailMessage
-from django.http import HttpResponse, HttpRequest
+from django.http import HttpRequest
+from django.template.response import TemplateResponse
 
 
 
@@ -23,28 +24,21 @@ from django.http import HttpResponse, HttpRequest
 class ContactUsView(View):
     def post(self, request):
         contact_form = ContactForm(request.POST)
-        
-        if contact_form.is_valid():
-            
-           
 
+        if contact_form.is_valid():
             subject = contact_form.cleaned_data['subject']
-            
             user_email = contact_form.cleaned_data['email']
-            
             name = contact_form.cleaned_data['name']
-            
             message = contact_form.cleaned_data['message']
-            
             email_consent = contact_form.cleaned_data['email_consent']
-           
+
             body = {
                 'name': str(name),
                 'message': f'Contact form Message from {user_email} \n {message} \n thank you ',
             }
-            
+
             message = "\n".join(body.values())
-            
+
             try:
                 email = EmailMessage(
                     subject=str(subject),
@@ -53,11 +47,10 @@ class ContactUsView(View):
                     to=['taosrevolt@gmail.com'],
                     reply_to=['contact@taosrevolt.com'],
                     headers={'Content-Type': 'text/plain'},
-                    )
+                )
                 email.send()
 
-
-                print('Email sent successfully!')    
+                print('Email sent successfully!')
                 # Emit the custom signal with additional args
                 contact_form_saved.send(
                     sender=self.__class__,
@@ -67,17 +60,7 @@ class ContactUsView(View):
                 )
                 print('signal sent well')
 
-
-            #     next_request = HttpRequest()
-            #     next_request.method = 'GET'
-            #     next_request.GET = {
-            #     'subject': subject,
-            #     'name': name,
-            #     'user_email': user_email,
-            #     'message': message,
-            #     'email_consent': email_consent,
-            # }
-
+                # Create the success context
                 success_context = {
                     'subject': subject,
                     'name': name,
@@ -85,42 +68,29 @@ class ContactUsView(View):
                     'message': message,
                     'email_consent': email_consent,
                 }
-                
+
+                # Return the ContactSuccessView with the success_context
                 success_view = ContactSuccessView.as_view(extra_context=success_context)
                 return success_view(request)
-                # return redirect('/contact_us/success/', success_context=success_context)
+
             except Exception as e:
                 print(f'An error occurred: {str(e)}')
-            
-            return redirect('annex_home')
+                return redirect('annex_home')
+
         else:
             # Form is not valid, print error messages to the CLI
             for field, errors in contact_form.errors.items():
                 for error in errors:
                     print(f"Field: {field}, Error: {error}")
 
-        return redirect('annex_home')
+            return redirect('annex_home')
 
 
-class ContactSuccessView(TemplateView):
+class ContactSuccessView(TemplateResponse):
     template_name = 'schedule/contact_success.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-
-        # Access the data from the GET request
-        user_name = self.request.GET.get('name', None)
-        user_email = self.request.GET.get('user_email', None)
-        subject = self.request.GET.get('subject', None)
-        message = self.request.GET.get('message', None)
-        email_consent = self.request.GET.get('email_consent', None)
-
-        context['user_name'] = user_name  # Replace with the actual key used in the GET request
-        context['user_email'] = user_email
-        context['subject'] = subject
-        context['message'] = message
-        context['email_consent'] = email_consent
-    
         return context
 
 # class AnnexHomeView(TemplateView):
