@@ -3,16 +3,13 @@ django.setup()
 from django.views import View
 from django.shortcuts import redirect
 from django.views.generic import TemplateView
-from schedule.models import Music_artist_listing, Visual_artist_listing, Extra_curriucular_listing
+from schedule.models import Music_artist_listing, Visual_artist_listing, Extra_curriucular_listing, Receive_email_updates
 from schedule.forms import ContactForm
-from.signals import contact_form_saved
+from .signals import contact_form_saved
 import os
 import vimeo
-import smtplib 
-from email.mime.multipart import MIMEMultipart
-from email.mime.text import MIMEText
-from django.conf import settings
 from django.core.mail import EmailMessage
+from django.http import HttpResponse, HttpRequest
 
 
 
@@ -28,27 +25,22 @@ class ContactUsView(View):
         contact_form = ContactForm(request.POST)
         
         if contact_form.is_valid():
-            print('success 1')
-            # smtp_server = str(settings.EMAIL_HOST)
-            # smtp_port = 587  # For TLS/STARTTLS
-
-            # email = str(settings.EMAIL_HOST_USER)
-            # password = str(settings.EMAIL_HOST_PASSWORD)
+            
+           
 
             subject = contact_form.cleaned_data['subject']
-            print('success 2')
+            
             user_email = contact_form.cleaned_data['email']
-            print('success 3')
+            
             name = contact_form.cleaned_data['name']
-            print('success 4')
+            
             message = contact_form.cleaned_data['message']
-            print('success 5')
+            
             email_consent = contact_form.cleaned_data['email_consent']
-            print('success 6')
-            print('got all data')
+           
             body = {
                 'name': str(name),
-                'message': f'CONTENT == {message}, {user_email} thank you ',
+                'message': f'Contact form Message from {user_email} \n {message} \n thank you ',
             }
             
             message = "\n".join(body.values())
@@ -74,6 +66,20 @@ class ContactUsView(View):
                     user_email=user_email
                 )
                 print('signal sent well')
+
+
+                next_request = HttpRequest()
+                next_request.method = 'GET'
+                next_request.GET = {
+                'subject': subject,
+                'name': name,
+                'user_email': user_email,
+                'message': message,
+                'email_consent': email_consent,
+            }
+                
+                response = ContactSuccessView(next_request)
+                return response
             except Exception as e:
                 print(f'An error occurred: {str(e)}')
             
@@ -87,9 +93,26 @@ class ContactUsView(View):
         return redirect('annex_home')
 
 
+class ContactSuccessView(TemplateView):
+    template_name = 'schedule/contact_success.html'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
 
+        # Access the data from the GET request
+        user_name = self.request.GET.get('name', None)
+        user_email = self.request.GET.get('user_email', None)
+        subject = self.request.GET.get('subject', None)
+        message = self.request.GET.get('message', None)
+        email_consent = self.request.GET.get('email_consent', None)
 
+        context['user_name'] = user_name  # Replace with the actual key used in the GET request
+        context['user_email'] = user_email
+        context['subject'] = subject
+        context['message'] = message
+        context['email_consent'] = email_consent
+    
+        return context
 
 # class AnnexHomeView(TemplateView):
 #     template_name = 'schedule/master-new.html'
