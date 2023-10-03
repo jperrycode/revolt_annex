@@ -1,7 +1,7 @@
 import django
 django.setup()
 from django.views import View
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render
 from django.views.generic import TemplateView
 from schedule.models import Music_artist_listing, Visual_artist_listing, Extra_curriucular_listing
 from schedule.forms import ContactForm
@@ -69,13 +69,12 @@ class ContactUsView(View):
                     'email_consent': email_consent,
                 }
 
-                # Return the ContactSuccessView with the success_context
-                success_view = ContactSuccessView.as_view(extra_context=success_context)
-                return success_view(request)
+                # Render the success template
+                return render(request, 'contact_success.html', success_context)
 
             except Exception as e:
                 print(f'An error occurred: {str(e)}')
-                return redirect('annex_home')
+                return render(request, 'contact_fail.html')
 
         else:
             # Form is not valid, print error messages to the CLI
@@ -83,7 +82,7 @@ class ContactUsView(View):
                 for error in errors:
                     print(f"Field: {field}, Error: {error}")
 
-            return redirect('annex_home')
+            return render(request, 'contact_fail.html')
 
 
 class ContactSuccessView(TemplateResponse):
