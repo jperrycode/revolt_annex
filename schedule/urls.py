@@ -1,10 +1,10 @@
 from django.urls import path
 from . import views
 from .views import *
-from django.views.generic import RedirectView
+from django.views.generic import RedirectView, TemplateView
 from django.contrib import admin
-from django.views.generic import TemplateView
 
+app_name = 'schedule'
 
 urlpatterns = [
     path('', RedirectView.as_view(url='revolt-art/')),
@@ -12,7 +12,8 @@ urlpatterns = [
     # path('revolt-test/', AnnexTestView.as_view(), name='annex_test'),
     path('contact_us/', ContactUsView.as_view(), name='contact_us'),
     # path('art-archive/', ArchiveView.as_view(), name='archive-home'),
-#    path('contact_us_success', views.ContactSuccessView, name='contact_success'),
+    # path('contact_us_success/', views.ContactSuccessView, name='contact_success'),
+    path('contact-revolt/', Contact_form_view.as_view(), name='contact'),
 ]
 
 admin.site.site_header = 'Revolt Gallery - Reset Performing Arts'

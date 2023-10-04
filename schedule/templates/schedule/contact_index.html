@@ -1,0 +1,28 @@
+{% extends "schedule/base.html" %} {% load static %} {% block title%} Revolt
+Gallery {% endblock %} 
+
+{% block bodycontent %}
+
+
+
+  <section id="contact" class="section-bg">
+    <div class="container" data-aos="fade-up">
+      <div class="section-header">
+        <h2>Contact Revolt</h2>
+        <p>We're all pretty chill people</p>
+      </div>
+
+      <div class="row contact-info">
+   {% include 'schedule/contact_information.html' %}
+      </div>
+
+      <div class="form">
+      
+  {% include 'schedule/contact_form_view.html' %}
+        <!-- END HTMX FORM -->
+      </div>
+    </div>
+  </section>
+
+
+{% endblock %}

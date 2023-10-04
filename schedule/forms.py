@@ -1,19 +1,28 @@
 from django import forms
 from django.forms import ModelForm
 from django.core.validators import EmailValidator
-from .models import Archivedshowimagedata, Archiveimagefiles
+from .models import Archivedshowimagedata, Archiveimagefiles, Receive_email_updates
 
 from django.forms import inlineformset_factory
 
 # from django.conf import settings
 # from django.core.mail import send_mail
 
-class ContactForm(forms.Form):
-    name = forms.CharField(widget=forms.TextInput(attrs={'class':'form_control', 'id':'name', 'type':'text','placeholder':'Your name', }), required=True, max_length=50)
-    email = forms.EmailField(validators=[EmailValidator()], required=True, max_length=50)
-    subject = forms.CharField(required=True, max_length=100)
-    message = forms.CharField(widget=forms.Textarea, max_length=2000)
-    email_consent = forms.BooleanField()
+class ContactForm(forms.ModelForm):
+        class Meta:
+            model = Receive_email_updates
+            fields = ('emailform_name','emailform_email', 'emailform_subject', 'emailform_message')
+
+            widgets = {
+                'emailform_name': forms.TextInput(attrs={'class':'form-control'}),
+                'emailform_email': forms.TextInput(attrs={'class':'form-control'}),
+                'emailform_subject': forms.TextInput(attrs={'class':'form-control'}),
+                'emailform_message': forms.Textarea(attrs={'class':'form-control'}),
+                'emailform_consent': forms.CheckboxInput(attrs={'class':'form-control'}),
+            }
+
+
+                
 
 
 

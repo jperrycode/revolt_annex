@@ -1,24 +1,27 @@
 import django
 django.setup()
 from django.views import View
-from django.shortcuts import redirect, render
+from django.shortcuts import render
 from django.views.generic import TemplateView
+from django.views.generic.edit import CreateView
 from schedule.models import Music_artist_listing, Visual_artist_listing, Extra_curriucular_listing
 from schedule.forms import ContactForm
 from .signals import contact_form_saved
 import os
 import vimeo
 from django.core.mail import EmailMessage
-from django.http import HttpRequest
-from django.template.response import TemplateResponse
+from django.urls import reverse_lazy
+
 
 
 
 
 
 # Define a custom signal
-
-
+class Contact_form_view(CreateView):
+    form_class = ContactForm
+    template_name = 'schedule/contact_index.html'
+    success_url = reverse_lazy('contact_us_success/')
 
 
 class ContactUsView(View):
@@ -26,6 +29,7 @@ class ContactUsView(View):
         contact_form = ContactForm(request.POST)
 
         if contact_form.is_valid():
+            print('isvalid')
             subject = contact_form.cleaned_data['subject']
             user_email = contact_form.cleaned_data['email']
             name = contact_form.cleaned_data['name']
@@ -70,11 +74,11 @@ class ContactUsView(View):
                 }
 
                 # Render the success template
-                return render(request, 'contact_success.html', success_context)
+                return render(request, 'schedule/contact_success.html', {'data':success_context })
 
             except Exception as e:
                 print(f'An error occurred: {str(e)}')
-                return render(request, 'contact_fail.html')
+                return render(request, 'schedule/contact_fail.html')
 
         else:
             # Form is not valid, print error messages to the CLI
@@ -82,7 +86,7 @@ class ContactUsView(View):
                 for error in errors:
                     print(f"Field: {field}, Error: {error}")
 
-            return render(request, 'contact_fail.html')
+            return render(request, 'schedule/contact_fail.html')
 
 
 # class ContactSuccessView(TemplateResponse):
@@ -148,7 +152,7 @@ class AnnexHomeView(TemplateView):
         context['gallery_listing'] = Visual_artist_listing.objects.all().values()
         context['extra_curricular_listing'] = Extra_curriucular_listing.objects.all().values()
         context['vimeo_video_data'] = self.get_vimeo_videos()
-        context['contact_form'] = ContactForm()
+        context['form']:ContactForm()
         context['music_artist_listing'] = Music_artist_listing.objects.all().values()
         return context
 

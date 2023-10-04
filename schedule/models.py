@@ -116,12 +116,13 @@ class Heads_up_music(models.Model):
 
 
 class Receive_email_updates(models.Model):
+  emailform_message = models.TextField(max_length=600)
   emailform_email = models.EmailField(max_length=255)
   emailform_name = models.CharField(max_length=50, null=True, blank=True)
+  emailform_subject = models.CharField(max_length=50, null=True, blank=True)
   emailform_consent = models.BooleanField(default=True)
 
-  def __str__(self):
-        return self.emailform_name
+ 
   
 
 
