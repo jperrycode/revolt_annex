@@ -43,7 +43,7 @@ class ContactUsView(View):
             name = contact_form.cleaned_data['emailform_name']
             message = contact_form.cleaned_data['emailform_message']
             # email_consent = contact_form.cleaned_data['email_consent']
-
+            email_consent = 'False'
             body = {
                 'name': str(name),
                 'message': f'Contact form Message from {user_email} \n {message} \n thank you ',
@@ -67,8 +67,8 @@ class ContactUsView(View):
                 contact_form_saved.send(
                     sender=self.__class__,
                     name=name,
-                    # email_consent=email_consent,
-                    user_email=user_email
+                    email_consent=email_consent,
+                    user_email=user_email,
                 )
                 print('signal sent well')
 
@@ -78,7 +78,7 @@ class ContactUsView(View):
                     'name': name,
                     'user_email': user_email,
                     'message': message,
-                    # 'email_consent': email_consent,
+                    'email_consent': email_consent,
                 }
 
                 # Render the success template

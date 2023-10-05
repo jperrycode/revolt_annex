@@ -11,14 +11,14 @@ from django.forms import inlineformset_factory
 class ContactForm(forms.ModelForm):
         class Meta:
             model = Receive_email_updates
-            fields = ('emailform_name','emailform_email', 'emailform_subject', 'emailform_message')
+            fields = ('emailform_name','emailform_email', 'emailform_subject', 'emailform_message', 'emailform_consent')
 
             widgets = {
                 'emailform_name': forms.TextInput(attrs={'class':'form-control', 'placeholder': 'Your Name'}),
                 'emailform_email': forms.TextInput(attrs={'class':'form-control', 'placeholder': 'Your Email'}),
                 'emailform_subject': forms.TextInput(attrs={'class':'form-control', 'placeholder': 'Subject'}),
                 'emailform_message': forms.Textarea(attrs={'class':'form-control', 'placeholder': 'Message'}),
-                # 'emailform_consent': forms.CheckboxInput(attrs={'class':'form-control'}),
+                'emailform_consent': forms.CheckboxInput(attrs={'class':'form-control'}),
             }
            
 
