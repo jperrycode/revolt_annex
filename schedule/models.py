@@ -120,7 +120,7 @@ class Receive_email_updates(models.Model):
   emailform_email = models.EmailField(max_length=255)
   emailform_name = models.CharField(max_length=50, null=True, blank=True)
   emailform_subject = models.CharField(max_length=50, null=True, blank=True)
-  emailform_consent = models.BooleanField(default=True)
+  emailform_consent = models.BooleanField()
 
  
   

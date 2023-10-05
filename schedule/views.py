@@ -1,3 +1,4 @@
+from typing import Any
 import django
 django.setup()
 from django.views import View
@@ -21,7 +22,14 @@ from django.urls import reverse_lazy
 class Contact_form_view(CreateView):
     form_class = ContactForm
     template_name = 'schedule/contact_index.html'
-    success_url = reverse_lazy('contact_us_success/')
+    success_url = reverse_lazy('contact-us-success/')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['contact_form'] = ContactForm()
+        return context
+
+
 
 
 class ContactUsView(View):
@@ -30,11 +38,11 @@ class ContactUsView(View):
 
         if contact_form.is_valid():
             print('isvalid')
-            subject = contact_form.cleaned_data['subject']
-            user_email = contact_form.cleaned_data['email']
-            name = contact_form.cleaned_data['name']
-            message = contact_form.cleaned_data['message']
-            email_consent = contact_form.cleaned_data['email_consent']
+            subject = contact_form.cleaned_data['emailform_subject']
+            user_email = contact_form.cleaned_data['emailform_email']
+            name = contact_form.cleaned_data['emailform_name']
+            message = contact_form.cleaned_data['emailform_message']
+            # email_consent = contact_form.cleaned_data['email_consent']
 
             body = {
                 'name': str(name),
@@ -59,7 +67,7 @@ class ContactUsView(View):
                 contact_form_saved.send(
                     sender=self.__class__,
                     name=name,
-                    email_consent=email_consent,
+                    # email_consent=email_consent,
                     user_email=user_email
                 )
                 print('signal sent well')
@@ -70,7 +78,7 @@ class ContactUsView(View):
                     'name': name,
                     'user_email': user_email,
                     'message': message,
-                    'email_consent': email_consent,
+                    # 'email_consent': email_consent,
                 }
 
                 # Render the success template
@@ -89,12 +97,10 @@ class ContactUsView(View):
             return render(request, 'schedule/contact_fail.html')
 
 
-# class ContactSuccessView(TemplateResponse):
-#     template_name = 'schedule/contact_success.html'
+class ContactSuccessView(View):
+     template_name = 'schedule/contact_success.html'
 
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         return context
+#   
 
 # class AnnexHomeView(TemplateView):
 #     template_name = 'schedule/master-new.html'

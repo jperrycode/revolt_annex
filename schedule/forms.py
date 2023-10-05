@@ -14,13 +14,13 @@ class ContactForm(forms.ModelForm):
             fields = ('emailform_name','emailform_email', 'emailform_subject', 'emailform_message')
 
             widgets = {
-                'emailform_name': forms.TextInput(attrs={'class':'form-control'}),
-                'emailform_email': forms.TextInput(attrs={'class':'form-control'}),
-                'emailform_subject': forms.TextInput(attrs={'class':'form-control'}),
-                'emailform_message': forms.Textarea(attrs={'class':'form-control'}),
-                'emailform_consent': forms.CheckboxInput(attrs={'class':'form-control'}),
+                'emailform_name': forms.TextInput(attrs={'class':'form-control', 'placeholder': 'Your Name'}),
+                'emailform_email': forms.TextInput(attrs={'class':'form-control', 'placeholder': 'Your Email'}),
+                'emailform_subject': forms.TextInput(attrs={'class':'form-control', 'placeholder': 'Subject'}),
+                'emailform_message': forms.Textarea(attrs={'class':'form-control', 'placeholder': 'Message'}),
+                # 'emailform_consent': forms.CheckboxInput(attrs={'class':'form-control'}),
             }
-
+           
 
                 
 
