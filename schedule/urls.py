@@ -4,7 +4,7 @@ from .views import *
 from django.views.generic import RedirectView, TemplateView
 from django.contrib import admin
 
-# app_name = 'schedule'
+
 
 urlpatterns = [
     path('', RedirectView.as_view(url='revolt-art/')),
