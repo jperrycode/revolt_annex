@@ -1,24 +1,32 @@
 import django
 django.setup()
 from django.views import View
-from django.shortcuts import redirect
+from django.shortcuts import render
 from django.views.generic import TemplateView
+from django.views.generic.edit import CreateView
 from schedule.models import Music_artist_listing, Visual_artist_listing, Extra_curriucular_listing
 from schedule.forms import ContactForm
-from.signals import contact_form_saved
+from .signals import contact_form_saved
 import os
 import vimeo
-import smtplib 
-from email.mime.multipart import MIMEMultipart
-from email.mime.text import MIMEText
-from django.conf import settings
 from django.core.mail import EmailMessage
+from django.urls import reverse_lazy
+
 
 
 
 
 
 # Define a custom signal
+class Contact_form_view(CreateView):
+    form_class = ContactForm
+    template_name = 'schedule/contact_index.html'
+    success_url = reverse_lazy('contact-us-success/')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['contact_form'] = ContactForm()
+        return context
 
 
 
@@ -26,33 +34,22 @@ from django.core.mail import EmailMessage
 class ContactUsView(View):
     def post(self, request):
         contact_form = ContactForm(request.POST)
-        
+
         if contact_form.is_valid():
-            print('success 1')
-            # smtp_server = str(settings.EMAIL_HOST)
-            # smtp_port = 587  # For TLS/STARTTLS
-
-            # email = str(settings.EMAIL_HOST_USER)
-            # password = str(settings.EMAIL_HOST_PASSWORD)
-
-            subject = contact_form.cleaned_data['subject']
-            print('success 2')
-            user_email = contact_form.cleaned_data['email']
-            print('success 3')
-            name = contact_form.cleaned_data['name']
-            print('success 4')
-            message = contact_form.cleaned_data['message']
-            print('success 5')
-            email_consent = contact_form.cleaned_data['email_consent']
-            print('success 6')
-            print('got all data')
+            print('isvalid')
+            subject = contact_form.cleaned_data['emailform_subject']
+            user_email = contact_form.cleaned_data['emailform_email']
+            name = contact_form.cleaned_data['emailform_name']
+            message = contact_form.cleaned_data['emailform_message']
+            # email_consent = contact_form.cleaned_data['email_consent']
+            email_consent = 'False'
             body = {
                 'name': str(name),
-                'message': f'CONTENT == {message}, {user_email} thank you ',
+                'message': f'Contact form Message from {user_email} \n {message} \n thank you ',
             }
-            
+
             message = "\n".join(body.values())
-            
+
             try:
                 email = EmailMessage(
                     subject=str(subject),
@@ -61,35 +58,48 @@ class ContactUsView(View):
                     to=['taosrevolt@gmail.com'],
                     reply_to=['contact@taosrevolt.com'],
                     headers={'Content-Type': 'text/plain'},
-                    )
+                )
                 email.send()
 
-
-                print('Email sent successfully!')    
+                print('Email sent successfully!')
                 # Emit the custom signal with additional args
                 contact_form_saved.send(
                     sender=self.__class__,
                     name=name,
                     email_consent=email_consent,
-                    user_email=user_email
+                    user_email=user_email,
                 )
                 print('signal sent well')
+
+                # Create the success context
+                success_context = {
+                    'subject': subject,
+                    'name': name,
+                    'user_email': user_email,
+                    'message': message,
+                    'email_consent': email_consent,
+                }
+
+                # Render the success template
+                return render(request, 'schedule/contact_success.html', {'data':success_context })
+
             except Exception as e:
                 print(f'An error occurred: {str(e)}')
-            
-            return redirect('annex_home')
+                return render(request, 'schedule/contact_fail.html')
+
         else:
             # Form is not valid, print error messages to the CLI
             for field, errors in contact_form.errors.items():
                 for error in errors:
                     print(f"Field: {field}, Error: {error}")
 
-        return redirect('annex_home')
+            return render(request, 'schedule/contact_fail.html')
 
 
+class ContactSuccessView(View):
+     template_name = 'schedule/contact_success.html'
 
-
-
+#   
 
 # class AnnexHomeView(TemplateView):
 #     template_name = 'schedule/master-new.html'
@@ -139,7 +149,7 @@ class ContactUsView(View):
 
 
 class AnnexHomeView(TemplateView):
-    template_name = 'schedule/master-new.html'
+    # template_name = 'schedule/master-new.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -147,7 +157,7 @@ class AnnexHomeView(TemplateView):
         context['gallery_listing'] = Visual_artist_listing.objects.all().values()
         context['extra_curricular_listing'] = Extra_curriucular_listing.objects.all().values()
         context['vimeo_video_data'] = self.get_vimeo_videos()
-        context['contact_form'] = ContactForm()
+        context['form']:ContactForm()
         context['music_artist_listing'] = Music_artist_listing.objects.all().values()
         return context
 
@@ -185,46 +195,7 @@ class AnnexHomeView(TemplateView):
 #         context.update({'extra_curricular_listing': Extra_curriucular_listing.objects.all().values(),})
 #         return context
 
-# class AnnexTestView(TemplateView):
-#     template_name = 'schedule/dev_template.html'
-
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         # google_api_key = env.str('PROXY_GOOGLE')
-
-#         # nearby_params = {
-#         #     "rankby": "prominence",
-#         #     "location": "36.4107818,-105.5711364",
-#         #     "radius": "1500",
-#         #     "type": "bar",
-#         #     "key": google_api_key,
-#         # }
-#         # nearby_api_url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json"
-#         # nearby_data = requests.get(nearby_api_url, params=nearby_params).json()
-
-#         # place_ids = [result["place_id"] for result in nearby_data.get("results", [])]
-
-#         # def get_place_info(place_id):
-#         #     response = requests.get(f"https://maps.googleapis.com/maps/api/place/details/json", params={"place_id": place_id, "key": google_api_key})
-#         #     return response.json()
-
-#         # bars = ['bar1', 'bar2', 'bar3']
-#         # bar_nearby_data_context = {
-#         #     bar: get_place_info(place_id)
-#         #     for bar, place_id in zip(bars, place_ids[:3])
-#         # }
-
-
-#         context.update({
-#             'show_listing': Music_artist_listing.objects.all().order_by('show_date').values(),
-#             'gallery_listing': Visual_artist_listing.objects.all().values(),
-#             'extra_curricular_listing': Extra_curriucular_listing.objects.all().values(),
-           
-#             'contact_form': ContactForm(),
-#             # 'api_key': google_api_key,
-#         })
-#         return context
-
+# 
 
 
 
