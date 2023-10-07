@@ -3,6 +3,18 @@
 
 <head>
 {% load static %}
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0MS3MWZM2W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0MS3MWZM2W');
+</script>
+
+
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
@@ -211,17 +223,17 @@
 
       <div id="logo" class="me-auto custom-font">
         <!-- Uncomment below if you prefer to use a text logo -->
-        <h1><a href="#hero" data-bs-target="#carousel-id" data-bs-slide-to="0">Revolt <span>|</span><span class="text-light">|</span><span> Reset</span></a></h1>
+        <h1><a href="{% url 'annex_home' %}#hero" data-bs-target="#carousel-id" data-bs-slide-to="0">Revolt <span>|</span><span class="text-light">|</span><span> Reset</span></a></h1>
       
       </div>
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-          <li><a id="hero-link" class="nav-link" href="#hero" data-bs-target="#carousel-id" data-bs-slide-to="0">Taos | Home</a></li>
+          <li><a id="hero-link" class="nav-link" href="{% url 'annex_home' %}#hero#hero" data-bs-target="#carousel-id" data-bs-slide-to="0">Taos | Home</a></li>
           
-          <li><a id="gallery-link" class="nav-link"  href="#sections-move" data-bs-target="#carousel-id" data-bs-slide-to="1">Revolt</a></li>
-          <li><a id="venue-link" class="nav-link"  href="#sections-move" data-bs-target="#carousel-id" data-bs-slide-to="2">Reset</a></li> 
-          <li><a id="speakers-link" class="nav-link"  href="#sections-move" data-bs-target="#carousel-id" data-bs-slide-to="3">Community</a></li>
+          <li><a id="gallery-link" class="nav-link"  href="{% url 'annex_home' %}#sections-move" data-bs-target="#carousel-id" data-bs-slide-to="1">Revolt</a></li>
+          <li><a id="venue-link" class="nav-link"  href="{% url 'annex_home' %}#sections-move" data-bs-target="#carousel-id" data-bs-slide-to="2">Reset</a></li> 
+          <li><a id="speakers-link" class="nav-link"  href="{% url 'annex_home' %}#sections-move" data-bs-target="#carousel-id" data-bs-slide-to="3">Community</a></li>
           <li><a id="speakers-link" class="nav-link"  href="{% url 'contact-revolt' %}">Contact Revolt</a></li>
         <!-- Dropdown menu -->
              {% comment %} <li class="nav-item dropdown">
