@@ -48,7 +48,7 @@ SECRET_KEY = str(os.getenv('SECRET_KEY'))
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = False
 # DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
-DEBUG = True
+DEBUG = False
 ALLOWED_HOSTS = ['revolt-staging-7ab3e7777ea7.herokuapp.com','revolt-gallery-ecf8df9a70f7.herokuapp.com/','www.taosrevolt.com', 'taosrevolt.com']
 
 
