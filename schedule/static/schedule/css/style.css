@@ -1485,6 +1485,10 @@ h6 {
   }
 }
 
+.hover-form {
+  text-shadow: 2px 2px #0e1b4d;
+}
+
 #contact .php-email-form .error-message {
   display: none;
   color: #fff;
@@ -1841,3 +1845,39 @@ h6 {
   }
   
 }
+
+/* open/close dialog gallery css */
+
+/* Keyframes for the opening animation */
+@keyframes openAnimation {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity:1;
+  }
+}
+
+/* Keyframes for the closing animation */
+@keyframes closeAnimation {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+
+/* Apply a smooth transition to the scaling effect */
+.dialog {
+  transition: transform 2s ease;
+}
+
+
+
+
+
+
+/* open/close dialog gallery css */

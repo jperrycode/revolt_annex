@@ -64,6 +64,16 @@
 />
 
     <style>
+  {% if request.path == '/contact-revolt/' %}
+
+  #header {
+    background: rgba(6, 12, 34, 0.9);
+
+  }
+
+  {% endif %}
+
+
     .nav-link {
       color: black; /* Default text color */
     }
@@ -231,11 +241,13 @@
 
       <nav id="navbar" class="navbar order-last order-lg-0">  
         <ul>
-          <li><a id="hero-link" class="nav-link" href="{% url 'annex_home' %}#hero" data-bs-target="#carousel-id" data-bs-slide-to="0">Taos | Home</a></li>
-          
-          <li><a id="gallery-link" class="nav-link"  href="{% url 'annex_home' %}#sections-move" data-bs-target="#carousel-id" data-bs-slide-to="1">Revolt</a></li>
-          <li><a id="venue-link" class="nav-link"  href="{% url 'annex_home' %}#sections-move" data-bs-target="#carousel-id" data-bs-slide-to="2">Reset</a></li> 
-          <li><a id="speakers-link" class="nav-link"  href="{% url 'annex_home' %}#sections-move" data-bs-target="#carousel-id" data-bs-slide-to="3">Community</a></li>
+          <li><a id="hero-link" class="nav-link" href="{% url 'annex_home' %}#hero" data-bs-target="#carousel-id" data-bs-slide-to="0">REVOLT HOME</a></li>
+          {% if request.path == '/revolt-art/' %}
+          <li><a id="gallery-link" class="nav-link"  href="{% url 'annex_home' %}#gallery" data-bs-target="#carousel-id" data-bs-slide-to="1">Revolt</a></li>
+          <li><a id="venue-link" class="nav-link"  href="{% url 'annex_home' %}#venue" data-bs-target="#carousel-id" data-bs-slide-to="2">Reset</a></li> 
+          <li><a id="speakers-link" class="nav-link"  href="{% url 'annex_home' %}#speakers" data-bs-target="#carousel-id" data-bs-slide-to="3">Community</a></li>
+          {% endif %}
+
           <li><a id="speakers-link" class="nav-link"  href="{% url 'contact-revolt' %}">Contact Revolt</a></li>
         <!-- Dropdown menu -->
              {% comment %} <li class="nav-item dropdown">
@@ -345,13 +357,16 @@
 </script>
 
 <!-- about current artist script -->
-{% comment %} <script>
+<script>
     // Get the modal dialog element
     const myModal = document.getElementById('myModal');
 
     // Get the open modal button and add a click event listener
     const openModalBtn = document.getElementById('openModalBtn');
     openModalBtn.addEventListener('click', () => {
+       dialog.classList.add('open');
+    dialog.style.animation = 'openAnimation 0.3s ease';
+    dialog.style.transform = 'scale(1)';
         dialog.classList.add('open');
         myModal.showModal();
     });
@@ -359,6 +374,8 @@
     // Get the close modal button and add a click event listener
     const closeModalBtn = document.getElementById('closeModalBtn');
     closeModalBtn.addEventListener('click', () => {
+      dialog.style.animation = 'closeAnimation 0.3s ease';
+    dialog.style.transform = 'scale(0)';
         dialog.classList.remove('open');
         myModal.close();
     });
@@ -366,11 +383,13 @@
     // Close the modal when clicking outside the dialog
     myModal.addEventListener('click', (e) => {
         if (e.target === myModal) {
+          dialog.style.animation = 'closeAnimation 0.3s ease';
+        dialog.style.transform = 'scale(0)';
             dialog.classList.remove('open');
             myModal.close();
         }
     });
-</script> {% endcomment %}
+</script>
 <script>
     // Function to open a modal
     function openModal(modalId) {
