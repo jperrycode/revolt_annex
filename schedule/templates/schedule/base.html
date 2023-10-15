@@ -64,14 +64,14 @@
 />
 
     <style>
-  {% if request.path == '/contact-revolt/' %}
+ 
 
   #header {
     background: rgba(6, 12, 34, 0.9);
 
   }
 
-  {% endif %}
+  
 
 
     .nav-link {
@@ -124,7 +124,7 @@
 
 .image-container {
     position: relative;
-    max-height: 500px; /* Adjust the height as needed */
+    {% comment %} max-height: 500px; /* Adjust the height as needed */ {% endcomment %}
     overflow: hidden;
 }
 
@@ -151,6 +151,13 @@
       height: auto;
      
     }
+  .image-container {
+    
+    position: relative;
+    overflow: hidden;
+
+  }
+
 }
 
 
@@ -214,9 +221,55 @@
             object-fit: contain; /* Maintain aspect ratio and fit within the container */
         }
 
-/* Square images in preview mode */
 
+/* Add your main navigation styles here */
+
+/* Add your main navigation styles here */
+
+#mobile-nav-bar {
+    display: none; /* Hide the mobile navigation by default */
 }
+
+/* Media query for mobile devices with a maximum width of 450px */
+@media (max-width: 450px) {
+    #mobile-nav-bar {
+        display: block; /* Show the mobile navigation */
+        /* Add styles for the mobile navigation container */
+        background-color: rgba(0,0,0,0); /* Example background color */
+        color: #fff; /* Example text color */
+        padding: 10px; /* Example padding */
+        width:100%;
+    }
+    #header #logo h1 {
+        font-size: 15px; /* 3/4 of the regular font size */
+    }
+    #mobile-nav-bar ul {
+        width:100%;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex; /* Display list items in a horizontal line */
+    }
+
+    #mobile-nav-bar li {
+        margin-right: 15px; /* Adjust spacing between links as needed */
+        font-family: Garamond, serif !important;
+        font-size: 20px;
+    }
+
+    #mobile-nav-bar a {
+        text-decoration: none;
+        color: #fff; /* Example link color */
+    }
+
+    /* Hide the desktop navigation when the mobile navigation is active */
+    #navbar {
+        display: none;
+    }
+}
+
+
+
 
 
 
@@ -231,43 +284,79 @@
 
 
  <header id="header" class="d-flex align-items-center ">
-    <div class="container-fluid container-xxl d-flex align-items-center">
-
+    {% comment %} <div class="container-fluid container-xxl d-flex align-items-center">
+      
       <div id="logo" class="me-auto custom-font">
         <!-- Uncomment below if you prefer to use a text logo -->
         <h1><a href="{% url 'annex_home' %}#hero" data-bs-target="#carousel-id" data-bs-slide-to="0">Revolt <span>|</span><span class="text-light">|</span><span> Reset</span></a></h1>
       
       </div>
+  
+      
+ 
+    
 
-      <nav id="navbar" class="navbar order-last order-lg-0">  
+
+          <nav id="navbar" class="navbar order-last order-lg-0">  
         <ul>
-          <li><a id="hero-link" class="nav-link" href="{% url 'annex_home' %}#hero" data-bs-target="#carousel-id" data-bs-slide-to="0">REVOLT HOME</a></li>
-          {% if request.path == '/revolt-art/' %}
-          <li><a id="gallery-link" class="nav-link"  href="{% url 'annex_home' %}#gallery" data-bs-target="#carousel-id" data-bs-slide-to="1">Revolt</a></li>
-          <li><a id="venue-link" class="nav-link"  href="{% url 'annex_home' %}#venue" data-bs-target="#carousel-id" data-bs-slide-to="2">Reset</a></li> 
-          <li><a id="speakers-link" class="nav-link"  href="{% url 'annex_home' %}#speakers" data-bs-target="#carousel-id" data-bs-slide-to="3">Gather</a></li>
-          {% endif %}
-
-          <li><a id="speakers-link" class="nav-link"  href="{% url 'contact-revolt' %}">Contact Revolt</a></li>
-        <!-- Dropdown menu -->
-             {% comment %} <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  More Info
-              </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item nav-link scrollto" href="#about">About</a></li>
-          <li><a class="dropdown-item nav-link scrollto" href="#slide-to-insta">Social</a></li>
-          <li><a class="dropdown-item nav-link scrollto" href="#contact">Contact</a></li>
-          </ul>
-        </li> 
-
+            <li><a id="hero-link" class="nav-link" href="{% url 'annex_home' %}#hero" data-bs-target="#carousel-id" data-bs-slide-to="0">REVOLT HOME</a></li>
+            {% if request.path == '/revolt-art/' %}
+            <li><a id="gallery-link" class="nav-link" href="{% url 'annex_home' %}#gallery" data-bs-target="#carousel-id" data-bs-slide-to="1">Revolt</a></li>
+            <li><a id="venue-link" class="nav-link" href="{% url 'annex_home' %}#venue" data-bs-target="#carousel-id" data-bs-slide-to="2">Reset</a></li> 
+            <li><a id="speakers-link" class="nav-link" href="{% url 'annex_home' %}#speakers" data-bs-target="#carousel-id" data-bs-slide-to="3">Gather</a></li>
+            {% endif %}
+            <li><a id="speakers-link" class="nav-link" href="{% url 'contact-revolt' %}">Contact</a></li>
         </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>  {% endcomment %}
-      </nav><!-- .navbar -->
-      <!-- <a class="buy-tickets scrollto" href="#buy-tickets">Buy Tickets</a> -->
-
+    </nav><!-- .navbar -->
+    
+    <!-- Your mobile navigation for screens with a max width of 450 pixels -->
+    <div id='mobile-nav-bar'>
+        <ul>
+            <li><a id="speakers-link" class="nav-link" href="{% url 'contact-revolt' %}">Contact</a></li>
+            <li><a id="gallery-link" class="nav-link" href="{% url 'annex_home' %}#gallery" data-bs-target="#carousel-id" data-bs-slide-to="1">Revolt</a></li>
+            <li><a id="venue-link" class="nav-link" href="{% url 'annex_home' %}#venue" data-bs-target="#carousel-id" data-bs-slide-to="2">Reset</a></li>
+            <li><a id="speakers-link" class="nav-link" href="{% url 'annex_home' %}#speakers" data-bs-target="#carousel-id" data-bs-slide-to="3">Gather</a></li>
+        </ul>
     </div>
+ 
+
+
+      
+     
+    </div> {% endcomment %}
+
+    <div class="container-fluid container-xxl d-flex align-items-center">
+        <div id="logo" class="me-auto custom-font">
+            <h1><a href="{% url 'annex_home' %}#hero" data-bs-target="#carousel-id" data-bs-slide-to="0">Revolt <span>|</span><span class="text-light">|</span><span> Reset</span></a></h1>
+        </div>
+
+        <div id="mobile-nav-bar">
+            <ul>
+                <li><a id="speakers-link" class="nav-link" href="{% url 'contact-revolt' %}">Contact</a></li>
+                <li><a id="gallery-link" class="nav-link" href="{% url 'annex_home' %}#gallery" data-bs-target="#carousel-id" data-bs-slide-to="1">Revolt</a></li>
+                <li><a id="venue-link" class="nav-link" href="{% url 'annex_home' %}#venue" data-bs-target="#carousel-id" data-bs-slide-to="2">Reset</a></li>
+                <li><a id="speakers-link" class="nav-link" href="{% url 'annex_home' %}#speakers" data-bs-target="#carousel-id" data-bs-slide-to="3">Gather</a></li>
+            </ul>
+        </div>
+
+        <nav id="navbar" class="navbar order-last order-lg-0">
+            <ul>
+                <li><a id="hero-link" class="nav-link" href="{% url 'annex_home' %}#hero" data-bs-target="#carousel-id" data-bs-slide-to="0">REVOLT HOME</a></li>
+                {% if request.path == '/revolt-art/' %}
+                <li><a id="gallery-link" class="nav-link" href="{% url 'annex_home' %}#gallery" data-bs-target="#carousel-id" data-bs-slide-to="1">Revolt</a></li>
+                <li><a id="venue-link" class="nav-link" href="{% url 'annex_home' %}#venue" data-bs-target="#carousel-id" data-bs-slide-to="2">Reset</a></li>
+                <li><a id="speakers-link" class="nav-link" href="{% url 'annex_home' %}#speakers" data-bs-target="#carousel-id" data-bs-slide-to="3">Gather</a></li>
+                {% endif %}
+                <li><a id="speakers-link" class="nav-link" href="{% url 'contact-revolt' %}">Contact</a></li>
+            </ul>
+        </nav><!-- .navbar -->
+    </div>
+   
+   
+
   </header><!-- End Header -->
+
+  
 
  {% block bodycontent %}
 
@@ -451,7 +540,18 @@
         // Close the custom dialog-like popup when the close button is clicked
         document.getElementById("customDialog").addEventListener("click", closeCustomDialog);
     </script>
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sliderjs@2.0.1/dist/slider.min.js"></script>
+    <script>
+$(document).ready(function() {
+    $('.slider').slider({
+        visibleSlides: 1, // Show one slide at a time on mobile
+        infinite: true, // Enable infinite looping
+        swipe: true, // Enable swipe navigation
+    });
+});
+</script>
 
 
 

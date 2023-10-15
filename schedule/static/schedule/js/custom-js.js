@@ -66,3 +66,17 @@ dialogPolyfill.registerDialog(dialog);
 
 
           
+         
+              $(document).ready(function () {
+                  // Click event to enlarge the image
+                  $(".img-sqr-preview").click(function () {
+                      $(this).toggleClass("enlarged");
+                  });
+          
+                  // Click event to close the enlarged image
+                  $(".img-sqr-preview.enlarged").click(function () {
+                      $(this).removeClass("enlarged");
+                  });
+              });
+          
+                   
