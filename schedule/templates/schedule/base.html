@@ -284,46 +284,7 @@
 
 
  <header id="header" class="d-flex align-items-center ">
-    {% comment %} <div class="container-fluid container-xxl d-flex align-items-center">
-      
-      <div id="logo" class="me-auto custom-font">
-        <!-- Uncomment below if you prefer to use a text logo -->
-        <h1><a href="{% url 'annex_home' %}#hero" data-bs-target="#carousel-id" data-bs-slide-to="0">Revolt <span>|</span><span class="text-light">|</span><span> Reset</span></a></h1>
-      
-      </div>
   
-      
- 
-    
-
-
-          <nav id="navbar" class="navbar order-last order-lg-0">  
-        <ul>
-            <li><a id="hero-link" class="nav-link" href="{% url 'annex_home' %}#hero" data-bs-target="#carousel-id" data-bs-slide-to="0">REVOLT HOME</a></li>
-            {% if request.path == '/revolt-art/' %}
-            <li><a id="gallery-link" class="nav-link" href="{% url 'annex_home' %}#gallery" data-bs-target="#carousel-id" data-bs-slide-to="1">Revolt</a></li>
-            <li><a id="venue-link" class="nav-link" href="{% url 'annex_home' %}#venue" data-bs-target="#carousel-id" data-bs-slide-to="2">Reset</a></li> 
-            <li><a id="speakers-link" class="nav-link" href="{% url 'annex_home' %}#speakers" data-bs-target="#carousel-id" data-bs-slide-to="3">Gather</a></li>
-            {% endif %}
-            <li><a id="speakers-link" class="nav-link" href="{% url 'contact-revolt' %}">Contact</a></li>
-        </ul>
-    </nav><!-- .navbar -->
-    
-    <!-- Your mobile navigation for screens with a max width of 450 pixels -->
-    <div id='mobile-nav-bar'>
-        <ul>
-            <li><a id="speakers-link" class="nav-link" href="{% url 'contact-revolt' %}">Contact</a></li>
-            <li><a id="gallery-link" class="nav-link" href="{% url 'annex_home' %}#gallery" data-bs-target="#carousel-id" data-bs-slide-to="1">Revolt</a></li>
-            <li><a id="venue-link" class="nav-link" href="{% url 'annex_home' %}#venue" data-bs-target="#carousel-id" data-bs-slide-to="2">Reset</a></li>
-            <li><a id="speakers-link" class="nav-link" href="{% url 'annex_home' %}#speakers" data-bs-target="#carousel-id" data-bs-slide-to="3">Gather</a></li>
-        </ul>
-    </div>
- 
-
-
-      
-     
-    </div> {% endcomment %}
 
     <div class="container-fluid container-xxl d-flex align-items-center">
         <div id="logo" class="me-auto custom-font">
@@ -341,7 +302,7 @@
 
         <nav id="navbar" class="navbar order-last order-lg-0">
             <ul>
-                <li><a id="hero-link" class="nav-link" href="{% url 'annex_home' %}#hero" data-bs-target="#carousel-id" data-bs-slide-to="0">REVOLT HOME</a></li>
+                <li><a id="hero-link" class="nav-link" href="{% url 'annex_home' %}#hero" data-bs-target="#carousel-id" data-bs-slide-to="0">Home</a></li>
                 {% if request.path == '/revolt-art/' %}
                 <li><a id="gallery-link" class="nav-link" href="{% url 'annex_home' %}#gallery" data-bs-target="#carousel-id" data-bs-slide-to="1">Revolt</a></li>
                 <li><a id="venue-link" class="nav-link" href="{% url 'annex_home' %}#venue" data-bs-target="#carousel-id" data-bs-slide-to="2">Reset</a></li>
