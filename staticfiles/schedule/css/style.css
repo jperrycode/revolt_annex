@@ -496,7 +496,7 @@ h6 {
   100% { opacity: 1; }
 }
 
-.fade-effect { animation: fadeIn 5s; }
+.fade-effect { animation: fadeIn 1s; }
 
 
 
@@ -719,6 +719,7 @@ h6 {
   font-weight: bold;
   margin-bottom: 10px;
   color: #fff;
+  margin-top: 35px;
 }
 
 #about h3 {
@@ -1485,6 +1486,10 @@ h6 {
   }
 }
 
+.hover-form {
+  text-shadow: 2px 2px #0e1b4d;
+}
+
 #contact .php-email-form .error-message {
   display: none;
   color: #fff;
@@ -1835,13 +1840,118 @@ h6 {
   transform: scale(1.3);
 }
 
-.img-sqr-preview:hover {
-  transform: scale(1.3);
-}
-
 @media (max-width: 500px){
   .mobile-margin {
     margin-bottom: 15px;
   }
   
 }
+
+/* open/close dialog gallery css */
+
+/* Keyframes for the opening animation */
+@keyframes openAnimation {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity:1;
+  }
+}
+
+/* Keyframes for the closing animation */
+@keyframes closeAnimation {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+
+/* Apply a smooth transition to the scaling effect */
+.dialog {
+  transition: transform 2s ease;
+}
+
+
+
+
+
+
+/* open/close dialog gallery css */
+
+
+/* Default styles for images */
+.img-sqr-preview {
+  max-width: 100%;
+  height: auto;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Media query for screens with a max-width of 500px */
+@media (max-width: 500px) {
+  .img-sqr-preview {
+      max-width: 50%; /* Shrink images to 50% of their original width */
+  }
+}
+
+/* CSS for enlarging the image on click */
+.image-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.img-sqr-preview.enlarged {
+  max-width: none;
+  width: 100%;
+  height: auto;
+  z-index: 9999;
+  cursor: zoom-out;
+}
+
+
+@media (min-width: 500px) {
+#sarah-desktop {
+  display: block;
+}
+#sarah-mobile {
+  display:none;
+
+}
+
+.about-mobile-hide {
+  display: none;
+}
+}
+
+
+@media (max-width: 495px) {
+
+
+  #sarah-mobile {
+    display:block;
+    
+  
+
+  }
+  .about-mobile-hide {
+    display: block;
+  }
+
+
+  #sarah-mobile  h2{
+    margin-top: 20px;
+    
+  
+
+  }
+  #sarah-desktop {
+    display: none;
+  }
+}
+
