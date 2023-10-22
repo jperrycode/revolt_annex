@@ -1,5 +1,8 @@
-{% load static %}
+{% extends "schedule/base.html" %} {% load static %} {% block title%} Revolt
+Gallery {% endblock %} 
 
+{% block bodycontent %}
+<section id="gallery" class="slide fade-effect" >
 <!-- header Gallery Section -->
     <div class="container mt-5" data-aos="fade-up">
       <div class="section-header">
@@ -300,4 +303,6 @@ Her Wo/Manhouse 2022 installation in the pink bathroom combines her personal exp
     </div>
 </div>
 
-     
+     </section>
+
+     {% endblock %}

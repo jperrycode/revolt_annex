@@ -97,7 +97,56 @@ class ContactUsView(View):
 
 
 class ContactSuccessView(View):
-     template_name = 'schedule/contact_success.html'
+    template_name = 'schedule/contact_success.html'
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['contact_form'] = ContactForm()
+        return context
+    
+class ClassesView(TemplateView):
+    template_name = 'schedule/classes_section_index.html'
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['classes_data'] = Extra_curriucular_listing.objects.all().values()
+        return context
+    
+class RevoltView(TemplateView):
+    template_name = 'schedule/gallery_slide_index.html'
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['gallery_listing'] = Visual_artist_listing.objects.all().values()
+        return context
+    
+    
+class ResetView(TemplateView):
+    template_name = 'schedule/reset_venue_index.html'
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['music_artist_listing'] = Music_artist_listing.objects.all().values()
+        context['vimeo_video_data'] = self.get_vimeo_videos()
+        return context
+    
+    def get_vimeo_videos(self):
+        vimeo_token = str(os.getenv('VIMEO_ACCESS_TOKEN'))  # Replace with your Vimeo access token
+
+        try:
+            # Initialize the Vimeo client with the provided access token
+            client = vimeo.VimeoClient(
+                token=vimeo_token,
+            )
+
+            # Use the client to make API requests
+            videos_data = client.get('/me/videos')
+            videos_context = videos_data.json()
+            
+            # with open('vimeo_data.json', 'w', encoding='utf-8') as f:
+            #     json.dump(videos_context, f, indent=4)
+
+            return videos_context
+        except Exception as e:
+            print(f"Failed to fetch Vimeo videos. Error: {str(e)}")
+
+        return []
 
 #   
 
@@ -155,33 +204,11 @@ class AnnexHomeView(TemplateView):
         context = super().get_context_data(**kwargs)
         context['range_reset'] = [str(i) for i in range(2, 10)]
         context['gallery_listing'] = Visual_artist_listing.objects.all().values()
-        context['extra_curricular_listing'] = Extra_curriucular_listing.objects.all().values()
-        context['vimeo_video_data'] = self.get_vimeo_videos()
-        context['form']:ContactForm()
         context['music_artist_listing'] = Music_artist_listing.objects.all().values()
+        
         return context
 
-    def get_vimeo_videos(self):
-        vimeo_token = str(os.getenv('VIMEO_ACCESS_TOKEN'))  # Replace with your Vimeo access token
 
-        try:
-            # Initialize the Vimeo client with the provided access token
-            client = vimeo.VimeoClient(
-                token=vimeo_token,
-            )
-
-            # Use the client to make API requests
-            videos_data = client.get('/me/videos')
-            videos_context = videos_data.json()
-            
-            # with open('vimeo_data.json', 'w', encoding='utf-8') as f:
-            #     json.dump(videos_context, f, indent=4)
-
-            return videos_context
-        except Exception as e:
-            print(f"Failed to fetch Vimeo videos. Error: {str(e)}")
-
-        return []
 
 
 

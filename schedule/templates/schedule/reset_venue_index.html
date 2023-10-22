@@ -1,5 +1,9 @@
-{% load static %}
-<div class="container-fluid mt-5" data-aos="fade-up">
+{% extends "schedule/base.html" %} {% load static %} {% block title%} Revolt
+Gallery {% endblock %} 
+
+{% block bodycontent %}
+ <section id="venue" class="slide fade-effect">
+<div class="container-fluid margin-top-custom" data-aos="fade-up">
       <div class="section-header">
         <h2>Reset Performing Arts</h2>
         <p class="text-uppercase">Venue location and past events</p>
@@ -22,9 +26,11 @@
           <div class="row justify-content-center">
             <div class="col-11 col-lg-8 position-relative">
                <h3>FUTURE EVENTS</h3>
-              <p>
-              <a href="#music-sched" class='text-reset'>REVOLT AND RESET WILL BE PROVIDING A LONG LINE UP OF AMAZING ARTISTS</a>
-              </p>
+
+                 <a href="#" onclick="toggleSlide();"
+        class="play-btn mb-4" 
+      ></a>
+             
             </div>
           </div>
         </div>
@@ -197,8 +203,8 @@
             <!-- Add more slider items as needed -->
         </div>
     </div>
-
-
+</section>
+{% endblock %}
 
 
  

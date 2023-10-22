@@ -13,6 +13,9 @@ urlpatterns = [
     path('contact_us/', ContactUsView.as_view(), name='contact-us'),
     path('contact-us-success/', ContactSuccessView.as_view(), name='contact-success'),
     path('contact-revolt/', Contact_form_view.as_view(), name='contact-revolt'),
+    path('community-classes/', ClassesView.as_view(), name='class-reset'),
+    path('reset-performing-arts/', ResetView.as_view(), name='music-reset'),
+    path('revolt-gallery/', RevoltView.as_view(), name='gallery-revolt'),
 ]
 
 admin.site.site_header = 'Revolt Gallery - Reset Performing Arts'

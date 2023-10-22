@@ -260,7 +260,7 @@ h6 {
   color: rgba(202, 206, 221, 0.8);
   font-family: "Raleway", sans-serif;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 20px;
   white-space: nowrap;
   transition: 0.3s;
   position: relative;
@@ -281,7 +281,7 @@ h6 {
   height: 2px;
   bottom: -6px;
   left: 0;
-  background-color: #f82249;
+  background-color: #fa002a;
   visibility: hidden;
   transition: all 0.3s ease-in-out 0s;
 }
@@ -1955,3 +1955,14 @@ h6 {
   }
 }
 
+.margin-top-custom {
+  margin-top: 190px;
+}
+
+.custom-font-change {
+  font-family: 'Octin Spraypaint', sans-serif !important;
+}
+
+.custom-glow-change:hover {
+  text-shadow: 0 0 7px rgb(255, 0, 0), 0 0 122px rgb(152, 236, 188);
+}

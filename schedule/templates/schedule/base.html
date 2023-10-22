@@ -223,6 +223,7 @@
 
 
 /* Add your main navigation styles here */
+     /* CSS for the initial content */
 
 /* Add your main navigation styles here */
 
@@ -267,9 +268,19 @@
         display: none;
     }
 }
+        /* CSS for the sliding div */
+        /* CSS for the sliding div */
+        .sliding-div {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s;
+           
+        }
 
-
-
+        /* Style for the anchor tag */
+        .toggle-button {
+            cursor: pointer;
+        }
 
 
 
@@ -288,27 +299,27 @@
 
     <div class="container-fluid container-xxl d-flex align-items-center">
         <div id="logo" class="me-auto custom-font">
-            <h1><a href="{% url 'annex_home' %}#hero" data-bs-target="#carousel-id" data-bs-slide-to="0">Revolt <span>|</span><span class="text-light">|</span><span> Reset</span></a></h1>
+            <h1><a href="{% url 'annex_home' %}" data-bs-target="#carousel-id" data-bs-slide-to="0">Revolt <span>|</span><span class="text-light">|</span><span> Reset</span></a></h1>
         </div>
 
         <div id="mobile-nav-bar">
             <ul>
+                <li><a id="gallery-link" class="nav-link" href="{% url 'gallery-revolt' %}"><span class='text-danger'>REVOLT</span></a></li>
+                <li><a id="venue-link" class="nav-link" href="{% url 'music-reset' %}">RESET</a></li>
+                <li><a class="nav-link" href="{% url 'class-reset' %}">Gather</a></li>
                 <li><a id="speakers-link" class="nav-link" href="{% url 'contact-revolt' %}">Contact</a></li>
-                <li><a id="gallery-link" class="nav-link" href="{% url 'annex_home' %}#gallery" data-bs-target="#carousel-id" data-bs-slide-to="1">Revolt</a></li>
-                <li><a id="venue-link" class="nav-link" href="{% url 'annex_home' %}#venue" data-bs-target="#carousel-id" data-bs-slide-to="2">Reset</a></li>
-                <li><a id="speakers-link" class="nav-link" href="{% url 'annex_home' %}#speakers" data-bs-target="#carousel-id" data-bs-slide-to="3">Gather</a></li>
             </ul>
         </div>
 
         <nav id="navbar" class="navbar order-last order-lg-0">
             <ul>
-                <li><a id="hero-link" class="nav-link" href="{% url 'annex_home' %}#hero" data-bs-target="#carousel-id" data-bs-slide-to="0">Home</a></li>
-                {% if request.path == '/revolt-art/' %}
-                <li><a id="gallery-link" class="nav-link" href="{% url 'annex_home' %}#gallery" data-bs-target="#carousel-id" data-bs-slide-to="1">Revolt</a></li>
-                <li><a id="venue-link" class="nav-link" href="{% url 'annex_home' %}#venue" data-bs-target="#carousel-id" data-bs-slide-to="2">Reset</a></li>
-                <li><a id="speakers-link" class="nav-link" href="{% url 'annex_home' %}#speakers" data-bs-target="#carousel-id" data-bs-slide-to="3">Gather</a></li>
-                {% endif %}
-                <li><a id="speakers-link" class="nav-link" href="{% url 'contact-revolt' %}">Contact</a></li>
+                
+                
+                <li><a id="gallery-link" class="nav-link" href="{% url 'gallery-revolt' %}"><span class='text-danger custom-font-change custom-glow-change'>REVOLT</span></a></li>
+                <li><a id="venue-link" class="nav-link" href="{% url 'music-reset' %}"><span class='custom-font-change'>RESET</span></a></li>
+                <li><a class="nav-link" href="{% url 'class-reset' %}"><span class='text-danger custom-font-change custom-glow-change'>GATHER</span></a></li>
+                
+                <li><a id="speakers-link" class="nav-link" href="{% url 'contact-revolt' %}"><span class='custom-font-change'>CONTACT</span></a></li>
             </ul>
         </nav><!-- .navbar -->
     </div>
@@ -512,8 +523,22 @@ $(document).ready(function() {
         swipe: true, // Enable swipe navigation
     });
 });
-</script>
 
+</script>
+ 
+
+     <script>
+    function toggleSlide() {
+            const slidingDiv = document.getElementById("slidingDiv");
+            const computedStyle = window.getComputedStyle(slidingDiv);
+
+            if (computedStyle.maxHeight === '0px') {
+                slidingDiv.style.maxHeight = slidingDiv.scrollHeight + "px"; // Open the sliding div
+            } else {
+                slidingDiv.style.maxHeight = "0"; // Close the sliding div
+            }
+        }
+    </script>
 
 
 </body>
