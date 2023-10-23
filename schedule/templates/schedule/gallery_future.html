@@ -1,20 +1,24 @@
-{% extends "schedule/base.html" %} {% load static %} {% block title%} Revolt
-Gallery {% endblock %} 
-
-{% block bodycontent %}
-<section id="gallery" class="slide fade-effect" >
+{% load static %}
+<section id="gallery" class="fade-effect" >
 <!-- header Gallery Section -->
     <div class="container mt-5" data-aos="fade-up">
-      <div class="section-header">
-              <h2><span class='text-danger'>Revolt</span> Gallery</h2>
-        <p class='text-dark mobile-second-title'>The Past <span class='text-danger'>||</span> The Present <span class='text-danger'>||</span> The Future</p>
+       
+       <h1 class='text-center m-4'>THE FUTURE</h1>
+       <div class='row m-4'>
+  
 
+        <!-- present -->
+        <div class='w-50 mx-auto text-center'>
+      <h2>REVOLT GALLERY IS <span class='text-danger'>BOOKED</span> UNTIL MID 2025</h2>
+      <h2>Full Schedule Coming Soon</h2>
+      <a href="{% url 'contact-revolt' %}" class='text-decoration-none'><h3 class='text-danger'>Please Contact Us Here If You Have Any Questions</h3></a>
       </div>
+        <!-- future -->
+    
+    
+    </div>
+    </div>
 
+</section>
 
-      
-
-</div>
-     </section>
-
-     {% endblock %}
+ 

@@ -1022,7 +1022,8 @@ h6 {
 }
 
 #venue .venue-info {
-  background: linear-gradient(to bottom, rgba(44, 27, 54, 0.7), rgba(150, 7, 233, 0.9)), url("../img/img-new/info-bg.jpg") center center no-repeat;  background-size: cover;
+  background: linear-gradient(to bottom, rgba(147, 14, 224, 0.694), rgba(118, 21, 175, 0.99)), url("../img/img-new/info-bg.jpg") center center no-repeat;  
+  background-size: cover;
   position: relative;
   padding-top: 60px;
   padding-bottom: 60px;
@@ -1903,7 +1904,7 @@ h6 {
 /* CSS for enlarging the image on click */
 .image-container {
   position: relative;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .img-sqr-preview.enlarged {
@@ -1966,3 +1967,29 @@ h6 {
 .custom-glow-change:hover {
   text-shadow: 0 0 7px rgb(255, 0, 0), 0 0 122px rgb(152, 236, 188);
 }
+
+#hut-img img:hover {
+  scale: 1.25;
+  
+}
+
+  /* Custom CSS for highlighting the active button */
+  .active-button {
+    text-shadow: 0 0 15px rgb(255, 0, 0), 0 0 122px rgb(152, 236, 188);
+    border-bottom: 4px ridge black;
+}
+
+.custom-button {
+  width: 200px;
+  margin: 10px;
+}
+
+#venue-short li {
+  margin-top: 10px;
+}
+
+.image-container-about {
+  position: relative;
+  overflow: hidden;
+}
+

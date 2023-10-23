@@ -1,0 +1,45 @@
+{% extends "schedule/base.html" %} {% load static %} {% block title%} Revolt
+Gallery {% endblock %} 
+
+{% block bodycontent %}
+<section id="gallery" class="slide fade-effect" >
+<!-- header Gallery Section -->
+    <div class="container mt-5" data-aos="fade-up">
+      <div class="section-header text-center">
+        <h2><span class='text-danger'>Revolt</span> Gallery</h2>
+{% comment %} <a class="btn btn-outline-danger custom-button" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Past</a> {% endcomment %}
+<button class="btn btn-outline-danger custom-button" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample1" aria-expanded="false" aria-controls="multiCollapseExample1">Past</button>
+    <button class="btn btn-outline-danger custom-button" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Present</button>
+    <button class="btn btn-outline-danger custom-button" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample3" aria-expanded="false" aria-controls="multiCollapseExample3">Future</button>
+      </div>
+<div class="container">
+        <!-- Include your Django templates for the three sections -->
+        <div class="row">
+            <div class="">
+                <div class="collapse" id="multiCollapseExample1">
+                    {% include 'schedule/gallery_past.html' %}
+                </div>
+            </div>
+            <div class="">
+                <div class="collapse show" id="multiCollapseExample2">
+                    {% include 'schedule/gallery_slide_index.html' %}
+                </div>
+            </div>
+            <div class="">
+                <div class="collapse" id="multiCollapseExample3">
+                    {% include 'schedule/gallery_future.html' %}
+                </div>
+            </div>
+        </div>
+        </div>
+
+
+<!-- Add JavaScript to handle the collapse behavior -->
+
+
+
+    </div>
+
+</section>
+
+{% endblock %}

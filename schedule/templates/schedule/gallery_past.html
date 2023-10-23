@@ -1,133 +1,13 @@
-{% extends "schedule/base.html" %} {% load static %} {% block title%} Revolt
-Gallery {% endblock %} 
-
-{% block bodycontent %}
+{% load static %}
 <section id="gallery" class="slide fade-effect" >
+
+
+
 <!-- header Gallery Section -->
     <div class="container mt-5" data-aos="fade-up">
-      <div class="section-header">
-              <h2><span class='text-danger'>Revolt</span> Gallery</h2>
-        <p class='text-dark mobile-second-title'>The Past <span class='text-danger'>||</span> The Present <span class='text-danger'>||</span> The Future</p>
-
-      </div>
-      <!--  current show Gallery Section -->
-        <!-- new show Gallery Section -->
-<div class="previous-art-show mt-3">
-    <div class="row">
-      <div class="col-lg text-center p-4"></div>
-      
-      <div
-        class="col-lg-8 text-center p-2 border-bottom border-danger border-3"
-      >
-        <h2><span class='text-danger'>Landcestor</span></h2>
-        <h3> Joerael Numina</h3>
-        <h4>Current Gallery Show</h4>
-
-       
-       <!-- Button to trigger the modal -->
-<button id="openModalBtn" class='btn btn-danger mb-3'>About Joerael</button>
-      </div>
-      <div class="col-lg text-center p-4"></div>
-    </div>
-
- 
-
-    <div class="gallery-slider swiper">
-      <div class="swiper-wrapper align-items-center">
-
-          <div class="swiper-slide square-contain">
-          <a
-            href="{% static 'schedule/img/img-new/Joerael Numina Headshot.jpg' %}"
-            class="gallery-lightbox"
-            ><img loading="lazy"
-              src="{% static 'schedule/img/img-new/Joerael Numina Headshot.jpg' %}"
-              class="img-fluid"
-              alt=""
-          /></a>
-        </div>
-        <div class="swiper-slide square-contain">
-          <a
-            href="{% static 'schedule/img/img-new/joerael2_square.jpg' %}"
-            class="gallery-lightbox"
-            ><img loading="lazy"
-              src="{% static 'schedule/img/img-new/joerael2_square.jpg' %}"
-              class="img-fluid"
-              alt=""
-          /></a>
-        </div>
-        <div class="swiper-slide square-contain">
-          <a
-            href="{% static 'schedule/img/joerael1_square.jpeg' %}"
-            class="gallery-lightbox"
-            ><img loading="lazy"
-              src="{% static 'schedule/img/joerael1_square.jpeg' %}"
-              class="img-fluid"
-              alt=""
-          /></a>
-        </div>
-        <div class="swiper-slide square-contain">
-          <a
-            href="{% static 'schedule/img/img-new/joerael3.jpeg' %}"
-            class="gallery-lightbox"
-            ><img loading="lazy"
-              src="{% static 'schedule/img/img-new/joerael3.jpeg' %}"
-              class="img-fluid"
-              alt=""
-          /></a>
-        </div>
-        <div class="swiper-slide square-contain">
-          <a
-            href="{% static 'schedule/img/img-new/joerael4.jpeg' %}"
-            class="gallery-lightbox"
-            ><img loading="lazy"
-              src="{% static 'schedule/img/img-new/joerael4.jpeg' %}"
-              class="img-fluid"
-              alt=""
-          /></a>
-        </div>
-        
-
-      </div>
-      <div class="swiper-pagination"></div>
-    </div>
-    <!-- End previous show Gallery Section -->
-  </div>
-  <!-- end new gallery show section --> 
-      <!-- End current show Gallery Section -->
-
-<!-- Modal (dialog) learn more -->
-<dialog id="myModal">
-    <div class='background-image'>
-        <div class="text-center"><h2 class="text-danger">Joerael Numina (b. 1980, San Angelo, Texas)</h2> </div>
-        <div class='background-image-small'>
-        <div class="text-secondary">
-        <p>Internationally acclaimed, Albuquerque-based artist activator Guest, has been dedicated to creating art that inspires awareness. Joerael is an activator, muralist, portrait artist, visual artist, tattoo artist and frequent lecturer.</p>
-        <p>A visionary disruptor and art entrepreneur, Joerael is the founder of Mobilize Walls, he was the first artist in residence at the Santa Fe Institute, and was recently commissioned by Sky Railway to paint an exterior mural on a train consist.</p>
-        <p>A self-taught artist, Joerael’s fascination with decoding art came to the fore when watching the fall of the Berlin Wall on his television set as a nine-year-old boy—fully captivated by the graffiti, letters and names of the wall.</p>
-        <p>Joerael Numina’s solo show colorfully captures his personal life experiences into a poetic, rhythmic memory. Landcestor, is an exploration of new images rendered as relations to the land.</p>
-        <p>Joerael expresses this moment of color as an invitation to crumble like a cliff face after rainfall, to roar like a river running wide, and to crack open like a volcano blowing out of a mountain side.</p>
-        <p>The yearly scholarship supports cost of materials for New Mexico artists to show their work at a gallery. Revolt is happy to be working in conjunction with Arroyo Seco Live to provide opportunities to NM based artists. 
-</p>
-                   <div class="socialartist m-3 text-center">
-<a href='https://www.instagram.com/joerael.art/?hl=en'><i class="fab fa-instagram fa-2x" style="color: #ac2bac;"></i></a> <!-- Facebook -->
-</div>
-     </div> 
-        </div>
-        <div class="text-center mb-4">
-        <a href='https://www.joerael.com/'><h4 class='text-decoration-none'>Click here for Joerael's Collection</h4></a>
-        <!-- Instagram -->
-
-
-        <button id="closeModalBtn" class='btn btn-outline-danger btn-lg'>Back</button>
-        </div>
-    </div>
-</dialog>
-
-
-
-
-      <!-- previous show Gallery Section -->
-      <div class="previous-art-show mt-5">
+     <h1 class='text-center'    >The <span class='text-danger'>Past</span></h1>
+      <!--  past -->
+   <div class="previous-art-show mt-5">
         <div class="row">
           <div class="col-lg text-center p-4"></div>
           <div
@@ -135,9 +15,9 @@ Gallery {% endblock %}
           >
            <h2><span class='text-danger'>Thinking & Preying</span></h2>
         <h3>Clark Stoeckley</h3>
-        <h4>Past Gallery Show</h4>
+        
       <!-- Button to trigger the modal -->
-<button id="openModalBtn2" class='btn btn-danger mb-3'>About Clark</button>
+
   
           </div>
           <div class="col-lg text-center p-4"></div>
@@ -233,13 +113,19 @@ Gallery {% endblock %}
        <!-- End previous show Gallery Section -->
 
 
-       <dialog id="myModal2">
-    <div class='background-image'>
-        <div class="text-center"><h2 class="text-danger">Clark Stoeckley</h2> </div>
-        <div class='background-image-small'>
+       
+
+
+    
+    <div class='row'> 
+    
+    
+     <div class='background-image'>
+        
+        <div class='background-image-small w-50 mx-auto'>
         <div class="text-secondary">
                     <p class="">Summer Artist-in-Residence, Clark Stoeckley’s new solo show “Thinking & Praying” will feature seventy-two of his vibrant abstract ink and colored pencil drawings. </p>
-                   <p> Clark has painted murals at Revolt and around Taos for the past three summers.</p>
+                    <p> Clark has painted murals at Revolt and around Taos for the past three summers.</p>
 
                  <div class="socialartist m-3 text-center">
 <a href='https://www.instagram.com/clark_stoeckley/'><i class="fab fa-instagram fa-2x" style="color: #ac2bac;"></i></a> <!-- Facebook --><a href='https://www.facebook.com/burningmanoccupy/'><i class="fab fa-facebook-f fa-2x" style="color: #3b5998;"></i></a>
@@ -251,58 +137,22 @@ Gallery {% endblock %}
         <!-- Instagram -->
 
 
-        <button id="closeModalBtn2" class='btn btn-outline-danger btn-lg'>Back</button>
+        
         </div>
     </div>
-</dialog>
-      <!-- end gallery show section --> 
+    
 
 
-      <!-- hut out front -->
-      <div class='hut-out-front mt-5'>
-<div class="section-header text-center">
-        <h2>The Hut Out Front</h2>
-        <p class="text-uppercase">“Vulnerability” by Laura Feierman <br>
-         2023 Mini Installation</p>
-         <a href='https://www.instagram.com/moondroppers/?hl=en' class='me-3'><i class="fab fa-instagram fa-2x mr-3" style="color: #ac2bac;"></i></a> <!-- Facebook --><a href='https://www.linkedin.com/in/laura-feierman-9521b2189/'><i class="fab fa-linkedin-in fa-2x" style="color: #0082ca;"></i></a>
-
-
-</div>
-<div class="row">
-     
- <div class="socialartist m-3 text-center">
-<p class=''>
-Living and practicing in new Mexico, Laura Feierman is an interdisciplinary artist that integrates beauty, identity and personal experiences into 3 dimensional sculpture installments. <?p>
-<p>
-She is a Summa Cum Laude graduate from the University of New Mexico with a BFA in Studio Art/Sculpture.
-</p>
-<p>
-Her Wo/Manhouse 2022 installation in the pink bathroom combines her personal experiences with vulnerability, insecurity, humility and tenacity while maintaining femininity, fantasy and female empowerment.</p>
-
-</div>
-
-
-</div>
-<div class="row">
-    <div class="col-lg-4 col-md-6 text-center p-4">
-        <div class="image-container">
-            <img loading="lazy" src="{% static 'schedule/img/img-new/laura_artist_9by16.jpg' %}" class="d-block mx-auto img-sqr-preview" alt="...">
-        </div>
+       <div class='text-center'>
+      <h2>REVOLT GALLERY <span class='text-danger'>ARCHIVES ~</span>~ COMING SOON</h2>
+      <h2>Full List of All Artists and Shows from Revolt Gallery</h2>
+      <a href="{% url 'contact-revolt' %}" class='text-decoration-none'><h3 class='text-danger'>Please Contact Us Here If You Have Any Questions</h3></a>
+      </div>
+    
+    </div>
+    
     </div>
 
-    <div class="col-lg-4 col-md-6 text-center p-4">
-        <div class="image-container">
-            <img loading="lazy" src="{% static 'schedule/img/img-new/laura_hut_1_9by16.jpg' %}" class="d-block mx-auto img-sqr-preview" alt="...">
-        </div>
-    </div>
+</section>
 
-    <div class="col-lg-4 col-md-6 text-center p-4">
-        <div class="image-container">
-            <img loading="lazy" src="{% static 'schedule/img/img-new/laura_hut_2_9by16.jpg' %}" class="d-block mx-auto img-sqr-preview" alt="...">
-        </div>
-    </div>
-</div>
-
-     </section>
-
-     {% endblock %}
+ 

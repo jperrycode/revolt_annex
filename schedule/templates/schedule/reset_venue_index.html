@@ -26,10 +26,21 @@ Gallery {% endblock %}
           <div class="row justify-content-center">
             <div class="col-11 col-lg-8 position-relative">
                <h3>FUTURE EVENTS</h3>
-
-                 <a href="#" onclick="toggleSlide();"
-        class="play-btn mb-4" 
-      ></a>
+            <ul id='venue-short'>
+                <li>
+                <h4 class='text-danger custom-font-change'>Kool Keith <span class='text-light'>Monday Oct. 23rd</span></h4>
+               
+                </li>
+                <li>
+                <h4 class='text-danger custom-font-change'>Adobe Disco & Dr Sheetz <span class='text-light'>Friday Nov 17th</span></h4>
+                
+                </li>
+                <li>
+                <h4 class='text-danger custom-font-change'>Alexis Tucci, The Silver Rider, Dave Twelve, This Phunk <span class='text-light'>Friday Dec 1st</span></h4>
+                
+                </li>
+            </ul>
+       
              
             </div>
           </div>
@@ -47,14 +58,16 @@ Gallery {% endblock %}
 
 <!-- Upcoming events info -->
 
-  <div class="row">
+  <div class="row mb-5">
 
-    <h2 class='text-center'>THE ALBUM RELEASE PARTY HAS BEEN  <span class="text-danger">POSTPONED</span></h2>
-    <del><h3 class='text-center'>DISSOLVES <span class="text-danger">ALBUM</span> RELEASE</h2></del>
+    <h2 class='text-center'><span class="text-danger">KOOL KEITH</span> AT RESET <span class="text-danger">MONDAY OCT 23RD</span></h2>
+    <h3 class='text-center'>21+  <span class="text-danger">DOORS AT 8PM </span></h2>
 
  <br>
-          <h2 class='text-center'>CHECK BACK FOR UPCOMING SHOWS AT <span class="text-danger">RESET</span></h2>
-            <h3 class='text-center'>MORE SHOWS <span class="text-danger">COMING </span>SOON</h3>
+          <h2 class='text-center'>FEATURING <span class="text-danger">ARTISTS:</span></h2>
+            <h3 class='text-center'>MC <span class="text-danger">Homeless </span></h3>
+            <h3 class='text-center'>DJ <span class="text-danger">Halo </span></h3>
+            <h3 class='text-center'>DOC <span class="text-danger">The High Hawk </span></h3>
         </div>
 
 
@@ -67,12 +80,16 @@ Gallery {% endblock %}
       data-aos-delay="100"
     >
 
- <div class="section-header">
-        <h2>Past Events</h2>
-        <p class="fs-4text-uppercase">Past events held at RESET</p>
+ <div class="section-header text-center">
+        <h2 class='mb-4'>Past Events</h2>
+       <a class="btn btn-outline-danger" data-bs-toggle="collapse" href="#venue-collapse" role="button" aria-expanded="false" aria-controls="venue-collapse">
+    Past Shows at Reset
+  </a>
+
       </div>
 
-      <div class="row g-0">
+   
+
 {% comment %} <!-- iteration test -->
   {% for video_data in vimeo_video_data.data|slice:8  %}
   <div class="col-lg-3 col-md-4">
@@ -95,6 +112,7 @@ Gallery {% endblock %}
 
 
 
+<div class="collapse" id="venue-collapse">
 
      <!-- Your slider content will go here -->
     <div class="container">
@@ -203,6 +221,9 @@ Gallery {% endblock %}
             <!-- Add more slider items as needed -->
         </div>
     </div>
+
+    </div>
+
 </section>
 {% endblock %}
 

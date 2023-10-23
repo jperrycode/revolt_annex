@@ -1,31 +1,28 @@
-{% extends "schedule/base.html" %} {% load static %} {% block title%} Revolt
-Gallery {% endblock %} 
+{% load static %}
+<section id="gallery-present" class="fade-effect mt-5" >
 
-{% block bodycontent %}
-<section id="gallery" class="slide fade-effect" >
+<h1 class='text-center'>The Present</h1>
 <!-- header Gallery Section -->
     <div class="container mt-5" data-aos="fade-up">
-      <div class="section-header">
-              <h2><span class='text-danger'>Revolt</span> Gallery</h2>
-        <p class='text-dark mobile-second-title'>The Past <span class='text-danger'>||</span> The Present <span class='text-danger'>||</span> The Future</p>
+      {% comment %} <div class="section-header">
+        <h2><span class='text-danger'>Revolt</span> Gallery</h2>
+        <p class='text-dark mobile-second-title'><a href='#'>The Past</a> <span class='text-danger'>||</span> <a href='#'>The Present</a><span class='text-danger'>||</span> <a href='#'>The Future</a></p>
 
-      </div>
-      <!--  current show Gallery Section -->
-        <!-- new show Gallery Section -->
-<div class="previous-art-show mt-3">
+      </div> {% endcomment %}
+    <div class="previous-art-show mt-3">
     <div class="row">
       <div class="col-lg text-center p-4"></div>
       
       <div
         class="col-lg-8 text-center p-2 border-bottom border-danger border-3"
       >
-        <h2><span class='text-danger'>Landcestor</span></h2>
-        <h3> Joerael Numina</h3>
-        <h4>Current Gallery Show</h4>
+        <h2><span class='text-danger'>"Landcestor"</span> By Joerael Numina</h2>
+        
+        
 
        
        <!-- Button to trigger the modal -->
-<button id="openModalBtn" class='btn btn-danger mb-3'>About Joerael</button>
+
       </div>
       <div class="col-lg text-center p-4"></div>
     </div>
@@ -96,7 +93,7 @@ Gallery {% endblock %}
       <!-- End current show Gallery Section -->
 
 <!-- Modal (dialog) learn more -->
-<dialog id="myModal">
+
     <div class='background-image'>
         <div class="text-center"><h2 class="text-danger">Joerael Numina (b. 1980, San Angelo, Texas)</h2> </div>
         <div class='background-image-small'>
@@ -118,148 +115,18 @@ Gallery {% endblock %}
         <!-- Instagram -->
 
 
-        <button id="closeModalBtn" class='btn btn-outline-danger btn-lg'>Back</button>
-        </div>
-    </div>
-</dialog>
-
-
-
-
-      <!-- previous show Gallery Section -->
-      <div class="previous-art-show mt-5">
-        <div class="row">
-          <div class="col-lg text-center p-4"></div>
-          <div
-            class="col-lg-8 text-center p-2 border-bottom border-danger border-3"
-          >
-           <h2><span class='text-danger'>Thinking & Preying</span></h2>
-        <h3>Clark Stoeckley</h3>
-        <h4>Past Gallery Show</h4>
-      <!-- Button to trigger the modal -->
-<button id="openModalBtn2" class='btn btn-danger mb-3'>About Clark</button>
-  
-          </div>
-          <div class="col-lg text-center p-4"></div>
-        </div>
-
-        <div class="gallery-slider swiper">
-          <div class="swiper-wrapper align-items-center">
-            <div class="swiper-slide square-contain">
-              <a
-                href="{% static 'schedule/img/img-new/img-square/clark shot cropped.jpg' %}"
-                class="gallery-lightbox"
-                ><img loading="lazy"
-                  src="{% static 'schedule/img/img-new/img-square/clark shot cropped.jpg' %}"
-                  class="img-fluid"
-                  alt=""
-              /></a>
-            </div>
-            <div class="swiper-slide square-contain">
-              <a
-                href="{% static 'schedule/img/img-new/img-square/hoff cropped.jpg' %}"
-                class="gallery-lightbox"
-                ><img loading="lazy"
-                  src="{% static 'schedule/img/img-new/img-square/hoff cropped.jpg' %}"
-                  class="img-fluid"
-                  alt=""
-              /></a>
-            </div>
-            <div class="swiper-slide square-contain">
-              <a
-                href="{% static 'schedule/img/img-new/img-square/clark 2 crop.jpg' %}"
-                class="gallery-lightbox"
-                ><img loading="lazy"
-                  src="{% static 'schedule/img/img-new/img-square/clark 2 crop.jpg' %}"
-                  class="img-fluid"
-                  alt=""
-              /></a>
-            </div>
-            <div class="swiper-slide square-contain">
-              <a
-                href="{% static 'schedule/img/img-new/img-square/clark opening.jpeg' %}"
-                class="gallery-lightbox"
-                ><img loading="lazy"
-                  src="{% static 'schedule/img/img-new/img-square/clark opening.jpeg' %}"
-                  class="img-fluid"
-                  alt=""
-              /></a>
-            </div>
-            <div class="swiper-slide square-contain">
-              <a
-                href="{% static 'schedule/img/img-new/img-square/ext view.jpeg' %}"
-                class="gallery-lightbox"
-                ><img loading="lazy"
-                  src="{% static 'schedule/img/img-new/img-square/ext view.jpeg' %}"
-                  class="img-fluid"
-                  alt=""
-              /></a>
-            </div>
-            {% comment %} <div class="swiper-slide square-contain">
-              <a
-                href="{% static 'schedule/img/img-new/img-square/DSC_.7011.jpg' %}"
-                class="gallery-lightbox"
-                ><img loading="lazy"
-                  src="{% static 'schedule/img/img-new/img-square/dsc_7011.jpg' %}"
-                  class="img-fluid"
-                  alt=""
-              /></a>
-            </div> {% endcomment %}
-            {% comment %} <div class="swiper-slide square-contain">
-              <a
-                href="{% static 'schedule/img/img-new/img-square/img_5848.jpg' %}"
-                class="gallery-lightbox"
-                ><img loading="lazy"
-                  src="{% static 'schedule/img/img-new/img-square/img_5848.jpg' %}"
-                  class="img-fluid"
-                  alt=""
-              /></a>
-            </div> {% endcomment %}
-            <div class="swiper-slide square-contain">
-              <a
-                href="{% static 'schedule/img/img-new/img-square/JWAnderson_Unfurl_2023.jpg' %}"
-                class="gallery-lightbox"
-                ><img loading="lazy"
-                  src="{% static 'schedule/img/img-new/img-square/JWAnderson_Unfurl_2023.jpg' %}"
-                  class="img-fluid"
-                  alt=""
-              /></a>
-            </div>
-          </div>
-          <div class="swiper-pagination"></div>
-        </div>
        
-      </div>
-       <!-- End previous show Gallery Section -->
-
-
-       <dialog id="myModal2">
-    <div class='background-image'>
-        <div class="text-center"><h2 class="text-danger">Clark Stoeckley</h2> </div>
-        <div class='background-image-small'>
-        <div class="text-secondary">
-                    <p class="">Summer Artist-in-Residence, Clark Stoeckley’s new solo show “Thinking & Praying” will feature seventy-two of his vibrant abstract ink and colored pencil drawings. </p>
-                   <p> Clark has painted murals at Revolt and around Taos for the past three summers.</p>
-
-                 <div class="socialartist m-3 text-center">
-<a href='https://www.instagram.com/clark_stoeckley/'><i class="fab fa-instagram fa-2x" style="color: #ac2bac;"></i></a> <!-- Facebook --><a href='https://www.facebook.com/burningmanoccupy/'><i class="fab fa-facebook-f fa-2x" style="color: #3b5998;"></i></a>
-</div>
-     </div> 
-        </div>
-        <div class="text-center mb-4">
-        <a href='https://www.clarkstoeckley.com/info'><h4 class='text-decoration-none'>Click here for Clark's Collection</h4></a>
-        <!-- Instagram -->
-
-
-        <button id="closeModalBtn2" class='btn btn-outline-danger btn-lg'>Back</button>
         </div>
     </div>
-</dialog>
-      <!-- end gallery show section --> 
 
 
-      <!-- hut out front -->
-      <div class='hut-out-front mt-5'>
+    
+    </div>
+
+
+
+
+     <div class='hut-out-front mt-5'>
 <div class="section-header text-center">
         <h2>The Hut Out Front</h2>
         <p class="text-uppercase">“Vulnerability” by Laura Feierman <br>
@@ -270,7 +137,7 @@ Gallery {% endblock %}
 </div>
 <div class="row">
      
- <div class="socialartist m-3 text-center">
+ <div class="m-50 mx-auto socialartist m-3">
 <p class=''>
 Living and practicing in new Mexico, Laura Feierman is an interdisciplinary artist that integrates beauty, identity and personal experiences into 3 dimensional sculpture installments. <?p>
 <p>
@@ -283,26 +150,27 @@ Her Wo/Manhouse 2022 installation in the pink bathroom combines her personal exp
 
 
 </div>
-<div class="row">
-    <div class="col-lg-4 col-md-6 text-center p-4">
-        <div class="image-container">
+<div id='hut-img' class="row w-75 mx-auto d-flex justify-content-center">
+    <div class="col-lg-4 col-md-6 text-center p-4" style='width: 25% !important;'>
+        <div class="image-container ">
             <img loading="lazy" src="{% static 'schedule/img/img-new/laura_artist_9by16.jpg' %}" class="d-block mx-auto img-sqr-preview" alt="...">
         </div>
     </div>
 
-    <div class="col-lg-4 col-md-6 text-center p-4">
+    <div class="col-lg-4 col-md-6 text-center p-4" style='width: 25% !important;'>
         <div class="image-container">
-            <img loading="lazy" src="{% static 'schedule/img/img-new/laura_hut_1_9by16.jpg' %}" class="d-block mx-auto img-sqr-preview" alt="...">
+          <img loading="lazy" src="{% static 'schedule/img/img-new/laura_hut_1_9by16.jpg' %}" class="d-block mx-auto img-sqr-preview" alt="...">
         </div>
     </div>
 
-    <div class="col-lg-4 col-md-6 text-center p-4">
+    <div class="col-lg-4 col-md-6 text-center p-4" style='width: 25% !important;' >
         <div class="image-container">
-            <img loading="lazy" src="{% static 'schedule/img/img-new/laura_hut_2_9by16.jpg' %}" class="d-block mx-auto img-sqr-preview" alt="...">
+           <img loading="lazy" src="{% static 'schedule/img/img-new/laura_hut_2_9by16.jpg' %}" class="d-block mx-auto img-sqr-preview" alt="...">
         </div>
     </div>
 </div>
+</div>
 
-     </section>
+</section>
 
-     {% endblock %}
+ 
