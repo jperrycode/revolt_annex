@@ -68,6 +68,7 @@ class ContactUsView(View):
                     name=name,
                     email_consent=email_consent,
                     user_email=user_email,
+                    user_message=message
                 )
                 print('signal sent well')
 
