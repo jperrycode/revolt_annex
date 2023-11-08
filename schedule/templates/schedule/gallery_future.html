@@ -1,24 +1,77 @@
 {% load static %}
-<section id="gallery" class="fade-effect" >
-<!-- header Gallery Section -->
-    <div class="container mt-5" data-aos="fade-up">
+
+    <div class="container mt-5" data-aos="fade-up" data-aos-delay="100">
        
-       <h1 class='text-center m-4'>THE FUTURE</h1>
-       <div class='row m-4'>
-  
+       <h1 class='text-center mb-2'>THE <span class='text-danger'>FUTURE</span></h1>
+       <div class='row m-4 text-center'>
 
-        <!-- present -->
-        <div class='w-50 mx-auto text-center'>
-      <h2>REVOLT GALLERY IS <span class='text-danger'>BOOKED</span> UNTIL MID 2025</h2>
-      <h2>Full Schedule Coming Soon</h2>
-      <a href="{% url 'contact-revolt' %}" class='text-decoration-none'><h3 class='text-danger'>Please Contact Us Here If You Have Any Questions</h3></a>
+
+ 
+      <h1 class="mb-4 pb-0">
+        Gallery<span class='text-danger'> Schedule</span>
+      </h1>
+      <h3 class="mb-4 pb-0">Upcoming Artist Residencey and Event Schedule</h3>
+      
+     
+    
+
+
+    
+    </div>
+
+  {% comment %} {% for obj in gallery_listing %}
+
+      
+      <h3 class='text-center'>{{ obj.visual_show_name }} </h3>
       </div>
-        <!-- future -->
-    
-    
+           <div class="row border-bottom border-3 border-danger">
+        <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="column">
+                <div class='w-50 mx-auto'>
+ <h5 class=""><span class="text-danger mb-2"> Artist Name<br></span> {{obj.vis_artist_name}}</h5>
+               <h5 class=""><span class="text-danger mb-2"> Artist Medium <br> </span> {{obj.vis_artist_medium}}</h5>
+               <h5 class=""><span class="text-danger mb-2"> Opening Date<br> </span> {{obj.vis_show_date_start}}</h5>
+               
+               <h5 class=""><span class="text-danger mb-4"> End Date<br> </span> {{obj.vis_show_date_end}}</h5>
+        
+            </div> 
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="column">
+               <div class="image-container">
+                <img src="{% static obj.visual_artist_image.url %}" alt="Image Alt Text">
+                <p class="image-title">Title 1</p>
+            </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="column">
+            
+                <div class='row p-1'>
+                  <h5 class=""><span class="text-danger mb-2"> Artist Bio</span></h5><br>
+               <p>{{ obj.vis_artist_bio }}</p>
+                
+                </div>
+                <div class='row p-1'>
+                 {% if obj.age_restriction %}
+                 <h4>This show is 18+</h4>
+                 {% else %}
+                 <h4>All ages welcome</h4>
+                 {% endif %}
+                
+                </div>
+            </div>
+        </div>
     </div>
-    </div>
+        {% endfor %} {% endcomment %}
 
-</section>
+   
+
+
+
+
+
+
 
  

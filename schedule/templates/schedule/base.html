@@ -66,10 +66,7 @@
     <style>
  
 
-  #header {
-    background: rgba(6, 12, 34, 0.9);
-
-  }
+  {% comment %}  {% endcomment %}
 
   
 
@@ -283,8 +280,19 @@
             cursor: pointer;
         }
 
+.bg-grad {
+  background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.2));
+}
 
+    .image-container-jesse {
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
+    }
 
+    .image-container-jesse:hover {
+      transform: scale(1.05);
+      box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
+    }
   </style>  
 
 <link rel="icon" href="data:,">
@@ -346,11 +354,11 @@
           <div class="col-lg-3 col-md-6 footer-links">
             <h4>Friends and Fam</h4>
             <ul>
-              <li><i class="bi bi-chevron-right"></i> <a href="https://thetaoshum.com/">Heads Up Music</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="https://www.hpshaveco.com/">Hitching Post Shave Co.</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="https://www.unmtaosart.com/">UNM Taos</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="https://www.dreamtreeproject.org/">Dream Tree</a></li>
               <li><i class="bi bi-chevron-right"></i> <a href="https://www.aceqrestaurant.com/">Aceq</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="https://www.yelp.com/biz/sabor-real-restaurant-taos">Sabor Real</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="http://www.salonxtaos.com/">Salon X</a></li> 
+              <li><i class="bi bi-chevron-right"></i> <a href="taoshum.com">Heads Up Music</a></li>
+              
             </ul>
           </div> 
 
@@ -561,6 +569,22 @@ $(document).ready(function() {
     });
 
 
+  let isImageAVisible = true;
+
+    function toggleImage() {
+      const imageA = document.getElementById('imageA');
+      const imageB = document.getElementById('imageB');
+
+      if (isImageAVisible) {
+        imageA.style.transform = 'translateX(-100%)';
+        imageB.style.transform = 'translateX(0)';
+      } else {
+        imageA.style.transform = 'translateX(0)';
+        imageB.style.transform = 'translateX(100%)';
+      }
+
+      isImageAVisible = !isImageAVisible;
+    }
     
     </script>
 
