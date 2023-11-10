@@ -1142,11 +1142,20 @@ h6 {
 /*--------------------------------------------------------------
 # Gallery Section
 --------------------------------------------------------------*/
+
+@media (min-width: 700px)  {
 #gallery {
   padding: 60px;
   overflow: hidden;
   /* background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(15,15,15,0.7019140419839811) 47%, rgba(246,3,53,1) 100%); */
-}
+}}
+
+@media (max-width: 500px)  {
+  #gallery {
+    margin-top: 100px;
+    overflow: hidden;
+    /* background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(15,15,15,0.7019140419839811) 47%, rgba(246,3,53,1) 100%); */
+  }}
 
 #gallery .swiper-pagination {
   margin-top: 20px;
@@ -1900,11 +1909,7 @@ h6 {
 }
 
 /* Media query for screens with a max-width of 500px */
-@media (max-width: 500px) {
-  .img-sqr-preview {
-      max-width: 50%; /* Shrink images to 50% of their original width */
-  }
-}
+
 
 /* CSS for enlarging the image on click */
 .image-container {
@@ -1938,6 +1943,12 @@ h6 {
 
 @media (max-width: 495px) {
 
+  #mobile-hide,#mobile-hide1 {
+    display: none;
+  }
+  #mobile-hide1 {
+    display: none;
+  }
 
   #sarah-mobile {
     display:block;
@@ -2023,4 +2034,11 @@ h6 {
 .custom-font-size {
   font-size: 50px !important;
 }
+
+
+@media (max-width: 500px) {
+
+  #logo { display: none;}
+}
+
 

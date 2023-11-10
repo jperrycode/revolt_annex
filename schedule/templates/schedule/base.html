@@ -18,7 +18,8 @@
 
 
   <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
 
   <title>{% block title %} {% endblock %}</title>
   <meta content="" name="description">
@@ -293,6 +294,46 @@
       transform: scale(1.05);
       box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
     }
+
+
+
+        .image-container-justin {
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
+    }
+
+    .image-cont:hover {
+      transform: scale(1.05);
+      box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
+    }
+@media (max-width: 480px) {
+  .mobile-event-1 {
+    display: none;
+  }
+  .mobile-event {
+    display: block;
+  }
+}
+
+
+
+@media (min-width: 500px) {
+  .mobile-event-1 {
+    display: block;
+  }
+  .mobile-event {
+    display: none;
+  }
+}
+
+
+.mobile-event-1{
+  display: block;
+}
+.mobile-event{
+  display: none;
+}
+
   </style>  
 
 <link rel="icon" href="data:,">
