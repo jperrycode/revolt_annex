@@ -52,6 +52,8 @@ DEBUG = False
 ALLOWED_HOSTS = ['revolt-staging-7ab3e7777ea7.herokuapp.com','revolt-gallery-ecf8df9a70f7.herokuapp.com/','www.taosrevolt.com', 'taosrevolt.com']
 
 
+SITE_ID = 1
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -61,9 +63,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'schedule',
     'django_celery_results',
-    
+    'photologue',
+    'sortedm2m',
 
 ]
 

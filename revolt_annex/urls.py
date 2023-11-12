@@ -11,6 +11,8 @@ urlpatterns = [
     
 ]
 
+urlpatterns += [ path(r'^photologue/', include('photologue.urls', namespace='photologue')),]
+
 if settings.DEBUG:
     import debug_toolbar
     urlpatterns = [

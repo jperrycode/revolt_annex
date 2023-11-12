@@ -51,6 +51,7 @@ SECRET_KEY = str(os.getenv('SECRET_KEY'))
 DEBUG = True
 ALLOWED_HOSTS = ['*']
 
+SITE_ID = 1
 
 # Application definition
 
@@ -61,8 +62,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'schedule',
     'django_celery_results',
+    'photologue',
+    'sortedm2m',
     
 
 ]

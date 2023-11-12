@@ -1,93 +1,42 @@
-div class="container mt-5" data-aos="">
-      {% comment %} <div class="section-header">
-        <h2><span class='text-danger'>Revolt</span> Gallery</h2>
-        <p class='text-dark mobile-second-title'><a href='#'>The Past</a> <span class='text-danger'>||</span> <a href='#'>The Present</a><span class='text-danger'>||</span> <a href='#'>The Future</a></p>
 
-      </div> {% endcomment %}
-    <div class="previous-art-show mt-3">
-    <div class="row">
-      <div class="col-lg text-center p-4"></div>
-      
-      <div
-        class="col-lg-8 text-center p-2 border-bottom border-danger border-3"
-      >
-        <h2><span class='text-danger'>AI : IA</span> By Jesse Littlebird</h2>
-        
-        
 
-       
-       <!-- Button to trigger the modal -->
-
+  <!-- Hero Carousel -->
+  <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="image1.jpg" class="d-block w-100" alt="Image 1">
       </div>
-      <div class="col-lg text-center p-4"></div>
-    </div>
-
- 
-
-    <div class="gallery-slider swiper">
-      <div class="swiper-wrapper align-items-center">
-
-          <div class="swiper-slide square-contain">
-          <a
-            href="{% static 'schedule/img/img-new/jesse_littlebird.jpg' %}"
-            class="gallery-lightbox"
-            ><img loading="lazy"
-              src="{% static 'schedule/img/img-new/jesse_littlebird.jpg' %}"
-              class="img-fluid"
-              alt=""
-          /></a>
-        </div>
-        <div class="swiper-slide square-contain">
-          <a
-            href="{% static 'schedule/img/img-new/jesse_littlebird_flyer.jpg' %}"
-            class="gallery-lightbox"
-            ><img loading="lazy"
-              src="{% static 'schedule/img/img-new/jesse_littlebird_flyer.jpg' %}"
-              class="img-fluid"
-              alt=""
-          /></a>
-        </div>
-        
-        
-
+      <div class="carousel-item">
+        <img src="image2.jpg" class="d-block w-100" alt="Image 2">
       </div>
-      <div class="swiper-pagination"></div>
+      <div class="carousel-item">
+        <img src="image3.jpg" class="d-block w-100" alt="Image 3">
+      </div>
     </div>
-    <!-- End previous show Gallery Section -->
   </div>
-  <!-- end new gallery show section --> 
-      <!-- End current show Gallery Section -->
 
-<!-- Modal (dialog) learn more -->
-
-    <div class='background-image'>
-        <div class="text-center"><h2 class="text-danger">Jesse Littlebird</h2> </div>
-        <div class='background-image-small'>
-        <div class="text-secondary">
-        <p>Expression through the medium of painting and film is a vital part of life for Jesse with his Indigenous heritage deeply rooted in the oral tradition culture of his Pueblo Indian lineage and growing up in a creative household of art, film, and story.</p>
-        <p>Littlebird’s provocative paintings have garnished recognition in the Southwest art scene with several solo exhibitions and group shows during 2018-2023 and with several collectors commissioning his work nationally and globally.</p>
-        <p>            My work is a Detournement of various elements from Western and Indigenous thought and histories, provoking critical reflection and serving as a testament to the enduring spirit of indigenous cultural realities.
-</p>
-        <p>The paintings serve as storytellers, capturing narratives that can be discovered by those who truly listen and engage with the artwork. 
-</p>
-        <p>Each piece is a field for intricately intertwined symbolic representations that draw direct inspiration from the timeless cultural traditions found within the lands my people have inhabited since long before the Settler Colonial and will exist long after its passing.”
-</p>
-        <p>He is a Sundance Institute Full Circle Fellow, and Andy Warhol Foundation recipient. He works full time as an artist and resides in Albuquerque, New Mexico
-</p>
-                   <div class="socialartist m-3 text-center">
-<a href='https://www.instagram.com/moondroppers/?hl=en'><i class="fab fa-instagram fa-2x" style="color: #ac2bac;"></i></a> <!-- Facebook -->
-</div>
-     </div> 
-        </div>
-        <div class="text-center mb-4">
-        <a href='https://jesselittlebird.com/'><h4 class='text-decoration-none'>Click here for Jesse's Collection</h4></a>
-        <!-- Instagram -->
-
-
-       
-        </div>
+  <!-- Hero Overlay and Content -->
+  <div class="hero-overlay">
+    <div class="container mt-5 pb-5" data-aos="fade-up" data-aos-delay="100">
+      <h1 class="text-center mb-2">THE <span class="text-danger">FUTURE</span></h1>
+      <div class="text-center">
+        <h2>REVOLT GALLERY <span class="text-danger">2024 SCHEDULE ~</span>~ COMING SOON</h2>
+        <h2>Full List of All Artists and Shows from Revolt Gallery</h2>
+        <a href="#" class="text-decoration-none">
+          <h3 class="text-danger">Please Contact Us Here If You Have Any Questions</h3>
+        </a>
+      </div>
     </div>
+  </div>
 
-
-    
-    </div
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.0.0-beta2/js/bootstrap.min.js"></script>
+  <script>
+    // Activate the carousel with a 5-second interval
+    $(document).ready(function () {
+      $('#heroCarousel').carousel({
+        interval: 5000
+      });
+    });
+  </script>
