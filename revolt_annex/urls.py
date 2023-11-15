@@ -6,12 +6,13 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('schedule.urls')),
+    path('photologue/', include('photologue.urls')),
     # path("__reload__/", include("django_browser_reload.urls")),
     # path("__debug__/", include("debug_toolbar.urls")),
     
 ]
 
-urlpatterns += [ path(r'^photologue/', include('photologue.urls', namespace='photologue')),]
+
 
 if settings.DEBUG:
     import debug_toolbar

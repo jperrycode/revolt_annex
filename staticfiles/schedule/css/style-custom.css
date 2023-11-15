@@ -195,3 +195,9 @@ dialog {
 
 /* overlay css for boxes on homepage */
 
+/* * css for future schedule */
+
+
+.future-child-container:hover {
+    scale: 1.1;
+}

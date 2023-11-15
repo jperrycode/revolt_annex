@@ -176,6 +176,10 @@ h6 {
   height: 70px;
 }
 
+#header.hidden {
+  top: -90px;
+}
+
 #header #logo h1 {
   font-size: 36px;
   margin: 0;
@@ -1978,6 +1982,7 @@ h6 {
 
 .custom-font-change {
   font-family: 'Octin Spraypaint', sans-serif !important;
+  font-size: 20px !important;
 }
 
 .custom-glow-change:hover {
@@ -1985,7 +1990,7 @@ h6 {
 }
 
 #hut-img img:hover {
-  scale: 1.25;
+  scale: 1.15;
   
 }
 
@@ -2042,3 +2047,44 @@ h6 {
 }
 
 
+
+
+.future-child-container:hover {
+  transform: scale(1.1);
+  animation: glow 2s ease-in-out infinite;
+}
+
+
+
+.future-child-container {
+
+  transition: transform 0.3s ease-in-out; /* Default transition */
+}
+
+.logo-schedule {
+top: 0;
+left: 0;
+max-width: 100px;
+max-height: auto;
+}
+
+@media (max-width: 500px) {
+  .logo-schedule {
+    top: 0;
+    left: 0;
+    max-width: 10%;
+    max-height: 10%;
+    }
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 10px 0px red;
+  }
+  50% {
+    box-shadow: 0 0 20px 5px red;
+  }
+  100% {
+    box-shadow: 0 0 10px 0px red;
+  }
+}

@@ -232,4 +232,18 @@
 })()
 
 
+$(document).ready(function() {
+  let prevScrollPos = $(window).scrollTop();
 
+  $(window).scroll(function() {
+    let currentScrollPos = $(window).scrollTop();
+
+    if (prevScrollPos > currentScrollPos) {
+      $('#header').removeClass('hidden');
+    } else {
+      $('#header').addClass('hidden');
+    }
+
+    prevScrollPos = currentScrollPos;
+  });
+});
