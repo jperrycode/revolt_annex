@@ -117,8 +117,6 @@ class RevoltView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['gallery_listing'] = Visual_artist_listing.objects.all().values()
-        context['photos'] = Photo.objects.all()
-        context['galleries'] = Gallery.objects.all()
         return context
     
     
