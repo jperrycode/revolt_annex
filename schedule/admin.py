@@ -3,7 +3,7 @@ from django.contrib import admin
 
 # Register your models here.
 
-from .models import Music_artist_listing, Visual_artist_listing, Extra_curriucular_listing, Nearby_accomodations, Heads_up_music, Receive_email_updates, Archiveimagefiles, Archivedshowimagedata
+from .models import Music_artist_listing, Visual_artist_listing, Extra_curriucular_listing, Heads_up_music, Receive_email_updates, Archiveimagefiles, Archivedshowimagedata
 from .forms import ArchiveimagefilesFormSet
 from django.core.exceptions import ObjectDoesNotExist
 #register artist listing model
@@ -37,10 +37,10 @@ admin.site.register(Extra_curriucular_listing, ExtraCurricularAdmin)
 
 #register accomadation model
 
-class AccomodationAdmin(admin.ModelAdmin):
-    list_display = ("accom_name", "accom_phone", "accom_phone")
+# class AccomodationAdmin(admin.ModelAdmin):
+#     list_display = ("accom_name", "accom_phone", "accom_phone")
 
-admin.site.register(Nearby_accomodations, AccomodationAdmin)
+# admin.site.register(Nearby_accomodations, AccomodationAdmin)
 
 class HeadsUpMusicAdmin(admin.ModelAdmin):
     list_display = ("event_name", "event_time", "artist_name")
