@@ -11,7 +11,7 @@ import os
 import vimeo
 from django.core.mail import EmailMessage
 from django.urls import reverse_lazy
-from photologue.models import Photo, Gallery
+
 
 
 
