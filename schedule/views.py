@@ -4,7 +4,7 @@ from django.views import View
 from django.shortcuts import render
 from django.views.generic import TemplateView
 from django.views.generic.edit import CreateView
-from schedule.models import Music_artist_listing, Visual_artist_listing, Extra_curriucular_listing
+from schedule.models import Music_artist_listing, Visual_artist_listing, Extra_curriucular_listing, Archivedshowimagedata, Archiveimagefiles
 from schedule.forms import ContactForm
 from .signals import contact_form_saved
 import os
@@ -117,6 +117,9 @@ class RevoltView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['gallery_listing'] = Visual_artist_listing.objects.all().values()
+        context['archive_image_store'] = Archiveimagefiles.objects.all().values()
+        context['archive_data'] = Archivedshowimagedata.objects.all().values()
+
         return context
     
     

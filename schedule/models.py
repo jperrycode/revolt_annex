@@ -1,4 +1,5 @@
 from django.db import models
+import os
 
 
 
@@ -17,12 +18,7 @@ EVENT_GENRE_CHOICES = [
     ('Hip Hop', 'Hip Hop'),
     ]
 
-ACCOM_TYPE_CHOICES = [
-  ('Hotel', 'Hotel'),
-  ('Air-BNB', 'Air-BNB'),
-  ('Bed-n-Breakfast', 'Bed-n-Breakfast'),
-  ('Camping', 'Camping'),                    
-  ]
+
 
 # artist information model
 class Music_artist_listing(models.Model):
@@ -86,12 +82,6 @@ class Extra_curriucular_listing(models.Model):
 
 
 
-#   class Meta:
-#     verbose_name = "Nearby Accomadation"
-#     verbose_name_plural = "Nearby Accomadations"
-
-# #     def is_edm(self):
-# #         return self.genre_type in self.EVENT_GENRE_CHOICES
 
 
 class Heads_up_music(models.Model):
@@ -118,6 +108,19 @@ class Receive_email_updates(models.Model):
 
  
   
+def user_directory_path(instance, filename):
+    # Get the uploaded filename extension
+    ext = filename.split('.')[-1]
+    
+    # Get the user's inputted name (assuming it's stored in a CharField named 'user_input')
+    user_input = instance.user_input
+    
+    # Generate a new filename using the user's input and the uploaded file's extension
+    new_filename = f"{user_input}.{ext}"
+    
+    # Return the upload path
+    return os.path.join('user_uploads', new_filename)
+
 
 
 
@@ -126,7 +129,9 @@ class Archivedshowimagedata(models.Model):
     archive_artist_name = models.CharField(max_length=75, blank=True, null=True)
     archive_start_date = models.DateField(auto_now=False, auto_now_add=False, blank=True, null=True)
     archive_end_date = models.DateField(auto_now=False, auto_now_add=False, blank=True, null=True)
-
+    
+    
+    
     class Meta:
       ordering = ['archive_end_date']
       verbose_name = "Archive Image"
@@ -136,8 +141,23 @@ class Archivedshowimagedata(models.Model):
     
 
 class Archiveimagefiles(models.Model):
-   archive_image = models.ImageField(upload_to="media/")
+   archive_image = models.ImageField(upload_to=user_directory_path)
    archive_fk = models.ForeignKey(Archivedshowimagedata, on_delete=models.CASCADE)
+   
+   def save(self, *args, **kwargs):
+    if not self.id:
+        # For a new entry, create a new directory based on user input
+        upload_directory = os.path.join('user_uploads', self.user_input)
+
+            # Check if the directory exists, if not, create it
+        if not os.path.exists(upload_directory):
+            os.makedirs(upload_directory)
+            
+            # Set the upload_to dynamically to user_input
+        self.image.upload_to = os.path.join(upload_directory, self.image.name)
+        
+        # Call the original save method to save the instance
+    super().save(*args, **kwargs)
 
 
 class VimeoVideo(models.Model):
