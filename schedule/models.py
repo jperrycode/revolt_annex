@@ -85,12 +85,6 @@ class Extra_curriucular_listing(models.Model):
     verbose_name_plural = "Class Listings"
 
 
-# class Nearby_accomodations(models.Model):
-#   accom_name = models.CharField(max_length=50, blank=False, null=False, primary_key=True)
-#   accom_type = models.CharField(max_length=255, choices=ACCOM_TYPE_CHOICES, default='')
-#   accom_distance = models.FloatField(null=False, blank=False)
-#   accom_phone = models.CharField(max_length=12, blank=True, null=True)
-#   accom_url = models.CharField(max_length=255, blank=False, null=True)
 
 #   class Meta:
 #     verbose_name = "Nearby Accomadation"
