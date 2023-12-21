@@ -15,8 +15,13 @@ from django.urls import reverse_lazy
 
 
 
+class GoogleAPIView(TemplateView):
+    template_name = 'schedule/classes_section_index.html'
+    
 
-
+    #connect to API
+    def connect_google_drive(self, **kwargs):
+        return 
 
 # Define a custom signal
 class Contact_form_view(CreateView):

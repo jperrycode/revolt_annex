@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "taos-revolt-drive",
+  "private_key_id": "0911d2bbf6a0811f291835340fd83ed80da22fae",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCnPqv0I5zZUaw4\ntrtPiVJaHKmGx9h9Y2n97JtHclCcciX3JADm1YQtrF0YgedhOuwenoOYt/zW/Hs8\nSvk0AxGalr1qAZGfppPBvlArGctx1ifi8/CJJ/TYROcpronl/Uvxk+NLlhCKSeYl\nKHLD9PP324Q9+tovL85KnK1IpPrULBEGLSfldQWSu6XVKe33xT9M06Wc4nioOoNC\nAXJz0ozNKoumQtRjF3OYsPrb8BWXPgZHRlEDMfUiGbjRWVuNlZxRdJY/COkqknGk\nPOjswdQS7WuYZ7zKrWEJ3JJqasIc6trudhZVxfsws0bxMw3hZObRwKMARXbPr/bW\nZjFRHIbzAgMBAAECggEABJT7egtVu0B5Eu6ysAmnl29sl5Q3EqxcFYhbcrgnjDm2\nX5B9c9WKswOjY03/zFKkcGxQV6lGxI8TQ0IclLe2zkDt/I8BcdnK94ZixOOGht5i\npl2fi+pr01cD7EjrX0EyyPIPypzYZCmFJCR5DHRUEMjTVS1ft+Y75SBowPJAKvrk\npoyTSMWdH8sa1nu39BqAsx7KP8Rj1JcpPIcWXNouE3H/fpfKpaVaAF9brr5XA18A\nq+CK/9PxI+nxzey1LBPEU8Vi6MSG7WIpyMr7+DP5AY0OimMB9I36pCBg/zLwdioZ\nvVNBJ5sQfL8q8KLl/qIEyt6GPy2OU0hKyGEU/qZsdQKBgQDsM0QhZMVd+GjDlCC5\ndsF1sIojx9KtSaWZ59rikPPI0WZEQ1aCDFI8yIs3CE7MKx4itRg84mW0BHY5rQ8i\nSgRbgvyqgGcQ72xJv/bNAuXwik4DM4qJUIOQJKc3JNrdsQShIud2M5H7cqDtgJpu\nZJRzTqnAiwXi8trcSAi6wg6ixQKBgQC1Q6hjxVoxj5kDiJo3c8Le+tF5e7dhuLFP\nMpw0gHwcgce1ljXt5rQnqvRahJEjiaLXZc62C2tgbq66r99rIDdxNOF5hGXczmt/\nFbXacXWhTXGOQbYoNGFkzkAah6gJVaXvvHHT1prtcrJeB8CrPu7nBEqyBhCrMoFm\nmO9pDVG+VwKBgEfN0fFg5AsMIDUMi+I1stwnPedgsLATSm9+J3Fm5WVwGum3ms3Q\nFxP5VzD0qpewp+mfKe4gWRCfpp0j+gzPeYGkUVE31Z01W7MT02BBeEtmkA6zFXNm\n8YfZTKgb4Rkx3hlqNfkd9kv9beSliszycJqZGEu7N5/lehkrINQ9eBuNAoGBAJG9\nbWWSptsUXu3FZmFRdQw9VDE99IrgqcdIpOldqOxuuHja5k96X71JKaCh1+Rf5IsV\nMyeRdOsa8uftQlBqnckqwGMovZHUcf/DH+0brn1bvAKp+ODIhMo9PrNWARhIQdvI\ngyjU8soZnyoVR6coOYOLIteSItLTD9HDAzNO3zuPAoGAVM16tIT3IwdnOP2ufuCM\ndpSJUXglEHEJr+q4AIH1TOdJObNsB4ISFrVYAEaV8VjCNLxUGJLCZgfYWXX319ff\n1itCxz6fWmcI73ozf2r2McR6kgAPMeFhmXThS42Ui3SZ8Cid04Batvhw+oVDsazX\n+WWby/rj+3kTgu98qwOkfKs=\n-----END PRIVATE KEY-----\n",
+  "client_email": "drive-url-server@taos-revolt-drive.iam.gserviceaccount.com",
+  "client_id": "104838637478927138606",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/drive-url-server%40taos-revolt-drive.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
