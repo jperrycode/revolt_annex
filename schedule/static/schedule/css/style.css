@@ -1985,6 +1985,8 @@ h6 {
 .custom-font-change {
   font-family: 'Octin Spraypaint', sans-serif !important;
   font-size: 20px !important;
+  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: black;
 }
 
 .custom-glow-change:hover {

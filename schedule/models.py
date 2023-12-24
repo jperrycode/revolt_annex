@@ -132,6 +132,7 @@ class Archivedshowimagedata(models.Model):
     archive_artist_name = models.CharField(max_length=75, blank=True, null=True)
     archive_start_date = models.DateField(auto_now=False, auto_now_add=False, blank=True, null=True)
     archive_end_date = models.DateField(auto_now=False, auto_now_add=False, blank=True, null=True)
+    archive_folder_id = models.CharField(max_length=50, default='google drive directory id')
 
     class Meta:
       ordering = ['archive_end_date']
@@ -142,7 +143,8 @@ class Archivedshowimagedata(models.Model):
     
 
 class Archiveimagefiles(models.Model):
-   archive_image = models.ImageField(upload_to="media/")
+   archive_image_id = models.CharField(null=True,max_length=100)
+   archive_image_name = models.CharField(max_length=100,null=True)
    archive_fk = models.ForeignKey(Archivedshowimagedata, on_delete=models.CASCADE)
 
 

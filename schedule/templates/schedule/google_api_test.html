@@ -56,7 +56,28 @@ Gallery {% endblock %}
 
 </div> 
 
-<div class="col-lg-2 col-md-4">
+<div class="col-lg-2 col-md-4 test-class">
+  {% if error %}
+  <p> {{ error }}</p>
+
+
+   {% else %}
+
+   {% for i in drive_files %}
+   <ul>
+    <li>ID: {{ i.id }}</li>
+    <li>Name: {{ i.name }}</li>
+    <li><img src="https://drive.google.com/uc?export=view&id={{ i.id }}" alt="finally"></li>
+
+
+
+   </ul>
+
+   {% empty %}
+   <p>no data</p>
+
+   {% endfor %}
+ {% endif %}  
 </div>
 
 <div class="col-lg-5 col-md-4">
@@ -87,6 +108,8 @@ Gallery {% endblock %}
 
 </div> 
     </div>
+
+
 
 </div>
 
