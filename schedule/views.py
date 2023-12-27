@@ -12,8 +12,8 @@ import vimeo
 from django.core.mail import EmailMessage
 from django.urls import reverse_lazy
 from django.http import JsonResponse
-from google.oauth2 import service_account
-from googleapiclient.discovery import build
+# from google.oauth2 import service_account
+# from googleapiclient.discovery import build
 from revolt_annex import settings
 
 # SCOPES = ['https://www.googleapis.com/auth/drive']
