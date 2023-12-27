@@ -64,14 +64,14 @@ Gallery {% endblock %}
    {% else %}
 
    {% for i in drive_files %}
-   <ul>
-    <li>ID: {{ i.id }}</li>
-    <li>Name: {{ i.name }}</li>
-    <li><img src="https://drive.google.com/uc?export=view&id={{ i.id }}" alt="finally"></li>
+   <div class='w-25'>
+    <h5>ID: {{ i.id }}</h5>
+    <h6>Name: {{ i.name }}</h6>
+    <img src="https://drive.google.com/uc?export=view&id={{ i.id }}" alt="finally">
+   </div>
 
 
-
-   </ul>
+   
 
    {% empty %}
    <p>no data</p>

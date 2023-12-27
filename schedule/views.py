@@ -16,41 +16,41 @@ from google.oauth2 import service_account
 from googleapiclient.discovery import build
 from revolt_annex import settings
 
-SCOPES = ['https://www.googleapis.com/auth/drive']
-SERVICE_ACCOUNT_FILE = os.path.join(settings.BASE_DIR, 'schedule', 'taos-revolt-drive-0911d2bbf6a0.json')
-DIRECTORY_ID = '1eParAfXZy-cPhxzX7uNbDQkFZ2L-WWI8'  # Replace with your Google Drive directory ID
+# SCOPES = ['https://www.googleapis.com/auth/drive']
+# SERVICE_ACCOUNT_FILE = os.path.join(settings.BASE_DIR, 'schedule', 'taos-revolt-drive-0911d2bbf6a0.json')
+# DIRECTORY_ID = '1eParAfXZy-cPhxzX7uNbDQkFZ2L-WWI8'  # Replace with your Google Drive directory ID
 
-class GoogleAPIView(TemplateView):
-    template_name = 'schedule/google_api_test.html'
+# class GoogleAPIView(TemplateView):
+#     template_name = 'schedule/google_api_test.html'
    
-    #connect to API
-    def get(self, request, *args, **kwargs):
-        context = self.get_context_data(**kwargs)
-        try:
-            credentials = service_account.Credentials.from_service_account_file(
-            SERVICE_ACCOUNT_FILE, scopes=SCOPES
-        )
-            service = build('drive', 'v3', credentials=credentials)
-            query = f"'{DIRECTORY_ID}' in parents"
-            files = service.files().list(q=query, fields="files(name, id)").execute()
-            response = files.get('files', [])
-            context['drive_files'] = response
-            for data in response:
-                img_response = Archiveimagefiles(
-                    archive_image_id=data['id'],
-                    archive_image_name=data['name'],
-                )
-                img_response.save()
-            # for i in context['drive_files']:
-            #     file_metadata = service.files().get(fileId=i['id']).execute()
-            #     print(file_metadata)     
-        except Exception as e:
-            # Handle any exceptions that might occur
-            context['error'] = str(e)
-            print(e)
+#     #connect to API
+#     def get(self, request, *args, **kwargs):
+#         context = self.get_context_data(**kwargs)
+#         try:
+#             credentials = service_account.Credentials.from_service_account_file(
+#             SERVICE_ACCOUNT_FILE, scopes=SCOPES
+#         )
+#             service = build('drive', 'v3', credentials=credentials)
+#             query = f"'{DIRECTORY_ID}' in parents"
+#             files = service.files().list(q=query, fields="files(name, id)").execute()
+#             response = files.get('files', [])
+#             context['drive_files'] = response
+#             for data in response:
+#                 img_response = Archiveimagefiles(
+#                     archive_image_id=data['id'],
+#                     archive_image_name=data['name'],
+#                 )
+#                 img_response.save()
+#             # for i in context['drive_files']:
+#             #     file_metadata = service.files().get(fileId=i['id']).execute()
+#             #     print(file_metadata)     
+#         except Exception as e:
+#             # Handle any exceptions that might occur
+#             context['error'] = str(e)
+#             print(e)
             
 
-        return self.render_to_response(context)
+#         return self.render_to_response(context)
 
 
 # Define a custom signal

@@ -16,7 +16,7 @@ urlpatterns = [
     path('community-classes/', ClassesView.as_view(), name='class-reset'),
     path('reset-performing-arts/', ResetView.as_view(), name='music-reset'),
     path('revolt-gallery/', RevoltView.as_view(), name='gallery-revolt'),
-    path('api-test/', GoogleAPIView.as_view(), name='api-test'),
+    # path('api-test/', GoogleAPIView.as_view(), name='api-test'),
 ]
 
 admin.site.site_header = 'Revolt Gallery - Reset Performing Arts'
