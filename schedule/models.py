@@ -85,19 +85,7 @@ class Extra_curriucular_listing(models.Model):
     verbose_name_plural = "Class Listings"
 
 
-# class Nearby_accomodations(models.Model):
-#   accom_name = models.CharField(max_length=50, blank=False, null=False, primary_key=True)
-#   accom_type = models.CharField(max_length=255, choices=ACCOM_TYPE_CHOICES, default='')
-#   accom_distance = models.FloatField(null=False, blank=False)
-#   accom_phone = models.CharField(max_length=12, blank=True, null=True)
-#   accom_url = models.CharField(max_length=255, blank=False, null=True)
 
-#   class Meta:
-#     verbose_name = "Nearby Accomadation"
-#     verbose_name_plural = "Nearby Accomadations"
-
-# #     def is_edm(self):
-# #         return self.genre_type in self.EVENT_GENRE_CHOICES
 
 
 class Heads_up_music(models.Model):
@@ -133,11 +121,12 @@ class Archivedshowimagedata(models.Model):
     archive_start_date = models.DateField(auto_now=False, auto_now_add=False, blank=True, null=True)
     archive_end_date = models.DateField(auto_now=False, auto_now_add=False, blank=True, null=True)
     archive_folder_id = models.CharField(max_length=50)
+    archive_artist_web = models.CharField(max_length=50, blank=True, null=True)
 
     class Meta:
       ordering = ['archive_end_date']
-      verbose_name = "Archive Image"
-      verbose_name_plural = "Archive Images"
+      verbose_name = "Archive"
+      verbose_name_plural = "Archive"
     def __str__(self):
         return self.archive_show_name
     
@@ -145,7 +134,7 @@ class Archivedshowimagedata(models.Model):
 class Archiveimagefiles(models.Model):
    archive_image_id = models.CharField(max_length=100, null=True)
    archive_image_name = models.CharField(max_length=100, null=True)
-   archive_fk = models.ForeignKey(Archivedshowimagedata, on_delete=models.CASCADE, null=True)
+   archive_fk = models.ForeignKey(Archivedshowimagedata, on_delete=models.CASCADE, related_name='image_files',null=True)
 
 
 class VimeoVideo(models.Model):
