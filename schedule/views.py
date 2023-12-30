@@ -1,10 +1,11 @@
+from typing import Any
 import django
 django.setup()
 from django.views import View
 from django.shortcuts import render
 from django.views.generic import TemplateView
 from django.views.generic.edit import CreateView
-from schedule.models import Music_artist_listing, Visual_artist_listing, Extra_curriucular_listing, Archiveimagefiles
+from schedule.models import Music_artist_listing, Visual_artist_listing, Extra_curriucular_listing, Archiveimagefiles, Archivedshowimagedata
 from schedule.forms import ContactForm
 from .signals import contact_form_saved
 import os
@@ -12,45 +13,10 @@ import vimeo
 from django.core.mail import EmailMessage
 from django.urls import reverse_lazy
 from django.http import JsonResponse
-# from google.oauth2 import service_account
-# from googleapiclient.discovery import build
+from django.db.models import Prefetch
 from revolt_annex import settings
 
-# SCOPES = ['https://www.googleapis.com/auth/drive']
-# SERVICE_ACCOUNT_FILE = os.path.join(settings.BASE_DIR, 'schedule', 'taos-revolt-drive-0911d2bbf6a0.json')
-# DIRECTORY_ID = '1eParAfXZy-cPhxzX7uNbDQkFZ2L-WWI8'  # Replace with your Google Drive directory ID
 
-# class GoogleAPIView(TemplateView):
-#     template_name = 'schedule/google_api_test.html'
-   
-#     #connect to API
-#     def get(self, request, *args, **kwargs):
-#         context = self.get_context_data(**kwargs)
-#         try:
-#             credentials = service_account.Credentials.from_service_account_file(
-#             SERVICE_ACCOUNT_FILE, scopes=SCOPES
-#         )
-#             service = build('drive', 'v3', credentials=credentials)
-#             query = f"'{DIRECTORY_ID}' in parents"
-#             files = service.files().list(q=query, fields="files(name, id)").execute()
-#             response = files.get('files', [])
-#             context['drive_files'] = response
-#             for data in response:
-#                 img_response = Archiveimagefiles(
-#                     archive_image_id=data['id'],
-#                     archive_image_name=data['name'],
-#                 )
-#                 img_response.save()
-#             # for i in context['drive_files']:
-#             #     file_metadata = service.files().get(fileId=i['id']).execute()
-#             #     print(file_metadata)     
-#         except Exception as e:
-#             # Handle any exceptions that might occur
-#             context['error'] = str(e)
-#             print(e)
-            
-
-#         return self.render_to_response(context)
 
 
 # Define a custom signal
@@ -144,15 +110,44 @@ class ClassesView(TemplateView):
     template_name = 'schedule/classes_section_index.html'
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['classes_data'] = Extra_curriucular_listing.objects.all().values()
+        context['classes_data'] = Extra_curriucular_listing.objects.all()
         return context
     
 class RevoltView(TemplateView):
     template_name = 'schedule/gallery_all_swtiching.html'
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['gallery_listing'] = Visual_artist_listing.objects.all().values()
+
+        # Fetching data efficiently
+        gallery_listing = Visual_artist_listing.objects.all().values()
+
+        # Fetching Archivedshowimagedata instances and prefetching specific fields from related Archiveimagefiles instances
+        image_show_data = (
+            Archivedshowimagedata.objects
+            .prefetch_related(
+                Prefetch('image_files', queryset=Archiveimagefiles.objects.all())  
+            )
+            .all()
+        )
+
+        context['gallery_listing'] = gallery_listing
+        context['archive_show_data'] = image_show_data
+
         return context
+        
+        
+        
+        
+        
+        
+        # context = super().get_context_data(**kwargs)
+        # context['gallery_listing'] = Visual_artist_listing.objects.all().values()
+        # image_show_data = Archivedshowimagedata.objects.all()
+        # image_pissed = image_show_data.childmodel_set.all()
+        # context['archive_show_data'] = image_show_data
+        # context['archive_image_info'] = image_pissed
+        # return context
     
     
 class ResetView(TemplateView):
@@ -161,6 +156,24 @@ class ResetView(TemplateView):
         context = super().get_context_data(**kwargs)
         context['music_artist_listing'] = Music_artist_listing.objects.all().values()
         # context['vimeo_video_data'] = self.get_vimeo_videos()
+        return context
+    
+class ArchivePageView(TemplateView):
+    template_name = 'schedule/gallery_past_new_copy.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        
+        show_name = self.kwargs.get('show_name')  # Retrieve 'parent_id' from URL kwargs
+        
+        # Fetching data related to Archivedshowimagedata using the parent_id
+        image_show_data = Archivedshowimagedata.objects.get(name=show_name)
+        
+        # Accessing related objects using childmodel_set
+        image_pissed = image_show_data.childmodel_set.all()
+        
+        context['archive_show_data'] = image_show_data
+        context['archive_image_info'] = image_pissed
         return context
     
     # def get_vimeo_videos(self):

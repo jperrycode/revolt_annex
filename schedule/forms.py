@@ -1,3 +1,4 @@
+from typing import Any
 from django import forms
 from django.forms import ModelForm
 from django.core.validators import EmailValidator
@@ -31,5 +32,7 @@ class ArchiveimagefilesForm(forms.ModelForm):
     class Meta:
         model = Archiveimagefiles
         fields = '__all__'
+        
+  
 
 ArchiveimagefilesFormSet = inlineformset_factory(Archivedshowimagedata, Archiveimagefiles, form=ArchiveimagefilesForm, extra=1)
