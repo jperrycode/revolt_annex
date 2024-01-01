@@ -117,13 +117,14 @@ class RevoltView(TemplateView):
     template_name = 'schedule/gallery_all_swtiching.html'
 
     def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
+        try:
+            context = super().get_context_data(**kwargs)
 
         # Fetching data efficiently
-        gallery_listing = Visual_artist_listing.objects.all().values()
+            gallery_listing = Visual_artist_listing.objects.all().values()
 
         # Fetching Archivedshowimagedata instances and prefetching specific fields from related Archiveimagefiles instances
-        image_show_data = (
+            image_show_data = (
             Archivedshowimagedata.objects
             .prefetch_related(
                 Prefetch('image_files', queryset=Archiveimagefiles.objects.all())  
@@ -131,8 +132,10 @@ class RevoltView(TemplateView):
             .all()
         )
 
-        context['gallery_listing'] = gallery_listing
-        context['archive_show_data'] = image_show_data
+            context['gallery_listing'] = gallery_listing
+            context['archive_show_data'] = image_show_data
+        except Exception as e:
+            print(e)
 
         return context
         
