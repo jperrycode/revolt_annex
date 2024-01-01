@@ -4,7 +4,8 @@ from django.contrib import admin
 
 # Register your models here.
 
-from .models import Music_artist_listing, Visual_artist_listing, Extra_curriucular_listing, Heads_up_music, Receive_email_updates, Archiveimagefiles, Archivedshowimagedata
+from .models import (Music_artist_listing, Visual_artist_listing, Extra_curriucular_listing,
+                     Heads_up_music, Receive_email_updates, Archiveimagefiles, Archivedshowimagedata)
 from .forms import ArchiveimagefilesFormSet
 from django.core.exceptions import ObjectDoesNotExist
 from google.oauth2 import service_account
