@@ -66,7 +66,8 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'schedule',
     'django_celery_results',
- 
+    'photologue',
+    'sortedm2m',
 
 ]
 
@@ -119,6 +120,7 @@ DATABASES = {
         'PORT': '5432',
     }
 }
+
 
 
 DATABASES['default'] = dj_database_url.config(
@@ -213,4 +215,3 @@ DEFAULT_FROM_EMAIL = str(os.getenv('ZOHO_ACCOUNT_EMAIL'))
 
 # db_from_env = dj_database_url.config(conn_max_age=500)
 # DATABASES['default'].update(db_from_env)
-
