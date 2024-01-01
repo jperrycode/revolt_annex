@@ -66,8 +66,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'schedule',
     'django_celery_results',
-    'photologue',
-    'sortedm2m',
+   
 
 ]
 
