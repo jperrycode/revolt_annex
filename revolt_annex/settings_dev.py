@@ -12,7 +12,7 @@ dotenv.load_dotenv(dotenv_path)
 
 
 
-
+DEBUG_PROPAGATE_EXCEPTIONS = True
 
 
 
