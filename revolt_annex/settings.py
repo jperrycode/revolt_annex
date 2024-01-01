@@ -120,7 +120,6 @@ DATABASES = {
     }
 }
 
-DEBUG_PROPAGATE_EXCEPTIONS = True
 
 DATABASES['default'] = dj_database_url.config(
     default=str(os.getenv('DATABASE_URL')),
