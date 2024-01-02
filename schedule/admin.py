@@ -5,7 +5,7 @@ from django.contrib import admin
 # Register your models here.
 
 from .models import (Music_artist_listing, Visual_artist_listing, Extra_curriucular_listing,
-                     Heads_up_music, Receive_email_updates, Archiveimagefiles, Archivedshowimagedata)
+                     Receive_email_updates, Archiveimagefiles, Archivedshowimagedata)
 from .forms import ArchiveimagefilesFormSet
 from django.core.exceptions import ObjectDoesNotExist
 from google.oauth2 import service_account
@@ -48,10 +48,10 @@ admin.site.register(Extra_curriucular_listing, ExtraCurricularAdmin)
 
 # admin.site.register(Nearby_accomodations, AccomodationAdmin)
 
-class HeadsUpMusicAdmin(admin.ModelAdmin):
-    list_display = ("event_name", "event_time", "artist_name")
+# class HeadsUpMusicAdmin(admin.ModelAdmin):
+#     list_display = ("event_name", "event_time", "artist_name")
 
-admin.site.register(Heads_up_music, HeadsUpMusicAdmin)
+# admin.site.register(Heads_up_music, HeadsUpMusicAdmin)
 
 class EmailConsent(admin.ModelAdmin):
     list_display = ("emailform_name", "emailform_email", "emailform_consent")

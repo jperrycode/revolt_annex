@@ -17,12 +17,7 @@ EVENT_GENRE_CHOICES = [
     ('Hip Hop', 'Hip Hop'),
     ]
 
-ACCOM_TYPE_CHOICES = [
-  ('Hotel', 'Hotel'),
-  ('Air-BNB', 'Air-BNB'),
-  ('Bed-n-Breakfast', 'Bed-n-Breakfast'),
-  ('Camping', 'Camping'),                    
-  ]
+
 
 # artist information model
 class Music_artist_listing(models.Model):
@@ -88,18 +83,18 @@ class Extra_curriucular_listing(models.Model):
 
 
 
-class Heads_up_music(models.Model):
-  event_name = models.CharField(max_length=50, blank=False, null=False)
-  event_date = models.DateField(auto_now=False,auto_now_add=False)
-  event_time = models.TimeField(auto_now=False, auto_now_add=False)
-  artist_name = models.CharField(max_length=50, blank=False, null=False)
-  event_description = models.CharField(max_length=255, blank=False, null=False)
-  artist_image = models.ImageField(upload_to ='media/', null=True, blank=True)
+# class Heads_up_music(models.Model):
+#   event_name = models.CharField(max_length=50, blank=False, null=False)
+#   event_date = models.DateField(auto_now=False,auto_now_add=False)
+#   event_time = models.TimeField(auto_now=False, auto_now_add=False)
+#   artist_name = models.CharField(max_length=50, blank=False, null=False)
+#   event_description = models.CharField(max_length=255, blank=False, null=False)
+#   artist_image = models.ImageField(upload_to ='media/', null=True, blank=True)
 
-  class Meta:
-    ordering = ['event_date']
-    verbose_name = "HUM Event"
-    verbose_name_plural = "HUM Events"
+#   class Meta:
+#     ordering = ['event_date']
+#     verbose_name = "HUM Event"
+#     verbose_name_plural = "HUM Events"
 
 
 
