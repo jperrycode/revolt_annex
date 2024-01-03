@@ -129,7 +129,7 @@ class Archivedshowimagedata(models.Model):
 class Archiveimagefiles(models.Model):
    archive_image_id = models.CharField(max_length=100, null=True)
    archive_image_name = models.CharField(max_length=100, null=True)
-   archive_fk = models.ForeignKey(Archivedshowimagedata, on_delete=models.CASCADE, related_name='image_files',null=True)
+   archive_fk = models.ForeignKey(Archivedshowimagedata, on_delete=models.CASCADE, related_name='image_files', null=True, blank=True)
 
 
 class VimeoVideo(models.Model):
