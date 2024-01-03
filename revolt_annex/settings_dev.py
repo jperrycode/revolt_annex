@@ -48,7 +48,7 @@ SECRET_KEY = str(os.getenv('SECRET_KEY'))
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = False
 # DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
-DEBUG = True
+DEBUG = False
 ALLOWED_HOSTS = ['*']
 
 SITE_ID = 1
@@ -105,15 +105,15 @@ TEMPLATES = [
 WSGI_APPLICATION = 'revolt_annex.wsgi.app'
 # WSGI_APPLICATION = 'revolt_annex.wsgi.application'
 
-DATABASE_URL = str(os.getenv('DATABASE_URL'))
-# Database
-# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
+# DATABASE_URL = str(os.getenv('DATABASE_URL'))
+# # Database
+# # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# To use Neon with Django, you have to create a Project on Neon and specify the project connection settings in your settings.py in the same way as for standalone Postgres.
+# # To use Neon with Django, you have to create a Project on Neon and specify the project connection settings in your settings.py in the same way as for standalone Postgres.
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': str(os.getenv('DB_NAME')),
+#         'NAME': 'revolt-backup',
 #         'USER': str(os.getenv('DB_USER')),
 #         'PASSWORD': str(os.getenv('DB_PASSWORD')),
 #         'HOST': str(os.getenv('DB_HOST')),
