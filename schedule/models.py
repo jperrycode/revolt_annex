@@ -124,7 +124,7 @@ class Archivedshowimagedata(models.Model):
       verbose_name_plural = "Archive"
     def __str__(self):
         return self.archive_show_name
-    
+      
 
 class Archiveimagefiles(models.Model):
    archive_image_id = models.CharField(max_length=100, null=True)
@@ -132,11 +132,11 @@ class Archiveimagefiles(models.Model):
    archive_fk = models.ForeignKey(Archivedshowimagedata, on_delete=models.CASCADE, related_name='image_files', null=True, blank=True)
 
 
-class VimeoVideo(models.Model):
-    video_id = models.CharField(max_length=255, unique=True)
-    title = models.CharField(max_length=255)
-    description = models.TextField()
-    # Add other fields as needed
+# class VimeoVideo(models.Model):
+#     video_id = models.CharField(max_length=255, unique=True)
+#     title = models.CharField(max_length=255)
+#     description = models.TextField()
+#     # Add other fields as needed
 
-    def __str__(self):
-        return self.title
+#     def __str__(self):
+#         return self.title

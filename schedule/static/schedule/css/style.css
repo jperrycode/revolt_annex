@@ -2092,3 +2092,21 @@ max-height: auto;
     box-shadow: 0 0 10px 0px red;
   }
 }
+
+
+
+/* Hidden by default */
+.swiper-container {
+  width: 100%;
+  overflow: hidden; /* Prevents the images from overflowing outside the container */
+}
+
+.swiper-slide {
+  width: 100%;
+  text-align: center;
+}
+
+.swiper-slide img {
+  max-width: 100%; /* Ensures images don't overflow */
+  height: auto;
+}

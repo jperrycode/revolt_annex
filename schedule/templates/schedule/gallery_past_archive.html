@@ -1,0 +1,64 @@
+<main>
+
+  <section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <p class="lead text-body-secondary">"Revolt Gallery in Taos, NM presents an eclectic and vibrant archive compilation showcasing avant-garde artworks and cultural narratives, offering a captivating retrospective of contemporary expressions and local artistic dynamism."</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="album py-5">
+    <div class="container">
+
+      <div class="row g-3">
+        {% for item in archive_show_data %}
+        {% for image in archive_image_info %}
+          <div class="col ms-5 me-5">
+            <div class="future-child-container p-3 mt-3 border border-light rounded-4 shadow-lg mb-5 bg-danger bg-opacity-10">
+              <div class="future-content-container">
+                {% comment %} <img class='logo-schedule img-h' src='{% static "schedule/img/img-new/revolt_logo.png" %}' alt='logo' /> {% endcomment %}
+                <h1 class=''>{{ item.archive_show_name }}</h1>
+                <h2 class=''><span class='h4 text-danger'>by</span> <span class='h3'><a class='text-decoration-none text-danger' href='{{ item.archive_artist_web }}'>{{ item.archive_artist_name }}</a></span></h2>
+                <div class='hover-future-cont'>
+                  <p class="">{{item.archive_start_date}} -- {{item.archive_end_date}} </p>
+                  
+                    <div class='archive-image-container border-danger-subtle'>
+                      {% if item.image_files.exists %}
+
+                      <img src='https://drive.google.com/uc?export=view&id={{ item.image_files.all.1.archive_image_id }}' class='archive-image'>
+
+                    {% else %}
+                      <p>No related images found.</p>
+                    {% endif %} 
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> 
+
+         
+        
+          {% if forloop.counter|divisibleby:2 and not forloop.last %}
+            <div class="w-100"></div> <!-- Clears the float to start a new row -->
+          {% endif %}
+
+          {% empty %}
+
+          <div class='text-center'>
+            <h2>REVOLT GALLERY <span class='text-danger'>ARCHIVES ~</span>~ COMING SOON</h2>
+            <h2>Full List of All Artists and Shows from Revolt Gallery</h2>
+            <a href="{% url 'contact-revolt' %}" class='text-decoration-none'><h3 class='text-danger'>Please Contact Us Here If You Have Any Questions</h3></a>
+            </div>
+            {% endfor %}
+        {% endfor %}
+      </div>
+
+    </div>
+  </div>
+
+  <div class='row'>
+    <div class='col'></div>
+  </div>
+
+</main>

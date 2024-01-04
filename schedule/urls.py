@@ -16,7 +16,7 @@ urlpatterns = [
     path('community-classes/', ClassesView.as_view(), name='class-reset'),
     path('reset-performing-arts/', ResetView.as_view(), name='music-reset'),
     path('revolt-gallery/', RevoltView.as_view(), name='gallery-revolt'),
-    path('archive/<str:show_name>/', ArchivePageView.as_view(), name='archive_detail'),
+    # path('revolt-gallery/archive/<int:show_name>/details/', ArchivePageView.as_view(), name='archive_detail'),
     # path('api-test/', GoogleAPIView.as_view(), name='api-test'),
 ]
 
