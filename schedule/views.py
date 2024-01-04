@@ -16,6 +16,7 @@ from django.urls import reverse_lazy
 from django.http import JsonResponse
 from django.db.models import Prefetch
 from revolt_annex import settings
+from django.shortcuts import get_object_or_404
 
 
 
@@ -145,14 +146,7 @@ class RevoltView(TemplateView):
         
         
         
-        # context = super().get_context_data(**kwargs)
-        # context['gallery_listing'] = Visual_artist_listing.objects.all().values()
-        # image_show_data = Archivedshowimagedata.objects.all()
-        # image_pissed = image_show_data.childmodel_set.all()
-        # context['archive_show_data'] = image_show_data
-        # context['archive_image_info'] = image_pissed
-        # return context
-    
+     
     
 class ResetView(TemplateView):
     template_name = 'schedule/reset_venue_index.html'
@@ -162,23 +156,30 @@ class ResetView(TemplateView):
         # context['vimeo_video_data'] = self.get_vimeo_videos()
         return context
     
-class ArchivePageView(TemplateView):
-    template_name = 'schedule/gallery_past_new_copy.html'
+# class ArchivePageView(TemplateView):
+#     template_name = 'schedule/gallery_past_archive.html'
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        
-        show_name = self.kwargs.get('show_name')  # Retrieve 'parent_id' from URL kwargs
-        
-        # Fetching data related to Archivedshowimagedata using the parent_id
-        image_show_data = Archivedshowimagedata.objects.get(name=show_name)
-        
-        # Accessing related objects using childmodel_set
-        image_pissed = image_show_data.childmodel_set.all()
-        
-        context['archive_show_data'] = image_show_data
-        context['archive_image_info'] = image_pissed
-        return context
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         try:
+#             show_name = self.kwargs.get('show_name')  # Retrieve 'show_name' from URL kwargs
+            
+#             # Fetching data related to Archiveimagefiles using the show_name
+#             image_show_data = get_object_or_404(Archiveimagefiles, archive_image_id=show_name)
+            
+#             # Accessing related objects using the related_name (image_files)
+#             image_pissed = image_show_data.image_files.all()
+            
+#             context['archive_show_data'] = image_show_data
+#             context['archive_image_info'] = image_pissed
+#         except Exception as e:
+#             print(e)
+#         return context
+
+
+
+
+
     
     # def get_vimeo_videos(self):
     #     vimeo_token = str(os.getenv('VIMEO_ACCESS_TOKEN'))  # Replace with your Vimeo access token

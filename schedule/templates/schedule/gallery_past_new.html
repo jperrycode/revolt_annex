@@ -57,20 +57,26 @@
                   <h2 class=''><span class='h4 text-danger'>by</span> <span class='h3'><a class='text-decoration-none text-danger' href='{{ item.archive_artist_web }}'>{{ item.archive_artist_name }}</a></span></h2>
                   <div class='hover-future-cont'>
                     <p class="">{{item.archive_start_date}} -- {{item.archive_end_date}} </p>
-                    
+                     
                       <div class='archive-image-container border-danger-subtle'>
                         {% if item.image_files.exists %}
 
                         <img src='https://drive.google.com/uc?export=view&id={{ item.image_files.all.1.archive_image_id }}' class='archive-image'>
+                      
+                {% comment %} <img src='https://drive.google.com/uc?export=view&id={{ image_file.archive_image_id }}' class='archive-image' loading="lazy">< {% endcomment %}
+              
+
                       {% else %}
                         <p>No related images found.</p>
                       {% endif %} 
                     </div>
                   </div>
                 </div>
+                 
               </div>
             </div> 
 
+          
            
           
             {% if forloop.counter|divisibleby:2 and not forloop.last %}
@@ -84,15 +90,18 @@
               <h2>Full List of All Artists and Shows from Revolt Gallery</h2>
               <a href="{% url 'contact-revolt' %}" class='text-decoration-none'><h3 class='text-danger'>Please Contact Us Here If You Have Any Questions</h3></a>
               </div>
-          {% endfor %}
+          
+
+          
+          
+              {% endfor %}
         </div>
   
       </div>
     </div>
-  
-    <div class='row'>
-      <div class='col'></div>
-    </div>
+ 
+
+
   
   </main>
   

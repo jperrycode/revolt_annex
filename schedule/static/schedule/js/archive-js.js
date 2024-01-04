@@ -78,4 +78,32 @@
         })
     })
   })()
+
+
+  function toggleModal() {
+    var modal = document.getElementById("myModal-archive");
+    var btn = document.getElementById("openModalBtn-archive");
+    var span = document.getElementsByClassName("close-archive")[0];
+  
+    // When the user clicks the button, open the modal
+    btn.onclick = function () {
+      modal.style.display = "block";
+    };
+  
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+      modal.style.display = "none";
+    };
+  
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    };
+  }
+  
+  // Call the function when the button is clicked
+  document.getElementById("openModalBtn-archive").addEventListener("click", toggleModal);
+  
   
