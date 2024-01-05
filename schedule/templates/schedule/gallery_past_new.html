@@ -54,14 +54,14 @@
                 <div class="future-content-container">
                   <img class='logo-schedule img-h' src='{% static "schedule/img/img-new/revolt_logo.png" %}' alt='logo' />
                   <h1 class=''>{{ item.archive_show_name }}</h1>
-                  <h2 class=''><span class='h4 text-danger'>by</span> <span class='h3'><a class='text-decoration-none text-danger' href='{{ item.archive_artist_web }}'>{{ item.archive_artist_name }}</a></span></h2>
+                  <h2 class=''><span class='h4 text-danger'>by</span> <span class='h3'><a class='text-decoration-none text-danger' href='{% url "archive_details" pk=item.pk %}'>{{ item.archive_artist_name }}</a></span></h2>
                   <div class='hover-future-cont'>
                     <p class="">{{item.archive_start_date}} -- {{item.archive_end_date}} </p>
                      
                       <div class='archive-image-container border-danger-subtle'>
                         {% if item.image_files.exists %}
 
-                        <img src='https://drive.google.com/uc?export=view&id={{ item.image_files.all.1.archive_image_id }}' class='archive-image'>
+                      {% comment %} <a href='{% url "archive_details" pk=item.id %}'>  <img src='https://drive.google.com/uc?export=view&id={{ item.image_files.all.1.archive_image_id }}' class='archive-image'></a> {% endcomment %}
                       
                 {% comment %} <img src='https://drive.google.com/uc?export=view&id={{ image_file.archive_image_id }}' class='archive-image' loading="lazy">< {% endcomment %}
               

@@ -111,13 +111,13 @@ class Fullarchiveform(admin.ModelAdmin):
             query = f"'{archive_folder_id}' in parents"
             files = service.files().list(q=query, fields="files(name, id)").execute()
             response = files.get('files', [])
-             
-            for data in response:
+
+            for index, data in enumerate(response[:10]):
                 img_response = Archiveimagefiles(
-                archive_image_id=data['id'],
-                archive_image_name=data['name'],
-                archive_fk_id=main_object_id)
-                 
+                    archive_image_id=data['id'],
+                    archive_image_name=data['name'],
+                    archive_fk_id=main_object_id
+                )
                 img_response.save()
              
                     
