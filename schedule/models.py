@@ -124,7 +124,7 @@ class Archivedshowimagedata(models.Model):
       verbose_name_plural = "Archive"
     def __str__(self):
         return self.archive_show_name
-      
+
 
 class Archiveimagefiles(models.Model):
    archive_image_id = models.CharField(max_length=100, null=True)

@@ -104,36 +104,36 @@ TEMPLATES = [
 WSGI_APPLICATION = 'revolt_annex.wsgi.app'
 # WSGI_APPLICATION = 'revolt_annex.wsgi.application'
 
-# DATABASE_URL = str(os.getenv('DATABASE_URL'))
-# # Database
-# # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
+DATABASE_URL = str(os.getenv('DATABASE_URL'))
+# Database
+# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# # To use Neon with Django, you have to create a Project on Neon and specify the project connection settings in your settings.py in the same way as for standalone Postgres.
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': str(os.getenv('DB_NAME')),
-#         'USER': str(os.getenv('DB_USER')),
-#         'PASSWORD': str(os.getenv('DB_PASSWORD')),
-#         'HOST': str(os.getenv('DB_HOST')),
-#         'PORT': '5432',
-#     }
-# }
-
-
-
-# DATABASES['default'] = dj_database_url.config(
-#     default=str(os.getenv('DATABASE_URL')),
-#     conn_max_age=600,
-#     conn_health_checks=True,
-# )
-
+# To use Neon with Django, you have to create a Project on Neon and specify the project connection settings in your settings.py in the same way as for standalone Postgres.
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": "mydatabase",
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': str(os.getenv('DB_NAME')),
+        'USER': str(os.getenv('DB_USER')),
+        'PASSWORD': str(os.getenv('DB_PASSWORD')),
+        'HOST': str(os.getenv('DB_HOST')),
+        'PORT': '5432',
     }
 }
+
+
+
+DATABASES['default'] = dj_database_url.config(
+    default=str(os.getenv('DATABASE_URL')),
+    conn_max_age=600,
+    conn_health_checks=True,
+)
+
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.sqlite3",
+#         "NAME": "mydatabase",
+#     }
+# }
 
 # DATABASE_ROUTERS = ['revolt_annex.database_router.AppBasedRouter']
 

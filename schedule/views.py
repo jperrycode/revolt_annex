@@ -2,6 +2,7 @@ from typing import Any
 import django
 django.setup()
 from django.views import View
+from django.views.generic import DetailView
 from django.shortcuts import render
 from django.views.generic import TemplateView
 from django.views.generic.edit import CreateView
@@ -17,6 +18,7 @@ from django.http import JsonResponse
 from django.db.models import Prefetch
 from revolt_annex import settings
 from django.shortcuts import get_object_or_404
+from django.shortcuts import reverse
 
 
 
@@ -117,15 +119,18 @@ class ClassesView(TemplateView):
     
 class RevoltView(TemplateView):
     template_name = 'schedule/gallery_all_swtiching.html'
+    
 
     def get_context_data(self, **kwargs):
         try:
+            
             context = super().get_context_data(**kwargs)
+            
 
         # Fetching data efficiently
-            gallery_listing = Visual_artist_listing.objects.all().values()
+            gallery_listing = Visual_artist_listing.objects.all()
 
-        # Fetching Archivedshowimagedata instances and prefetching specific fields from related Archiveimagefiles instances
+            # Fetching Archivedshowimagedata instances and prefetching specific fields from related Archiveimagefiles instances
             image_show_data = (
             Archivedshowimagedata.objects
             .prefetch_related(
@@ -133,6 +138,7 @@ class RevoltView(TemplateView):
             )
             .all()
         )
+       
 
             context['gallery_listing'] = gallery_listing
             context['archive_show_data'] = image_show_data
@@ -155,29 +161,38 @@ class ResetView(TemplateView):
         context['music_artist_listing'] = Music_artist_listing.objects.all().values()
         # context['vimeo_video_data'] = self.get_vimeo_videos()
         return context
+
+class ArchivePageView(DetailView):
+        template_name = 'schedule/gallery_past_archive.html'
+        model = Archivedshowimagedata
+
+        def get_context_data(self, **kwargs):
+            context = super().get_context_data(**kwargs)
+
+            try:
+                # Get the primary key (pk) from URL kwargs
+                pk = self.kwargs.get('pk')
+
+                # Retrieve the parent model instance (Archivedshowimagedata) based on the pk
+                show_instance_data = get_object_or_404(Archivedshowimagedata, pk=pk)
+
+                # Retrieve related Archiveimagefiles instances for the Archivedshowimagedata instance
+                related_images = show_instance_data.image_files.all()
+
+                context['show_instance_data'] = show_instance_data
+                context['related_images'] = related_images
+
+            except Archivedshowimagedata.DoesNotExist:
+                # Handle the case where the Archivedshowimagedata instance doesn't exist
+                context['show_instance_data'] = None
+                context['related_images'] = None
+
+            return context
+
+
     
-# class ArchivePageView(TemplateView):
-#     template_name = 'schedule/gallery_past_archive.html'
-
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         try:
-#             show_name = self.kwargs.get('show_name')  # Retrieve 'show_name' from URL kwargs
-            
-#             # Fetching data related to Archiveimagefiles using the show_name
-#             image_show_data = get_object_or_404(Archiveimagefiles, archive_image_id=show_name)
-            
-#             # Accessing related objects using the related_name (image_files)
-#             image_pissed = image_show_data.image_files.all()
-            
-#             context['archive_show_data'] = image_show_data
-#             context['archive_image_info'] = image_pissed
-#         except Exception as e:
-#             print(e)
-#         return context
-
-
-
+   
+    
 
 
     
@@ -269,15 +284,7 @@ class AnnexHomeView(TemplateView):
 
 
 
-# class ArchiveView(TemplateView):
-#     template_name = 'schedule/contact-us.html'  # Replace with your actual template path
 
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         context.update({'extra_curricular_listing': Extra_curriucular_listing.objects.all().values(),})
-#         return context
-
-# 
 
 
 
