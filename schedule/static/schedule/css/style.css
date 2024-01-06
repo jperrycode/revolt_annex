@@ -9,10 +9,23 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+html {
+  height: 100%;
+  margin: 0;
+}
+
+.body-container {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
 body {
   background: #fff;
   color: #2f3138;
   font-family: 'FreeMono', monospace;
+  height: 100%;
+  margin: 0;
 }
 
 header {
