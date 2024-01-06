@@ -3,7 +3,7 @@
 
 {% block bodycontent %}
 <main>
-  <section class="py-5 text-center container">
+  <section class="mt-5 py-5 text-center container">
     <div class="row py-lg-5">
       <div class="col-lg-6 col-md-8 mx-auto">
         {% if show_instance_data %}
@@ -12,6 +12,7 @@
         {% else %}
           <h1>Show Not Found</h1>
         {% endif %}
+        <a href="{% url 'gallery-revolt' %}?open-past=true" class="btn btn-danger">Back to Past</a>
       </div>
     </div>
   </section>
@@ -22,13 +23,14 @@
         {% for image in related_images %}
           <div class="col ms-5 me-5">
             <div class="">
-              <a href="https://drive.google.com/uc?export=view&id={{ image.archive_image_id }}" ><img src="https://drive.google.com/uc?export=view&id={{ image.archive_image_id }}" class='archive-image h-50 w-50' loading="lazy"></a>
+              <a href="https://drive.google.com/uc?export=view&id={{ image.archive_image_id }}" ><img src="https://drive.google.com/uc?export=view&id={{ image.archive_image_id }}" class='archive-image h-50 w-50 shadow' loading="lazy"></a>
             </div>
           </div>
 
         {% if forloop.counter|divisibleby:3 and not forloop.last %}
               <div class="w-100"></div> <!-- Clears the float to start a new row -->
             {% endif %}
+
         {% empty %}
           <div class='text-center'>
             <h2>No Images Available</h2>
