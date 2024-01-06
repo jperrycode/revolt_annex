@@ -1,5 +1,6 @@
 from typing import Any
 from django.contrib import admin
+import flickrapi
 
 
 # Register your models here.
@@ -80,7 +81,6 @@ class Fullarchiveform(admin.ModelAdmin):
     
     
     def save_model(self, request, obj, form, change):
-        SERVICE_ACCOUNT_FILE = os.path.join(settings.BASE_DIR, 'schedule', 'taos-revolt-drive-0911d2bbf6a0.json')
         
         try:
             archive_show_name = form.cleaned_data.get('archive_show_name')
@@ -102,20 +102,23 @@ class Fullarchiveform(admin.ModelAdmin):
             super().save_model(request, obj, form, change)
             
             main_object_id = obj.pk
-            
-            SCOPES = ['https://www.googleapis.com/auth/drive'] 
-            credentials = service_account.Credentials.from_service_account_file(
-            SERVICE_ACCOUNT_FILE, scopes=SCOPES
-         )
-            service = build('drive', 'v3', credentials=credentials)
-            query = f"'{archive_folder_id}' in parents"
-            files = service.files().list(q=query, fields="files(name, id)").execute()
-            response = files.get('files', [])
 
-            for index, data in enumerate(response[:10]):
+            flickr = flickrapi.FlickrAPI(settings.flickr_key, settings.flickr_secret, format='parsed-json')
+            photos = flickr.photosets.getPhotos(api_key=settings.flickr_key, photoset_id=archive_folder_id,
+                                                user_id=settings.flickr_user_id)
+
+            for photo in photos['photoset']['photo']:
+                photo_id = photo['id']
+                photo_title = photo['title']
+                photo_secret = photo['secret']
+                photo_server = photo['server']
+                photo_url = flickr.photos.getSizes(api_key=settings.flickr_key, photo_id=photo_id)['sizes']['size'][-1]['source']
+
                 img_response = Archiveimagefiles(
-                    archive_image_id=data['id'],
-                    archive_image_name=data['name'],
+                    archive_image_server = photo_server,
+                    archive_image_secret=photo_secret,
+                    archive_image_id=photo_id,
+                    archive_image_name=photo_title,
                     archive_fk_id=main_object_id
                 )
                 img_response.save()

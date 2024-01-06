@@ -10,6 +10,11 @@
     .bd-placeholder-img-lg {
       font-size: 3.5rem;
     }
+    .archive-photo-style {
+width: 250px;
+height: auto;
+
+}
   }
 
   .b-example-divider {
@@ -76,5 +81,27 @@
   }
 
 
- 
-  
+
+
+
+.archive-background {
+background-color: #000000;
+background-image: linear-gradient(315deg, #000000 0%, #5e5368 74%);
+
+}
+
+  .archive-child-container:hover {
+  transform: scale(1.1);
+  animation: glow 2s ease-in-out infinite;
+}
+
+    .carousel-container {
+      height: 300px; /* Adjust the height as needed */
+    }
+
+    .carousel-item img {
+      object-fit: cover;
+      max-width: 100%;
+      height: 100%;
+      width: auto;
+    }

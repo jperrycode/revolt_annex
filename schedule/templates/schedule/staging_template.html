@@ -1,34 +1,30 @@
-{% for item in archive_show_data %}
-  <div class="col ms-5 me-5">
-    <div class="future-child-container p-3 mt-3 border border-light rounded-4 shadow-lg mb-5 bg-danger bg-opacity-10">
-      <div class="future-content-container">
-        <!-- ... (other content) ... -->
-        <div class='swiper-container'>
-          <div class='swiper-wrapper'>
-            {% if item.image_files.exists %}
-              {% for image_file in item.image_files.all %}
-                <div class='swiper-slide'>
-                  <img src='{% static "path_to_placeholder_image.jpg" %}' data-src='https://drive.google.com/uc?export=view&id={{ image_file.archive_image_id }}' class='archive-image' loading="lazy">
-                </div>
-              {% endfor %}
-            {% else %}
-              <p>No related images found.</p>
-            {% endif %}
+<div id="imageCarousel" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    {% for image in related_images %}
+      <div class="carousel-item {% if forloop.first %} active {% endif %}">
+        <div class="col ms-1 me-1">
+          <div class="text-center">
+            <a href="https://live.staticflickr.com/{{ image.archive_image_server }}/{{ image.archive_image_id }}_{{ image.archive_image_secret }}.jpg" >
+              <img src="https://live.staticflickr.com/{{ image.archive_image_server }}/{{ image.archive_image_id }}_{{ image.archive_image_secret }}.jpg" class='d-block w-100 archive-image archive-child-container' loading="lazy">
+            </a>
           </div>
-          <!-- Navigation buttons -->
-          <div class='swiper-button-next'></div>
-          <div class='swiper-button-prev'></div>
         </div>
       </div>
-    </div>
+
+
+    {% empty %}
+      <div class='text-center'>
+        <h2>No Images Available</h2>
+      </div>
+    {% endfor %}
   </div>
-  {% if forloop.counter|divisibleby:2 and not forloop.last %}
-    <div class="w-100"></div> <!-- Clears the float to start a new row -->
-  {% endif %}
-{% empty %}
-<div class='text-center'>
-  <h2>REVOLT GALLERY <span class='text-danger'>ARCHIVES ~</span>~ COMING SOON</h2>
-  <h2>Full List of All Artists and Shows from Revolt Gallery</h2>
-  <a href="{% url 'contact-revolt' %}" class='text-decoration-none'><h3 class='text-danger'>Please Contact Us Here If You Have Any Questions</h3></a>
-  </div>
-{% endfor %}
+
+  <button class="carousel-control-prev" type="button" data-bs-target="#imageCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#imageCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
