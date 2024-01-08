@@ -16,8 +16,9 @@ html {
 
 .body-container {
   min-height: 100%;
-  display: flex;
+ display: flex;
   flex-direction: column;
+  padding-bottom: 100px;
 }
 
 body {
@@ -1613,9 +1614,13 @@ h6 {
 --------------------------------------------------------------*/
 #footer {
   background: #101522;
-  padding: 0 0 25px 0;
+
   color: #eee;
   font-size: 14px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: relative;
   
 }
 

@@ -81,8 +81,14 @@ height: auto;
   }
 
 
+.custom-album {
+min-height: 100vh;
 
+}
 
+custom-hover:hover {
+scale: 1.2;
+}
 
 .archive-background {
 background-color: #000000;
