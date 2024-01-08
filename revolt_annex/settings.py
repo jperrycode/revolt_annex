@@ -11,7 +11,10 @@ dotenv_path = os.path.join(os.path.dirname(__file__), '.env')
 dotenv.load_dotenv(dotenv_path)
 
 
-
+flickr_key = str(os.getenv('FLICKR_KEY'))
+flickr_secret = str(os.getenv('FLICKR_SECRET'))
+flickr_user_id = str(os.getenv('FLICKR_USER_ID'))
+flickr_user_pw = str(os.getenv('FLICKR_USER_PW'))
 
 
 
