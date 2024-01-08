@@ -18,34 +18,29 @@ html {
   min-height: 100%;
  display: flex;
   flex-direction: column;
-  padding-bottom: 100px;
+
 }
 
 
 
 body {
-
   color: #2f3138;
   font-family: 'FreeMono', monospace;
   margin: 0;
   height: 100%;
-  background: linear-gradient(top to bottom, #B721FF, #2AF598, #fec051, #FEE140, #FA709A);
-  background-size: 100%;
+  overflow-y: scroll; /* To enable scrolling */
+
+  /* Set the background to transparent */
+  background: none;
+   background: linear-gradient(73deg, rgba(222,19,2,0.40499527447697825) 0%, rgba(0,0,0,0.4414098403033089) 51%, rgba(222,19,2,0.28454709520526966) 100%);
   background-repeat: no-repeat;
-  top: 0;
-  bottom: 0;
+  background-attachment: fixed;
+
 }
 
 
-body:before{
-  content:'';
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  width: 100%;
-  z-index: -1;
-  background: linear-gradient(to right bottom, rgba(255,255,255,0.2), #21D4FD 75%);
-}
+
+
 
 header {
 

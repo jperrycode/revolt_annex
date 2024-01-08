@@ -32,14 +32,14 @@ class Music_artist_listing(models.Model):
   music_artist_image = models.ImageField(upload_to ='media/', null=True, blank=True)
 
   entry_price = models.FloatField(null=True)
-  
+
   class Meta:
     verbose_name = "Musician"
     verbose_name_plural = "Musicians"
     ordering = ["show_date"]
 
   def __str__(self):
-        return self.artist_name 
+        return self.artist_name
 
 
 # gallery information model
@@ -105,8 +105,8 @@ class Receive_email_updates(models.Model):
   emailform_subject = models.CharField(max_length=50, null=True, blank=True)
   emailform_consent = models.BooleanField()
 
- 
-  
+
+
 
 
 
@@ -127,7 +127,7 @@ class Archivedshowimagedata(models.Model):
 
 
 class Archiveimagefiles(models.Model):
-   archive_image_server = archive_image_secret = models.CharField(max_length=100, null=True, blank=True)
+   archive_image_server = models.CharField(max_length=100, null=True, blank=True)
    archive_image_secret = models.CharField(max_length=100, null=True, blank=True)
    archive_image_id = models.CharField(max_length=100, null=True)
    archive_image_name = models.CharField(max_length=100, null=True)

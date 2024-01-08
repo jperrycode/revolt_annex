@@ -8,8 +8,8 @@
         <div class="col-lg-6 col-md-8 col-sm mx-auto">
           {% if show_instance_data %}
             <h1 class="custom-heading fs-1">{{ show_instance_data.archive_show_name }}</h1>
-            <h2 class="custom-font text-warning"><span class="text-danger">Artist</span> || {{ show_instance_data.archive_artist_name }}</h2>
-            <h3 class="custom-font text-warning"><span class="text-danger">Date</span> || {{ show_instance_data.archive_start_date }} <span class="text-danger">to</span> {{ show_instance_data.archive_end_date }}</h3>
+            <h2 class="custom-font text-dark"><span class="text-danger">Artist</span> || {{ show_instance_data.archive_artist_name }}</h2>
+            <h3 class="custom-font text-dark"><span class="text-danger">Date</span> || {{ show_instance_data.archive_start_date }} <span class="text-danger">to</span> {{ show_instance_data.archive_end_date }}</h3>
           {% else %}
             <h1 class="custom-heading">Show Not Found</h1>
           {% endif %}
@@ -21,8 +21,8 @@
 
 
 
-  <div class="custom-album album py-5">
-    <div class="custom-container container">
+  <div class="custom-album album py-5 w-75 mx-auto">
+    <div class="custom-container container w-100">
       <div class="custom-row row g-3">
         <!-- carousel start -->
         <div class="col-1"></div>
@@ -34,14 +34,12 @@
                   <div class="carousel-item {% if forloop.first %} active {% endif %}">
                     <div class="text-center" id="imageContainer">
                       <a href="https://live.staticflickr.com/{{ image.archive_image_server }}/{{ image.archive_image_id }}_{{ image.archive_image_secret }}.jpg">
-                        <img src="https://live.staticflickr.com/{{ image.archive_image_server }}/{{ image.archive_image_id }}_{{ image.archive_image_secret }}.jpg" loading="lazy" class="custom-hover top-50 right-50 left-50 bottom-50">
+                        <img src="https://live.staticflickr.com/{{ image.archive_image_server }}/{{ image.archive_image_id }}_{{ image.archive_image_secret }}.jpg" loading="lazy" class="custom-hover">
                       </a>
                     </div>
                   </div>
 
-                  {% if forloop.counter|divisibleby:3 and not forloop.last %}
-                    <div class="w-100"></div> <!-- Clears the float to start a new row -->
-                  {% endif %}
+
                 {% empty %}
                   <div class='text-center'>
                     <h2>No Images Available</h2>
@@ -49,12 +47,12 @@
                 {% endfor %}
               </div>
 
-              <button class="text-danger custom-carousel-control carousel-control-prev position-absolute" type="button" data-bs-target="#imageCarousel" data-bs-slide="prev">
+              <button class="hover-button-arch text-danger custom-carousel-control carousel-control-prev position-absolute" type="button" data-bs-target="#imageCarousel" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
                 <img src="{% static 'schedule/img/img-new/fist.png' %}" alt="fist">
               </button>
-              <button class="text-danger custom-carousel-control carousel-control-next position-absolute" type="button" data-bs-target="#imageCarousel" data-bs-slide="next">
+              <button class="hover-button-arch text-danger custom-carousel-control carousel-control-next position-absolute" type="button" data-bs-target="#imageCarousel" data-bs-slide="next">
                 <img src="{% static 'schedule/img/img-new/fist.png' %}" alt="fist">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
@@ -64,10 +62,16 @@
           </div>
         </div>
         <div class="col-1"></div>
+
         <!-- carousel end -->
       </div>
+
     </div>
+     <div class="row custom-row mt-4 p-5 w-50 mx-auto">
+          <h1>I would like to put a blurb here on the subject of hosting artists and shows from steve</h1>
+        </div>
   </div>
+
 </main>
 
 {% endblock %}
