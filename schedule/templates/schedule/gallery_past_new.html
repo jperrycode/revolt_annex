@@ -20,27 +20,21 @@
 
 <!-- header Gallery Section -->
 <div id="archive-back">
-    <div class="container mt-5" data-aos="fade-up">
-     <h1 class='text-center'>The <span class='text-danger'>Past</span></h1>
-     <h2 class='text-center'><span class='text-danger'>Revolt </span>Gallery <span class='text-danger'>Archives</span></h2>
-      <!--  past -->
+    <div class="container mt-2" data-aos="fade-up">
 
-
-
- <div class="container mt-5" data-aos="">
-
-
-
-
-    
 
 
   <main>
 
     <section class="py-5 text-center container">
       <div class="row py-lg-5">
+       <h1 class='text-center'>The <span class='text-danger'>Past</span></h1>
+     <h2 class='text-center'><span class='text-danger'>Revolt </span>Gallery <span class='text-danger'>Archives</span></h2>
+      </div>
+
+      <div class="row py-lg-5">
         <div class="col-lg-6 col-md-8 mx-auto">
-          <p class="lead text-body-secondary">"Revolt Gallery in Taos, NM presents an eclectic and vibrant archive compilation showcasing avant-garde artworks and cultural narratives, offering a captivating retrospective of contemporary expressions and local artistic dynamism."</p>
+          <p class="lead text-body-secondary text-dark">"Revolt Gallery in Taos, NM presents an eclectic and vibrant archive compilation showcasing avant-garde artworks and cultural narratives, offering a captivating retrospective of contemporary expressions and local artistic dynamism."</p>
         </div>
       </div>
     </section>
@@ -51,7 +45,7 @@
         <div class="row g-3">
           {% for item in archive_show_data %}
             <div class="col ms-5 me-5">
-              <div class="future-child-container p-3 mt-3 border border-light rounded-4 shadow-lg mb-5 bg-danger">
+              <div class="future-child-container p-3 mt-3 border border-light rounded-4 shadow-lg mb-5 bg-danger bg-opacity-50">
                 <div class="future-content-container">
                   <img class='logo-schedule img-h' src='{% static "schedule/img/img-new/revolt_logo.png" %}' alt='logo' />
                   <h1 class=''>{{ item.archive_show_name }}</h1>
@@ -60,16 +54,12 @@
                     <p class="">{{item.archive_start_date}} -- {{item.archive_end_date}} </p>
                      
                       <div class='archive-image-container border-danger-subtle'>
-                        {% if item.image_files.exists %}
 
-                      {% comment %} <a href='{% url "archive_details" pk=item.id %}'>  <img src='https://drive.google.com/uc?export=view&id={{ item.image_files.all.1.archive_image_id }}' class='archive-image'></a> {% endcomment %}
-                      
-                {% comment %} <img src='https://drive.google.com/uc?export=view&id={{ image_file.archive_image_id }}' class='archive-image' loading="lazy">< {% endcomment %}
-              
 
-                      {% else %}
-                        <p>No related images found.</p>
-                      {% endif %} 
+
+
+
+
                     </div>
                   </div>
                 </div>
@@ -108,7 +98,7 @@
   
       
     
-    </div>
+
     
     </div>
 
