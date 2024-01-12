@@ -3,7 +3,7 @@
 {% block title %} Revolt Archives {% endblock %}
 
 {% block bodycontent %}
-<main class="">
+<main class="mt-5">
   <section class="py-5 text-center container">
     <div class="custom-container container">
       <div class="custom-row row py-lg-5">
@@ -15,41 +15,38 @@
           {% else %}
             <h1 class="custom-heading">Show Not Found</h1>
           {% endif %}
-          <a href="{% url 'gallery-revolt' %}?open-past=true" class="custom-btn btn btn-danger custom-font">Back to Past</a>
         </div>
       </div>
     </div>
   </section>
 
-
-
-  <div class="custom-album album py-5 w-75 mx-auto">
-    <div class="custom-container container w-100">
-      <div class="custom-row row g-3">
-        <!-- carousel start -->
-        <div class="col-1"></div>
-        <div class="images-wrapper">
-
-                {% for image in related_images %}
-
-                      <a href="https://live.staticflickr.com/{{ image.archive_image_server }}/{{ image.archive_image_id }}_{{ image.archive_image_secret }}.jpg">
-                        <img src="https://live.staticflickr.com/{{ image.archive_image_server }}/{{ image.archive_image_id }}_{{ image.archive_image_secret }}.jpg" loading="lazy" class="custom-hover">
-                      </a>
-
-                {% endfor %}
-
+  <div class="custom-album album py-5 mx-auto">
+    <div class="custom-container container">
+      <!-- Image carousel start -->
+      <div class="row g-3">
+        <div id='archive-container' class="images-wrapper text-center col-12">
+          {% for image in related_images %}
+            <a href="https://live.staticflickr.com/{{ image.archive_image_server }}/{{ image.archive_image_id }}_{{ image.archive_image_secret }}.jpg">
+              <img src="https://live.staticflickr.com/{{ image.archive_image_server }}/{{ image.archive_image_id }}_{{ image.archive_image_secret }}.jpg" loading="lazy" class="custom-hover m-1">
+            </a>
+          {% endfor %}
         </div>
-        <div class="col-1"></div>
+      </div>
+      <!-- Image carousel end -->
 
-        <!-- carousel end -->
+      <!-- Back to Past button -->
+      <div class="row mt-3">
+        <a href="{% url 'gallery-revolt' %}?open-past=true" class="custom-btn btn btn-danger custom-font w-100 mx-auto">Back to Past</a>
       </div>
 
-    </div>
-     <div class="row custom-row mt-4 p-5 w-50 mx-auto">
-          <h1>I would like to put a blurb here on the subject of hosting artists and shows from steve</h1>
+      <!-- Blurb section -->
+      <div class="row mt-4 p-3">
+        <div class="col-12">
+          <h1 class="text-center">I would like to put a blurb here on the subject of hosting artists and shows from Steve</h1>
         </div>
+      </div>
+    </div>
   </div>
-
 </main>
 
 {% endblock %}

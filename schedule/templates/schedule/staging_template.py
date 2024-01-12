@@ -1,115 +1,150 @@
+from typing import Any
+from django.contrib import admin
+import flickrapi
 
-{% block bodycontent %}
-<main class="">
-  <section class="py-5 text-center container">
-    <div class="custom-container container">
-      <div class="custom-row row py-lg-5">
-        <div class="col-lg-6 col-md-8 col-sm mx-auto">
-          {% if show_instance_data %}
-            <h1 class="custom-heading fs-1">{{ show_instance_data.archive_show_name }}</h1>
-            <h2 class="custom-font text-warning"><span class="text-danger">Artist</span> || {{ show_instance_data.archive_artist_name }}</h2>
-            <h3 class="custom-font text-warning"><span class="text-danger">Date</span> || {{ show_instance_data.archive_start_date }} <span class="text-danger">to</span> {{ show_instance_data.archive_end_date }}</h3>
-          {% else %}
-            <h1 class="custom-heading">Show Not Found</h1>
-          {% endif %}
-          <a href="{% url 'gallery-revolt' %}?open-past=true" class="custom-btn btn btn-danger custom-font">Back to Past</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="custom-album album py-5">
-    <div class="custom-container container">
-      <div class="custom-row row g-3">
-        <!-- carousel start -->
-        <div class="col-1"></div>
-        <div class="col-10">
-          <div class="custom-carousel-container container">
-            <div id="imageCarousel" class="custom-carousel carousel slide" data-bs-ride="carousel">
-              <div class="carousel-inner">
-                {% for image in related_images %}
-                  <div class="carousel-item {% if forloop.first %} active {% endif %}">
-                    <div class="text-center">
-                      <a href="https://live.staticflickr.com/{{ image.archive_image_server }}/{{ image.archive_image_id }}_{{ image.archive_image_secret }}.jpg">
-                        <img src="https://live.staticflickr.com/{{ image.archive_image_server }}/{{ image.archive_image_id }}_{{ image.archive_image_secret }}.jpg" loading="lazy">
-                      </a>
-                    </div>
-                  </div>
-
-                  {% if forloop.counter|divisibleby:3 and not forloop.last %}
-                    <div class="w-100"></div> <!-- Clears the float to start a new row -->
-                  {% endif %}
-                {% empty %}
-                  <div class='text-center'>
-                    <h2>No Images Available</h2>
-                  </div>
-                {% endfor %}
-              </div>
-
-              <button class="custom-carousel-control carousel-control-prev" type="button" data-bs-target="#imageCarousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-              </button>
-              <button class="custom-carousel-control carousel-control-next" type="button" data-bs-target="#imageCarousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-              </button>
-            </div>
-          </div>
-        </div>
-        <div class="col-1"></div>
-        <!-- carousel end -->
-      </div>
-    </div>
-  </div>
-</main>
-
-{% endblock %}
-
-{% block bodycontent %}
-<main>
-  <section class="py-5 text-center container">
-    <div class="row py-lg-5">
-      <div class="col-lg-6 col-md-8 mx-auto">
-        {% if show_instance_data %}
-          <h1>{{ show_instance_data.archive_show_name }}</h1>
-          <p>{{ show_instance_data.archive_artist_name }}</p>
-          <a href="{% url 'gallery-revolt' %}?open-past=true" class="custom-btn btn btn-danger custom-font mt-3 ps-3 pe-3 pt-2 pb-2">Back to Past</a>
-
-        {% else %}
-          <h1>Show Not Found</h1>
-        {% endif %}
-      </div>
-    </div>
-  </section>
-
-  <div class="album py-5">
-    <div class="container">
-      <div class="row g-3">
-        {% for image in related_images %}
-          <div class="col ms-5 me-5">
-            <div class="">
-<a href="https://live.staticflickr.com/{{ image.archive_image_server }}/{{ image.archive_image_id }}_{{ image.archive_image_secret }}.jpg">
-                        <img src="https://live.staticflickr.com/{{ image.archive_image_server }}/{{ image.archive_image_id }}_{{ image.archive_image_secret }}.jpg" loading="lazy">
-                      </a>
-            </div>
-          </div>
-
-        {% if forloop.counter|divisibleby:3 and not forloop.last %}
-              <div class="w-100"></div> <!-- Clears the float to start a new row -->
-            {% endif %}
-        {% empty %}
-          <div class='text-center'>
-            <h2>No Images Available</h2>
-          </div>
-        {% endfor %}
-      </div>
-    </div>
-  </div>
-</main>
+# Import necessary models and modules
+from .models import (
+    Music_artist_listing, Visual_artist_listing, Extra_curriucular_listing,
+    Receive_email_updates, Archiveimagefiles, Archivedshowimagedata
+)
+from .forms import ArchiveimagefilesFormSet
+from django.core.exceptions import ObjectDoesNotExist
+from google.oauth2 import service_account
+from googleapiclient.discovery import build
+from revolt_annex import settings
+import os
 
 
+# Customizing admin site header
+class MyAdminSite(admin.AdminSite):
+    site_header = "Revolt/Reset Admin"
+
+
+# Creating an instance of the customized admin site
+admin_site = MyAdminSite(name="admin")
+
+
+# Define Music Schedule Admin model
+class MusicScheduleAdmin(admin.ModelAdmin):
+    list_display = ("artist_name", "show_date", "entry_price", "music_artist_image")
+
+
+# Register Music_artist_listing model with MusicScheduleAdmin
+admin.site.register(Music_artist_listing, MusicScheduleAdmin)
+
+
+# Define Visual Schedule Admin model
+class VisualSheduleAdmin(admin.ModelAdmin):
+    list_display = ("vis_artist_name", "vis_show_date_start", "age_restriction",)
+
+
+# Register Visual_artist_listing model with VisualSheduleAdmin
+admin.site.register(Visual_artist_listing, VisualSheduleAdmin)
+
+
+# Define Extra Curricular Admin model
+class ExtraCurricularAdmin(admin.ModelAdmin):
+    list_display = ("class_name", "class_day", "class_location")
+
+
+# Register Extra_curriucular_listing model with ExtraCurricularAdmin
+admin.site.register(Extra_curriucular_listing, ExtraCurricularAdmin)
+
+
+# Define Email Consent Admin model
+class EmailConsent(admin.ModelAdmin):
+    list_display = ("emailform_name", "emailform_email", "emailform_consent")
+    list_display_links = ('emailform_name',)
+    list_filter = ('emailform_consent',)
+
+
+# Register Receive_email_updates model with EmailConsent
+admin.site.register(Receive_email_updates, EmailConsent)
+
+
+# Define the Inline model for Archiveimagefiles
+class Model2Inline(admin.StackedInline):
+    model = Archiveimagefiles
+    extra = 1
+
+
+# Define Fullarchiveform model
+class Fullarchiveform(admin.ModelAdmin):
+    model = Archivedshowimagedata
+    inlines = [Model2Inline]
+    list_display = ('archive_show_name', 'archive_start_date', 'archive_end_date', 'archive_folder_id')
+
+    # Overriding save_model method to handle saving images from Flickr
+    def save_model(self, request, obj, form, change, photo_height=None):
+        try:
+            # Extract form data
+            archive_show_name = form.cleaned_data.get('archive_show_name')
+            archive_artist_name = form.cleaned_data.get('archive_artist_name')
+            archive_start_date = form.cleaned_data.get('archive_start_date')
+            archive_end_date = form.cleaned_data.get('archive_end_date')
+            archive_folder_id = form.cleaned_data.get('archive_folder_id')
+            archive_artist_web = form.cleaned_data.get('archive_artist_web')
+
+            # Update object attributes
+            obj.archive_show_name = archive_show_name
+            obj.archive_artist_name = archive_artist_name
+            obj.archive_start_date = archive_start_date
+            obj.archive_end_date = archive_end_date
+            obj.archive_folder_id = archive_folder_id
+            obj.archive_artist_web = archive_artist_web
+
+            super().save_model(request, obj, form, change)
+
+            # Fetch main object ID
+            main_object_id = obj.pk
+
+            # Fetch images from Flickr
+            flickr = flickrapi.FlickrAPI(settings.flickr_key, settings.flickr_secret, format='parsed-json')
+            photos = flickr.photosets.getPhotos(api_key=settings.flickr_key, photoset_id=archive_folder_id,
+                                                user_id=settings.flickr_user_id)
+
+            # Process image details and save the first 10 images sorted by height into Archiveimagefiles model
+            image_details = []
+            for photo in photos['photoset']['photo']:
+                photo_id = photo['id']
+                photo_title = photo['title']
+                photo_secret = photo['secret']
+                photo_server = photo['server']
+                photo_url = flickr.photos.getSizes(api_key=settings.flickr_key, photo_id=photo_id)['sizes']['size']
+                for size in photo_url:
+                    photo_height = size['height']
+                    photo_width = size['width']
+
+                    image_details.append({
+                        'photo_id': photo_id,
+                        'photo_title': photo_title,
+                        'photo_secret': photo_secret,
+                        'photo_server': photo_server,
+                        'photo_height': photo_height,
+                        'photo_width': photo_width,})
 
 
 
-{% endblock %}
+            # Sort images by height and get the first 10
+            sorted_images = sorted(image_details, key=lambda x: x['photo_height'])
+            sorted_images_first_10 = sorted_images[:10]
+
+            # Save the first 10 images into Archiveimagefiles model
+            for image in sorted_images_first_10:
+                img_response = Archiveimagefiles(
+                    archive_photo_width=image['photo_width'],
+                    archive_photo_height=image['photo_height'],
+                    archive_image_server=image['photo_server'],
+                    archive_image_secret=image['photo_secret'],
+                    archive_image_id=image['photo_id'],
+                    archive_image_name=image['photo_title'],
+                    archive_fk_id=main_object_id
+                )
+                img_response.save()
+
+        except Exception as e:
+            print(e)
+
+
+# Register Archivedshowimagedata model with Fullarchiveform
+admin.site.register(Archivedshowimagedata, Fullarchiveform)

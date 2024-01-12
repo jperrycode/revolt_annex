@@ -163,7 +163,7 @@ class ResetView(TemplateView):
         return context
 
 class ArchivePageView(DetailView):
-        template_name = 'schedule/gallery_past_archive.html'
+        template_name = 'schedule/archive-list-view-new.html'
         model = Archivedshowimagedata
 
         def get_context_data(self, **kwargs):
