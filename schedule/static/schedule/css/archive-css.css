@@ -81,11 +81,7 @@ custom-hover:hover {
 scale: 1.2;
 }
 
-.archive-background {
-background-color: #000000;
-background-image: linear-gradient(315deg, #000000 0%, #5e5368 74%);
 
-}
 
   .archive-child-container:hover {
   transform: scale(1.1);
@@ -104,10 +100,10 @@ background-image: linear-gradient(315deg, #000000 0%, #5e5368 74%);
       width: auto;
     }
 
-
- .hover-button-arch:hover {
- color: red;
- scale:1.2;}
+.custom-hover { transition: all .2s ease-in-out; }
+ .custom-hover:hover {
+ transform: scale(1.1);
+  animation: glow 2s ease-in-out infinite;}
 
 
 
@@ -128,4 +124,34 @@ background-image: linear-gradient(315deg, #000000 0%, #5e5368 74%);
    display:inline-block;
    margin-right: auto;
    margin-left: auto;
+}
+
+
+
+#archive-container.images-wrapper.text-center.col-10 a:nth-child {
+float: right;
+}
+
+
+
+
+
+        #gallery {
+            /* Set background image */
+            background-image: url('../img/img-new/revolt_logo.png');
+            /* Adjust background properties */
+
+            background-size: 20% 50%;
+
+            background-repeat: no-repeat;
+            /* Additional styles to maintain opacity and rounded-circle */
+            background-position: center;
+            background-attachment: fixed;
+            z-index: 100;
+        }
+
+@media (max-width: 500px) {
+    #gallery {
+    background-size: 100% 80%;
+    }
 }

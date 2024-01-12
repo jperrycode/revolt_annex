@@ -131,6 +131,8 @@ class Archiveimagefiles(models.Model):
    archive_image_secret = models.CharField(max_length=100, null=True, blank=True)
    archive_image_id = models.CharField(max_length=100, null=True)
    archive_image_name = models.CharField(max_length=100, null=True)
+   archive_img_height = models.IntegerField(null=True, blank=True)
+   archive_img_width = models.IntegerField(null=True, blank=True)
    archive_fk = models.ForeignKey(Archivedshowimagedata, on_delete=models.CASCADE, related_name='image_files', null=True, blank=True)
 
 

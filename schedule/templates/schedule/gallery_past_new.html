@@ -19,190 +19,183 @@
 </style>
 
 <!-- header Gallery Section -->
-<div id="archive-back">
-    <div class="container mt-2" data-aos="fade-up">
 
 
-        <main>
 
-            <section class="py-5 text-center container">
-                <div class="row py-lg-5">
-                    <h1 class='text-center'>The <span class='text-danger'>Past</span></h1>
-                    <h2 class='text-center'><span class='text-danger'>Revolt </span>Gallery <span class='text-danger'>Archives</span>
-                    </h2>
-                </div>
-
-                <div class="row py-lg-5">
-                    <div class="col-lg-6 col-md-8 mx-auto">
-                        <p class="lead text-body-secondary text-dark">"Revolt Gallery in Taos, NM presents an eclectic
-                            and vibrant archive compilation showcasing avant-garde artworks and cultural narratives,
-                            offering a captivating retrospective of contemporary expressions and local artistic
-                            dynamism."</p>
-                    </div>
-                </div>
-            </section>
-
-            <div class="album py-5">
-                <div class="container">
-
-                    <div class="row g-3">
-                        {% for item in archive_show_data %}
-                        <div class="col ms-5 me-5">
-                            <div class="future-child-container p-3 mt-3 border border-light rounded-4 shadow-lg mb-5 bg-danger bg-opacity-50">
-                                <div class="future-content-container">
-                                    <img class='logo-schedule img-h'
-                                         src='{% static "schedule/img/img-new/revolt_logo.png" %}' alt='logo'/>
-                                    <h1 class='text-center'>{{ item.archive_show_name }}</h1>
-                                    <h2 class='text-center'><span class='h4 text-danger'>by</span> <span class='h3'><a
-                                            class='text-decoration-none text-danger'
-                                            href='{% url "archive_details" pk=item.pk %}'>{{ item.archive_artist_name }}</a></span>
-                                    </h2>
-                                    <div class='hover-future-cont'>
-                                        <p class="text-center">{{item.archive_start_date}} -- {{item.archive_end_date}} </p>
-
-                                        <div class='archive-image-container border-danger-subtle'>
-
-
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-
-
-                        {% if forloop.counter|divisibleby:2 and not forloop.last %}
-                        <div class="w-100"></div> <!-- Clears the float to start a new row -->
-                        {% endif %}
-
-                        {% empty %}
-
-                        <div class='text-center'>
-                            <h2>REVOLT GALLERY <span class='text-danger'>ARCHIVES ~</span>~ COMING SOON</h2>
-                            <h2>Full List of All Artists and Shows from Revolt Gallery</h2>
-                            <a href="{% url 'contact-revolt' %}" class='text-decoration-none'><h3 class='text-danger'>
-                                Please Contact Us Here If You Have Any Questions</h3></a>
-                        </div>
-
-
-                        {% endfor %}
-                    </div>
-
-                </div>
-            </div>
-
-
-        </main>
-
-
+<section class="py-5 text-center container">
+    <div class="row py-lg-5">
+        <h1 class='text-center'>The <span class='text-dark'>Past</span></h1>
+        <h2 class='text-center'><span class='text-dark'>Revolt </span>Gallery <span class='text-dark'>Archives</span>
+        </h2>
     </div>
 
+    <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+            <p class="lead text-body-secondary text-dark">"Revolt Gallery in Taos, NM presents an eclectic
+                and vibrant archive compilation showcasing avant-garde artworks and cultural narratives,
+                offering a captivating retrospective of contemporary expressions and local artistic
+                dynamism."</p>
+        </div>
+    </div>
+</section>
+
+<div class="album py-5">
+    <div class="container">
+
+        <div class="row g-3">
+            {% for item in archive_show_data %}
+            <!--                        <div class="col ms-5 me-5">-->
+            <div class="future-child-container p-3 mt-3 border border-light rounded-4 shadow-lg mb-5 bg-danger bg-opacity-50">
+                <div class="future-content-container">
+                    <img class='logo-schedule img-h'
+                         src='{% static "schedule/img/img-new/revolt_logo.png" %}' alt='logo'/>
+                    <h1 class='text-center'>{{ item.archive_show_name }}</h1>
+                    <h2 class='text-center'><span class='h4 text-dark'>by</span> <span class='h3'>
+                        <a
+                            class='text-decoration-none text-dark'
+                            href='{% url "archive_details" pk=item.pk %}'>{{ item.archive_artist_name }}</a></span>
+                    </h2>
+                    <div class='hover-future-cont'>
+                        <p class="text-center">{{item.archive_start_date}} -- {{item.archive_end_date}} </p>
+
+                        <div class='archive-image-container border-danger-subtle'>
+
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        {% if forloop.counter|divisibleby:2 and not forloop.last %}
+        <br><!-- Clears the float to start a new row -->
+        {% endif %}
+
+        {% empty %}
+
+        <div class='text-center'>
+            <h2>REVOLT GALLERY <span class='text-dark'>ARCHIVES ~</span>~ COMING SOON</h2>
+            <h2>Full List of All Artists and Shows from Revolt Gallery</h2>
+            <a href="{% url 'contact-revolt' %}" class='text-decoration-none'><h3 class='text-dark'>
+                Please Contact Us Here If You Have Any Questions</h3></a>
+        </div>
+
+
+        {% endfor %}
+    </div>
 
 </div>
+
+
+
+
+
 
 <!--Start JEsse Little Bird Past-->
-<div class="previous-art-show mt-3">
-    <div class="row">
-        <div class="col-lg text-center p-4"></div>
+<!--<div class="previous-art-show mt-3">-->
+<!--    <div class="row">-->
+<!--        <div class="col-lg text-center p-4"></div>-->
 
-        <div
-                class="col-lg-8 text-center p-2 border-bottom border-danger border-3"
-        >
-            <h2><span class='text-danger'>AI : IA</span> By Jesse Littlebird</h2>
-
-
-            <!-- Button to trigger the modal -->
-
-        </div>
-        <div class="col-lg text-center p-4"></div>
-    </div>
+<!--        <div-->
+<!--                class="col-lg-8 text-center p-2 border-bottom border-danger border-3"-->
+<!--        >-->
+<!--            <h2><span class='text-dark'>AI : IA</span> By Jesse Littlebird</h2>-->
 
 
-    <div class="gallery-slider swiper">
-        <div class="swiper-wrapper align-items-center">
+<!--            &lt;!&ndash; Button to trigger the modal &ndash;&gt;-->
 
-            <div class="swiper-slide square-contain">
-                <a
-                        href="{% static 'schedule/img/img-new/jesse_littlebird.jpg' %}"
-                        class="gallery-lightbox"
-                ><img loading="lazy"
-                      src="{% static 'schedule/img/img-new/jesse_littlebird.jpg' %}"
-                      class="img-fluid"
-                      alt=""
-                /></a>
-            </div>
-            <div class="swiper-slide square-contain">
-                <a
-                        href="{% static 'schedule/img/img-new/jesse_littlebird_flyer.jpg' %}"
-                        class="gallery-lightbox"
-                ><img loading="lazy"
-                      src="{% static 'schedule/img/img-new/jesse_littlebird_flyer.jpg' %}"
-                      class="img-fluid"
-                      alt=""
-                /></a>
-            </div>
-            <div class="swiper-slide square-contain">
-                <a
-                        href="{% static 'schedule/img/img-new/jesse_img1.jpg' %}"
-                        class="gallery-lightbox"
-                ><img loading="lazy"
-                      src="{% static 'schedule/img/img-new/jesse_img1.jpg' %}"
-                      class="img-fluid"
-                      alt=""
-                /></a>
-            </div>
-            <div class="swiper-slide square-contain">
-                <a
-                        href="{% static 'schedule/img/img-new/jesse_img2.jpg' %}"
-                        class="gallery-lightbox"
-                ><img loading="lazy"
-                      src="{% static 'schedule/img/img-new/jesse_img2.jpg' %}"
-                      class="img-fluid"
-                      alt=""
-                /></a>
-            </div>
-            <div class="swiper-slide square-contain">
-                <a
-                        href="{% static 'schedule/img/img-new/jesse_img3.jpg' %}"
-                        class="gallery-lightbox"
-                ><img loading="lazy"
-                      src="{% static 'schedule/img/img-new/jesse_img3.jpg' %}"
-                      class="img-fluid"
-                      alt=""
-                /></a>
-            </div>
+<!--        </div>-->
+<!--        <div class="col-lg text-center p-4"></div>-->
+<!--    </div>-->
 
 
-        </div>
-        <div class="swiper-pagination"></div>
-    </div>
-    <!-- End previous show Gallery Section -->
-</div>
+<!--    <div class="gallery-slider swiper">-->
+<!--        <div class="swiper-wrapper align-items-center">-->
 
-<div class='background-image'>
-        <div class="text-center"><h2 class="text-danger">Jesse Littlebird</h2> </div>
-        <div class='background-image-small'>
-        <div class="text-secondary">
-        <p>Expression through the medium of painting and film is a vital part of life for Jesse with his Indigenous heritage deeply rooted in the oral tradition culture of his Pueblo Indian lineage and growing up in a creative household of art, film, and story.</p>
-        <p>Littlebird’s provocative paintings have garnished recognition in the Southwest art scene with several solo exhibitions and group shows during 2018-2023 and with several collectors commissioning his work nationally and globally.</p>
-        <p>            My work is a Detournement of various elements from Western and Indigenous thought and histories, provoking critical reflection and serving as a testament to the enduring spirit of indigenous cultural realities.
-</p>
-        <p>The paintings serve as storytellers, capturing narratives that can be discovered by those who truly listen and engage with the artwork.
-</p>
-        <p>Each piece is a field for intricately intertwined symbolic representations that draw direct inspiration from the timeless cultural traditions found within the lands my people have inhabited since long before the Settler Colonial and will exist long after its passing.”
-</p>
-        <p>He is a Sundance Institute Full Circle Fellow, and Andy Warhol Foundation recipient. He works full time as an artist and resides in Albuquerque, New Mexico
-</p>
-                   <div class="socialartist m-3 text-center">
-<a href='https://www.instagram.com/moondroppers/?hl=en'><i class="fab fa-instagram fa-2x" style="color: #ac2bac;"></i></a> <!-- Facebook -->
-</div>
-     </div>
-        </div>
-        <div class="text-center mb-4">
-        <a href='https://jesselittlebird.com/'><h4 class='text-decoration-none'>Click here for Jesse's Collection</h4></a>
-        <!-- Instagram -->
+<!--            <div class="swiper-slide square-contain">-->
+<!--                <a-->
+<!--                        href="{% static 'schedule/img/img-new/jesse_littlebird.jpg' %}"-->
+<!--                        class="gallery-lightbox"-->
+<!--                ><img loading="lazy"-->
+<!--                      src="{% static 'schedule/img/img-new/jesse_littlebird.jpg' %}"-->
+<!--                      class="img-fluid"-->
+<!--                      alt=""-->
+<!--                /></a>-->
+<!--            </div>-->
+<!--            <div class="swiper-slide square-contain">-->
+<!--                <a-->
+<!--                        href="{% static 'schedule/img/img-new/jesse_littlebird_flyer.jpg' %}"-->
+<!--                        class="gallery-lightbox"-->
+<!--                ><img loading="lazy"-->
+<!--                      src="{% static 'schedule/img/img-new/jesse_littlebird_flyer.jpg' %}"-->
+<!--                      class="img-fluid"-->
+<!--                      alt=""-->
+<!--                /></a>-->
+<!--            </div>-->
+<!--            <div class="swiper-slide square-contain">-->
+<!--                <a-->
+<!--                        href="{% static 'schedule/img/img-new/jesse_img1.jpg' %}"-->
+<!--                        class="gallery-lightbox"-->
+<!--                ><img loading="lazy"-->
+<!--                      src="{% static 'schedule/img/img-new/jesse_img1.jpg' %}"-->
+<!--                      class="img-fluid"-->
+<!--                      alt=""-->
+<!--                /></a>-->
+<!--            </div>-->
+<!--            <div class="swiper-slide square-contain">-->
+<!--                <a-->
+<!--                        href="{% static 'schedule/img/img-new/jesse_img2.jpg' %}"-->
+<!--                        class="gallery-lightbox"-->
+<!--                ><img loading="lazy"-->
+<!--                      src="{% static 'schedule/img/img-new/jesse_img2.jpg' %}"-->
+<!--                      class="img-fluid"-->
+<!--                      alt=""-->
+<!--                /></a>-->
+<!--            </div>-->
+<!--            <div class="swiper-slide square-contain">-->
+<!--                <a-->
+<!--                        href="{% static 'schedule/img/img-new/jesse_img3.jpg' %}"-->
+<!--                        class="gallery-lightbox"-->
+<!--                ><img loading="lazy"-->
+<!--                      src="{% static 'schedule/img/img-new/jesse_img3.jpg' %}"-->
+<!--                      class="img-fluid"-->
+<!--                      alt=""-->
+<!--                /></a>-->
+<!--            </div>-->
+
+
+<!--        </div>-->
+<!--        <div class="swiper-pagination"></div>-->
+<!--    </div>-->
+<!--    &lt;!&ndash; End previous show Gallery Section &ndash;&gt;-->
+<!--</div>-->
+
+<!--<div class='background-image'>-->
+<!--        <div class="text-center"><h2 class="text-dark">Jesse Littlebird</h2> </div>-->
+<!--        <div class='background-image-small'>-->
+<!--        <div class="text-dark">-->
+<!--        <p>Expression through the medium of painting and film is a vital part of life for Jesse with his Indigenous heritage deeply rooted in the oral tradition culture of his Pueblo Indian lineage and growing up in a creative household of art, film, and story.</p>-->
+<!--        <p>Littlebird’s provocative paintings have garnished recognition in the Southwest art scene with several solo exhibitions and group shows during 2018-2023 and with several collectors commissioning his work nationally and globally.</p>-->
+<!--        <p>            My work is a Detournement of various elements from Western and Indigenous thought and histories, provoking critical reflection and serving as a testament to the enduring spirit of indigenous cultural realities.-->
+<!--</p>-->
+<!--        <p>The paintings serve as storytellers, capturing narratives that can be discovered by those who truly listen and engage with the artwork.-->
+<!--</p>-->
+<!--        <p>Each piece is a field for intricately intertwined symbolic representations that draw direct inspiration from the timeless cultural traditions found within the lands my people have inhabited since long before the Settler Colonial and will exist long after its passing.”-->
+<!--</p>-->
+<!--        <p>He is a Sundance Institute Full Circle Fellow, and Andy Warhol Foundation recipient. He works full time as an artist and resides in Albuquerque, New Mexico-->
+<!--</p>-->
+<!--                   <div class="socialartist m-3 text-center">-->
+<!--<a href='https://www.instagram.com/moondroppers/?hl=en'><i class="fab fa-instagram fa-2x" style="color: #ac2bac;"></i></a> &lt;!&ndash; Facebook &ndash;&gt;-->
+<!--</div>-->
+<!--     </div>-->
+<!--        </div>-->
+<!--        <div class="text-center mb-4">-->
+<!--        <a href='https://jesselittlebird.com/'><h4 class='text-decoration-none'>Click here for Jesse's Collection</h4></a>-->
+<!--        &lt;!&ndash; Instagram &ndash;&gt;-->
 
 
 
-        </div>
-    </div>
+<!--        </div>-->
+<!--    </div>-->
