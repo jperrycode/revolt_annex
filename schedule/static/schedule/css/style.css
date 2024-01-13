@@ -47,7 +47,8 @@ body {
 @media (max-width: 768px) {
   body {
     background-size: cover; /* Adjusted for smaller screens to maintain responsiveness */
-    height: 100vh; /* Adjusted to fill the entire viewport height */
+    height: 150vh; /* Adjusted to fill the entire viewport height */
+    background-size: 400% 400%;
   }
 }
 @keyframes gradient {
@@ -2047,10 +2048,7 @@ h6 {
   text-shadow: 0 0 7px rgb(255, 0, 0), 0 0 122px rgb(152, 236, 188);
 }
 
-#hut-img img:hover {
-  scale: 1.15;
-  
-}
+
 
   /* Custom CSS for highlighting the active button */
   .active-button {
