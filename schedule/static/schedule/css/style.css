@@ -34,7 +34,8 @@ body {
   overflow-y: scroll; /* To enable scrolling */
 
   /* Set the background to transparent */
-  background: linear-gradient(-45deg, #ee7752, #af00c1, #dfd9ff, #f90d02);
+  background: linear-gradient(-45deg, rgba(238, 119, 82, 0.25), rgba(175, 0, 193, 0.25), rgba(223, 217, 255, 0.25), rgba(249, 13, 2, 0.25));
+
 
   background-size: 800% 800%;
 
