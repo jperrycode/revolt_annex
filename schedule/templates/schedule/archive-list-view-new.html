@@ -1,33 +1,34 @@
 {% extends "schedule/base.html" %}
 {% load static %}
+
 {% block title %} Revolt Archives {% endblock %}
 
 {% block bodycontent %}
 <main class="mt-5">
   <section class="py-5 text-center container">
-    <div class="custom-container container">
-      <div class="custom-row row py-lg-5">
+    <div class="container">
+      <div class="row py-lg-5">
         <div class="col-lg-6 col-md-8 col-sm mx-auto">
           {% if show_instance_data %}
-            <h1 class="custom-heading fs-1">{{ show_instance_data.archive_show_name }}</h1>
-            <h2 class="custom-font text-dark"><span class="text-danger">Artist</span> || {{ show_instance_data.archive_artist_name }}</h2>
-            <h3 class="custom-font text-dark"><span class="text-danger">Date</span> || {{ show_instance_data.archive_start_date }} <span class="text-danger">to</span> {{ show_instance_data.archive_end_date }}</h3>
+            <h1 class="fs-1">{{ show_instance_data.archive_show_name }}</h1>
+            <h2 class="text-dark"><span class="text-danger">Artist</span> || {{ show_instance_data.archive_artist_name }}</h2>
+            <h3 class="text-dark"><span class="text-danger">Date</span> || {{ show_instance_data.archive_start_date }} <span class="text-danger">to</span> {{ show_instance_data.archive_end_date }}</h3>
           {% else %}
-            <h1 class="custom-heading">Show Not Found</h1>
+            <h1>Show Not Found</h1>
           {% endif %}
         </div>
       </div>
     </div>
   </section>
 
-  <div class="custom-album album py-5 mx-auto">
-    <div class="custom-container container">
+  <div class="album py-5">
+    <div class="container">
       <!-- Image carousel start -->
       <div class="row g-3">
-        <div id='archive-container' class="images-wrapper text-center col-12">
+        <div id="archive-container" class="images-wrapper text-center col-12">
           {% for image in related_images %}
             <a href="https://live.staticflickr.com/{{ image.archive_image_server }}/{{ image.archive_image_id }}_{{ image.archive_image_secret }}.jpg">
-              <img src="https://live.staticflickr.com/{{ image.archive_image_server }}/{{ image.archive_image_id }}_{{ image.archive_image_secret }}.jpg" loading="lazy" class="custom-hover m-1">
+              <img src="https://live.staticflickr.com/{{ image.archive_image_server }}/{{ image.archive_image_id }}_{{ image.archive_image_secret }}.jpg" loading="lazy" class="m-1 img-fluid">
             </a>
           {% endfor %}
         </div>
@@ -35,8 +36,8 @@
       <!-- Image carousel end -->
 
       <!-- Back to Past button -->
-      <div class="row mt-3">
-        <a href="{% url 'gallery-revolt' %}?open-past=true" class="custom-btn btn btn-danger custom-font w-100 mx-auto">Back to Past</a>
+      <div class="row mt-3 w-50 mx-auto">
+        <a href="{% url 'gallery-revolt' %}?open-past=true" class="btn btn-danger w-100">Back to Past</a>
       </div>
 
       <!-- Blurb section -->
