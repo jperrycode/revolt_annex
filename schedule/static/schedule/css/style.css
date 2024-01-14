@@ -30,14 +30,14 @@ body {
   color: #2f3138;
   font-family: 'FreeMono', monospace;
   margin: 0;
-  height: 100%;
+
   overflow-y: scroll; /* To enable scrolling */
 
   /* Set the background to transparent */
-background: linear-gradient(-45deg, rgba(255, 0, 0, 0.50), rgba(255, 255, 255, 0.50), rgba(255, 255, 255, 0.50), rgba(0, 0, 0, 0.50));
+background: linear-gradient(-45deg, rgba(255, 173, 173, 0.20), rgba(173, 216, 230, 0.20), rgba(173, 216, 230, 0.20), rgba(173, 216, 230, 0.50));
 
 
-  background-size: 800% 800%;
+  background-size: 400% 400%;
 
     animation: gradient 15s ease infinite;
     height: 150vh;
@@ -49,7 +49,7 @@ background: linear-gradient(-45deg, rgba(255, 0, 0, 0.50), rgba(255, 255, 255, 0
   body {
     background-size: cover; /* Adjusted for smaller screens to maintain responsiveness */
     height: 150vh; /* Adjusted to fill the entire viewport height */
-    background-size: 400% 400%;
+    background-size: 500% 500%;
   }
 }
 @keyframes gradient {
@@ -239,6 +239,8 @@ h6 {
   font-weight: 700;
   letter-spacing: 3px;
   text-transform: uppercase;
+      -webkit-text-stroke-color: black;
+      -webkit-text-stroke-width:10op;
 }
 
 #header #logo h1 span {

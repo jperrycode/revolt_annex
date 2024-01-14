@@ -172,6 +172,7 @@
 
 .image-container:hover .overlay {
     opacity: 1;
+
 }
 
   .image-container:hover img {
@@ -359,7 +360,7 @@
 
     <div class="container-fluid container-xxl d-flex align-items-center">
         <div id="logo" class="me-auto custom-font">
-            <h1><a href="{% url 'annex_home' %}" data-bs-target="#carousel-id" data-bs-slide-to="0">Revolt <span>|</span><span class="text-light">|</span><span> Reset</span></a></h1>
+            <h1><a href="{% url 'annex_home' %}" data-bs-target="#carousel-id" data-bs-slide-to="0"><img class='logo-schedule img-h' src='{% static "schedule/img/img-new/fist.png" %}' alt='logo' />Revolt <span>|</span><span class="text-light">|</span><span> Reset</span><img class='logo-schedule img-h' src='{% static "schedule/img/img-new/fist.png" %}' alt='logo' /></a></h1>
         </div>
 
         <div id="mobile-nav-bar">
@@ -442,7 +443,7 @@
         <nav id="navbar" class="navbar order-last order-lg-0 bg-transparent">
             <ul>
                 
-                
+
                 <li><a id="gallery-link" class="nav-link" href="{% url 'gallery-revolt' %}"><span class='text-danger custom-font-change custom-glow-change'>REVOLT</span></a></li>
                 <li><a id="venue-link" class="nav-link" href="{% url 'music-reset' %}"><span class='custom-font-change'>RESET</span></a></li>
                 <li><a class="nav-link" href="{% url 'class-reset' %}"><span class='text-danger custom-font-change custom-glow-change'>GATHER</span></a></li>
