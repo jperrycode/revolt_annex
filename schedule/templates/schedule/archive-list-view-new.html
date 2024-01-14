@@ -4,6 +4,11 @@
 {% block title %} Revolt Archives {% endblock %}
 
 {% block bodycontent %}
+<style>
+  .shad {
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.5);
+  }
+</style>
 <main class="mt-5">
   <section class="py-5 text-center container">
     <div class="container">
@@ -28,7 +33,7 @@
         <div id="archive-container" class="images-wrapper text-center col-12">
           {% for image in related_images %}
             <a href="https://live.staticflickr.com/{{ image.archive_image_server }}/{{ image.archive_image_id }}_{{ image.archive_image_secret }}.jpg">
-              <img src="https://live.staticflickr.com/{{ image.archive_image_server }}/{{ image.archive_image_id }}_{{ image.archive_image_secret }}.jpg" loading="lazy" class="m-1 img-fluid">
+              <img src="https://live.staticflickr.com/{{ image.archive_image_server }}/{{ image.archive_image_id }}_{{ image.archive_image_secret }}.jpg" loading="lazy" class="shad m-1 img-fluid border border-danger-subtle">
             </a>
           {% endfor %}
         </div>
@@ -37,7 +42,7 @@
 
       <!-- Back to Past button -->
       <div class="row mt-3 w-50 mx-auto">
-        <a href="{% url 'gallery-revolt' %}?open-past=true" class="btn btn-danger w-100">Back to Past</a>
+        <a href="{% url 'gallery-revolt' %}?open-past=true" class="btn btn-danger w-75 mx-auto">Back to Past</a>
       </div>
 
       <!-- Blurb section -->
