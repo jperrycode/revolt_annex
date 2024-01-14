@@ -239,8 +239,10 @@ h6 {
   font-weight: 700;
   letter-spacing: 3px;
   text-transform: uppercase;
-      -webkit-text-stroke-color: black;
-      -webkit-text-stroke-width:10op;
+    text-shadow: -1px -1px 0 black,
+             1px -1px 0 black,
+             -1px 1px 0 black,
+             1px 1px 0 black;
 }
 
 #header #logo h1 span {
@@ -2091,7 +2093,9 @@ h6 {
 .btn:hover {
   background: rgb(238,174,202);
   background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(255,22,0,0.3349672632724965) 100%);
-  font-weight: bold; 
+  font-weight: bold;
+  color: white;
+
 }
 
 
