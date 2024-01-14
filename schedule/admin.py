@@ -7,10 +7,7 @@ from .models import (
     Music_artist_listing, Visual_artist_listing, Extra_curriucular_listing,
     Receive_email_updates, Archiveimagefiles, Archivedshowimagedata
 )
-from .forms import ArchiveimagefilesFormSet
-from django.core.exceptions import ObjectDoesNotExist
-from google.oauth2 import service_account
-from googleapiclient.discovery import build
+
 from revolt_annex import settings
 import os
 
@@ -69,6 +66,12 @@ class Model2Inline(admin.StackedInline):
 
 
 # Define Fullarchiveform model
+def remove_duplicates_by_key(seq, key):
+    seen = set()
+    seen_add = seen.add
+    return [x for x in seq if x[key] not in seen and not seen_add(x[key])]
+
+
 class Fullarchiveform(admin.ModelAdmin):
     model = Archivedshowimagedata
     inlines = [Model2Inline]
@@ -121,11 +124,19 @@ class Fullarchiveform(admin.ModelAdmin):
                         'photo_secret': photo_secret,
                         'photo_server': photo_server,
                         'photo_height': photo_height,
-                        'photo_width': photo_width, })
+                        'photo_width': photo_width,
+                    })
+
+                print("Processed image details:")
 
             # Sort images by height and get the first 10
-            sorted_images = sorted(image_details, key=lambda x: x['photo_height'])
-            sorted_images_first_10 = sorted_images[:10]
+            sorted_images = sorted(image_details, key=lambda x: (x['photo_height'], x['photo_id']))
+            unique_sorted_images = remove_duplicates_by_key(sorted_images, 'photo_id')
+            for i in sorted_images:
+                print('got height sorted', i)
+            sorted_images_first_10 = unique_sorted_images[:10]
+
+            print("Sorted images (first 10):")
 
             # Save the first 10 images into Archiveimagefiles model
             for image in sorted_images_first_10:
