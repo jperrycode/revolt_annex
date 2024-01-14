@@ -43,6 +43,7 @@ python-decouple = "^3.8"
 django-debug-toolbar = "^4.2.0"
 mailgun2 = "^2.0.1"
 install = "^1.3.5"
+flickrapi = "^2.4.0"
 
 
 [build-system]
