@@ -45,15 +45,15 @@
         <div class="row g-3">
             {% for item in archive_show_data %}
             <!--                        <div class="col ms-5 me-5">-->
-            <div class="future-child-container p-3 mt-3 border border-light rounded-4 shadow-lg mb-5 bg-danger bg-opacity-75 col-lg-6 mx-auto">
-                <div class="future-content-container">
+            <div class="future-child-container p-3 mt-3 border border-dark rounded-4 shadow-lg mb-5 bg-danger bg-opacity-75 col-lg-6 mx-auto">
+               <a
+                            class='text-decoration-none text-dark'
+                            href='{% url "archive_details" pk=item.pk %}'><div class="future-content-container">
                     <img class='logo-schedule img-h'
                          src='{% static "schedule/img/img-new/revolt_logo.png" %}' alt='logo'/>
                     <h1 class='text-center'>{{ item.archive_show_name }}</h1>
                     <h2 class='text-center'><span class='h4 text-dark'>by</span> <span class='h3'>
-                        <a
-                            class='text-decoration-none text-dark'
-                            href='{% url "archive_details" pk=item.pk %}'>{{ item.archive_artist_name }}</a></span>
+                        {{ item.archive_artist_name }}</span>
                     </h2>
                     <div class='hover-future-cont'>
                         <p class="text-center fs-5 text-dark">{{item.archive_start_date}} -- {{item.archive_end_date}} </p>
@@ -63,7 +63,7 @@
 
                         </div>
                     </div>
-                </div>
+               </div></a>
 
             </div>
         </div>
