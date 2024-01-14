@@ -141,18 +141,19 @@ float: right;
             background-image: url('../img/img-new/revolt_logo.png');
             /* Adjust background properties */
 
-            background-size: 20% 50%;
+            background-size: 10% 20%;
 
             background-repeat: no-repeat;
             /* Additional styles to maintain opacity and rounded-circle */
-            background-position: center;
+            background-position: left top;
             background-attachment: fixed;
             z-index: 100;
         }
 
 @media (max-width: 500px) {
     #gallery {
-    background-size: 100% 80%;
+    background-size: 5% 10%;
+    background-position: left top;
     }
 
 }
