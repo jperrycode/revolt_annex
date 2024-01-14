@@ -9,11 +9,63 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+html {
+  height: 100%;
+  margin: 0;
+}
+
+.body-container {
+  min-height: 100%;
+ display: flex;
+  flex-direction: column;
+
+}
+
+h1, h2 {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+
 body {
-  background: #fff;
   color: #2f3138;
   font-family: 'FreeMono', monospace;
+  margin: 0;
+  height: 100%;
+  overflow-y: scroll; /* To enable scrolling */
+
+  /* Set the background to transparent */
+  background: linear-gradient(-45deg, rgba(238, 119, 82, 0.50), rgba(175, 0, 193, 0.50), rgba(223, 217, 255, 0.50), rgba(249, 13, 2, 0.50));
+
+
+  background-size: 800% 800%;
+
+    animation: gradient 15s ease infinite;
+    height: 150vh;
+
+
 }
+
+@media (max-width: 768px) {
+  body {
+    background-size: cover; /* Adjusted for smaller screens to maintain responsiveness */
+    height: 150vh; /* Adjusted to fill the entire viewport height */
+    background-size: 400% 400%;
+  }
+}
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+
+
 
 header {
 
@@ -1600,9 +1652,13 @@ h6 {
 --------------------------------------------------------------*/
 #footer {
   background: #101522;
-  padding: 0 0 25px 0;
+
   color: #eee;
   font-size: 14px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: relative;
   
 }
 
@@ -1993,10 +2049,7 @@ h6 {
   text-shadow: 0 0 7px rgb(255, 0, 0), 0 0 122px rgb(152, 236, 188);
 }
 
-#hut-img img:hover {
-  scale: 1.15;
-  
-}
+
 
   /* Custom CSS for highlighting the active button */
   .active-button {

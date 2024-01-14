@@ -106,4 +106,22 @@
   // Call the function when the button is clicked
   document.getElementById("openModalBtn-archive").addEventListener("click", toggleModal);
   
-  
+
+  // Wait for the images to load before calculating heights
+  window.addEventListener('load', function() {
+    // Get all the images inside the carousel
+    const images = document.querySelectorAll('#imageContainer img');
+    let maxHeight = 0;
+
+    // Loop through the images to find the tallest one
+    images.forEach(function(image) {
+      const imageHeight = image.offsetHeight;
+      if (imageHeight > maxHeight) {
+        maxHeight = imageHeight;
+      }
+    });
+
+    // Set the min-height of the container to the tallest image height
+    document.getElementById('imageContainer').style.minHeight = maxHeight + 'px';
+  });
+
