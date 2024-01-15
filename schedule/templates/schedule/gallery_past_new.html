@@ -54,7 +54,13 @@
                     <p class="text-center fs-5 text-dark">{{ item.archive_start_date }} -- {{ item.archive_end_date }} </p>
                     <div class="view-more-overlay">
                         </div>
-                                               <div class="text-hov-bright"><h1 class="custom-font-change text-danger b-0 l-0 fs-1">View More</h1></div>
+                                               <div class="text-hov-bright text-center vstack gap-2">
+                                                   <div><h1 class="text-danger">View Gallery</h1></div>
+                                                   <div><h1 class="text-danger">{{ item.archive_show_name }}</h1></div>
+                                               </div>
+                       <div class="view-more-overlay">
+                                <img class='hover-image' src='{% static "schedule/img/img-new/fist.png" %}' alt='hover-image'/>
+                            </div>
 
 
                 </div>

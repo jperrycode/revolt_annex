@@ -177,7 +177,7 @@ class ArchivePageView(DetailView):
                 show_instance_data = get_object_or_404(Archivedshowimagedata, pk=pk)
 
                 # Retrieve related Archiveimagefiles instances for the Archivedshowimagedata instance
-                related_images = show_instance_data.image_files.all()
+                related_images = show_instance_data.image_files.all().order_by('archive_img_width')
 
                 context['show_instance_data'] = show_instance_data
                 context['related_images'] = related_images

@@ -17,6 +17,11 @@
           {% else %}
             <h1>Show Not Found</h1>
           {% endif %}
+
+          <!-- Back to Past button -->
+      <div class="row mt-3 w-50 mx-auto">
+        <a href="{% url 'gallery-revolt' %}?open-past=true" class="btn btn-danger w-75 mx-auto">Back to Past</a>
+      </div>
         </div>
       </div>
     </div>
