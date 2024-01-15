@@ -2117,7 +2117,9 @@ h6 {
   animation: glow 2s ease-in-out infinite;
 }
 
-
+.hover-img-arch:hover .archive-image-container p {
+    display: block;
+}
 
 .future-child-container {
 
