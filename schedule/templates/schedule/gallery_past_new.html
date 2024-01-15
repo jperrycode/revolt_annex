@@ -47,16 +47,16 @@
         <a class='text-decoration-none text-dark' href='{% url "archive_details" pk=item.pk %}'>
             <div class="future-content-container">
                 <img class='logo-schedule img-h' src='{% static "schedule/img/img-new/revolt_logo.png" %}' alt='logo'/>
+
                 <h1 class='text-center'>{{ item.archive_show_name }}</h1>
                 <h2 class='text-center'><span class='h4 text-dark'>by</span> <span class='h3'>{{ item.archive_artist_name }}</span></h2>
                 <div class='hover-future-cont'>
                     <p class="text-center fs-5 text-dark">{{ item.archive_start_date }} -- {{ item.archive_end_date }} </p>
                     <div class="view-more-overlay">
-                            <h2 class="text-dark b-0 l-0">View More</h2><img class='logo-schedule img-h' src='{% static "schedule/img/img-new/fist.png" %}' alt='logo' />
                         </div>
-                    <div class='archive-image-container'>
+                                               <div class="text-hov-bright"><h1 class="text-light b-0 l-0 fs-1">View More</h1></div>
 
-                    </div>
+
                 </div>
             </div>
         </a>
