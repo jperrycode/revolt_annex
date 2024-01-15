@@ -34,24 +34,18 @@ body {
   overflow-y: scroll; /* To enable scrolling */
 
   /* Set the background to transparent */
-background: linear-gradient(-45deg, rgba(255, 173, 173, 0.20), rgba(173, 216, 230, 0.20), rgba(173, 216, 230, 0.20), rgba(173, 216, 230, 0.50));
+background: -webkit-linear-gradient(-45deg, rgba(255, 173, 173, 0.7), rgba(173, 216, 230, 0.5), rgba(173, 216, 230, 0.6), rgba(173, 216, 230, 0.3));
 
 
-  background-size: 400% 400%;
-
+  background-size: 800% 800%;
+background-position: fixed;
     animation: gradient 15s ease infinite;
     height: 150vh;
 
 
 }
 
-@media (max-width: 768px) {
-  body {
-    background-size: cover; /* Adjusted for smaller screens to maintain responsiveness */
-    height: 150vh; /* Adjusted to fill the entire viewport height */
-    background-size: 500% 500%;
-  }
-}
+
 @keyframes gradient {
 	0% {
 		background-position: 0% 50%;
@@ -62,6 +56,14 @@ background: linear-gradient(-45deg, rgba(255, 173, 173, 0.20), rgba(173, 216, 23
 	100% {
 		background-position: 0% 50%;
 	}
+}
+
+@media (max-width: 768px) {
+  body {
+    background-size: cover; /* Adjusted for smaller screens to maintain responsiveness */
+    height: 150vh; /* Adjusted to fill the entire viewport height */
+    background-size: 500% 500%;
+  }
 }
 
 
@@ -106,6 +108,11 @@ h2 {
   margin: 0 0 20px 0;
   padding: 0;
   color: #0e1b4d;
+  text-shadow:
+    -.5px -.5px 0 #000,
+    .5px -.5px 0 #000,
+    -.5px .5px 0 #000,
+    .5px .5px 0 #000;
 }
 
 h3,

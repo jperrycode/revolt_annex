@@ -34,11 +34,11 @@ body {
   overflow-y: scroll; /* To enable scrolling */
 
   /* Set the background to transparent */
-background: gradient(-45deg, rgba(255, 173, 173, 0.7), rgba(173, 216, 230, 0.5), rgba(173, 216, 230, 0.6), rgba(173, 216, 230, 0.3));
+background: -webkit-linear-gradient(-45deg, rgba(255, 173, 173, 0.7), rgba(173, 216, 230, 0.5), rgba(173, 216, 230, 0.6), rgba(173, 216, 230, 0.3));
 
 
   background-size: 800% 800%;
-
+background-position: fixed;
     animation: gradient 15s ease infinite;
     height: 150vh;
 
@@ -108,6 +108,11 @@ h2 {
   margin: 0 0 20px 0;
   padding: 0;
   color: #0e1b4d;
+  text-shadow:
+    -.5px -.5px 0 #000,
+    .5px -.5px 0 #000,
+    -.5px .5px 0 #000,
+    .5px .5px 0 #000;
 }
 
 h3,
