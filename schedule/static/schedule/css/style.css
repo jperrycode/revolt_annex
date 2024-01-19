@@ -34,7 +34,7 @@ body {
   overflow-y: scroll; /* To enable scrolling */
 
   /* Set the background to transparent */
-background: -webkit-linear-gradient(-45deg, rgba(255, 173, 173, 0.7), rgba(173, 216, 230, 0.5), rgba(173, 216, 230, 0.6), rgba(173, 216, 230, 0.3));
+    background: -webkit-linear-gradient(-45deg, rgba(255, 173, 173, 1), rgba(173, 216, 230, 0.6), rgba(173, 216, 230, 0.6), rgba(173, 216, 230, 0.6));
 
 
   background-size: 800% 800%;
@@ -1101,6 +1101,15 @@ h6 {
   padding-bottom: 60px;
 }
 
+#venue {
+  background: url("../img/img-new/dark_neon_exterior_shot.jpg");
+  background-size: cover;
+  overflow: hidden;
+  position: relative;
+  color: #fff;
+
+}
+
 #venue .venue-info:before {
   content: "";
   /* background: rgba(150, 7, 233, 0.1); */
@@ -2058,6 +2067,7 @@ h6 {
 
 .custom-glow-change:hover {
   text-shadow: 0 0 7px rgb(255, 0, 0), 0 0 122px rgb(152, 236, 188);
+  color: green;
 }
 
 
@@ -2177,4 +2187,49 @@ max-height: auto;
 .swiper-slide img {
   max-width: 100%; /* Ensures images don't overflow */
   height: auto;
+}
+
+
+/*#speakers {
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.3) url('../img/img-new/night_view.jpg') top center;
+
+  background-size: cover;
+  overflow: hidden;
+  position: relative;
+
+}*/
+
+#speakers {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../img/img-new/night_view.jpg");
+  background-size: cover;
+  overflow: hidden;
+  position: relative;
+  color: #fff;
+  padding: 60px 0 40px 0;
+}
+
+#speakers:before {
+  /* content: ""; */
+  /* background: rgba(13, 20, 41, 0.8); */
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+@media (min-width: 1024px) {
+  #speakers {
+    background-attachment: fixed;
+  }
+}
+
+#hero {
+  width: 100%;
+  height: 100vh;
+  background: url('../img/img-new/dark_neon_exterior_shot.jpg') top center;
+  background-size: cover;
+  overflow: hidden;
+  position: relative;
 }
