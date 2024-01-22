@@ -34,7 +34,7 @@ body {
   overflow-y: scroll; /* To enable scrolling */
 
   /* Set the background to transparent */
-background: -webkit-linear-gradient(-45deg, rgba(255, 173, 173, 0.7), rgba(173, 216, 230, 0.5), rgba(173, 216, 230, 0.6), rgba(173, 216, 230, 0.3));
+    background: -webkit-linear-gradient(-45deg, rgba(255, 173, 173, 1), rgba(173, 216, 230, 0.6), rgba(173, 216, 230, 0.6), rgba(173, 216, 230, 0.6));
 
 
   background-size: 800% 800%;
@@ -108,11 +108,7 @@ h2 {
   margin: 0 0 20px 0;
   padding: 0;
   color: #0e1b4d;
-  text-shadow:
-    -.5px -.5px 0 #000,
-    .5px -.5px 0 #000,
-    -.5px .5px 0 #000,
-    .5px .5px 0 #000;
+
 }
 
 h3,
@@ -575,8 +571,12 @@ h6 {
 @media (min-width: 1024px) {
   #hero {
     background-attachment: fixed;
+   #hero-front {
+   font-size: 70px;}
   }
 }
+
+
 
 #hero:before {
   content: "";
@@ -589,13 +589,13 @@ h6 {
 }
 
 #hero .hero-container {
-  position: absolute;
   bottom: 0;
   left: 0;
-  top: 90px;
+
   right: 0;
   display: flex;
-  justify-content: center;
+  padding-top: 60px;
+  /*justify-content: center;*/
   align-items: center;
   flex-direction: column;
   text-align: center;
@@ -609,7 +609,7 @@ h6 {
 }
 
 #hero h1 {
-  color: #fff;
+
   font-family: "Raleway", sans-serif;
   font-size: 56px;
   font-weight: 600;
@@ -1094,11 +1094,20 @@ h6 {
 }
 
 #venue .venue-info {
-  background: linear-gradient(to bottom, rgba(147, 14, 224, 0.694), rgba(118, 21, 175, 0.99)), url("../img/img-new/info-bg.jpg") center center no-repeat;  
+  background: linear-gradient(to bottom, rgba(147, 14, 224, 0.89), rgba(118, 21, 175, 0.79)), url("../img/img-new/info-bg.jpg") center center no-repeat;
   background-size: cover;
   position: relative;
   padding-top: 60px;
   padding-bottom: 60px;
+}
+
+#venue {
+  background: url("../img/img-new/dark_neon_exterior_shot.jpg");
+  background-size: cover;
+  overflow: hidden;
+  position: relative;
+  color: #fff;
+
 }
 
 #venue .venue-info:before {
@@ -1670,6 +1679,8 @@ h6 {
   left: 0;
   right: 0;
   position: relative;
+  margin-top: 0;
+  margin-bottom: 0;
   
 }
 
@@ -2058,6 +2069,7 @@ h6 {
 
 .custom-glow-change:hover {
   text-shadow: 0 0 7px rgb(255, 0, 0), 0 0 122px rgb(152, 236, 188);
+
 }
 
 
@@ -2082,13 +2094,6 @@ h6 {
   overflow: hidden; 
 }
 
-/* #gallery {
-  width: 100%;
-  height: 100vh;
-  background: url('../img/img-new/dark_neon_exterior_shot.jpg') top center/cover fixed no-repeat;
-  overflow: hidden;
-  position: relative;
-} */
 
 .btn {
 
@@ -2177,4 +2182,93 @@ max-height: auto;
 .swiper-slide img {
   max-width: 100%; /* Ensures images don't overflow */
   height: auto;
+}
+
+
+
+
+#speakers {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../img/img-new/night_view.jpg");
+  background-size: cover;
+  overflow: hidden;
+  position: relative;
+  color: #fff;
+  padding: 60px 0 40px 0;
+}
+
+#speakers:before {
+  /* content: ""; */
+  /* background: rgba(13, 20, 41, 0.8); */
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+@media (min-width: 1024px) {
+  #speakers {
+    background-attachment: fixed;
+  }
+}
+
+#hero {
+  width: 100%;
+  height: 100vh;
+  background: url('../img/img-new/dark_neon_exterior_shot.jpg') top center;
+  background-size: cover;
+  overflow: hidden;
+  position: relative;
+}
+
+
+.image-info-about {
+z-index: 1;
+}
+
+@media (min-width: 900px) {
+
+#about-headline {
+font-size: 60px;
+}
+
+}
+
+   .custom-paragraph {
+
+        font-family: 'Garamond', sans-serif; /* Specify your preferred font */
+        /* Add any additional styling if necessary */
+    }
+
+
+          @keyframes gradientMovement {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .moving-gradient {
+            background: linear-gradient(90deg, #ff0000 0%, #000000 10%, #ff0000 2%);
+            background-size: 20% 20%;
+            animation: gradientMovement 10s ease infinite;
+            -webkit-background-clip: text; /* Clip the text to the background */
+            color: transparent; /* Set text color to transparent to show the background */
+        }
+
+        @media (max-width: 500px) {
+            .hero-container {margin-top: 3rem;}
+
+        }
+
+        @media (max-width: 767px) {
+    .custom-paragraph-mobile {
+        max-width: 90%; /* Adjust the width as needed */
+        margin-left: auto;
+        margin-right: auto;
+    }
 }

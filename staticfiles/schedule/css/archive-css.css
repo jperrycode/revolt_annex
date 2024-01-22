@@ -81,7 +81,9 @@ custom-hover:hover {
 scale: 1.2;
 }
 
-
+.text-shad-dark-back {
+text-shadow: 1px 1px 5px rgba(255, 0, 0, 0.5), 1px 1px 5px rgba(0, 0, 0, 0.5);
+}
 
   .archive-child-container:hover {
   transform: scale(1.1);
@@ -223,4 +225,9 @@ display: flex;
 
 .view-more-overlay:hover .hover-image {
     opacity: 1;
+}
+
+
+.gallery-update-container {
+height:
 }
