@@ -2253,7 +2253,7 @@ font-size: 60px;
         }
 
         .moving-gradient {
-            background: linear-gradient(90deg, #ff0000 0%, #000000 10%, #ff0000 2%);
+            background: linear-gradient(90deg, #ff0000 0%, #ff00ff 15%, #ff0000 2%);
             background-size: 20% 20%;
             animation: gradientMovement 10s ease infinite;
             -webkit-background-clip: text; /* Clip the text to the background */
