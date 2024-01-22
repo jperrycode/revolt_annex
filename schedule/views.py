@@ -1,6 +1,6 @@
-from typing import Any
 import django
 django.setup()
+from typing import Any
 from django.views import View
 from django.views.generic import DetailView
 from django.shortcuts import render
@@ -9,7 +9,7 @@ from django.views.generic.edit import CreateView
 from schedule.models import Music_artist_listing, Visual_artist_listing, Extra_curriucular_listing
 from schedule.forms import ContactForm
 from .signals import contact_form_saved
-from schedule.models import  Archiveimagefiles, Archivedshowimagedata
+from schedule.models import Archiveimagefiles, Archivedshowimagedata
 import os
 import vimeo
 from django.core.mail import EmailMessage
@@ -19,8 +19,6 @@ from django.db.models import Prefetch
 from revolt_annex import settings
 from django.shortcuts import get_object_or_404
 from django.shortcuts import reverse
-
-
 
 
 # Define a custom signal
@@ -33,8 +31,6 @@ class Contact_form_view(CreateView):
         context = super().get_context_data(**kwargs)
         context['contact_form'] = ContactForm()
         return context
-
-
 
 
 class ContactUsView(View):
@@ -88,7 +84,7 @@ class ContactUsView(View):
                 }
 
                 # Render the success template
-                return render(request, 'schedule/contact_success.html', {'data':success_context })
+                return render(request, 'schedule/contact_success.html', {'data': success_context})
 
             except Exception as e:
                 print(f'An error occurred: {str(e)}')
@@ -105,40 +101,41 @@ class ContactUsView(View):
 
 class ContactSuccessView(View):
     template_name = 'schedule/contact_success.html'
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['contact_form'] = ContactForm()
         return context
-    
+
+
 class ClassesView(TemplateView):
     template_name = 'schedule/classes_section_index.html'
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['classes_data'] = Extra_curriucular_listing.objects.all()
         return context
-    
+
+
 class RevoltView(TemplateView):
     template_name = 'schedule/gallery_all_swtiching.html'
-    
 
     def get_context_data(self, **kwargs):
         try:
-            
-            context = super().get_context_data(**kwargs)
-            
 
-        # Fetching data efficiently
+            context = super().get_context_data(**kwargs)
+
+            # Fetching data efficiently
             gallery_listing = Visual_artist_listing.objects.all()
 
             # Fetching Archivedshowimagedata instances and prefetching specific fields from related Archiveimagefiles instances
             image_show_data = (
-            Archivedshowimagedata.objects
-            .prefetch_related(
-                Prefetch('image_files', queryset=Archiveimagefiles.objects.all())  
+                Archivedshowimagedata.objects
+                .prefetch_related(
+                    Prefetch('image_files', queryset=Archiveimagefiles.objects.all())
+                )
+                .all()
             )
-            .all()
-        )
-       
 
             context['gallery_listing'] = gallery_listing
             context['archive_show_data'] = image_show_data
@@ -146,77 +143,67 @@ class RevoltView(TemplateView):
             print(e)
 
         return context
-        
-        
-        
-        
-        
-        
-     
-    
+
+
 class ResetView(TemplateView):
     template_name = 'schedule/reset_venue_index.html'
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['music_artist_listing'] = Music_artist_listing.objects.all().values()
         # context['vimeo_video_data'] = self.get_vimeo_videos()
         return context
 
+
 class ArchivePageView(DetailView):
-        template_name = 'schedule/archive-list-view-new.html'
-        model = Archivedshowimagedata
+    template_name = 'schedule/archive-list-view-new.html'
+    model = Archivedshowimagedata
 
-        def get_context_data(self, **kwargs):
-            context = super().get_context_data(**kwargs)
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
 
-            try:
-                # Get the primary key (pk) from URL kwargs
-                pk = self.kwargs.get('pk')
+        try:
+            # Get the primary key (pk) from URL kwargs
+            pk = self.kwargs.get('pk')
 
-                # Retrieve the parent model instance (Archivedshowimagedata) based on the pk
-                show_instance_data = get_object_or_404(Archivedshowimagedata, pk=pk)
+            # Retrieve the parent model instance (Archivedshowimagedata) based on the pk
+            show_instance_data = get_object_or_404(Archivedshowimagedata, pk=pk)
 
-                # Retrieve related Archiveimagefiles instances for the Archivedshowimagedata instance
-                related_images = show_instance_data.image_files.all().order_by('archive_img_width')
+            # Retrieve related Archiveimagefiles instances for the Archivedshowimagedata instance
+            related_images = show_instance_data.image_files.all().order_by('archive_img_width')
 
-                context['show_instance_data'] = show_instance_data
-                context['related_images'] = related_images
+            context['show_instance_data'] = show_instance_data
+            context['related_images'] = related_images
 
-            except Archivedshowimagedata.DoesNotExist:
-                # Handle the case where the Archivedshowimagedata instance doesn't exist
-                context['show_instance_data'] = None
-                context['related_images'] = None
+        except Archivedshowimagedata.DoesNotExist:
+            # Handle the case where the Archivedshowimagedata instance doesn't exist
+            context['show_instance_data'] = None
+            context['related_images'] = None
 
-            return context
-
-
-    
-   
-    
+        return context
 
 
-    
-    # def get_vimeo_videos(self):
-    #     vimeo_token = str(os.getenv('VIMEO_ACCESS_TOKEN'))  # Replace with your Vimeo access token
+# def get_vimeo_videos(self):
+#     vimeo_token = str(os.getenv('VIMEO_ACCESS_TOKEN'))  # Replace with your Vimeo access token
 
-    #     try:
-    #         # Initialize the Vimeo client with the provided access token
-    #         client = vimeo.VimeoClient(
-    #             token=vimeo_token,
-    #         )
+#     try:
+#         # Initialize the Vimeo client with the provided access token
+#         client = vimeo.VimeoClient(
+#             token=vimeo_token,
+#         )
 
-    #         # Use the client to make API requests
-    #         videos_data = client.get('/me/videos')
-    #         videos_context = videos_data.json()
-            
-    #         # with open('vimeo_data.json', 'w', encoding='utf-8') as f:
-    #         #     json.dump(videos_context, f, indent=4)
+#         # Use the client to make API requests
+#         videos_data = client.get('/me/videos')
+#         videos_context = videos_data.json()
 
-    #         return videos_context
-    #     except Exception as e:
-    #         print(f"Failed to fetch Vimeo videos. Error: {str(e)}")
+#         # with open('vimeo_data.json', 'w', encoding='utf-8') as f:
+#         #     json.dump(videos_context, f, indent=4)
 
-    #     return []
+#         return videos_context
+#     except Exception as e:
+#         print(f"Failed to fetch Vimeo videos. Error: {str(e)}")
+
+#     return []
 
 #   
 
@@ -240,14 +227,12 @@ class ArchivePageView(DetailView):
 #         headers = {'Authorization': f'Bearer {vimeo_token}',}
 
 #         vimeo_response = requests.get(video_url, headers=headers)
-        
+
 #         if vimeo_response.status_code == 200:
 #             videos_data = vimeo_response.json()
 #             print(videos_data)
 #         else:
 #             print(f"Failed to fetch videos. Status code: {vimeo_response.status_code}")
-
- 
 
 
 #         context.update({
@@ -257,14 +242,9 @@ class ArchivePageView(DetailView):
 #             'extra_curricular_listing': Extra_curriucular_listing.objects.all().values(),
 #             'vimeo_video_data': videos_data,
 #             'contact_form': ContactForm(),
-            
+
 #         })
 #         return context
-
-
-
-
-
 
 
 class AnnexHomeView(TemplateView):
@@ -275,17 +255,5 @@ class AnnexHomeView(TemplateView):
         context['range_reset'] = [str(i) for i in range(2, 10)]
         context['gallery_listing'] = Visual_artist_listing.objects.all().values()
         context['music_artist_listing'] = Music_artist_listing.objects.all().values()
-        
+
         return context
-
-
-
-
-
-
-
-
-
-
-
-

@@ -360,7 +360,7 @@
 
     <div class="container-fluid container-xxl d-flex align-items-center">
         <div id="logo" class="me-auto custom-font">
-            <h1><a href="{% url 'annex_home' %}" data-bs-target="#carousel-id" data-bs-slide-to="0"><img class='logo-schedule img-h' src='{% static "schedule/img/img-new/fist.png" %}' alt='logo' />Revolt <span>|</span><span class="text-light">|</span><span> Reset</span><img class='logo-schedule img-h' src='{% static "schedule/img/img-new/fist.png" %}' alt='logo' /></a></h1>
+            <h1><a href="{% url 'annex_home' %}" data-bs-target="#carousel-id" data-bs-slide-to="0"><img class='logo-schedule img-h' src='{% static "schedule/img/img-new/fist.png" %}' alt='logo' /><span class="{% if request.path == '/revolt-art/' %}text-danger{% else %}text-light{% endif %}">Revolt</span></a> <span class="text-danger">||</span> <a href="{% url 'music-reset' %}" data-bs-target="#carousel-id" data-bs-slide-to="0"><span class="{% if request.path == '/reset-performing-arts/' %}text-danger{% else %}text-light{% endif %}">RESET</span><img class='logo-schedule img-h' src='{% static "schedule/img/img-new/fist.png" %}' alt='logo' /></a></h1>
         </div>
 
         <div id="mobile-nav-bar">
@@ -400,7 +400,7 @@
                   id="gallery-link"
                   class="nav-link custom-font-change mb-3 fs-1"
                   href="{% url 'annex_home' %}"
-                  ><span class="text-danger">HOME</span></a
+                  ><span class="text-danger">REVOLT</span></a
                 >
               </li>
 
@@ -409,7 +409,7 @@
                   id="gallery-link"
                   class="nav-link custom-font-change mb-3 fs-1"
                   href="{% url 'gallery-revolt' %}"
-                  ><span class="text-danger">REVOLT</span></a
+                  ><span class="text-danger">THE HUT</span></a
                 >
               </li>
 
@@ -418,12 +418,8 @@
                   id="venue-link"
                   class="nav-link custom-font-change mb-3 fs-1"
                   href="{% url 'music-reset' %}"
-                  >RESET</a
+                  >RESET EVENTS</a
                 >
-              </li>
-
-              <li>
-                <a class="nav-link custom-font-change mb-3 fs-1" href="{% url 'class-reset' %}">Gather</a>
               </li>
               <li>
                 <a
@@ -444,9 +440,9 @@
             <ul>
                 
 
-                <li><a id="gallery-link" class="nav-link" href="{% url 'gallery-revolt' %}"><span class='text-danger custom-font-change custom-glow-change'>REVOLT</span></a></li>
-                <li><a id="venue-link" class="nav-link" href="{% url 'music-reset' %}"><span class='custom-font-change'>RESET</span></a></li>
-                <li><a class="nav-link" href="{% url 'class-reset' %}"><span class='text-danger custom-font-change custom-glow-change'>GATHER</span></a></li>
+                <li><a id="gallery-link" class="nav-link" href="{% url 'gallery-revolt' %}"><span class='text-danger custom-font-change custom-glow-change'>Art Exhibits</span></a></li>
+                <li><a id="venue-link" class="nav-link" href="{% url 'music-reset' %}"><span class='custom-font-change'>HUT</span></a></li>
+                <li><a class="nav-link" href="{% url 'class-reset' %}"><span class='text-danger custom-font-change custom-glow-change'>RESET EVENTS</span></a></li>
                 
                 <li><a id="speakers-link" class="nav-link" href="{% url 'contact-revolt' %}"><span class='custom-font-change'>CONTACT</span></a></li>
             </ul>
