@@ -1,16 +1,13 @@
 {% load static %}
 
  <div class="hero-container" data-aos="zoom-in" data-aos-delay="100">
-      <h1 id="hero-front" class="text-shad-dark-back mb-1 mt-5 pb-0">
+      <h1 id="hero-front" class="mb-1 mt-5 pb-0 moving-gradient">
         Revolt Art Gallery
       </h1>
      <p class="fs-3 custom-font-change text-shad-dark-back text-danger">Where Art Breaks Free from the System</p>
 
 
-
-<div class="row p-5"></div>
-
-<div class="container gallery-update-container mt-4 p-4">
+<div class="container gallery-update-container mt-1 p-1">
     <p class="custom-font-change mb-4 text-center">Current Exhibit</p>
     <div class="row">
         <div class="col-lg text-center p-4"></div>
@@ -20,10 +17,11 @@
             <div class="text-center">
                 <h2 class="text-light">THANK YOU <span class="text-light"></span></h2>
                 <h2 class="text-light text-shad-dark-back">New show Dropping in March 2024</h2>
-            </div>
+
+                <a id="hero-button" href="{% url 'gallery-revolt' %}" class="btn btn-danger-outline custom-font-change mt-3">Future and Past Exhibits</a>            </div>
         </div>
 
-        <div class="col-lg text-center p-4"></div>
+        <div class="col-lg text-center p-4 m-5"></div>
     </div>
 </div>
 
