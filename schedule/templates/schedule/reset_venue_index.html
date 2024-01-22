@@ -124,21 +124,21 @@ Performing Arts Space{% endblock %}
    
 
 {% comment %} <!-- iteration test -->
-  {% for video_data in vimeo_video_data.data|slice:8  %}
-  <div class="col-lg-3 col-md-4">
-  
-    <div class="venue-gallery">
-        <a href="{{ video_data.player_embed_url }}?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" target="_blank">
-            <div class="video-container">
-<iframe src="{{ video_data.player_embed_url }}?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Revolt Gallery New Years 2021"></iframe>                <div class="quote-overlay">
-                    <p class='child-hover'>{{ video_data.name }}</p>
-                </div>
-            </div>
-        </a>
-    </div>
+<!--  {% for video_data in vimeo_video_data.data|slice:8  %}-->
+<!--  <div class="col-lg-3 col-md-4">-->
+<!--  -->
+<!--    <div class="venue-gallery">-->
+<!--        <a href="{{ video_data.player_embed_url }}?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" target="_blank">-->
+<!--            <div class="video-container">-->
+<!--<iframe src="{{ video_data.player_embed_url }}?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Revolt Gallery New Years 2021"></iframe>                <div class="quote-overlay">-->
+<!--                    <p class='child-hover'>{{ video_data.name }}</p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </a>-->
+<!--    </div>-->
 
-</div>
-{% endfor %}
+<!--</div>-->
+<!--{% endfor %}-->
 
 
 <!-- iteration test done--> {% endcomment %}

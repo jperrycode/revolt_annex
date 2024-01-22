@@ -51,12 +51,12 @@
                 <h1 class='text-center'>{{ item.archive_show_name }}</h1>
                 <h2 class='text-center'><span class='h4 text-dark'>by</span> <span class='h3'>{{ item.archive_artist_name }}</span></h2>
                 <div class='hover-future-cont'>
-                    <p class="text-center fs-5 text-dark">{{ item.archive_start_date }} -- {{ item.archive_end_date }} </p>
+                    <p class="text-center fs-5 text-dark">{{ item.archive_start_date|date:"M Y" }} -- {{ item.archive_end_date|date:"M Y" }} </p>
                     <div class="view-more-overlay">
                         </div>
                                                <div class="text-hov-bright text-center vstack gap-2">
-                                                   <div class="border-bottom"><h2 class="text-light">View Gallery</h2></div>
-                                                   <div><h2 class="text-light">{{ item.archive_show_name }}</h2></div>
+                                                   <div class="border-bottom text-shad-dark-back"><h2 class="text-light">View Gallery</h2></div>
+                                                   <div><h2 class="text-light text-shad-dark-back">{{ item.archive_show_name }}</h2></div>
 
                                                </div>
                        <div class="view-more-overlay">
