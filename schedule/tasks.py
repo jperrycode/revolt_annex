@@ -65,24 +65,24 @@ def send_notification_mail(subject, email, message):
 #
 
 
-@background(schedule=24 * 60 * 60)  # Schedule the task to run every 24 hours
-def scan_and_move_rows():
-    current_datetime = timezone.now()
-
-    # Get rows to move where end date has passed the current date and hour
-    rows_to_move = Visual_artist_listing.objects.filter(
-        vis_show_date_end__lt=current_datetime,
-    )
-
-    for row in rows_to_move:
-        # Move the row to Archivedshowimagedata
-        Archivedshowimagedata.objects.create(
-            archive_show_name=row.visual_show_name,
-            archive_artist_name=row.vis_artist_name,
-            archive_start_date=row.vis_show_date_start,
-            archive_end_date=row.vis_show_date_end,
-            # Add other fields as needed
-        )
-
-        # Delete the row from Visual_artist_listing
-        row.delete()
+# @background(schedule=24 * 60 * 60)  # Schedule the task to run every 24 hours
+# def scan_and_move_rows():
+#     current_datetime = timezone.now()
+#
+#     # Get rows to move where end date has passed the current date and hour
+#     rows_to_move = Visual_artist_listing.objects.filter(
+#         vis_show_date_end__lt=current_datetime,
+#     )
+#
+#     for row in rows_to_move:
+#         # Move the row to Archivedshowimagedata
+#         Archivedshowimagedata.objects.create(
+#             archive_show_name=row.visual_show_name,
+#             archive_artist_name=row.vis_artist_name,
+#             archive_start_date=row.vis_show_date_start,
+#             archive_end_date=row.vis_show_date_end,
+#             # Add other fields as needed
+#         )
+#
+#         # Delete the row from Visual_artist_listing
+#         row.delete()

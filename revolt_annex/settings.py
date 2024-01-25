@@ -69,7 +69,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'schedule',
     'django_celery_results',
-    'background_task',
+
    
 
 ]

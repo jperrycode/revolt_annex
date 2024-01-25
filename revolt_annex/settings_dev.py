@@ -70,7 +70,7 @@ INSTALLED_APPS = [
     'schedule',
     'django_celery_results',
     'photologue',
-    'background_task',
+
     
 
 ]
