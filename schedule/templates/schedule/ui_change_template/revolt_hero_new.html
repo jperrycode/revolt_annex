@@ -1,0 +1,54 @@
+{% load static %}
+
+ <div class="hero-container" data-aos="zoom-in" data-aos-delay="100">
+      <h1 id="hero-front" class="mb-1 mt-5 pb-0 moving-gradient">
+        Revolt Art Gallery
+      </h1>
+     <p class="fs-3 custom-font-change text-shad-dark-back moving-gradient">Where Art Breaks Free from the System</p>
+
+
+<div class="container gallery-update-container mt-1 p-1">
+    <p class="custom-font-change mb-4 text-center">Current Exhibit</p>
+
+
+    <div class="row">
+
+
+{% if gallery_listing %}
+        <div class="col-lg-2 text-center p-4"></div>
+
+        <div class="col-lg-8 pb-5" data-aos="fade-up" data-aos-delay="100">
+           <div class="w-50 hero-flyer-container mx-auto">
+
+              <a href="{% url 'gallery-revolt' %}">  <img src="https://live.staticflickr.com/{{ gallery_listing.0.flyer_server_id }}/{{ gallery_listing.0.flyer_img_id }}_{{ gallery_listing.0.flyer_img_secret }}.jpg" id="front-page-img-container" loading="lazy" class="shad m-1 img-fluid border border-danger-subtle"></a>
+
+            </div>
+            <p class="text-shad-dark-back text-danger custom-font-change revolt-artist-text" >{{ gallery_listing.0.visual_show_name }}, {{ gallery_listing.0.vis_artist_name }}, {{ gallery_listing.0.vis_show_date_start|date:"M Y" }} <span class="text-light">to</span> {{ gallery_listing.0.vis_show_date_end|date:"M Y" }}</p>
+
+
+
+  </div>
+
+        <div class="col-lg-2 text-center p-4"></div>
+{% else %}
+
+
+      <div class="container mt-5 pb-5" data-aos="fade-up" data-aos-delay="100">
+            <h1 class="text-center mb-2 fs-1 text-shad-dark-back text-danger">REVOLT GALLERY IS <span class="d-block d-lg-inline text-light">ON WINTER BREAK</span></h1>
+            <div class="text-center">
+                <h2 class="text-light">THANK YOU <span class="text-light"></span></h2>
+                <h2 class="text-light text-shad-dark-back">New show Dropping in March 2024</h2>
+                <h3> next on the schedule is {{ gallery_listing.vis_artist_name|first }}</h3>
+                <a id="hero-button" href="{% url 'gallery-revolt' %}" class="btn btn-danger-outline custom-font-change mt-3">Future and Past Exhibits</a>            </div>
+        </div>
+
+{% endif %}
+    </div>
+
+
+</div>
+
+
+
+
+    </div>

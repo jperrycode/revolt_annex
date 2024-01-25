@@ -130,7 +130,7 @@ class HutView(TemplateView):
 
 
 class RevoltView(TemplateView):
-    template_name = 'schedule/gallery_all_swtiching.html'
+    template_name = 'schedule/ui_change_template/gallery_master_switcher.html'
 
     def get_context_data(self, **kwargs):
         try:
