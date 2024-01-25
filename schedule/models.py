@@ -51,6 +51,9 @@ class Visual_artist_listing(models.Model):
     age_restriction = models.BooleanField(default=False)
     vis_image_url = models.URLField(max_length=250, null=True, blank=True)
     visual_artist_image = models.ImageField(upload_to='media/', null=True, blank=True)
+    flyer_server_id = models.CharField(max_length=100, null=True, blank=True)
+    flyer_img_id = models.CharField(max_length=100, null=True)
+    flyer_img_secret = models.CharField(max_length=100, null=True, blank=True)
 
     class Meta:
         ordering = ['vis_show_date_start']

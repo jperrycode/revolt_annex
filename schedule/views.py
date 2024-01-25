@@ -1,4 +1,5 @@
 import django
+
 django.setup()
 from typing import Any
 from django.views import View
@@ -14,11 +15,12 @@ import os
 import vimeo
 from django.core.mail import EmailMessage
 from django.urls import reverse_lazy
-from django.http import JsonResponse
+
 from django.db.models import Prefetch
-from revolt_annex import settings
+
 from django.shortcuts import get_object_or_404
-from django.shortcuts import reverse
+
+from django.http import Http404
 
 
 # Define a custom signal
@@ -116,6 +118,7 @@ class ClassesView(TemplateView):
         context['classes_data'] = Extra_curriucular_listing.objects.all()
         return context
 
+
 class HutView(TemplateView):
     template_name = 'schedule/ui_change_template/revolt_hut.html'
 
@@ -192,14 +195,22 @@ class ArchivePageView(DetailView):
         return context
 
 
-
 class AnnexHomeView(TemplateView):
-    # template_name = 'schedule/master-new.html'
+    template_name = 'schedule/master-new.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['range_reset'] = [str(i) for i in range(2, 10)]
-        context['gallery_listing'] = Visual_artist_listing.objects.all().values()
-        context['music_artist_listing'] = Music_artist_listing.objects.all().values()
+        print("context 1")
+        try:
+            context['range_reset'] = [str(i) for i in range(2, 10)]
+            print("context 2")
+            context['gallery_listing'] = Visual_artist_listing.objects.all().values()
+            print("context 3")
+            context['music_artist_listing'] = Music_artist_listing.objects.all().values()
+            print("context 4")
+        except Exception as e:
+            raise Http404(f"An error occurred: {e}")
+
+        print(context)
 
         return context
