@@ -23,74 +23,63 @@
 
 
 <section class="py-5 text-center container">
-    <div class="row py-lg-5">
-        <h1 class='text-center fs-1'>The <span class='text-dark'>Past</span></h1>
-        <h2 class='text-center'><span class='text-dark'>Revolt </span>Gallery <span class='text-dark'>Archives</span>
+    <div class="row">
+        <h1 class='text-center fs-1 text-danger'>The <span class='text-light'>Past</span></h1>
+        <h2 class='text-center'><span class='text-light'>Revolt </span><span class='text-light'>Gallery </span><span class='text-danger'>Archives</span>
         </h2>
     </div>
 
-    <div class="row py-lg-5">
-        <div class="col-lg-6 col-md-8 mx-auto">
-            <p class="lead text-body-secondary text-dark fw-bold">"Revolt Gallery in Taos, NM presents an eclectic
-                and vibrant archive compilation showcasing avant-garde artworks and cultural narratives,
-                offering a captivating retrospective of contemporary expressions and local artistic
-                dynamism."</p>
-        </div>
-    </div>
+<!--    <div class="row py-lg-5">-->
+<!--        <div class="col-lg-6 col-md-8 mx-auto">-->
+<!--            <p class="lead text-body-secondary text-light fw-bold">"Revolt Gallery in Taos, NM presents an eclectic-->
+<!--                and vibrant archive compilation showcasing avant-garde artworks and cultural narratives,-->
+<!--                offering a captivating retrospective of contemporary expressions and local artistic-->
+<!--                dynamism."</p>-->
+<!--        </div>-->
+<!--    </div>-->
 </section>
 
 <div class="album py-5">
-    <div class="container">
+    <div class="container-huge">
     <div class="row g-3">
-       {% for item in archive_show_data %}
-    <div class="hover-img-arch future-child-container p-3 m-4 border border-dark rounded-4 shad bg-danger bg-opacity-75 col-lg-5 mx-auto col-12 p-4">
-        <a class='text-decoration-none text-dark' href='{% url "archive_details" pk=item.pk %}'>
-            <div class="future-content-container">
-                <img class='logo-schedule img-h' src='{% static "schedule/img/img-new/revolt_logo.png" %}' alt='logo'/>
+       {% if archive_show_data %}
+        {% for item in archive_show_data %}
+            <div class="col-lg-3">
+                <a class='text-decoration-none text-danger' href='{% url "archive_details" pk=item.pk %}'>
+                <div class="p-3 future-child-container ratio ratio-16x9 p-3 mt-3 border border-dark rounded-4 shadow-lg bg-danger bg-opacity-10 d-flex flex-column">
 
-                <h1 class='text-center'>{{ item.archive_show_name }}</h1>
-                <h2 class='text-center'><span class='h4 text-dark'>by</span> <span class='h3'>{{ item.archive_artist_name }}</span></h2>
-                <div class='hover-future-cont'>
-                    <p class="text-center fs-5 text-dark">{{ item.archive_start_date|date:"M Y" }} -- {{ item.archive_end_date|date:"M Y" }} </p>
-                    <div class="view-more-overlay">
+                    <div class="future-content-container mt-5 flex-grow-1">
+                        {% if my_variable|default:'Show Title' %}
+                            <p class=' text-center custom-font-change text-shad-dark-back'>{{ item.archive_show_name }} </p>
+                        <p class='text-center custom-font-change text-shad-dark-back'><span class="text-light">by</span> {{ item.archive_artist_name }} </p>
+                        {% else %}
+                        {% endif %}
+                        <div class='hover-future-cont'>
+                            <p class="text-center">{{ item.archive_start_date|date:"M Y" }} <span class="text-danger">||</span> {{ item.archive_end_date|date:"M Y" }}</p>
+
                         </div>
-                                               <div class="text-hov-bright text-center vstack gap-2">
-                                                   <div class="border-bottom text-shad-dark-back"><h2 class="text-light">View Gallery</h2></div>
-                                                   <div><h2 class="text-light text-shad-dark-back">{{ item.archive_show_name }}</h2></div>
-
-                                               </div>
-                       <div class="view-more-overlay">
-                                <img class='hover-image' src='{% static "schedule/img/img-new/fist.png" %}' alt='hover-image'/>
-                            </div>
-
-
+                        <!-- Add your custom content here -->
+                    </div>
                 </div>
+                </a>
             </div>
-        </a>
-    </div>
-
-    {% if forloop.counter|divisibleby:2 and not forloop.last %}
-        <div class="w-100 d-none d-lg-block"></div><!-- Clears the float to start a new row on desktop -->
-    {% endif %}
-{% endfor %}
-
-
-
-
-    </div>
-
-    {% if archive_show_data|length == 0 %}
-        <div class='text-center'>
-            <h2>REVOLT GALLERY <span class='text-dark'>ARCHIVES ~</span>~ COMING SOON</h2>
-            <h2>Full List of All Artists and Shows from Revolt Gallery</h2>
-            <a href="{% url 'contact-revolt' %}" class='text-decoration-none'>
-                <h3 class='text-dark'>Please Contact Us Here If You Have Any Questions</h3>
-            </a>
+            {% if forloop.counter|divisibleby:4 and not forloop.last %}
+                <div class="w-100"></div> <!-- Line break after every fourth entry -->
+            {% endif %}
+        {% endfor %}
+    {% else %}
+        <div class="container mt-5 pb-5" data-aos="fade-up" data-aos-delay="100">
+            <h1 class="text-center mb-2 fs-1 text-shad-dark-back text-danger">REVOLT GALLERY HAS <span class="d-block d-lg-inline text-light">NO SHOWS ON THE CALENDAR</span></h1>
+            <div class="text-center">
+                <h2 class="text-light">THANK YOU <span class="text-light"></span></h2>
+                <h2 class="text-light text-shad-dark-back">New show Dropping in March 2024</h2>
+                <a id="hero-button" href="{% url 'gallery-revolt' %}" class="btn btn-danger-outline custom-font-change mt-3">Music Schedule</a>
+            </div>
         </div>
     {% endif %}
 </div>
 
-
+    </div>
 </div>
 
 

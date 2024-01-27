@@ -210,7 +210,10 @@ display: flex;
     text-shadow: 2px 2px 4px black;
     scale: 1.2;
     z-index: 100;
-}}
+}
+
+
+}
 
 
 .hover-image {
@@ -230,4 +233,12 @@ display: flex;
 
 .gallery-update-container {
 height:
+}
+
+@media (max-width: 550px) {
+#front-page-img-container {
+
+
+}
+
 }
