@@ -2,7 +2,7 @@
 
  <div class="hero-container" data-aos="zoom-in" data-aos-delay="100">
     <h1 id="hero-front" class="mb-1 mt-5 pb-0 moving-gradient">Revolt Art Gallery</h1>
-    <p class="fs-3 custom-font-change text-shad-dark-back moving-gradient">Where Art Breaks Free from the System</p>
+    <p class="fs-3 custom-font-change text-shad-dark-back moving-gradient">Exhibits</p>
 
     <div class="container gallery-update-container mt-1 p-1">
         <p class="custom-font-change mb-4 text-center">Current Exhibit</p>
@@ -17,11 +17,10 @@
                         <img src="https://live.staticflickr.com/{{ gallery_listing.0.flyer_server_id }}/{{ gallery_listing.0.flyer_img_id }}_{{ gallery_listing.0.flyer_img_secret }}.jpg" id="front-page-img-container" loading="lazy" class="shad m-1 img-fluid border border-danger-subtle">
                     </a>
                 </div>
-                <ul class="list-unstyled text-shad-dark-back text-danger custom-font-change revolt-artist-text">
-                    <li>{{ gallery_listing.0.visual_show_name }}</li>
-                    <li>{{ gallery_listing.0.vis_artist_name }}</li>
-                    <li>{{ gallery_listing.0.vis_show_date_start|date:"M Y" }} <span class="text-light">to</span> {{ gallery_listing.0.vis_show_date_end|date:"M Y" }}</li>
-                </ul>
+                <div class="text-shad-dark-back text-danger custom-font-change revolt-artist-text">
+                    <p>{{ gallery_listing.0.visual_show_name }}, {{ gallery_listing.0.vis_artist_name }}, {{ gallery_listing.0.vis_show_date_start|date:"M Y" }} <span class="text-light">to</span> {{ gallery_listing.0.vis_show_date_end|date:"M Y" }}</p>
+                </div>
+
             </div>
 
             <div class="col-lg-2 text-center p-4"></div>

@@ -2258,8 +2258,8 @@ font-size: 60px;
         }
 
         .moving-gradient {
-            background: linear-gradient(90deg, #ff0000 1%, #ff00ff 18%, #ff0000 3%);
-            background-size: 20% 20%;
+background: linear-gradient(90deg, #ff0000 1%, #ff0000 90%, #ffffff 90.1%, #ffffff 91%);
+background-size: 20% 20%;
             animation: gradientMovement 10s ease infinite;
             -webkit-background-clip: text; /* Clip the text to the background */
             color: transparent; /* Set text color to transparent to show the background */
