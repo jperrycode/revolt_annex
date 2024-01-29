@@ -553,7 +553,7 @@ h6 {
 --------------------------------------------------------------*/
 #hero {
   width: 100%;
-  height: 100vh;
+
   background: url('../img/img-new/dark_neon_exterior_shot.jpg') top center;
   background-size: cover;
   overflow: hidden;
@@ -760,7 +760,7 @@ h6 {
   overflow: hidden;
   position: relative;
   color: #fff;
-  padding: 60px 0 40px 0;
+
 }
 
 @media (max-width:500px){
@@ -791,7 +791,7 @@ h6 {
   font-weight: bold;
   margin-bottom: 10px;
   color: #fff;
-  margin-top: 35px;
+  margin-top: 5px;
 }
 
 #about h3 {
@@ -1102,7 +1102,7 @@ h6 {
 }
 
 #venue {
-  background: url("../img/img-new/dark_neon_exterior_shot.jpg");
+  background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ), url("../img/img-new/dark_neon_exterior_shot.jpg");
   background-size: cover;
   overflow: hidden;
   position: relative;
@@ -1519,7 +1519,7 @@ h6 {
 # Contact Section
 --------------------------------------------------------------*/
 #contact {
-  padding: 60px 0;
+  padding: 10px 0;
 }
 
 #contact .contact-info {
@@ -2067,6 +2067,10 @@ h6 {
   -webkit-text-stroke-color: black;
 }
 
+.custom-font-octin {
+font-family: 'Octin Spraypaint', sans-serif !important;
+}
+
 .custom-glow-change:hover {
   text-shadow: 0 0 7px rgb(255, 0, 0), 0 0 122px rgb(152, 236, 188);
 
@@ -2127,6 +2131,7 @@ h6 {
 .future-child-container:hover {
   transform: scale(1.1);
   animation: glow 2s ease-in-out infinite;
+  border: 1px solid red;
 }
 
 .hover-img-arch:hover .archive-image-container p {
@@ -2134,6 +2139,7 @@ h6 {
 }
 
 .future-child-container {
+
 
   transition: transform 0.3s ease-in-out; /* Default transition */
 }
@@ -2213,7 +2219,7 @@ max-height: auto;
 
 #hero {
   width: 100%;
-  height: 100vh;
+
   background: url('../img/img-new/dark_neon_exterior_shot.jpg') top center;
   background-size: cover;
   overflow: hidden;
@@ -2253,8 +2259,8 @@ font-size: 60px;
         }
 
         .moving-gradient {
-            background: linear-gradient(90deg, #ff0000 0%, #ff00ff 15%, #ff0000 2%);
-            background-size: 20% 20%;
+background: linear-gradient(60deg, #ff0000 1%, #ff0000 90%, #ffffff 90.1%, #ffffff 91%);
+background-size: 20% 20%;
             animation: gradientMovement 10s ease infinite;
             -webkit-background-clip: text; /* Clip the text to the background */
             color: transparent; /* Set text color to transparent to show the background */
@@ -2271,4 +2277,25 @@ font-size: 60px;
         margin-left: auto;
         margin-right: auto;
     }
+
+    .hero-flyer-container {
+        width: 100%;
+    }
+}
+
+@media (min-width: 1000px) {
+.hero-flyer-container {
+    min-height: 50vh;
+    width: 50%;
+}
+
+}
+
+.container-huge {
+max-width: 1450px;
+margin: 0 auto;
+}
+
+#hut-outfront {
+margin-top: 50px;
 }

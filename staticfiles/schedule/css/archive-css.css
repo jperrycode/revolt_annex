@@ -82,7 +82,7 @@ scale: 1.2;
 }
 
 .text-shad-dark-back {
-text-shadow: 1px 1px 5px rgba(255, 0, 0, 0.5), 1px 1px 5px rgba(0, 0, 0, 0.5);
+text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5), 1px 1px 5px rgba(0, 0, 0, 0.5);
 }
 
   .archive-child-container:hover {
@@ -210,7 +210,10 @@ display: flex;
     text-shadow: 2px 2px 4px black;
     scale: 1.2;
     z-index: 100;
-}}
+}
+
+
+}
 
 
 .hover-image {
@@ -230,4 +233,58 @@ display: flex;
 
 .gallery-update-container {
 height:
+}
+
+@media (max-width: 550px) {
+#front-page-img-container {
+
+
+}
+
+}
+
+
+
+
+
+
+/* CSS */
+.button-89 {
+  --b: 2px;   /* border thickness */
+  --s: .45em; /* size of the corner */
+  --color: #8c0000;
+
+  padding: calc(.5em + var(--s)) calc(.9em + var(--s));
+  color: var(--color);
+  --_p: var(--s);
+  background:
+    conic-gradient(from 90deg at var(--b) var(--b),#0000 90deg,var(--color) 0)
+    var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
+  transition: .3s linear, color 0s, background-color 0s;
+  outline: var(--b) solid #0000;
+  outline-offset: .6em;
+  font-size: 18px;
+
+  border: 0;
+
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-89:hover,
+.button-89:focus-visible {
+  --_p: 0px;
+  outline-color: rgb(220, 76, 100);
+  outline-offset: .05em;
+  border: 1px solid red;
+
+
+}
+
+
+
+.button-89:active {
+  background: var(--color);
+  color: #fff;
 }
