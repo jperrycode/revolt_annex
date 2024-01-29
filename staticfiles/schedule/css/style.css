@@ -39,7 +39,7 @@ body {
 
   background-size: 800% 800%;
 background-position: fixed;
-    animation: gradient 15s ease infinite;
+
     height: 150vh;
 
 
@@ -2246,25 +2246,17 @@ font-size: 60px;
     }
 
 
-          @keyframes gradientMovement {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
-        }
+   .moving-gradient {
+    color: red; /* Set text color to red */
+    font-weight: bold;
+    font-size: 2em;
+    -webkit-text-fill-color: transparent; /* Set text color to transparent to show the background */
+    -webkit-background-clip: text; /* Clip the text to the background */
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.7); /* Dark black outline */
+}
 
-        .moving-gradient {
-background: linear-gradient(60deg, #ff0000 1%, #ff0000 90%, #ffffff 90.1%, #ffffff 91%);
-background-size: 20% 20%;
-            animation: gradientMovement 10s ease infinite;
-            -webkit-background-clip: text; /* Clip the text to the background */
-            color: transparent; /* Set text color to transparent to show the background */
-        }
+
+
 
         @media (max-width: 500px) {
             .hero-container {margin-top: 3rem;}
@@ -2298,4 +2290,8 @@ margin: 0 auto;
 
 #hut-outfront {
 margin-top: 50px;
+}
+
+.deep-red {
+color: #f82249;
 }
