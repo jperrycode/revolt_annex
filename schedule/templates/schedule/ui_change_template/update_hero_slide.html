@@ -35,8 +35,8 @@
                     <div class="text-center">
                         <h2 class="text-light">THANK YOU <span class="text-light"></span></h2>
                         <h2 class="text-light text-shad-dark-back">New show Dropping in March 2024</h2>
-                        <h3> next on the schedule is {{ gallery_listing.vis_artist_name|first }}</h3>
-                        <a id="hero-button" href="{% url 'gallery-revolt' %}" class="button-89">Future and Past Exhibits</a>
+
+                       <button onclick="window.location.href='{% url 'gallery-revolt' %}'" class="button-89 text-danger custom-font-change shad">Future and Past Exhibits</button>
                     </div>
                 </div>
             {% endif %}
