@@ -108,7 +108,7 @@ class Archivedshowimagedata(models.Model):
     archive_artist_web = models.CharField(max_length=50, blank=True, null=True)
 
     class Meta:
-        ordering = ['archive_end_date']
+        ordering = ['-archive_end_date']
         verbose_name = "Archive"
         verbose_name_plural = "Archive"
 
