@@ -1,0 +1,48 @@
+{% load static %}
+{% now "Y-m-d" as current_date %}
+
+<div class="hero-container" data-aos="zoom-in" data-aos-delay="100">
+    <h1 id="hero-front" class="mb-1 mt-5 pb-0 deep-red text-shad-dark-back">Revolt Art Gallery</h1>
+    <p class="fs-3 custom-font-change text-shad-dark-back">Where Art Breaks Free from the System</p>
+
+    <div class="container gallery-update-container mt-1 p-1">
+        <p class="custom-font-change mb-4 text-center">Current Exhibit</p>
+
+        <div class="row">
+            {% if gallery_listing %}
+                {% with gallery_date=gallery_listing.0.vis_show_date_end|date:"Y-m-d" %}
+                    {% if gallery_date > current_date %}
+                        <div class="col-lg-2 text-center p-4"></div>
+
+                        <div class="col-lg-8 pb-5" data-aos="fade-up" data-aos-delay="100">
+                            <div class="hero-flyer-container mx-auto">
+                                <a href="{% url 'gallery-revolt' %}">
+                                    <img src="https://live.staticflickr.com/{{ gallery_listing.0.flyer_server_id }}/{{ gallery_listing.0.flyer_img_id }}_{{ gallery_listing.0.flyer_img_secret }}.jpg" id="front-page-img-container" loading="lazy" class="shad m-1 img-fluid border border-danger-subtle">
+                                </a>
+                            </div>
+                            <div class="text-shad-dark-back text-danger custom-font-change revolt-artist-text">
+                                <p>{{ gallery_listing.0.visual_show_name }}, {{ gallery_listing.0.vis_artist_name }}, {{ gallery_listing.0.vis_show_date_start|date:"M Y" }} <span class="text-light">to</span> {{ gallery_listing.0.vis_show_date_end|date:"M Y" }}</p>
+                            </div>
+                            <button onclick="window.location.href='{% url 'gallery-revolt' %}'" class="button-89 text-danger custom-font-change shad">Future and Past Exhibits</button>
+                        </div>
+
+                        <div class="col-lg-2 text-center p-4"></div>
+
+
+            {% else %}
+                <div class="container mt-5 pb-5" data-aos="fade-up" data-aos-delay="100">
+                    <h1 class="text-center mb-2 fs-1 text-shad-dark-back text-danger">REVOLT GALLERY IS <span class="d-block d-lg-inline text-light">ON WINTER BREAK</span></h1>
+                    <div class="text-center">
+                        <h2 class="text-light">THANK YOU <span class="text-light"></span></h2>
+                        <h2 class="text-light text-shad-dark-back">New show Dropping in March 2024</h2>
+
+                                               <button onclick="window.location.href='{% url 'gallery-revolt' %}'" class="button-89 text-danger custom-font-change shad">Future and Past Exhibits</button>
+
+                    </div>
+                </div>
+            {% endif %}
+            {% endwith %}
+            {% endif %}
+        </div>
+    </div>
+</div>

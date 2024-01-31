@@ -22,68 +22,66 @@
 
 
 
-<section class="py-5 text-center container">
-    <div class="row py-lg-5">
-        <h1 class='text-center fs-1'>The <span class='text-dark'>Past</span></h1>
-        <h2 class='text-center'><span class='text-dark'>Revolt </span>Gallery <span class='text-dark'>Archives</span>
+<section class="p-1 text-center container">
+    <div class="row">
+        <h1 class='text-center fs-1 text-danger'>The <span class='text-light'>Past</span></h1>
+        <h2 class='text-center'><span class='text-light'>Revolt </span><span class='text-light'>Gallery </span><span class='text-danger'>Archives</span>
         </h2>
     </div>
 
-    <div class="row py-lg-5">
-        <div class="col-lg-6 col-md-8 mx-auto">
-            <p class="lead text-body-secondary text-dark fw-bold">"Revolt Gallery in Taos, NM presents an eclectic
-                and vibrant archive compilation showcasing avant-garde artworks and cultural narratives,
-                offering a captivating retrospective of contemporary expressions and local artistic
-                dynamism."</p>
-        </div>
-    </div>
+<!--    <div class="row py-lg-5">-->
+<!--        <div class="col-lg-6 col-md-8 mx-auto">-->
+<!--            <p class="lead text-body-secondary text-light fw-bold">"Revolt Gallery in Taos, NM presents an eclectic-->
+<!--                and vibrant archive compilation showcasing avant-garde artworks and cultural narratives,-->
+<!--                offering a captivating retrospective of contemporary expressions and local artistic-->
+<!--                dynamism."</p>-->
+<!--        </div>-->
+<!--    </div>-->
 </section>
 
-<div class="album py-5">
-    <div class="container">
+<div class="album pt-2 pb-1">
+    <div class="container-huge">
     <div class="row g-3">
-       {% for item in archive_show_data %}
-    <div class="hover-img-arch future-child-container p-3 m-4 border border-dark rounded-4 shad bg-danger bg-opacity-75 col-lg-5 mx-auto col-12 p-4">
-        <a class='text-decoration-none text-dark' href='{% url "archive_details" pk=item.pk %}'>
-            <div class="future-content-container">
-                <img class='logo-schedule img-h' src='{% static "schedule/img/img-new/revolt_logo.png" %}' alt='logo'/>
+       {% if archive_show_data %}
+        {% for item in archive_show_data %}
+    <div class="col-lg-3 col-md-4 col-sm-6"> <!-- Adjust column widths based on screen size -->
+        <a class='text-decoration-none text-danger' href='{% url "archive_details" pk=item.pk %}'>
+            <div class="p-3 future-child-container ratio ratio-16x9 p-3 mt-3 rounded-4 shadow-lg bg-danger bg-opacity-10 d-flex flex-column h-100">
 
-                <h1 class='text-center'>{{ item.archive_show_name }}</h1>
-                <h2 class='text-center'><span class='h4 text-dark'>by</span> <span class='h3'>{{ item.archive_artist_name }}</span></h2>
-                <div class='hover-future-cont'>
-                    <p class="text-center fs-5 text-dark">{{ item.archive_start_date }} -- {{ item.archive_end_date }} </p>
-                    <div class="view-more-overlay">
-                        </div>
-                                               <div class="text-hov-bright"><h1 class="custom-font-change text-danger b-0 l-0 fs-1">View More</h1></div>
-
-
+                <div class="future-content-container mt-5 flex-grow-1">
+                    {% if my_variable|default:'Show Title' %}
+                        <p class='text-center custom-font-change text-shad-dark-back text-light'>{{ item.archive_show_name }} </p>
+                        <p class='text-center custom-font-change text-shad-dark-back'><span class="text-light">by</span> {{ item.archive_artist_name }} </p>
+                    {% else %}
+                    {% endif %}
+                    <div class='hover-future-cont'>
+                        <p class="text-center text-shad-dark-back custom-font-octin">{{ item.archive_start_date|date:"M Y" }} <span class="text-light text-shad-dark-back">||</span> {{ item.archive_end_date|date:"M Y" }}</p>
+                    </div>
+                    <!-- Add your custom content here -->
                 </div>
             </div>
         </a>
     </div>
-
     {% if forloop.counter|divisibleby:2 and not forloop.last %}
-        <div class="w-100 d-none d-lg-block"></div><!-- Clears the float to start a new row on desktop -->
+        <div class="w-100 d-md-none"></div> <!-- Line break after every second entry on mobile -->
+    {% elif forloop.counter|divisibleby:4 and not forloop.last %}
+        <div class="w-100 d-lg-none"></div> <!-- Line break after every fourth entry on desktop -->
     {% endif %}
 {% endfor %}
 
-
-
-
-    </div>
-
-    {% if archive_show_data|length == 0 %}
-        <div class='text-center'>
-            <h2>REVOLT GALLERY <span class='text-dark'>ARCHIVES ~</span>~ COMING SOON</h2>
-            <h2>Full List of All Artists and Shows from Revolt Gallery</h2>
-            <a href="{% url 'contact-revolt' %}" class='text-decoration-none'>
-                <h3 class='text-dark'>Please Contact Us Here If You Have Any Questions</h3>
-            </a>
+    {% else %}
+        <div class="container mt-5 pb-5" data-aos="fade-up" data-aos-delay="100">
+            <h1 class="text-center mb-2 fs-1 text-shad-dark-back text-danger">REVOLT GALLERY HAS <span class="d-block d-lg-inline text-light">NO SHOWS ON THE CALENDAR</span></h1>
+            <div class="text-center">
+                <h2 class="text-light">THANK YOU <span class="text-light"></span></h2>
+                <h2 class="text-light text-shad-dark-back">New show Dropping in March 2024</h2>
+                <a id="hero-button" href="{% url 'gallery-revolt' %}" class="btn btn-danger-outline custom-font-change mt-3">Music Schedule</a>
+            </div>
         </div>
     {% endif %}
 </div>
 
-
+    </div>
 </div>
 
 
@@ -91,119 +89,7 @@
 
 
 
-    <div class="previous-art-show mt-3">
-    <div class="row">
-      <div class="col-lg text-center p-4"></div>
 
-      <div
-        class="col-lg-8 text-center p-2 border-bottom border-danger border-3"
-      >
-        <h2><span class='text-danger'>AI : IA</span> By Jesse Littlebird</h2>
-
-
-
-
-       <!-- Button to trigger the modal -->
-
-      </div>
-      <div class="col-lg text-center p-4"></div>
-    </div>
-
-
-
-    <div class="gallery-slider swiper">
-      <div class="swiper-wrapper align-items-center">
-
-          <div class="swiper-slide square-contain">
-          <a
-            href="{% static 'schedule/img/img-new/jesse_littlebird.jpg' %}"
-            class="gallery-lightbox"
-            ><img loading="lazy"
-              src="{% static 'schedule/img/img-new/jesse_littlebird.jpg' %}"
-              class="img-fluid"
-              alt=""
-          /></a>
-        </div>
-        <div class="swiper-slide square-contain">
-          <a
-            href="{% static 'schedule/img/img-new/jesse_littlebird_flyer.jpg' %}"
-            class="gallery-lightbox"
-            ><img loading="lazy"
-              src="{% static 'schedule/img/img-new/jesse_littlebird_flyer.jpg' %}"
-              class="img-fluid"
-              alt=""
-          /></a>
-        </div>
-            <div class="swiper-slide square-contain">
-          <a
-            href="{% static 'schedule/img/img-new/jesse_img1.jpg' %}"
-            class="gallery-lightbox"
-            ><img loading="lazy"
-              src="{% static 'schedule/img/img-new/jesse_img1.jpg' %}"
-              class="img-fluid"
-              alt=""
-          /></a>
-        </div>
-             <div class="swiper-slide square-contain">
-          <a
-            href="{% static 'schedule/img/img-new/jesse_img2.jpg' %}"
-            class="gallery-lightbox"
-            ><img loading="lazy"
-              src="{% static 'schedule/img/img-new/jesse_img2.jpg' %}"
-              class="img-fluid"
-              alt=""
-          /></a>
-        </div>
-             <div class="swiper-slide square-contain">
-          <a
-            href="{% static 'schedule/img/img-new/jesse_img3.jpg' %}"
-            class="gallery-lightbox"
-            ><img loading="lazy"
-              src="{% static 'schedule/img/img-new/jesse_img3.jpg' %}"
-              class="img-fluid"
-              alt=""
-          /></a>
-        </div>
-
-
-
-      </div>
-      <div class="swiper-pagination"></div>
-    </div>
-    <!-- End previous show Gallery Section -->
-  </div>
-  <!-- end new gallery show section -->
-      <!-- End current show Gallery Section -->
-
-<!-- Modal (dialog) learn more -->
-
-    <div class='background-image'>
-        <div class="text-center"><h2 class="text-danger">Jesse Littlebird</h2> </div>
-        <div class='background-image-small'>
-        <div class="text-secondary">
-        <p>Expression through the medium of painting and film is a vital part of life for Jesse with his Indigenous heritage deeply rooted in the oral tradition culture of his Pueblo Indian lineage and growing up in a creative household of art, film, and story.</p>
-        <p>Littlebird’s provocative paintings have garnished recognition in the Southwest art scene with several solo exhibitions and group shows during 2018-2023 and with several collectors commissioning his work nationally and globally.</p>
-        <p>            My work is a Detournement of various elements from Western and Indigenous thought and histories, provoking critical reflection and serving as a testament to the enduring spirit of indigenous cultural realities.
-</p>
-        <p>The paintings serve as storytellers, capturing narratives that can be discovered by those who truly listen and engage with the artwork.
-</p>
-        <p>Each piece is a field for intricately intertwined symbolic representations that draw direct inspiration from the timeless cultural traditions found within the lands my people have inhabited since long before the Settler Colonial and will exist long after its passing.”
-</p>
-        <p>He is a Sundance Institute Full Circle Fellow, and Andy Warhol Foundation recipient. He works full time as an artist and resides in Albuquerque, New Mexico
-</p>
-                   <div class="socialartist m-3 text-center">
-<a href='https://www.instagram.com/moondroppers/?hl=en'><i class="fab fa-instagram fa-2x" style="color: #ac2bac;"></i></a> <!-- Facebook -->
-</div>
-     </div>
-        </div>
-        <div class="text-center mb-4">
-        <a href='https://jesselittlebird.com/'><h4 class='text-decoration-none'>Click here for Jesse's Collection</h4></a>
-        <!-- Instagram -->
-
-
-
-        </div>
-    </div>
 
 
 

@@ -11,8 +11,8 @@
       <div class="row">
         <div class="col-lg text-center p-4"></div>
 
-        <div class="container mt-5 pb-5" data-aos="fade-up" data-aos-delay="100">
-          <h1 class="text-center mb-2 fs-1">REVOLT GALLERY <span class="text-dark">ON WINTER BREAK</span></h1>
+        <div class="container mt-5 pb-5 text-shad-dark-back" data-aos="fade-up" data-aos-delay="100">
+          <h1 class="text-center mb-2 fs-1 text-shad-dark-back text-danger">REVOLT GALLERY IS <span class="text-dark">ON WINTER BREAK</span></h1>
           <div class="text-center">
             <h2>THANK YOU <span class="text-dark"></span></h2>
             <h2>New show Dropping in March 2024</h2>
@@ -31,58 +31,128 @@
 
     <!-- Modal (dialog) learn more -->
 
-
-
-
-
-
-    <div class="hut-out-front mt-5">
-        <div class="section-header text-center">
-          <h1 class="text-dark fs-1">The Hut Out Front</h1>
-          <p class="text-uppercase text-dark">“Vulnerability” by Laura Feierman <br> 2023 Mini Installation</p>
-          <a href="https://www.instagram.com/moondroppers/?hl=en" class="me-3">
-            <i class="fab fa-instagram fa-2x mr-3" style="color: #ac2bac;"></i>
-          </a>
-          <a href="https://www.linkedin.com/in/laura-feierman-9521b2189/">
-            <i class="fab fa-linkedin-in fa-2x" style="color: #0082ca;"></i>
-          </a>
-        </div>
-
-        <div class="row">
-  <div class="m-3 mx-auto text-dark fw-bolder p-4 text-center">
-    <p class="fs-5 p-2">
-      Living and practicing in New Mexico, Laura Feierman is an interdisciplinary artist that integrates beauty, identity and personal experiences into 3-dimensional sculpture installments.
-    </p>
-    <p class="fs-5 p-2">
-      She is a Summa Cum Laude graduate from the University of New Mexico with a BFA in Studio Art/Sculpture.
-    </p>
-    <p class="fs-5 p-2">
-      Her Wo/Manhouse 2022 installation in the pink bathroom combines her personal experiences with vulnerability, insecurity, humility, and tenacity while maintaining femininity, fantasy, and female empowerment.
-    </p>
-  </div>
-</div>
-
-
-        <div id="hut-img" class="row w-75 mx-auto d-flex justify-content-center">
-          <div id="mobile-hide1" class="col-lg-4 col-md-6 text-center" >
-            <div class="image-container">
-              <img loading="lazy" src="{% static 'schedule/img/img-new/laura_artist_9by16.jpg' %}" class="mx-auto d-block" alt="...">
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 text-center p-4">
-            <div class="image-container">
-              <img loading="lazy" src="{% static 'schedule/img/img-new/laura_hut_1_9by16.jpg' %}" class="mx-auto d-block" alt="...">
-            </div>
-          </div>
-
-          <div id="mobile-hide" class="col-lg-4 col-md-6 text-center p-4">
-            <div class="image-container">
-              <img loading="lazy" src="{% static 'schedule/img/img-new/laura_hut_2_9by16.jpg' %}" class="mx-auto d-block" alt="...">
-            </div>
-          </div>
-        </div>
+    <div class="row w-50 mx-auto border-bottom border-danger">
+    <h2 class="text-center text-shad-dark-back">Most Recent Installation</h2>
       </div>
+    <div class="previous-art-show mt-3">
+    <div class="row">
+      <div class="col-lg text-center p-4"></div>
+
+      <div
+        class="col-lg-8 text-center p-2 border-bottom border-danger border-3"
+      >
+        <h2><span class='text-danger'>AI : IA</span> By Jesse Littlebird</h2>
+
+
+
+
+       <!-- Button to trigger the modal -->
+
+      </div>
+      <div class="col-lg text-center p-4"></div>
+    </div>
+
+
+
+    <div class="gallery-slider swiper">
+      <div class="swiper-wrapper align-items-center">
+
+          <div class="swiper-slide square-contain">
+          <a
+            href="{% static 'schedule/img/img-new/jesse_littlebird.jpg' %}"
+            class="gallery-lightbox"
+            ><img loading="lazy"
+              src="{% static 'schedule/img/img-new/jesse_littlebird.jpg' %}"
+              class="img-fluid"
+              alt=""
+          /></a>
+        </div>
+        <div class="swiper-slide square-contain">
+          <a
+            href="{% static 'schedule/img/img-new/jesse_littlebird_flyer.jpg' %}"
+            class="gallery-lightbox"
+            ><img loading="lazy"
+              src="{% static 'schedule/img/img-new/jesse_littlebird_flyer.jpg' %}"
+              class="img-fluid"
+              alt=""
+          /></a>
+        </div>
+            <div class="swiper-slide square-contain">
+          <a
+            href="{% static 'schedule/img/img-new/jesse_img1.jpg' %}"
+            class="gallery-lightbox"
+            ><img loading="lazy"
+              src="{% static 'schedule/img/img-new/jesse_img1.jpg' %}"
+              class="img-fluid"
+              alt=""
+          /></a>
+        </div>
+             <div class="swiper-slide square-contain">
+          <a
+            href="{% static 'schedule/img/img-new/jesse_img2.jpg' %}"
+            class="gallery-lightbox"
+            ><img loading="lazy"
+              src="{% static 'schedule/img/img-new/jesse_img2.jpg' %}"
+              class="img-fluid"
+              alt=""
+          /></a>
+        </div>
+             <div class="swiper-slide square-contain">
+          <a
+            href="{% static 'schedule/img/img-new/jesse_img3.jpg' %}"
+            class="gallery-lightbox"
+            ><img loading="lazy"
+              src="{% static 'schedule/img/img-new/jesse_img3.jpg' %}"
+              class="img-fluid"
+              alt=""
+          /></a>
+        </div>
+
+
+
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+    <!-- End previous show Gallery Section -->
+  </div>
+  <!-- end new gallery show section -->
+      <!-- End current show Gallery Section -->
+
+<!-- Modal (dialog) learn more -->
+
+    <div class='background-image'>
+        <div class="text-center"><h2 class="text-danger">Jesse Littlebird</h2> </div>
+        <div class='background-image-small'>
+        <div class="text-secondary">
+        <p>Expression through the medium of painting and film is a vital part of life for Jesse with his Indigenous heritage deeply rooted in the oral tradition culture of his Pueblo Indian lineage and growing up in a creative household of art, film, and story.</p>
+        <p>Littlebird’s provocative paintings have garnished recognition in the Southwest art scene with several solo exhibitions and group shows during 2018-2023 and with several collectors commissioning his work nationally and globally.</p>
+        <p>            My work is a Detournement of various elements from Western and Indigenous thought and histories, provoking critical reflection and serving as a testament to the enduring spirit of indigenous cultural realities.
+</p>
+        <p>The paintings serve as storytellers, capturing narratives that can be discovered by those who truly listen and engage with the artwork.
+</p>
+        <p>Each piece is a field for intricately intertwined symbolic representations that draw direct inspiration from the timeless cultural traditions found within the lands my people have inhabited since long before the Settler Colonial and will exist long after its passing.”
+</p>
+        <p>He is a Sundance Institute Full Circle Fellow, and Andy Warhol Foundation recipient. He works full time as an artist and resides in Albuquerque, New Mexico
+</p>
+                   <div class="socialartist m-3 text-center">
+<a href='https://www.instagram.com/moondroppers/?hl=en'><i class="fab fa-instagram fa-2x" style="color: #ac2bac;"></i></a> <!-- Facebook -->
+</div>
+     </div>
+        </div>
+        <div class="text-center mb-4">
+        <a href='https://jesselittlebird.com/'><h4 class='text-decoration-none'>Click here for Jesse's Collection</h4></a>
+        <!-- Instagram -->
+
+
+
+        </div>
+    </div>
+
+
+
+
+
+
   </section>
 
 

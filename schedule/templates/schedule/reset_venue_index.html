@@ -3,21 +3,21 @@ Performing Arts Space{% endblock %}
 
 {% block bodycontent %}
  <section id="venue" class="slide fade-effect">
-<div class="container-fluid margin-top-custom" data-aos="fade-up">
+<div class="container-fluid" data-aos="fade-up">
       <div class="section-header">
-        <h2>Reset Performing Arts</h2>
-        <p class="text-uppercase text-dark">Venue location and past events</p>
+        <h2 class="text-danger text-shad-dark-back deep-red">Reset Performing Arts</h2>
+        <p class="text-uppercase text-light custom-paragraph">Venue location and past events</p>
       </div>
 
       <div class="row g-0">
         <div class="col-lg-6 venue-info" style="background: url('{% static 'schedule/img/img-new/reset/IMG_2674.jpeg' %}') top center no-repeat !important;" >
              <div class="row justify-content-center">
             <div class="col-11 col-lg-8 position-relative">
-              <h3>PAST EVENTS</h3>
-              <p>
-              <p class=' text-light'>SINCE 2017, REVOLT HAS HOSTED MANY GALLERY SHOWS, MUSIC EVENTS, AND ART HAPPENINGS. LOCATED IN THE HIGH NEW MEXICO DESERT, REVOLT FLOURISHES IN THE VORTEX OF TAOS, NM AND WOULD BE NOTHING WITHOUT OUR LOCAL ARTIST PARTICIPATION OVER THE YEARS!
+              <h3 class="text-shad-dark-back">PAST EVENTS</h3>
+
+              <p class='custom-paragraph custom-font-octin text-shad-dark-back text-light'>SINCE 2017, REVOLT HAS HOSTED MANY GALLERY SHOWS, MUSIC EVENTS, AND ART HAPPENINGS. LOCATED IN THE HIGH NEW MEXICO DESERT, REVOLT FLOURISHES IN THE VORTEX OF TAOS, NM AND WOULD BE NOTHING WITHOUT OUR LOCAL ARTIST PARTICIPATION OVER THE YEARS!
               CLICK THIS BOX TO SEE RESET and REVOLTS PAST EVENTS</p>
-              </p>
+
             </div>
           </div>
         </div>
@@ -25,12 +25,12 @@ Performing Arts Space{% endblock %}
         <div class="col-lg-6 venue-info">
           <div class="row justify-content-center">
             <div class="col-11 col-lg-8 position-relative">
-               <h3>FUTURE EVENTS</h3>
+               <h3 class="custom-paragraph text-shad-dark-back">FUTURE EVENTS</h3>
             <ul id='venue-short'>
                
            
                 <li>
-                <h4 class='text-danger custom-font-change'>More Shows <span class='text-light'>to be Announced</span></h4>
+                <h4 class='text-danger text-shad-dark-back custom-font-change'>More Shows <span class='text-light'>to be Announced</span></h4>
 <!--                <h4 class='text-danger custom-font-change'>DJ This Justin at TSV <span class='text-light'>1/12 at 4pm</span></h4>-->
 
                 </li>
@@ -46,7 +46,7 @@ Performing Arts Space{% endblock %}
 
        <!-- Reset schedule -->
     <div id="music-sched" class="section-header text-center mt-5">
-      <h2>Upcoming Music and performances</h2>
+      <h2 class="text-shad-dark-back deep-red">Upcoming Music and performances</h2>
       
     </div>
 
@@ -59,16 +59,16 @@ Performing Arts Space{% endblock %}
 
        <div id="slide-to-insta" class="container pt-5 mobile-event-1" data-aos="fade-up">
 
-  <div class="row mb-5">
+  <div class="row">
 
       <div class="row">
-        <div class="col-lg text-center p-4"></div>
+        <div class="col-lg text-center text-light p-2"></div>
 
-        <div class="container mt-5 pb-5" data-aos="fade-up" data-aos-delay="100">
-          <h1 class="text-center mb-2 fs-1">RESET PERFORMING <span class="text-dark">ARTS</span></h1>
+        <div class="container pb-3" data-aos="fade-up" data-aos-delay="100">
+          <h1 class="text-center text-light mb-2 fs-1 text-shad-dark-back">RESET PERFORMING <span class="text-danger">ARTS</span></h1>
           <div class="text-center">
-            <h2>NEXT SHOW WILL BE ANNOUNCED <span class="text-dark">HERE</span></h2>
-            <h2>We look forward to seeing all of you at the next show!</h2>
+            <h2 class="text-light text-shad-dark-back">NEXT SHOW WILL BE ANNOUNCED <span class="text-danger">HERE</span></h2>
+            <h2 class="text-light text-shad-dark-back">We look forward to seeing all of you at the next show!</h2>
           </div>
         </div>
         <div class="col-lg text-center p-4"></div>
@@ -114,7 +114,7 @@ Performing Arts Space{% endblock %}
     >
 
  <div class="section-header text-center">
-        <h2 class='mb-4'>Past Events</h2>
+        <h2 class='mb-4 text-light text-shad-dark-back'>Past Events</h2>
        <a class="btn btn-outline-danger" data-bs-toggle="collapse" href="#venue-collapse" role="button" aria-expanded="false" aria-controls="venue-collapse">
     Past Shows at Reset
   </a>
@@ -124,21 +124,21 @@ Performing Arts Space{% endblock %}
    
 
 {% comment %} <!-- iteration test -->
-  {% for video_data in vimeo_video_data.data|slice:8  %}
-  <div class="col-lg-3 col-md-4">
-  
-    <div class="venue-gallery">
-        <a href="{{ video_data.player_embed_url }}?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" target="_blank">
-            <div class="video-container">
-<iframe src="{{ video_data.player_embed_url }}?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Revolt Gallery New Years 2021"></iframe>                <div class="quote-overlay">
-                    <p class='child-hover'>{{ video_data.name }}</p>
-                </div>
-            </div>
-        </a>
-    </div>
+<!--  {% for video_data in vimeo_video_data.data|slice:8  %}-->
+<!--  <div class="col-lg-3 col-md-4">-->
+<!--  -->
+<!--    <div class="venue-gallery">-->
+<!--        <a href="{{ video_data.player_embed_url }}?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" target="_blank">-->
+<!--            <div class="video-container">-->
+<!--<iframe src="{{ video_data.player_embed_url }}?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Revolt Gallery New Years 2021"></iframe>                <div class="quote-overlay">-->
+<!--                    <p class='child-hover'>{{ video_data.name }}</p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </a>-->
+<!--    </div>-->
 
-</div>
-{% endfor %}
+<!--</div>-->
+<!--{% endfor %}-->
 
 
 <!-- iteration test done--> {% endcomment %}

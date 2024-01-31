@@ -358,9 +358,9 @@
  <header id="header" class="d-flex align-items-center ">
   
 
-    <div class="container-fluid container-xxl d-flex align-items-center">
+    <div class="container-fluid d-flex align-items-center">
         <div id="logo" class="me-auto custom-font">
-            <h1><a href="{% url 'annex_home' %}" data-bs-target="#carousel-id" data-bs-slide-to="0"><img class='logo-schedule img-h' src='{% static "schedule/img/img-new/fist.png" %}' alt='logo' />Revolt <span>|</span><span class="text-light">|</span><span> Reset</span><img class='logo-schedule img-h' src='{% static "schedule/img/img-new/fist.png" %}' alt='logo' /></a></h1>
+            <h1><a href="{% url 'annex_home' %}" data-bs-target="#carousel-id" data-bs-slide-to="0"><img class='logo-schedule img-h' src='{% static "schedule/img/img-new/fist.png" %}' alt='logo' /><span class="{% if request.path == '/revolt-art/' or request.path == '/revolt-gallery/' %}text-danger{% else %}text-light{% endif %}">Revolt</span></a> <span class="text-danger">||</span> <a href="{% url 'music-reset' %}" data-bs-target="#carousel-id" data-bs-slide-to="0"><span class="{% if request.path == '/reset-performing-arts/' %}text-danger{% else %}text-light{% endif %}">RESET</span><img class='logo-schedule img-h' src='{% static "schedule/img/img-new/fist.png" %}' alt='logo' /></a></h1>
         </div>
 
         <div id="mobile-nav-bar">
@@ -400,7 +400,7 @@
                   id="gallery-link"
                   class="nav-link custom-font-change mb-3 fs-1"
                   href="{% url 'annex_home' %}"
-                  ><span class="text-danger">HOME</span></a
+                  ><span class="text-danger">REVOLT</span></a
                 >
               </li>
 
@@ -408,8 +408,8 @@
                 <a
                   id="gallery-link"
                   class="nav-link custom-font-change mb-3 fs-1"
-                  href="{% url 'gallery-revolt' %}"
-                  ><span class="text-danger">REVOLT</span></a
+                  href="{% url 'hut' %}"
+                  ><span class="text-danger">THE HUT</span></a
                 >
               </li>
 
@@ -418,17 +418,13 @@
                   id="venue-link"
                   class="nav-link custom-font-change mb-3 fs-1"
                   href="{% url 'music-reset' %}"
-                  >RESET</a
+                  >RESET EVENTS</a
                 >
-              </li>
-
-              <li>
-                <a class="nav-link custom-font-change mb-3 fs-1" href="{% url 'class-reset' %}">Gather</a>
               </li>
               <li>
                 <a
                   id="speakers-link"
-                  class="nav-link custom-font-change fs-1"
+                  class="nav-link custom-font-change fs-5"
                   href="{% url 'contact-revolt' %}"
                   >Contact</a
                 >
@@ -444,11 +440,11 @@
             <ul>
                 
 
-                <li><a id="gallery-link" class="nav-link" href="{% url 'gallery-revolt' %}"><span class='text-danger custom-font-change custom-glow-change'>REVOLT</span></a></li>
-                <li><a id="venue-link" class="nav-link" href="{% url 'music-reset' %}"><span class='custom-font-change'>RESET</span></a></li>
-                <li><a class="nav-link" href="{% url 'class-reset' %}"><span class='text-danger custom-font-change custom-glow-change'>GATHER</span></a></li>
+                <li><a id="gallery-link" class="nav-link" href="{% url 'gallery-revolt' %}"><span class='text-danger custom-font-change custom-glow-change'>Exhibits</span></a></li>
+                <li><a id="venue-link" class="nav-link" href="{% url 'hut' %}"><span class='custom-font-change'>HUT</span></a></li>
+                <li><a class="nav-link" href="{% url 'music-reset' %}"><span class='text-danger custom-font-change custom-glow-change'>RESET EVENTS</span></a></li>
                 
-                <li><a id="speakers-link" class="nav-link" href="{% url 'contact-revolt' %}"><span class='custom-font-change'>CONTACT</span></a></li>
+                <li><a id="music-reset" class="nav-link" href="{% url 'contact-revolt' %}"><span class='custom-font-change'>CONTACT</span></a></li>
             </ul>
         </nav><!-- .navbar -->
     </div>
@@ -459,8 +455,16 @@
 
  {% block bodycontent %}
 
-{% endblock  %} 
+{% endblock  %}
+
+
   <!-- ======= Footer ======= -->
+ {% if request.GET.hidefooter %}
+
+<div class="row">
+    <p>test</p>
+</div>
+{% else %}
   <footer id="footer">
     <div class="footer-top">
         <div class="container-fluid">
@@ -498,7 +502,7 @@
         </div>
     </div>
 </footer>
-
+{% endif %}
 <!-- End  Footer -->
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
@@ -527,16 +531,16 @@
 
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-  $(document).ready(function() {
-    $('.nav-link').on('click', function() {
-      $('#header').removeClass('highlighted');
-      if ($(this).attr('id') !== 'hero-link') {
-        $("#header").addClass('highlighted');
-      }
-    });
-  });
-</script>
+<!--<script>-->
+<!--  $(document).ready(function() {-->
+<!--    $('.nav-link').on('click', function() {-->
+<!--      $('#header').removeClass('highlighted');-->
+<!--      if ($(this).attr('id') !== 'hero-link') {-->
+<!--        $("#header").addClass('highlighted');-->
+<!--      }-->
+<!--    });-->
+<!--  });-->
+<!--</script>-->
 
 <!-- about current artist script -->
 <script>
@@ -571,7 +575,14 @@
             myModal.close();
         }
     });
+
+
 </script>
+
+
+
+
+
 <script>
     // Function to open a modal
     function openModal(modalId) {

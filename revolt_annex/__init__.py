@@ -1,6 +1,7 @@
 from __future__ import absolute_import, unicode_literals
-from django.template import Library
+# from django.template import Library
 import pymysql
+from .custom_filters import filter_by_date
 
 
 # This will make sure the app is always imported when
@@ -9,8 +10,8 @@ from .celery import app as celery_app
 
 __all__ = ('celery_app',)
 
-register = Library()
-from .custom_filters import filter_by_date
+# register = Library()
+
 
 
 pymysql.install_as_MySQLdb()

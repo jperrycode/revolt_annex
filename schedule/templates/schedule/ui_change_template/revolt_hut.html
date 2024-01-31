@@ -1,0 +1,121 @@
+{% extends "schedule/base.html" %}
+{% load static %}
+{% block title%} The Hut out Front {% endblock %}
+
+{% block bodycontent %}
+<section id="hut-outfront" class="pt-5">
+    <!-- open call section -->
+    <div class="section-header text-center">
+          <h1 class="text-dark fs-1 text-shad-dark-back">The Hut Out Front</h1>
+
+
+        </div>
+
+    <div class="row text-center">
+         <p class="text-shad-dark-back fs-2 text-danger custom-font-change">Revolt & Arroyo Seco Live</p>
+        <p class="text-shad-dark-back fs-4 text-danger custom-font-change custom-paragraph">‘The Hut’ Artist Open Call </p>
+
+    </div>
+
+    <div class="container">
+    <div class="row">
+        <div class="col-lg-3 col-12 mb-1 my-auto mx-auto">
+            <img src="{% static 'schedule/img/img-new/hut_open_1.jpg' %}" alt="First Image" class="shad h-75 mx-auto img-fluid">
+        </div>
+
+        <div class="col-lg-6 col-md-10 col-sm-12 mx-auto">
+            <div class="m-3 mx-auto text-dark p-4 text-center">
+                <p class="fs-5 p-2 custom-paragraph">
+                    Revolt Gallery and Arroyo Seco Live are inviting Northern New Mexico regional artists to apply in our ‘Open Call’ for installations in Taos downtown main street-facing’ art space in front of Revolt Gallery, ‘The Hut’: taking applications now for month-long displays from May 2024 through December 2024.
+                </p>
+                <p class="fs-5 p-2 custom-paragraph">
+                    Artists are given wide creative freedom to address the 2024 theme of ‘Reflection’. Artists may address the theme in a conceptual sense (“This is what I am thinking about; this is what we should be thinking about; this is the result of thinking about certain topic/topics) or in a literal sense (This is a reflective element composed in installation) or a combination of approaches: the main point being, the creative terms are open.
+                </p>
+                <p class="fs-5 p-2 custom-paragraph custom-paragraph-mobile">
+                    Artists interested in doing performance/in-person activity in the space are acceptable with respect to scheduling.
+                </p>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-12 mb-1 my-auto mx-auto">
+            <img src="{% static 'schedule/img/img-new/hut_open_teo.jpg' %}" alt="Second Image" class="shad h-75 mx-auto img-fluid">
+        </div>
+    </div>
+
+
+        <div class="row mt-3">
+
+                     <p class="fs-5 p-2 fs-4 text-center fw-bold custom-paragraph custom-paragraph-mobile my-auto">
+                DATES: Applications open now for displays taking place each month starting May 1st, 2024, through December 1st, 2024.
+            </p>
+            <a href="https://form.jotform.com/240226194656155" class="">
+                <p class="text-shad-dark-back fs-2 text-blue text-center custom-font-change custom-paragraph">SUBMIT THROUGH THIS FORM</p>
+            </a>
+
+        </div>
+
+</div>
+
+     <!-- end open call section -->
+
+ <div class="hero-container" data-aos="zoom-in" data-aos-delay="100">
+      <div class="hut-out-front mt-5">
+        <div class="section-header text-center">
+
+          <p class="text-shad-dark-back fs-3 text-danger custom-font-change custom-paragraph">“Vulnerability” by Laura Feierman</p>
+            <p class="text-shad-dark-back fs-4 text-danger custom-font-change custom-paragraph">Mini Installation</p>
+          <a href="https://www.instagram.com/moondroppers/?hl=en" class="me-3">
+            <i class="fab fa-instagram fa-2x mr-3" style="color: #ac2bac;"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/laura-feierman-9521b2189/">
+            <i class="fab fa-linkedin-in fa-2x" style="color: #0082ca;"></i>
+          </a>
+        </div>
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-lg-8 mx-auto col-md-10 col-sm-12">
+            <div class="m-3 mx-auto text-dark p-4 text-center">
+                <p class="fs-5 p-2 custom-paragraph">
+                    Living and practicing in New Mexico, Laura Feierman is an interdisciplinary artist that integrates beauty, identity, and personal experiences into 3-dimensional sculpture installments.
+                </p>
+                <p class="fs-5 p-2 custom-paragraph">
+                    She is a Summa Cum Laude graduate from the University of New Mexico with a BFA in Studio Art/Sculpture.
+                </p>
+                <p class="fs-5 p-2 custom-paragraph custom-paragraph-mobile">
+                    Her Wo/Manhouse 2022 installation in the pink bathroom combines her personal experiences with vulnerability, insecurity, humility, and tenacity while maintaining femininity, fantasy, and female empowerment.
+                </p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+        <div id="hut-img" class="row w-75 mx-auto d-flex justify-content-center">
+          <div id="mobile-hide1" class="col-lg-3 col-md-6 text-center" >
+            <div class="image-container">
+              <img loading="lazy" src="{% static 'schedule/img/img-new/laura_artist_9by16.jpg' %}" class="mx-auto d-block" alt="...">
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 text-center p-4">
+            <div class="image-container">
+              <img loading="lazy" src="{% static 'schedule/img/img-new/laura_hut_1_9by16.jpg' %}" class="mx-auto d-block" alt="...">
+            </div>
+          </div>
+
+          <div id="mobile-hide" class="col-lg-3 col-md-6 text-center p-4">
+            <div class="image-container">
+              <img loading="lazy" src="{% static 'schedule/img/img-new/laura_hut_2_9by16.jpg' %}" class="mx-auto d-block" alt="...">
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,90 @@
+{% load static %}
+
+
+<style>.archive-image-container {
+  width: 100px; /* Container width */
+  height: 100px; /* Container height */
+  position: relative; /* Position relative for absolute positioning */
+  overflow: hidden; /* Hide overflow */
+}
+
+.archive-image {
+  width: 500px; /* Image width */
+  height: auto; /* Auto height */
+  position: absolute; /* Position absolute for centering */
+  top: 50%; /* Align image vertically */
+  left: 50%; /* Align image horizontally */
+  transform: translate(-50%, -50%); /* Center the image */
+}
+</style>
+
+<!-- header Gallery Section -->
+
+
+
+<section class="py-5 text-center container">
+    <div class="row py-lg-5">
+        <h1 class='text-center fs-1 text-danger'>The <span class='text-light'>Past</span></h1>
+        <h2 class='text-center'><span class='text-light'>Revolt </span><span class='text-light'>Gallery </span><span class='text-danger'>Archives</span>
+        </h2>
+    </div>
+
+
+</section>
+
+<div class="album py-5">
+    <div class="container">
+    <div class="row g-3">
+       {% if archive_show_data %}
+    {% for item in archive_show_data %}
+    <div class="col-lg-3">
+        <div class="future-child-container p-3 mt-3 border border-dark rounded-4 shadow-lg mb-5 bg-danger bg-opacity-10">
+
+            <div class="future-content-container">
+                <a class='text-decoration-none text-dark' href='{% url "archive_details" pk=item.pk %}'>
+              {% if my_variable|default:'Show Title' %}
+                <p class='text-center custom-font-change text-shad-dark-back'>{{ item.archive_show_name }} </p>
+                {% else %}
+                {% endif %}
+                <p class='text-center custom-font-change text-shad-dark-back'><span class='h4 text-danger'>by</span> <span class='h3'>{{ item.archive_artist_name }}</span></p>
+
+                <div class='hover-future-cont'>
+                    <p class="text-center">{{ item.archive_start_date|date:"M Y" }} <span class="text-danger">||</span> {{ item.archive_end_date|date:"M Y" }}</p>
+
+
+                        <p class="text-center custom-font-change text-shad-dark-back"><a class='text-decoration-none text-danger' href='{{ item.archive_artist_web }}'>{{ item.archive_artist_name }}'s<span class="text-light"> Website</span></a></p>
+
+                </div>
+                <!-- Add your custom content here -->
+                </a>
+            </div>
+        </div>
+</div>
+        {% if forloop.counter|divisibleby:4 and not forloop.last %}
+            <div class="w-100"></div> <!-- Line break after every third entry -->
+        {% endif %}
+    {% endfor %}
+    {% else %}
+       <div class="container mt-5 pb-5" data-aos="fade-up" data-aos-delay="100">
+            <h1 class="text-center mb-2 fs-1 text-shad-dark-back text-danger">REVOLT GALLERY HAS <span class="d-block d-lg-inline text-light">NO SHOWS ON THE CALENDAR</span></h1>
+            <div class="text-center">
+                <h2 class="text-light">THANK YOU <span class="text-light"></span></h2>
+                <h2 class="text-light text-shad-dark-back">New show Dropping in March 2024</h2>
+                <a id="hero-button" href="{% url 'gallery-revolt' %}" class="btn btn-danger-outline custom-font-change mt-3">Music Schedule</a>
+            </div>
+        </div>
+    {% endif %}
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+

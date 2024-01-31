@@ -1,5 +1,5 @@
 {% extends "schedule/base.html" %} {% load static %} {% block title%} Revolt
-Gallery{% endblock %}
+Gallery {% endblock %}
 
 {% block bodycontent %}
 
@@ -11,9 +11,9 @@ Gallery{% endblock %}
   <section id="hero" class="">
     {% comment %}  {% endcomment %}
 
-  {% include 'schedule/ui_change_template/update_hero_slide.html' %}
+  {% include 'schedule/ui_change_template/revolt_hero_new.html' %}
 
-       
+
 
 
   </section>
@@ -26,9 +26,9 @@ Gallery{% endblock %}
   <section id="about" class="">
 
 
-  {% include 'schedule/about.html' %}
+  {% include 'schedule/gallery_future.html' %}
 
-       
+
 
 
   </section>
@@ -43,16 +43,16 @@ Gallery{% endblock %}
 
   <!-- End insta Section -->
    <section id="venue" class="">
-    {% include 'schedule/location_hours.html' %}
+    {% include 'schedule/gallery_past_new.html' %}
   </section>
   <!-- End Venue Section -->
 
   <!-- ======= Contact Section Stay ======= -->
-  <section id="contact" class="section-bg">
-    <div class="container" data-aos="fade-up">
+  <section id="contact" class="section-bg mt-5">
+    <div class="container pt-5" data-aos="fade-up">
       <div class="section-header">
-        <h2 class="text-shad-dark-back text-danger custom-text-octin">Contact Us</h2>
-        <p class="deep-red custom-text-octin">We're all pretty chill people</p>
+        <h2 class="moving-gradient">Contact Us</h2>
+        <p class="text-dark">We're all pretty chill people</p>
                 <p>Visit <span class='text-danger'>||</span> Call <span class='text-danger'>||</span> Email</p>
 
       </div>
