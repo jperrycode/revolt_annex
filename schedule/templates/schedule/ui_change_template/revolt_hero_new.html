@@ -2,7 +2,7 @@
 {% now "Y-m-d" as current_date %}
 
 <div class="hero-container" data-aos="zoom-in" data-aos-delay="100">
-    <h1 id="hero-front" class="mb-1 mt-5 pb-0 deep-red text-shad-dark-back">Revolt Art Gallery</h1>
+    <h1 id="hero-front" class="mb-1 mt-5 pt-5 pb-0"><span class="deep-red text-shad-dark-back">Revolt Art Gallery</span></h1>
     <p class="fs-3 custom-font-change text-shad-dark-back">Where Art Breaks Free from the System</p>
 
     <div class="container gallery-update-container mt-1 p-1">
@@ -31,12 +31,11 @@
 
             {% else %}
                 <div class="container mt-5 pb-5" data-aos="fade-up" data-aos-delay="100">
-                    <h1 class="text-center mb-2 fs-1 text-shad-dark-back text-danger">REVOLT GALLERY IS <span class="d-block d-lg-inline text-light">ON WINTER BREAK</span></h1>
+                    <h1 class="text-center mb-2 fs-1 text-shad-dark-back deep-red">REVOLT GALLERY IS <span class="d-block d-lg-inline text-light">ON WINTER BREAK</span></h1>
                     <div class="text-center">
                         <h2 class="text-light">THANK YOU <span class="text-light"></span></h2>
                         <h2 class="text-light text-shad-dark-back">New show Dropping in March 2024</h2>
 
-                                               <button onclick="window.location.href='{% url 'gallery-revolt' %}'" class="button-89 text-danger custom-font-change shad">Future and Past Exhibits</button>
 
                     </div>
                 </div>

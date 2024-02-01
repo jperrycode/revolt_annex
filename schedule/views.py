@@ -1,6 +1,10 @@
+# Import necessary Django modules and packages
 import django
 
+# Setup the Django environment
 django.setup()
+
+# Import required modules and classes
 from typing import Any
 from django.views import View
 from django.views.generic import DetailView
@@ -11,50 +15,50 @@ from schedule.models import Music_artist_listing, Visual_artist_listing, Extra_c
 from schedule.forms import ContactForm
 from .signals import contact_form_saved
 from schedule.models import Archiveimagefiles, Archivedshowimagedata
-import os
-import vimeo
 from django.core.mail import EmailMessage
 from django.urls import reverse_lazy
-
 from django.db.models import Prefetch
-
 from django.shortcuts import get_object_or_404
-
 from django.http import Http404
 
 
 # Define a custom signal
 class Contact_form_view(CreateView):
+    # Specify the form class, template, and success URL
     form_class = ContactForm
     template_name = 'schedule/contact_index.html'
     success_url = reverse_lazy('contact-us-success/')
 
+    # Override to add extra context to the template
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['contact_form'] = ContactForm()
         return context
 
 
+# View handling the contact form submission
 class ContactUsView(View):
     def post(self, request):
+        # Validate the contact form data
         contact_form = ContactForm(request.POST)
 
         if contact_form.is_valid():
-            print('isvalid')
+            # Extract relevant data from the form
             subject = contact_form.cleaned_data['emailform_subject']
             user_email = contact_form.cleaned_data['emailform_email']
             name = contact_form.cleaned_data['emailform_name']
             message = contact_form.cleaned_data['emailform_message']
-            # email_consent = contact_form.cleaned_data['email_consent']
             email_consent = 'False'
+
+            # Construct email body
             body = {
                 'name': str(name),
                 'message': f'Contact form Message from {user_email} \n {message} \n thank you ',
             }
-
             message = "\n".join(body.values())
 
             try:
+                # Send email using Django's EmailMessage
                 email = EmailMessage(
                     subject=str(subject),
                     body=message,
@@ -65,8 +69,7 @@ class ContactUsView(View):
                 )
                 email.send()
 
-                print('Email sent successfully!')
-                # Emit the custom signal with additional args
+                # Emit a custom signal with additional args
                 contact_form_saved.send(
                     sender=self.__class__,
                     name=name,
@@ -74,7 +77,6 @@ class ContactUsView(View):
                     user_email=user_email,
                     user_message=message
                 )
-                print('signal sent well')
 
                 # Create the success context
                 success_context = {
@@ -89,6 +91,7 @@ class ContactUsView(View):
                 return render(request, 'schedule/contact_success.html', {'data': success_context})
 
             except Exception as e:
+                # Handle email sending error
                 print(f'An error occurred: {str(e)}')
                 return render(request, 'schedule/contact_fail.html')
 
@@ -101,43 +104,52 @@ class ContactUsView(View):
             return render(request, 'schedule/contact_fail.html')
 
 
+# View for displaying the success message after successful contact form submission
 class ContactSuccessView(View):
     template_name = 'schedule/contact_success.html'
 
+    # Override to add extra context to the template
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['contact_form'] = ContactForm()
         return context
 
 
+# View for displaying a page with a list of classes
 class ClassesView(TemplateView):
     template_name = 'schedule/classes_section_index.html'
 
+    # Override to add extra context to the template
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        # Fetch and provide all Extra_curriucular_listing objects to the template
         context['classes_data'] = Extra_curriucular_listing.objects.all()
         return context
 
 
+# View for displaying a page related to the "Revolt Hut"
 class HutView(TemplateView):
     template_name = 'schedule/ui_change_template/revolt_hut.html'
 
+    # Override to add extra context to the template
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        # Fetch and provide all Visual_artist_listing and Music_artist_listing objects to the template
         context['gallery_listing'] = Visual_artist_listing.objects.all().values()
         context['music_artist_listing'] = Music_artist_listing.objects.all().values()
         return context
 
 
+# View for displaying a page with a gallery and archived show data
 class RevoltView(TemplateView):
     template_name = 'schedule/ui_change_template/gallery_master_switcher.html'
 
+    # Override to add extra context to the template
     def get_context_data(self, **kwargs):
         try:
-
             context = super().get_context_data(**kwargs)
 
-            # Fetching data efficiently
+            # Fetching Visual_artist_listing objects efficiently
             gallery_listing = Visual_artist_listing.objects.all()
 
             # Fetching Archivedshowimagedata instances and prefetching specific fields from related Archiveimagefiles instances
@@ -151,22 +163,29 @@ class RevoltView(TemplateView):
 
             context['gallery_listing'] = gallery_listing
             context['archive_show_data'] = image_show_data
+
         except Exception as e:
             print(e)
 
         return context
 
 
+# View for displaying a page related to venue reset
 class ResetView(TemplateView):
     template_name = 'schedule/reset_venue_index.html'
 
+    # Override to add extra context to the template
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        # Fetch and provide all Music_artist_listing objects to the template
         context['music_artist_listing'] = Music_artist_listing.objects.all().values()
+        # Additional context (commented out) for potential vimeo_video_data
         # context['vimeo_video_data'] = self.get_vimeo_videos()
         return context
 
 
+
+# View for displaying details of a specific archived show
 class ArchivePageView(DetailView):
     template_name = 'schedule/archive-list-view-new.html'
     model = Archivedshowimagedata
@@ -184,6 +203,7 @@ class ArchivePageView(DetailView):
             # Retrieve related Archiveimagefiles instances for the Archivedshowimagedata instance
             related_images = show_instance_data.image_files.all().order_by('archive_img_width')
 
+            # Add show_instance_data and related_images to the context
             context['show_instance_data'] = show_instance_data
             context['related_images'] = related_images
 
@@ -195,22 +215,33 @@ class ArchivePageView(DetailView):
         return context
 
 
+# View for displaying the main page of the application
 class AnnexHomeView(TemplateView):
     template_name = 'schedule/master-new.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+
         print("context 1")
         try:
+            # Add a list of strings representing a range to the context (e.g., ['2', '3', ..., '9'])
             context['range_reset'] = [str(i) for i in range(2, 10)]
             print("context 2")
+
+            # Fetch and provide all Visual_artist_listing objects to the context
             context['gallery_listing'] = Visual_artist_listing.objects.all().values()
             print("context 3")
+
+            # Fetch and provide all Music_artist_listing objects to the context
             context['music_artist_listing'] = Music_artist_listing.objects.all().values()
             print("context 4")
+
         except Exception as e:
+            # Raise a 404 exception if an error occurs during data retrieval
             raise Http404(f"An error occurred: {e}")
 
+        # Print the final context (for debugging)
         print(context)
 
         return context
+

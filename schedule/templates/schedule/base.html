@@ -2,350 +2,349 @@
 <html lang="en">
 
 <head>
-{% load static %}
+    {% load static %}
 
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-RZ3J0WV48K"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RZ3J0WV48K"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-  gtag('config', 'G-RZ3J0WV48K');
-</script>
+        gtag('config', 'G-RZ3J0WV48K');
+    </script>
 
 
-
-  <meta charset="utf-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-  <title>{% block title %} {% endblock %}</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+    <title>{% block title %} {% endblock %}</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
 
-  <!-- Favicons -->
-  <link rel="shortcut icon" href="{% static 'schedule/img/img-new/fist.png' %}" type="image/x-icon"> 
-  <link href="{% static 'schedule/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="{% static 'schedule/img/img-new/fist.png' %}" type="image/x-icon">
+    <link href="{% static 'schedule/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
 
-  <!-- Google Fonts -->
-  <link defer href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link defer
+          href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800"
+          rel="stylesheet">
 
-<!-- Wester Font IMport Link-->
-<link defer href="https://fonts.cdnfonts.com/css/revolution" rel="stylesheet">
-<link defer href="https://fonts.cdnfonts.com/css/octin-spraypaint" rel="stylesheet">
-       <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">          
-
-
-  <!-- Vendor CSS Files -->
-  <link href="{% static '/schedule/vendor/aos/aos.css' %}" rel="stylesheet">
-  <link href="{% static '/schedule/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- Wester Font IMport Link-->
+    <link defer href="https://fonts.cdnfonts.com/css/revolution" rel="stylesheet">
+    <link defer href="https://fonts.cdnfonts.com/css/octin-spraypaint" rel="stylesheet">
+    <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
 
 
+    <!-- Vendor CSS Files -->
+    <link href="{% static '/schedule/vendor/aos/aos.css' %}" rel="stylesheet">
+    <link href="{% static '/schedule/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
 
 
-  <link href="{% static '/schedule/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
-  <link href="{% static '/schedule/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
-  <link href="{% static '/schedule/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+    <link href="{% static '/schedule/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+    <link href="{% static '/schedule/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+    <link href="{% static '/schedule/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
 
-  <!-- Template Main CSS File -->
-  <link href="{% static '/schedule/css/style.css' %}" rel="stylesheet">
-<link href="{% static '/schedule/css/archive-css.css' %}" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="{% static '/schedule/css/style.css' %}" rel="stylesheet">
+    <link href="{% static '/schedule/css/archive-css.css' %}" rel="stylesheet">
 
-  <!-- Font Awesome -->
-<link defer
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-  rel="stylesheet"
-/>
-<!-- MDB -->
-<link defer
-  href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.css"
-  rel="stylesheet"
-/>
+    <!-- Font Awesome -->
+    <link defer
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+          rel="stylesheet"
+    />
+    <!-- MDB -->
+    <link defer
+          href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.css"
+          rel="stylesheet"
+    />
 
     <style>
- 
-
-  {% comment %}  {% endcomment %}
-
-  
 
 
-    .nav-link {
-      color: black; /* Default text color */
-    }
-    .highlighted {
-      background-color: rgba(6, 12, 34, 0.9); /* Highlight color */
-    }
-  .swiper-wrapper {
-  height:auto !important;
-  width:100%;
-}
-/* CSS for the loading overlay */
-.loading-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 2; /* Ensure it's above the iframe */
-}
-
-.loading-bar {
-    width: 50%; /* Initial width of the loading bar */
-    height: 20px;
-    background-color: #007BFF; /* Loading bar color */
-}
-
-#videoDialog {
-  width: 80%; /* Adjust the width as needed */
-  max-width: 800px; /* Set a maximum width if desired */
-  height: 80%; /* Adjust the height as needed */
-  max-height: 600px; /* Set a maximum height if desired */
-}
-  #videoDialog iframe {
-    min-height:100%;
-    min-width: 100%;
-  }
+        {% comment %}  {% endcomment %}
 
 
 
 
-  .curator-hover {
-    position: relative;
-}
+          .nav-link {
+            color: black; /* Default text color */
+          }
+          .highlighted {
+            background-color: rgba(6, 12, 34, 0.9); /* Highlight color */
+          }
+        .swiper-wrapper {
+        height:auto !important;
+        width:100%;
+      }
+      /* CSS for the loading overlay */
+      .loading-overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          z-index: 2; /* Ensure it's above the iframe */
+      }
 
-.image-container {
-    position: relative;
-    
-   
-}
+      .loading-bar {
+          width: 50%; /* Initial width of the loading bar */
+          height: 20px;
+          background-color: #007BFF; /* Loading bar color */
+      }
 
-.image-container img {
-    width: 100%;
-    height: auto;
-    transition: transform 0.3s ease;
-}
-
-
-
-
-@media (max-width: 475px) {
-     .mobile-none {
-      display: none;
-    }
-    .image-container img {
-      width:100%;
-      height: auto;
-     
-    }
-  .image-container {
-    
-    position: relative;
-    overflow: hidden;
-
-  }
-
-}
+      #videoDialog {
+        width: 80%; /* Adjust the width as needed */
+        max-width: 800px; /* Set a maximum width if desired */
+        height: 80%; /* Adjust the height as needed */
+        max-height: 600px; /* Set a maximum height if desired */
+      }
+        #videoDialog iframe {
+          min-height:100%;
+          min-width: 100%;
+        }
 
 
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    
-    color: black;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
 
-.image-container:hover .overlay {
-    opacity: 1;
 
-}
+        .curator-hover {
+          position: relative;
+      }
 
-  .image-container:hover img {
-    transform: scale(1.1); /* Adjust the scale factor for zoom effect */
-   opacity: 0.4;
-    }
-}
+      .image-container {
+          position: relative;
 
-.innertext {
-    padding: 20px;
-    text-align: center;
-}
 
-.overlay a {
-    color: white;
-    text-decoration: underline;
-}
-     /* Styles for the custom dialog container */
- .custom-dialog {
+      }
+
+      .image-container img {
+          width: 100%;
+          height: auto;
+          transition: transform 0.3s ease;
+      }
+
+
+
+
+      @media (max-width: 475px) {
+           .mobile-none {
             display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
-            z-index: 9999; /* Ensure it's on top of other content */
+          }
+          .image-container img {
+            width:100%;
+            height: auto;
+
+          }
+        .image-container {
+
+          position: relative;
+          overflow: hidden;
+
         }
 
-        /* Styles for the dialog content */
-        .custom-dialog-content {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+      }
+
+
+      .overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+
+          color: black;
+          opacity: 0;
+          transition: opacity 0.3s ease-in-out;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+      }
+
+      .image-container:hover .overlay {
+          opacity: 1;
+
+      }
+
+        .image-container:hover img {
+          transform: scale(1.1); /* Adjust the scale factor for zoom effect */
+         opacity: 0.4;
+          }
+      }
+
+      .innertext {
+          padding: 20px;
+          text-align: center;
+      }
+
+      .overlay a {
+          color: white;
+          text-decoration: underline;
+      }
+           /* Styles for the custom dialog container */
+       .custom-dialog {
+                  display: none;
+                  position: fixed;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+                  z-index: 9999; /* Ensure it's on top of other content */
+              }
+
+              /* Styles for the dialog content */
+              .custom-dialog-content {
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+              }
+
+              /* Styles for the image */
+              .custom-dialog-image img {
+                  max-height: 70vh; /* Maximum 70% of the viewport height */
+                  max-width: 100%; /* Ensure image doesn't exceed container width */
+                  object-fit: contain; /* Maintain aspect ratio and fit within the container */
+              }
+
+
+      /* Add your main navigation styles here */
+           /* CSS for the initial content */
+
+      /* Add your main navigation styles here */
+
+      #mobile-nav-bar {
+          display: none; /* Hide the mobile navigation by default */
+      }
+
+      /* Media query for mobile devices with a maximum width of 450px */
+      @media (max-width: 450px) {
+          #mobile-nav-bar {
+              display: block; /* Show the mobile navigation */
+              /* Add styles for the mobile navigation container */
+              background-color: rgba(0,0,0,0); /* Example background color */
+              color: #fff; /* Example text color */
+              padding: 10px; /* Example padding */
+              width:100%;
+          }
+          #header #logo h1 {
+              font-size: 15px; /* 3/4 of the regular font size */
+          }
+          #mobile-nav-bar ul {
+              width:100%;
+              list-style: none;
+              padding: 0;
+              margin: 0;
+              display: flex; /* Display list items in a horizontal line */
+          }
+
+          #mobile-nav-bar li {
+              margin-right: 15px; /* Adjust spacing between links as needed */
+              font-family: Garamond, serif !important;
+              font-size: 20px;
+          }
+
+          #mobile-nav-bar a {
+              text-decoration: none;
+              color: #fff; /* Example link color */
+          }
+
+          /* Hide the desktop navigation when the mobile navigation is active */
+          #navbar {
+              display: none;
+          }
+      }
+              /* CSS for the sliding div */
+              /* CSS for the sliding div */
+              .sliding-div {
+                  max-height: 0;
+                  overflow: hidden;
+                  transition: max-height 0.5s;
+
+              }
+
+              /* Style for the anchor tag */
+              .toggle-button {
+                  cursor: pointer;
+              }
+
+      .bg-grad {
+        background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.2));
+      }
+
+          .image-container-jesse {
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+          }
+
+          .image-container-jesse:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
+          }
+
+
+
+              .image-container-justin {
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+          }
+
+          .image-cont:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
+          }
+      @media (max-width: 480px) {
+        .mobile-event-1 {
+          display: none;
         }
-
-        /* Styles for the image */
-        .custom-dialog-image img {
-            max-height: 70vh; /* Maximum 70% of the viewport height */
-            max-width: 100%; /* Ensure image doesn't exceed container width */
-            object-fit: contain; /* Maintain aspect ratio and fit within the container */
+        .mobile-event {
+          display: block;
         }
+      }
 
 
-/* Add your main navigation styles here */
-     /* CSS for the initial content */
 
-/* Add your main navigation styles here */
+      @media (min-width: 500px) {
+        .mobile-event-1 {
+          display: block;
+        }
+        .mobile-event {
+          display: none;
+        }
+      }
 
-#mobile-nav-bar {
-    display: none; /* Hide the mobile navigation by default */
-}
 
-/* Media query for mobile devices with a maximum width of 450px */
-@media (max-width: 450px) {
-    #mobile-nav-bar {
-        display: block; /* Show the mobile navigation */
-        /* Add styles for the mobile navigation container */
-        background-color: rgba(0,0,0,0); /* Example background color */
-        color: #fff; /* Example text color */
-        padding: 10px; /* Example padding */
-        width:100%;
-    }
-    #header #logo h1 {
-        font-size: 15px; /* 3/4 of the regular font size */
-    }
-    #mobile-nav-bar ul {
-        width:100%;
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: flex; /* Display list items in a horizontal line */
-    }
-
-    #mobile-nav-bar li {
-        margin-right: 15px; /* Adjust spacing between links as needed */
-        font-family: Garamond, serif !important;
-        font-size: 20px;
-    }
-
-    #mobile-nav-bar a {
-        text-decoration: none;
-        color: #fff; /* Example link color */
-    }
-
-    /* Hide the desktop navigation when the mobile navigation is active */
-    #navbar {
+      .mobile-event-1{
+        display: block;
+      }
+      .mobile-event{
         display: none;
-    }
-}
-        /* CSS for the sliding div */
-        /* CSS for the sliding div */
-        .sliding-div {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s;
-           
-        }
-
-        /* Style for the anchor tag */
-        .toggle-button {
-            cursor: pointer;
-        }
-
-.bg-grad {
-  background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.2));
-}
-
-    .image-container-jesse {
-      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s;
-    }
-
-    .image-container-jesse:hover {
-      transform: scale(1.05);
-      box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
-    }
+      }
 
 
 
-        .image-container-justin {
-      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s;
-    }
+       #navbar {
+          -webkit-box-shadow: none;
+          -moz-box-shadow: none;
+           box-shadow: none;
+      }
 
-    .image-cont:hover {
-      transform: scale(1.05);
-      box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
-    }
-@media (max-width: 480px) {
-  .mobile-event-1 {
-    display: none;
-  }
-  .mobile-event {
-    display: block;
-  }
-}
+    </style>
 
-
-
-@media (min-width: 500px) {
-  .mobile-event-1 {
-    display: block;
-  }
-  .mobile-event {
-    display: none;
-  }
-}
-
-
-.mobile-event-1{
-  display: block;
-}
-.mobile-event{
-  display: none;
-}
-
-
-
- #navbar {
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-     box-shadow: none;
-}
-
-  </style>  
-
-<link rel="icon" href="data:,">
+    <link rel="icon" href="data:,">
 
 
 </head>
@@ -353,119 +352,25 @@
 <body>
 
 
+<header id="header" class="d-flex align-items-center ">
+
+    {% include "schedule/ui_change_template/nav.html" %}
+
+</header><!-- End Header -->
+
+{% block bodycontent %}
+
+{% endblock %}
 
 
- <header id="header" class="d-flex align-items-center ">
-  
-
-    <div class="container-fluid d-flex align-items-center">
-        <div id="logo" class="me-auto custom-font">
-            <h1><a href="{% url 'annex_home' %}" data-bs-target="#carousel-id" data-bs-slide-to="0"><img class='logo-schedule img-h' src='{% static "schedule/img/img-new/fist.png" %}' alt='logo' /><span class="{% if request.path == '/revolt-art/' or request.path == '/revolt-gallery/' %}text-danger{% else %}text-light{% endif %}">Revolt</span></a> <span class="text-danger">||</span> <a href="{% url 'music-reset' %}" data-bs-target="#carousel-id" data-bs-slide-to="0"><span class="{% if request.path == '/reset-performing-arts/' %}text-danger{% else %}text-light{% endif %}">RESET</span><img class='logo-schedule img-h' src='{% static "schedule/img/img-new/fist.png" %}' alt='logo' /></a></h1>
-        </div>
-
-        <div id="mobile-nav-bar">
-       <nav class="navbar bg-body-tertiary fixed-top">
-      <div class="container-fluid">
-<a href="{% url 'annex_home' %}" data-bs-target="#carousel-id" data-bs-slide-to="0" class="custom-font-change"><span class="text-danger">Revolt </span> <span>|</span><span class="text-light">|</span><span> Reset</span></a>        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="offcanvas"
-          data-bs-target="#offcanvasNavbar"
-          aria-controls="offcanvasNavbar"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon text-danger"></span>
-        </button>
-        <div
-          class="offcanvas offcanvas-end bg-dark bg-gradient"
-          tabindex="-1"
-          id="offcanvasNavbar"
-          aria-labelledby="offcanvasNavbarLabel"
-        >
-          <div class="offcanvas-header bg-dark">
-            <h5 class="offcanvas-title text-danger fw-bold fs-1 custom-font-change" id="offcanvasNavbarLabel">
-              REVOLT GALLERY
-            </h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="offcanvas"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="offcanvas-body bg-opacity-25">
-            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 list-custom">
-              <li>
-                <a
-                  id="gallery-link"
-                  class="nav-link custom-font-change mb-3 fs-1"
-                  href="{% url 'annex_home' %}"
-                  ><span class="text-danger">REVOLT</span></a
-                >
-              </li>
-
-              <li>
-                <a
-                  id="gallery-link"
-                  class="nav-link custom-font-change mb-3 fs-1"
-                  href="{% url 'hut' %}"
-                  ><span class="text-danger">THE HUT</span></a
-                >
-              </li>
-
-              <li>
-                <a
-                  id="venue-link"
-                  class="nav-link custom-font-change mb-3 fs-1"
-                  href="{% url 'music-reset' %}"
-                  >RESET EVENTS</a
-                >
-              </li>
-              <li>
-                <a
-                  id="speakers-link"
-                  class="nav-link custom-font-change fs-5"
-                  href="{% url 'contact-revolt' %}"
-                  >Contact</a
-                >
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </nav>
-        </div>
-
-        <nav id="navbar" class="navbar order-last order-lg-0 bg-transparent">
-            <ul>
-                
-
-                <li><a id="gallery-link" class="nav-link" href="{% url 'gallery-revolt' %}"><span class='text-danger custom-font-change custom-glow-change'>Exhibits</span></a></li>
-                <li><a id="venue-link" class="nav-link" href="{% url 'hut' %}"><span class='custom-font-change'>HUT</span></a></li>
-                <li><a class="nav-link" href="{% url 'music-reset' %}"><span class='text-danger custom-font-change custom-glow-change'>RESET EVENTS</span></a></li>
-                
-                <li><a id="music-reset" class="nav-link" href="{% url 'contact-revolt' %}"><span class='custom-font-change'>CONTACT</span></a></li>
-            </ul>
-        </nav><!-- .navbar -->
-    </div>
-   
-   
-
-  </header><!-- End Header -->
-
- {% block bodycontent %}
-
-{% endblock  %}
-
-
-  <!-- ======= Footer ======= -->
- {% if request.GET.hidefooter %}
+<!-- ======= Footer ======= -->
+{% if request.GET.hidefooter %}
 
 <div class="row">
     <p>test</p>
 </div>
 {% else %}
-  <footer id="footer">
+<footer id="footer">
     <div class="footer-top">
         <div class="container-fluid">
             <div class="row">
@@ -474,7 +379,8 @@
                     <h4>Friends and Fam</h4>
                     <ul>
                         <li><i class="bi bi-chevron-right"></i> <a href="https://www.unmtaosart.com/">UNM Taos</a></li>
-                        <li><i class="bi bi-chevron-right"></i> <a href="https://www.dreamtreeproject.org/">Dream Tree</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="https://www.dreamtreeproject.org/">Dream
+                            Tree</a></li>
                         <li><i class="bi bi-chevron-right"></i> <a href="https://www.aceqrestaurant.com/">Aceq</a></li>
                         <li><i class="bi bi-chevron-right"></i> <a href="taoshum.com">Heads Up Music</a></li>
                     </ul>
@@ -486,13 +392,14 @@
                         222 Paseo del Pueblo Norte <br>
                         Taos, NM 87571<br>
                         <strong>Email:</strong> <a href="mailto:revoltgallery@gmail.com" class="text-decoration-none"
-                            >taosrevolt@gmail.com</a>
+                    >taosrevolt@gmail.com</a>
                         <br>
                         <strong>Phone:</strong> <a href="tel:5756162426" class="text-decoration-none">(575) 616-2426</a><br>
                     </p>
 
                     <div class="social-links">
-                        <a href="https://www.facebook.com/TaosRevolt/" class="facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="https://www.facebook.com/TaosRevolt/" class="facebook"><i
+                                class="bi bi-facebook"></i></a>
                         <a href="https://www.instagram.com/revolt_gallery/" class="instagram"><i
                                 class="bi bi-instagram"></i></a>
                     </div>
@@ -505,29 +412,27 @@
 {% endif %}
 <!-- End  Footer -->
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+        class="bi bi-arrow-up-short"></i></a>
 
-  <!-- Vendor JS Files -->
-  <script src='{% static "schedule/vendor/aos/aos.js" %}'></script>
+<!-- Vendor JS Files -->
+<script src='{% static "schedule/vendor/aos/aos.js" %}'></script>
 
-  <script src="https://smtpjs.com/v3/smtp.js"></script>
+<script src="https://smtpjs.com/v3/smtp.js"></script>
 
-
-  
 
 <script src='{% static "schedule/vendor/bootstrap/js/bootstrap.bundle.min.js" %}'></script>
 <script src='{% static "schedule/vendor/glightbox/js/glightbox.min.js" %}'></script>
 <script src='{% static "schedule/vendor/swiper/swiper-bundle.min.js" %}'></script>
 <script src='{% static "schedule/vendor/php-email-form/validate.js" %}'></script>
-  <!-- Template Main JS File -->
+<!-- Template Main JS File -->
 <script src=
-"https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
-    </script>
-  <script src='{% static "schedule/js/main.js" %}'></script>
+                "https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+</script>
+<script src='{% static "schedule/js/main.js" %}'></script>
 
-  <script src="{% static 'schedule/js/custom-js.js' %}"></script>
-  <script src="{% static 'schedule/js/archive-js.js' %}"></script>
-
+<script src="{% static 'schedule/js/custom-js.js' %}"></script>
+<script src="{% static 'schedule/js/archive-js.js' %}"></script>
 
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -580,9 +485,6 @@
 </script>
 
 
-
-
-
 <script>
     // Function to open a modal
     function openModal(modalId) {
@@ -620,46 +522,43 @@
 </script>
 
 
-
-
-
 <script src="https://player.vimeo.com/api/player.js"></script>
 
 <script>
-        // Function to open the custom dialog-like popup
-        function openCustomDialog() {
-            var customDialog = document.getElementById("customDialog");
-            customDialog.style.display = "block";
-        }
+    // Function to open the custom dialog-like popup
+    function openCustomDialog() {
+        var customDialog = document.getElementById("customDialog");
+        customDialog.style.display = "block";
+    }
 
-        // Function to close the custom dialog-like popup
-        function closeCustomDialog() {
-            var customDialog = document.getElementById("customDialog");
-            customDialog.style.display = "none";
-        }
+    // Function to close the custom dialog-like popup
+    function closeCustomDialog() {
+        var customDialog = document.getElementById("customDialog");
+        customDialog.style.display = "none";
+    }
 
-        // Open the custom dialog-like popup when the link is clicked
-        document.getElementById("openCustomDialog").addEventListener("click", openCustomDialog);
+    // Open the custom dialog-like popup when the link is clicked
+    document.getElementById("openCustomDialog").addEventListener("click", openCustomDialog);
 
-        // Close the custom dialog-like popup when the close button is clicked
-        document.getElementById("customDialog").addEventListener("click", closeCustomDialog);
-    </script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sliderjs@2.0.1/dist/slider.min.js"></script>
-    <script>
-$(document).ready(function() {
-    $('.slider').slider({
-        visibleSlides: 1, // Show one slide at a time on mobile
-        infinite: true, // Enable infinite looping
-        swipe: true, // Enable swipe navigation
+    // Close the custom dialog-like popup when the close button is clicked
+    document.getElementById("customDialog").addEventListener("click", closeCustomDialog);
+</script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sliderjs@2.0.1/dist/slider.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.slider').slider({
+            visibleSlides: 1, // Show one slide at a time on mobile
+            infinite: true, // Enable infinite looping
+            swipe: true, // Enable swipe navigation
+        });
     });
-});
 
 </script>
- 
 
-     <script>
+
+<script>
     function toggleSlide() {
             const slidingDiv = document.getElementById("slidingDiv");
             const computedStyle = window.getComputedStyle(slidingDiv);
@@ -708,8 +607,8 @@ $(document).ready(function() {
 
       isImageAVisible = !isImageAVisible;
     }
-    
-    </script>
+
+</script>
 
 
 </body>

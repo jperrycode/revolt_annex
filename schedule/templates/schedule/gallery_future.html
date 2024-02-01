@@ -1,9 +1,9 @@
 {% load static %}
 
 <div class="container future-custom-container mt-3 mb-5">
-    <h1 class="text-center mb-2 text-light">THE <span class="text-danger">FUTURE</span></h1>
+
     <div class="text-center">
-        <h2>REVOLT GALLERY <span class="text-danger">SCHEDULE</span></h2>
+        <h2><span class="deep-red custom-font-octin">Upcoming Shows</span></h2>
 
     </div>
 <div class="row">
@@ -11,7 +11,7 @@
     {% if gallery_listing %}
     {% for item in gallery_listing %}
     <div class="col-lg-4">
-        <div class="future-child-container p-3 mt-3 border border-dark rounded-4 shadow-lg mb-5 bg-danger bg-opacity-10">
+        <div class="future-child-container p-3 mt-3 border border-dark rounded-4 shadow-lg mb-5 bg-danger bg-opacity-25">
             <div class="future-content-container">
 <!--                <img class='logo-schedule img-h' src='{% static "schedule/img/img-new/revolt_logo.png" %}' alt='logo' />-->
               {% if my_variable|default:'Show Title' %}
