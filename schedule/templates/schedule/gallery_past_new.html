@@ -46,7 +46,7 @@
        {% regroup archive_show_data by archive_end_date.year as show_data_by_year %}
 
 {% for year_group in show_data_by_year %}
-    <h2 class="text-center mb-2 fs-1 text-shad-dark-back text-danger">{{ year_group.grouper }}</h2>
+    <h2 class="text-center mb-2 mt-4 fs-1 text-shad-dark-back deep-red">{{ year_group.grouper }}</h2>
     {% for item in year_group.list %}
         <div class="col-lg-3 col-md-4 col-sm-6">
             <a class='text-decoration-none text-danger' href='{% url "archive_details" pk=item.pk %}'>
