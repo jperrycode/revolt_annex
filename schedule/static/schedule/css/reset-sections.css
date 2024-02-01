@@ -1,0 +1,343 @@
+#hero-reset {
+  width: 100%;
+
+  background: black;
+  min-height: 100vh;
+}
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.fade-effect { animation: fadeIn 1s; }
+
+
+
+@media (min-width: 1024px) {
+  #hero-reset {
+    background-attachment: fixed;
+   #hero-reset-front {
+   font-size: 70px;}
+  }
+}
+
+
+
+#hero-reset:before {
+  content: "";
+  background: rgba(6, 12, 34, 0.8);
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+#hero-reset .hero-reset-container {
+  bottom: 0;
+  left: 0;
+
+  right: 0;
+  display: flex;
+  padding-top: 60px;
+  /*justify-content: center;*/
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 0 15px;
+  min-height: 100vh;
+}
+
+@media (max-width: 991px) {
+  #hero-reset .hero-reset-container {
+    top: 70px;
+  }
+}
+
+#hero-reset h1 {
+
+  font-family: "Raleway", sans-serif;
+  font-size: 56px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+#hero-reset h1 span {
+  color: #f82249;
+}
+
+@media (max-width: 991px) {
+  #hero-reset h1 {
+    font-size: 34px;
+  }
+}
+
+#hero-reset p {
+  color: #ebebeb;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+@media (max-width: 991px) {
+  #hero-reset p {
+    font-size: 16px;
+  }
+}
+
+#hero-reset .play-btn {
+  width: 94px;
+  height: 94px;
+  background: radial-gradient(#f82249 50%, rgba(101, 111, 150, 0.15) 52%);
+  border-radius: 50%;
+  display: block;
+  position: relative;
+  overflow: hidden;
+}
+
+#hero-reset .play-btn::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-40%) translateY(-50%);
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 15px solid #fff;
+  z-index: 100;
+  transition: all 400ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+#hero-reset .play-btn:before {
+  content: "";
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  animation-delay: 0s;
+  animation: pulsate-btn 2s;
+  animation-direction: forwards;
+  animation-iteration-count: infinite;
+  animation-timing-function: steps;
+  opacity: 1;
+  border-radius: 50%;
+  border: 2px solid rgba(163, 163, 163, 0.4);
+  top: -15%;
+  left: -15%;
+  background: rgba(198, 16, 0, 0);
+}
+
+#hero-reset .play-btn:hover::after {
+  border-left: 15px solid #f82249;
+  transform: scale(20);
+}
+
+#hero-reset .play-btn:hover::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-40%) translateY(-50%);
+  width: 0;
+  height: 0;
+  border: none;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 15px solid #fff;
+  z-index: 200;
+  animation: none;
+  border-radius: 0;
+}
+
+#hero-reset-reset .about-reset-btn {
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 12px 32px;
+  border-radius: 50px;
+  transition: 0.5s;
+  line-height: 1;
+  margin: 10px;
+  color: #fff;
+  animation-delay: 0.8s;
+  border: 2px solid #f82249;
+}
+
+#hero-reset .about-reset-btn:hover {
+  background: #f82249;
+  color: #fff;
+}
+
+@keyframes pulsate-btn {
+  0% {
+    transform: scale(0.6, 0.6);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1, 1);
+    opacity: 0;
+  }
+}
+#hero-reset {
+  width: 100%;
+
+  background: url('../img/img-new/dark_neon_exterior_shot.jpg') top center;
+  background-size: cover;
+  overflow: hidden;
+  position: relative;
+}
+
+#about-reset {
+  background: url("../img/img-new/dj_about-reset_section.png");
+  background-size: cover;
+  overflow: hidden;
+  position: relative;
+  color: #fff;
+
+}
+
+@media (max-width:500px){
+  #about-reset {
+    background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ),url("../img/img-new/dj_about-reset_section.png");
+    
+  }
+}
+
+@media (min-width: 1024px) {
+  #about-reset {
+    background-attachment: fixed;
+  }
+}
+
+#about-reset:before {
+  /* content: ""; */
+  /* background: rgba(13, 20, 41, 0.8); */
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+#about-reset h2 {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #fff;
+  margin-top: 5px;
+}
+
+#about-reset h3 {
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+#about-reset p {
+  font-size: 14px;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+@media (max-width: 450px){
+
+  #about-reset p {
+    font-size: 12px;
+  }
+
+}
+
+#venue-reset {
+  padding: 60px 0;
+}
+
+#venue-reset .container-fluid {
+  margin-bottom: 3px;
+}
+
+#venue-reset .venue-map iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+}
+
+@media (max-width: 574px) {
+  .venue-map {
+    margin-bottom: 15px;
+  }
+  .venue-info {
+    margin-top: 15px;
+  }
+}
+
+#venue-reset .venue-info {
+  background: linear-gradient(to bottom, rgba(147, 14, 224, 0.89), rgba(118, 21, 175, 0.79)), url("../img/img-new/info-bg.jpg") center center no-repeat;
+  background-size: cover;
+  position: relative;
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+#venue-reset {
+  background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ), url("../img/img-new/dark_neon_exterior_shot.jpg");
+  background-size: cover;
+  overflow: hidden;
+  position: relative;
+  color: #fff;
+
+}
+
+#venue-reset .venue-info:before {
+  content: "";
+  /* background: rgba(150, 7, 233, 0.1); */
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+#venue-reset .venue-info h3 {
+  font-size: 36px;
+  font-weight: 700;
+  color: #fff;
+}
+
+@media (max-width: 574px) {
+  #venue-reset .venue-info h3 {
+    font-size: 24px;
+  }
+}
+
+#venue-reset .venue-info p {
+  color: #fff;
+  margin-bottom: 0;
+}
+
+
+
+
+
+#venue-reset .venue-gallery-container {
+  padding-right: 12px;
+}
+
+#venue-reset .venue-gallery {
+  overflow: hidden;
+  border-right: 3px solid #fff;
+  border-bottom: 3px solid #fff;
+}
+
+#venue-reset .venue-gallery img {
+  transition: all ease-in-out 1s;
+}
+
+#venue-reset .venue-gallery:hover img {
+  transform: scale(1.1);
+}
+

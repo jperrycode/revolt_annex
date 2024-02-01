@@ -158,7 +158,7 @@ class RevoltView(TemplateView):
 
 
 class ResetView(TemplateView):
-    template_name = 'schedule/reset_venue_index.html'
+    template_name = 'schedule/ui_change_template/reset_master.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

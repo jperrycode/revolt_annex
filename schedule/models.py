@@ -25,7 +25,7 @@ class Music_artist_listing(models.Model):
     artist_insta = models.CharField(max_length=255, blank=True, null=True)
     artist_website = models.CharField(max_length=255, blank=True, null=True)
     artist_music_page = models.CharField(max_length=200, default='search your self')
-    music_artist_image = models.ImageField(upload_to='media/', null=True, blank=True)
+    music_artist_image_url = models.URLField(max_length=200, null=True, blank=True)
 
     entry_price = models.FloatField(null=True)
 
@@ -134,3 +134,20 @@ class Archiveimagefiles(models.Model):
 
 #     def __str__(self):
 #         return self.title
+
+
+class ArchivedResetData(models.Model):
+    archive_reset_artist_name = models.CharField(max_length=75, blank=True, null=True)
+    archive_reset_support_names = models.CharField(max_length=75, blank=True, null=True)
+    archive_reset_show_date = models.DateField(auto_now=False, auto_now_add=False, blank=True, null=True)
+    archive_reset_artist_web = models.CharField(max_length=50, blank=True, null=True)
+
+    class Meta:
+        ordering = ['-archive_reset_show_date']
+        verbose_name = "Music Archive"
+        verbose_name_plural = "Music Archive"
+
+    def __str__(self):
+        return self.archive_show_name
+
+

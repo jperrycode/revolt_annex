@@ -1,0 +1,51 @@
+{% load static %}
+{% now "Y-m-d" as current_date %}
+
+<div class="hero-container" data-aos="zoom-in" data-aos-delay="100">
+   <div class="section-header p-5">
+        <h2 class="text-shad-dark-back deep-red mt-5">Reset Performing Arts</h2>
+        <p class="text-uppercase text-light custom-paragraph">Live Music and Classes</p>
+
+          <p class='fs-5 w-50 mx-auto mt-5 custom-font-octin text-shad-dark-back text-light'>SINCE 2017, REVOLT HAS HOSTED MANY GALLERY SHOWS, MUSIC EVENTS, AND ART HAPPENINGS. LOCATED IN THE HIGH NEW MEXICO DESERT, REVOLT FLOURISHES IN THE VORTEX OF TAOS, NM AND WOULD BE NOTHING WITHOUT OUR LOCAL ARTIST PARTICIPATION OVER THE YEARS!
+          </p>
+      </div>
+    <div class="row">
+
+    </div>
+
+        <div class="row">
+            <h3 class="text-shad-dark-back text-center custom-font-octin deep-red mt-5">
+                Next Reset Show
+            </h3>
+            {% if music_artist_listing %}
+
+                        <div class="col-lg-2 text-center p-4"></div>
+
+                        <div class="col-lg-8 pb-5" data-aos="fade-up" data-aos-delay="100">
+                            <div class="hero-flyer-container mx-auto">
+                              <p class='fs-5 w-50 mx-auto mt-5 custom-font-octin text-shad-dark-back text-light'>SINCE 2017, REVOLT HAS HOSTED MANY GALLERY SHOWS, MUSIC EVENTS, AND ART HAPPENINGS. LOCATED IN THE HIGH NEW MEXICO DESERT, REVOLT FLOURISHES IN THE VORTEX OF TAOS, NM AND WOULD BE NOTHING WITHOUT OUR LOCAL ARTIST PARTICIPATION OVER THE YEARS!
+              CLICK THIS BOX TO SEE RESET and REVOLTS PAST EVENTS</p>
+                            </div>
+                            <div class="text-shad-dark-back text-danger custom-font-change revolt-artist-text">
+                                <p>{{ music_artist_listing.0.artist_name }}, {{ music_artist_listing.0.show_date|date:"M Y" }} <span class="text-light">to</span> {{ music_artist_listing.0.show_time }}</p>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-2 text-center p-4"></div>
+
+
+            {% else %}
+                <div class="container mt-5 pb-5" data-aos="fade-up" data-aos-delay="100">
+                    <h1 class="text-center mb-2 fs-1 text-shad-dark-back text-danger">RESET PERFORMING <span class="d-block d-lg-inline text-light">ARTS</span></h1>
+                    <div class="text-center">
+                        <h2 class="text-light text-shad-dark-back">NEXT SHOW WILL BE ANNOUNCED <span class="text-danger">HERE</span></h2>
+                        <h3 class="text-light text-shad-dark-back">Keep an eye out for announcements here and on our <a href="https://www.instagram.com/revolt_gallery/">Instagram</a></h3>
+
+
+                    </div>
+                </div>
+
+            {% endif %}
+        </div>
+    </div>
+

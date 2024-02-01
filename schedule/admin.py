@@ -5,7 +5,7 @@ import flickrapi
 # Import necessary models and modules
 from .models import (
     Music_artist_listing, Visual_artist_listing, Extra_curriucular_listing,
-    Receive_email_updates, Archiveimagefiles, Archivedshowimagedata
+    Receive_email_updates, Archiveimagefiles, Archivedshowimagedata, ArchivedResetData
 )
 
 from revolt_annex import settings
@@ -23,7 +23,7 @@ admin_site = MyAdminSite(name="admin")
 
 # Define Music Schedule Admin model
 class MusicScheduleAdmin(admin.ModelAdmin):
-    list_display = ("artist_name", "show_date", "entry_price", "music_artist_image")
+    list_display = ("artist_name", "show_date", "entry_price", "music_artist_image_url")
 
 
 # Register Music_artist_listing model with MusicScheduleAdmin
@@ -157,3 +157,11 @@ class Fullarchiveform(admin.ModelAdmin):
 
 # Register Archivedshowimagedata model with Fullarchiveform
 admin.site.register(Archivedshowimagedata, Fullarchiveform)
+
+
+class MusicArchiveAdmin(admin.ModelAdmin):
+    list_display = ("archive_reset_artist_name", "archive_reset_support_names", "archive_reset_show_date", "archive_reset_artist_web" )
+
+
+# Register Extra_curriucular_listing model with ExtraCurricularAdmin
+admin.site.register(ArchivedResetData, MusicArchiveAdmin)

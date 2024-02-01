@@ -1,0 +1,47 @@
+{% load static %}
+
+<div class="container future-custom-container mt-3 mb-5">
+    <h1 class="text-center mb-2 mt-5 text-light">UPCOMING <span class="text-danger">SHOWS</span></h1>
+    <div class="text-center">
+        <h3 class="custom-font-octin">RESET PErforming Arts <span class="text-danger">SCHEDULE</span></h3>
+    </div>
+    <div class="row">
+        {% if music_artist_listing %}
+            {% for item in music_artist_listing %}
+                <div class="col-lg-4 col-md-6"> <!-- Adjusting column layout for medium screens -->
+                    <div class="future-child-container p-3 mt-3 border border-dark rounded-4 shadow-lg mb-5 bg-danger bg-opacity-10">
+                        <div class="future-content-container">
+                            {% if my_variable|default:'Show Title' %}
+                                <p class='text-center custom-font-change fs-4 text-shad-dark-back'>{{ item.artist_name }} </p>
+                            {% endif %}
+                            <p class='text-center custom-font-change text-shad-dark-back'>
+                                <span class='h4 text-danger'>by</span> <span class='fs-5'>{{ item.artist_name }}</span>
+                            </p>
+                            <div class='hover-future-cont'>
+                                <p class="text-center">{{item.show_time}} <span class="text-danger">||</span> {{item.show_date|date:"M Y"}}</p>
+                                <p class="text-center custom-font-change text-shad-dark-back">
+                                    <a class='text-decoration-none text-danger' href='{{ item.vis_artist_website }}'>{{ item.vis_artist_name }}'s
+                                        <span class="text-light"> Website</span>
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% if forloop.counter|divisibleby:3 and not forloop.last %}
+                    <div class="w-100"></div> <!-- Line break after every third entry -->
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            <div class="container mt-5 pb-5" data-aos="fade-up" data-aos-delay="100">
+                <h2 class="text-center mb-2 text-shad-dark-back custom-font-octin">
+                    RESET HAS <span class="d-block d-lg-inline deep-red">NO SHOWS ON THE CALENDAR</span>
+                </h2>
+                <div class="text-center">
+                    <h2 class="text-light">THANK YOU <span class="text-light"></span></h2>
+                    <h2 class="text-light text-shad-dark-back">Check back soon</h2>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</div>

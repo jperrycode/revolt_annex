@@ -34,13 +34,13 @@ body {
   overflow-y: scroll; /* To enable scrolling */
 
   /* Set the background to transparent */
-    background: -webkit-linear-gradient(-45deg, rgba(255, 173, 173, 1), rgba(173, 216, 230, 0.6), rgba(173, 216, 230, 0.6), rgba(173, 216, 230, 0.6));
+     background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(0, 0, 0, 1) 100%);
 
 
-  background-size: 800% 800%;
-background-position: fixed;
+  background-size: 120% 120%;
+background-position: absolute;
 
-    height: 150vh;
+
 
 
 }
@@ -66,7 +66,20 @@ background-position: fixed;
   }
 }
 
+#main-reset {
+  color: #2f3138;
+  font-family: 'FreeMono', monospace;
+  margin: 0;
 
+  overflow-y: scroll; /* To enable scrolling */
+
+  /* Set the background to transparent */
+    background: -webkit-linear-gradient(-45deg, rgba(255, 173, 173, 1), rgba(173, 216, 230, 0.6), rgba(173, 216, 230, 0.6), rgba(173, 216, 230, 0.6));
+
+
+  background-size: 800% 800%;
+background-position: fixed;
+}
 
 
 header {
@@ -1538,7 +1551,7 @@ h6 {
 #contact .contact-info address,
 #contact .contact-info p {
   margin-bottom: 0;
-  color: #112363;
+
 }
 
 #contact .contact-info h3 {
@@ -1550,11 +1563,11 @@ h6 {
 }
 
 #contact .contact-info a {
-  color: #4869df;
+  color: #f82249;
 }
 
 #contact .contact-info a:hover {
-  color: #f82249;
+  color: yellow;
 }
 
 #contact .contact-address,
