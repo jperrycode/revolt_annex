@@ -6,10 +6,11 @@
         </div>
 
         <div id="mobile-nav-bar">
-       <nav class="navbar bg-body-tertiary fixed-top">
+       <nav class="navbar bg-translucent fixed-top">
       <div class="container-fluid">
-<a href="{% url 'annex_home' %}" data-bs-target="#carousel-id" data-bs-slide-to="0" class="custom-font-change"><span class="text-danger">Revolt </span> <span>|</span><span class="text-light">|</span><span> Reset</span></a>        <button
-          class="navbar-toggler"
+<a href="{% url 'annex_home' %}" data-bs-target="#carousel-id" data-bs-slide-to="0" class="custom-font-change"><span class="text-danger">Revolt </span> <span>|</span><span class="text-light">|</span><span> Reset</span></a>
+          <button
+          class="navbar-toggler bg-light bg-opacity-25 border border-light"
           type="button"
           data-bs-toggle="offcanvas"
           data-bs-target="#offcanvasNavbar"
@@ -19,18 +20,18 @@
           <span class="navbar-toggler-icon text-danger"></span>
         </button>
         <div
-          class="offcanvas offcanvas-end bg-dark bg-gradient"
+          class="offcanvas offcanvas-end bg-opacity-50 bg-dark bg-gradient"
           tabindex="-1"
           id="offcanvasNavbar"
           aria-labelledby="offcanvasNavbarLabel"
         >
-          <div class="offcanvas-header bg-dark">
-            <h5 class="offcanvas-title text-danger fw-bold fs-1 custom-font-change" id="offcanvasNavbarLabel">
+          <div class="offcanvas-header bg-dark bg-opacity-50">
+            <h5 class="offcanvas-title deep-red fw-bold fs-1 custom-font-change text-shad-dark-back" id="offcanvasNavbarLabel">
               REVOLT GALLERY
             </h5>
             <button
               type="button"
-              class="btn-close"
+              class="btn-close text-danger text-shad-dark-back"
               data-bs-dismiss="offcanvas"
               aria-label="Close"
             ></button>
@@ -40,33 +41,33 @@
               <li>
                 <a
                   id="gallery-link"
-                  class="nav-link custom-font-change mb-3 fs-1"
+                  class="nav-link custom-font-change mb-3 fs-1 text-shad-dark-back"
                   href="{% url 'annex_home' %}"
-                  ><span class="text-danger">REVOLT</span></a
+                  ><span class="deep-red">REVOLT</span></a
                 >
               </li>
 
               <li>
                 <a
                   id="gallery-link"
-                  class="nav-link custom-font-change mb-3 fs-1"
+                  class="nav-link custom-font-change mb-3 fs-1 text-shad-dark-back"
                   href="{% url 'hut' %}"
-                  ><span class="text-danger">THE HUT</span></a
+                  ><span class="deep-red">THE HUT</span></a
                 >
               </li>
 
               <li>
                 <a
                   id="venue-link"
-                  class="nav-link custom-font-change mb-3 fs-1"
+                  class="nav-link custom-font-change mb-3 fs-1 text-shad-dark-back"
                   href="{% url 'music-reset' %}"
-                  >RESET EVENTS</a
+                  ><span class="deep-red">RESET EVENTS</span></a
                 >
               </li>
               <li>
                 <a
                   id="speakers-link"
-                  class="nav-link custom-font-change fs-5"
+                  class="nav-link custom-font-change mb-3 fs-1 text-shad-dark-back"
                   href="{% url 'contact-revolt' %}"
                   >Contact</a
                 >
