@@ -24,7 +24,7 @@
 
 <section class="p-1 text-center container">
     <div class="row">
-        <h1 class='text-center fs-1 text-danger'>RESET SHOW ARCHIVES</h1>
+        <h1 class='text-center fs-1 deep-red'>RESET ARCHIVES</h1>
 
 
     </div>
@@ -42,7 +42,7 @@
     <h2 class="text-center mb-2 mt-4 fs-1 text-shad-dark-back deep-red">{{ year_group.grouper }}</h2>
     {% for item in year_group.list %}
         <div class="col-lg-3 col-md-4 col-sm-6">
-            <a class='text-decoration-none text-danger' href='{% url "archive_details" pk=item.pk %}'>
+            <a class='text-decoration-none deep-red' href='{% url "archive_details" pk=item.pk %}'>
                 <div class="p-3 future-child-container ratio ratio-16x9 p-3 mt-3 rounded-4 shadow-lg bg-danger bg-opacity-10 d-flex flex-column h-100">
                     <div class="future-content-container mt-5 flex-grow-1">
                         {% if my_variable|default:'Show Title' %}

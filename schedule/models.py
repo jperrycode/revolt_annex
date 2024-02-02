@@ -148,6 +148,6 @@ class ArchivedResetData(models.Model):
         verbose_name_plural = "Music Archive"
 
     def __str__(self):
-        return self.archive_show_name
+        return self.archive_reset_artist_name
 
 

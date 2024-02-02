@@ -252,7 +252,7 @@ height:
   .button-89 {
     --b: 2px;   /* border thickness */
     --s: .45em; /* size of the corner */
-    --color: #8c0000;
+    --color: #f82249;
     margin-top: 50px;
     padding: calc(.5em + var(--s)) calc(.9em + var(--s));
     color: var(--color);
@@ -273,7 +273,7 @@ height:
   .button-89:hover,
   .button-89:focus-visible {
     --_p: 0px;
-    outline-color: rgb(220, 76, 100);
+    outline-color: #f82249;
     outline-offset: .05em;
     border: 1px solid red;
   }
@@ -297,4 +297,8 @@ height:
 
 #hero-front {
 margin-top: 100px;
+}
+
+.link-hover:hover {
+color: yellow;
 }

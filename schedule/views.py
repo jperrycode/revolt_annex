@@ -26,7 +26,7 @@ from django.http import Http404
 # Define a custom signal
 class Contact_form_view(CreateView):
     form_class = ContactForm
-    template_name = 'schedule/contact_index.html'
+    template_name = 'schedule/ui_change_template/contact_full.html'
     success_url = reverse_lazy('contact-us-success/')
 
     def get_context_data(self, **kwargs):
