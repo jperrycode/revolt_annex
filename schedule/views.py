@@ -7,7 +7,7 @@ from django.views.generic import DetailView
 from django.shortcuts import render
 from django.views.generic import TemplateView
 from django.views.generic.edit import CreateView
-from schedule.models import Music_artist_listing, Visual_artist_listing, Extra_curriucular_listing
+from schedule.models import Music_artist_listing, Visual_artist_listing, Extra_curriucular_listing, ArchivedResetData
 from schedule.forms import ContactForm
 from .signals import contact_form_saved
 from schedule.models import Archiveimagefiles, Archivedshowimagedata
@@ -163,6 +163,7 @@ class ResetView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['music_artist_listing'] = Music_artist_listing.objects.all().values()
+        context['music_archive'] = ArchivedResetData.objects.all()
         # context['vimeo_video_data'] = self.get_vimeo_videos()
         return context
 

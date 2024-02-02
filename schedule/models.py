@@ -141,6 +141,10 @@ class ArchivedResetData(models.Model):
     archive_reset_support_names = models.CharField(max_length=75, blank=True, null=True)
     archive_reset_show_date = models.DateField(auto_now=False, auto_now_add=False, blank=True, null=True)
     archive_reset_artist_web = models.CharField(max_length=50, blank=True, null=True)
+    music_archive_soundcloud = models.URLField(max_length=75, blank=True, null=True)
+    music_archive_social_url = models.URLField(max_length=75, blank=True, null=True)
+    archive_reset_bio = models.CharField(max_length=252, blank=True, null=True)
+
 
     class Meta:
         ordering = ['-archive_reset_show_date']

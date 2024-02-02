@@ -160,7 +160,10 @@ admin.site.register(Archivedshowimagedata, Fullarchiveform)
 
 
 class MusicArchiveAdmin(admin.ModelAdmin):
-    list_display = ("archive_reset_artist_name", "archive_reset_support_names", "archive_reset_show_date", "archive_reset_artist_web" )
+    list_display = (
+        "archive_reset_artist_name", "archive_reset_support_names", "archive_reset_show_date",
+        "archive_reset_artist_web",
+        "music_archive_soundcloud", "music_archive_social_url", "archive_reset_bio",)
 
 
 # Register Extra_curriucular_listing model with ExtraCurricularAdmin
