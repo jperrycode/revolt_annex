@@ -361,13 +361,13 @@
 
     <div class="container-fluid d-flex align-items-center">
         <div id="logo" class="me-auto custom-font">
-            <h1><a href="{% url 'annex_home' %}" data-bs-target="#carousel-id" data-bs-slide-to="0"><img class='logo-schedule img-h' src='{% static "schedule/img/img-new/fist.png" %}' alt='logo' /><span class="{% if request.path == '/revolt-art/' or request.path == '/revolt-gallery/' %}text-danger{% else %}text-light{% endif %}">Revolt</span></a> <span class="text-danger">||</span> <a href="{% url 'music-reset' %}" data-bs-target="#carousel-id" data-bs-slide-to="0"><span class="{% if request.path == '/reset-performing-arts/' %}text-danger{% else %}text-light{% endif %}">RESET</span><img class='logo-schedule img-h' src='{% static "schedule/img/img-new/fist.png" %}' alt='logo' /></a></h1>
+            <h1><a href="{% url 'annex_home' %}" data-bs-target="#carousel-id" data-bs-slide-to="0"><img class='logo-schedule img-h' src='{% static "schedule/img/img-new/fist.png" %}' alt='logo' /><span class="{% if request.path == '/revolt-art/' or request.path == '/revolt-gallery/' %}deep-red{% else %}text-light{% endif %}">Revolt</span></a> <span class="deep-red">||</span> <a href="{% url 'music-reset' %}" data-bs-target="#carousel-id" data-bs-slide-to="0"><span class="{% if request.path == '/reset-performing-arts/' %}deep-red{% else %}text-light{% endif %}">RESET</span><img class='logo-schedule img-h' src='{% static "schedule/img/img-new/fist.png" %}' alt='logo' /></a></h1>
         </div>
 
         <div id="mobile-nav-bar">
        <nav class="navbar bg-body-tertiary fixed-top">
       <div class="container-fluid">
-<a href="{% url 'annex_home' %}" data-bs-target="#carousel-id" data-bs-slide-to="0" class="custom-font-change"><span class="text-danger">Revolt </span> <span>|</span><span class="text-light">|</span><span> Reset</span></a>        <button
+<a href="{% url 'annex_home' %}" data-bs-target="#carousel-id" data-bs-slide-to="0" class="custom-font-change"><span class="deep-red">Revolt </span> <span>|</span><span class="text-light">|</span><span> Reset</span></a>        <button
           class="navbar-toggler"
           type="button"
           data-bs-toggle="offcanvas"
@@ -375,7 +375,7 @@
           aria-controls="offcanvasNavbar"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon text-danger"></span>
+          <span class="navbar-toggler-icon deep-red"></span>
         </button>
         <div
           class="offcanvas offcanvas-end bg-dark bg-gradient"
@@ -384,7 +384,7 @@
           aria-labelledby="offcanvasNavbarLabel"
         >
           <div class="offcanvas-header bg-dark">
-            <h5 class="offcanvas-title text-danger fw-bold fs-1 custom-font-change" id="offcanvasNavbarLabel">
+            <h5 class="offcanvas-title  fw-bold fs-1 custom-font-change" id="offcanvasNavbarLabel">
               REVOLT GALLERY
             </h5>
             <button
@@ -401,7 +401,7 @@
                   id="gallery-link"
                   class="nav-link custom-font-change mb-3 fs-1"
                   href="{% url 'annex_home' %}"
-                  ><span class="text-danger">REVOLT</span></a
+                  ><span class="deep-red">REVOLT</span></a
                 >
               </li>
 
@@ -410,7 +410,7 @@
                   id="gallery-link"
                   class="nav-link custom-font-change mb-3 fs-1"
                   href="{% url 'hut' %}"
-                  ><span class="text-danger">THE HUT</span></a
+                  ><span class="deep-red">THE HUT</span></a
                 >
               </li>
 
@@ -441,9 +441,9 @@
             <ul>
                 
 
-                <li><a id="gallery-link" class="nav-link" href="{% url 'gallery-revolt' %}"><span class='text-danger custom-font-change custom-glow-change'>Exhibits</span></a></li>
+                <li><a id="gallery-link" class="nav-link" href="{% url 'gallery-revolt' %}"><span class='deep-red custom-font-change custom-glow-change'>Exhibits</span></a></li>
                 <li><a id="venue-link" class="nav-link" href="{% url 'hut' %}"><span class='custom-font-change'>HUT</span></a></li>
-                <li><a class="nav-link" href="{% url 'music-reset' %}"><span class='text-danger custom-font-change custom-glow-change'>RESET EVENTS</span></a></li>
+                <li><a class="nav-link" href="{% url 'music-reset' %}"><span class='deep-red custom-font-change custom-glow-change'>RESET EVENTS</span></a></li>
                 
                 <li><a id="music-reset" class="nav-link" href="{% url 'contact-revolt' %}"><span class='custom-font-change'>CONTACT</span></a></li>
             </ul>
