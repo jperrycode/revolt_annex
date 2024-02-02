@@ -1,30 +1,10 @@
 {% load static %}
 {% now "Y-m-d" as current_date %}
 
-<style>
-    .ball-container {
-  position: relative;
-}
 
-.bouncing-ball {
-  display: inline-block;
-  width: 50px;
-  height: 50px;
-  background-color: #3498db;
-  border-radius: 50%;
-  color: #fff;
-  text-align: center;
-  line-height: 50px;
-  text-decoration: none;
-  font-family: Arial, sans-serif;
-  font-size: 16px;
-  position: absolute;
-  transition: transform 0.6s ease-in-out;
-}
-</style>
 
 <div class="hero-container" data-aos="zoom-in" data-aos-delay="100">
-    <h1 id="hero-front" class="mb-1 mt-5 pb-0 deep-red text-shad-dark-back">Revolt Art Gallery</h1>
+    <h1 id="hero-front" class="mb-1 pb-0 deep-red text-shad-dark-back">Revolt Art Gallery</h1>
     <p class="fs-3 custom-font-change text-shad-dark-back">Where Art Breaks Free from the System</p>
 
     <div class="container gallery-update-container mt-1 p-1">
@@ -45,14 +25,10 @@
                             <div class="text-shad-dark-back text-danger custom-font-change revolt-artist-text">
                                 <p>{{ gallery_listing.0.visual_show_name }}, {{ gallery_listing.0.vis_artist_name }}, {{ gallery_listing.0.vis_show_date_start|date:"M Y" }} <span class="text-light">to</span> {{ gallery_listing.0.vis_show_date_end|date:"M Y" }}</p>
                             </div>
-                            <button onclick="window.location.href='{% url 'gallery-revolt' %}'" class="button-89 text-danger custom-font-change shad">Future and Past Exhibits</button>
-                        </div>
+                            <button id="expandButton" onclick="expandButtonAndRedirect('/revolt-gallery/')" class="button-89 text-danger custom-font-change shad">Future and Past Exhibits</button>                        </div>
 
                         <div class="col-lg-2 text-center p-4">
-                              <div class="ball-container">
-    <a href="#" class="bouncing-ball" id="bounce-link">Click me!</a>
-  </div>
-  <script src="script.js"></script>
+
 
                         </div>
 
@@ -74,16 +50,18 @@
     </div>
 </div>
 
+
 <script>
-    document.getElementById('bounce-link').addEventListener('click', function() {
-  var ball = document.querySelector('.bouncing-ball');
-  ball.style.transform = 'translateY(-200px) rotate(720deg)';
+      function expandButtonAndRedirect(url) {
+    var button = document.getElementById('expandButton');
+    button.classList.add('expanded-button');
 
-  setTimeout(function() {
-    ball.style.transform = 'translateY(0) rotate(0)';
-    ball.innerHTML = 'Visit the Link';
-  }, 1000);
-});
+    // Disable button after expansion to prevent multiple clicks
+    button.disabled = true;
 
-
+    // Redirect after a brief delay
+    setTimeout(function () {
+      window.location.href = url;
+    }, 300);
+  }
 </script>

@@ -14,21 +14,33 @@
     </div>
 
         <div class="row">
-            <h3 class="text-shad-dark-back text-center custom-font-octin deep-red mt-5">
+            <h3 class="text-shad-dark-back text-center custom-font-octin deep-red mt-5 mb-5">
                 Next Reset Show
             </h3>
             {% if music_artist_listing %}
 
-                        <div class="col-lg-2 text-center p-4"></div>
+                        <div class="col-lg-2 text-center"></div>
 
-                        <div class="col-lg-8 pb-5" data-aos="fade-up" data-aos-delay="100">
-                            <div class="hero-flyer-container mx-auto">
-                              <p class='fs-5 w-50 mx-auto mt-5 custom-font-octin text-shad-dark-back text-light'>SINCE 2017, REVOLT HAS HOSTED MANY GALLERY SHOWS, MUSIC EVENTS, AND ART HAPPENINGS. LOCATED IN THE HIGH NEW MEXICO DESERT, REVOLT FLOURISHES IN THE VORTEX OF TAOS, NM AND WOULD BE NOTHING WITHOUT OUR LOCAL ARTIST PARTICIPATION OVER THE YEARS!
-              CLICK THIS BOX TO SEE RESET and REVOLTS PAST EVENTS</p>
+                        <div class="col-lg-4 pb-5 h-50" data-aos="fade-up" data-aos-delay="100">
+                       <div class="hero-flyer-container h-75 w-75">
+                                <a href="{{ music_artist_listing.0.artist_music_page }}">
+                                    <img src="{% static 'schedule/img/img-new/outside_dj.jpg' %}" id="front-page-img-container" loading="lazy" class="shad m-1 img-fluid border border-danger-subtle">
+                                </a>
                             </div>
-                            <div class="text-shad-dark-back text-danger custom-font-change revolt-artist-text">
-                                <p>{{ music_artist_listing.0.artist_name }}, {{ music_artist_listing.0.show_date|date:"M Y" }} <span class="text-light">to</span> {{ music_artist_listing.0.show_time }}</p>
+                        </div>
+                 <div class="col-lg-4 pb-5 h-50" data-aos="fade-up" data-aos-delay="100">
+                            <div class="hero-flyer-container h-75 w-75">
+                              <p class='fs-2 mx-auto mt-5 custom-font-octin text-shad-dark-back text-light text-start border-bottom border-danger'>{{ music_artist_listing.0.artist_name }}</p>
+
+                            <p class='fs-5 mt-1 custom-font-octin text-shad-dark-back text-light text-start'>{{ music_artist_listing.0.show_date|date:"M d" }} <span class="text-light">at</span> {{ music_artist_listing.0.show_time }}</p>
+                                <p class='fs-5 mx-auto custom-font-octin text-shad-dark-back text-light text-start'>LOCATION:  <span class="text-light">at</span> RESET Performing Arts</p>
+                                <p class='fs-5 mx-auto custom-font-octin text-shad-dark-back text-light text-start'>About: {{music_artist_listing.0.artist_bio }}</p>
+                                <p class='fs-5 mx-auto custom-font-octin text-shad-dark-back text-light text-start'><a href="{{ music_artist_listing.0.artist_music_page }}"><span class="text-light">SoundCloud</span></a> |  <a href="{{ music_artist_listing.0.artist_insta }}"><span class="text-light">Instagram</span></a></p>
+
+
+
                             </div>
+
                         </div>
 
                         <div class="col-lg-2 text-center p-4"></div>
