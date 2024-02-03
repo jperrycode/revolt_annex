@@ -24,9 +24,7 @@ class Music_artist_listing(models.Model):
     artist_bio = models.CharField(max_length=255, default='', blank=True, null=False)
     artist_insta = models.CharField(max_length=255, blank=True, null=True)
     artist_website = models.CharField(max_length=255, blank=True, null=True)
-    artist_music_page = models.CharField(max_length=200, default='search your self')
     music_artist_image_url = models.URLField(max_length=200, null=True, blank=True)
-
     entry_price = models.FloatField(null=True)
 
     class Meta:

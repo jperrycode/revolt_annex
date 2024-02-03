@@ -51,6 +51,10 @@ body {
 
 
 
+
+
+
+
 @keyframes gradient {
 	0% {
 		background-position: 0% 50%;
@@ -71,19 +75,6 @@ body {
   }
 }
 
-#main-reset {
-  color: #2f3138;
-  font-family: 'FreeMono', monospace;
-  margin: 0;
-
-  overflow-y: scroll; /* To enable scrolling */
-
-  /* Set the background to transparent */
-background: rgba(0,0,0,.5) url('../img/img-new/night_view.jpg');
-
-  background-size: 100% 100%;
-background-position: fixed;
-}
 
 
 
@@ -245,7 +236,7 @@ h6 {
   margin: 0;
   font-size: 18px;
   font-weight: 500;
-  color: #9195a2;
+ 
 }
 
 .section-with-bg {
@@ -591,14 +582,14 @@ h6 {
 /*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/
-#hero {
+/*#hero {
   width: 100%;
 
   background: url('../img/img-new/dark_neon_exterior_shot.jpg') top center;
   background-size: cover;
   overflow: hidden;
   position: relative;
-}
+}*/
 @keyframes fadeIn {
   0% { opacity: 0; }
   100% { opacity: 1; }
@@ -618,7 +609,7 @@ h6 {
 
 
 
-#hero:before {
+/*#hero:before {
   content: "";
   background: rgba(6, 12, 34, 0.8);
   position: absolute;
@@ -626,7 +617,7 @@ h6 {
   top: 0;
   left: 0;
   right: 0;
-}
+}*/
 
 #hero .hero-container {
   bottom: 0;
@@ -795,14 +786,14 @@ h6 {
   width: auto;
 }
 
-#about {
+/*#about {
   background: url("../img/img-new/dj_about_section.png");
   background-size: cover;
   overflow: hidden;
   position: relative;
   color: #fff;
 
-}
+}*/
 
 @media (max-width:500px){
   #about {
@@ -2258,14 +2249,14 @@ max-height: auto;
   }
 }
 
-#hero {
+/*#hero {
   width: 100%;
 
   background: url('../img/img-new/dark_neon_exterior_shot.jpg') top center;
   background-size: cover;
   overflow: hidden;
   position: relative;
-}
+}*/
 
 
 .image-info-about {
@@ -2319,7 +2310,7 @@ font-size: 60px;
 @media (min-width: 1000px) {
 .hero-flyer-container {
     min-height: 50vh;
-    width: 50%;
+    width: 75%;
 }
 
 }
@@ -2336,3 +2327,5 @@ margin-top: 50px;
 .deep-red {
 color: #f82249;
 }
+
+

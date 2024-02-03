@@ -43,12 +43,12 @@
     {% for item in year_group.list %}
         <div class="col-lg-3 col-md-4 col-sm-6">
 
-                <div class="p-3 future-child-container mb-5 p-3 mt-3 rounded-4 shadow-lg bg-primary bg-opacity-10 d-flex flex-column">
-                    <div class="future-content-container mt-5 flex-grow-1">
+                <div class="p-3 future-child-container mb-5 mt-3 rounded-4 shadow-lg bg-primary bg-opacity-10 d-flex flex-column ratio ratio-16x9">
+                    <div class="future-content-container p-3 flex-grow-1">
 
-                            <h2 class='text-center custom-font-octin text-shad-dark-back text-light'>{{ item.archive_reset_artist_name }}</h2>
-                        <p class='text-center deep-red custom-font-octin text-shad-dark-back'><span class="text-light">With</span> {{ item.archive_reset_support_names }} </p>
-                            <p class='text-center custom-font-octin text-shad-dark-back'><span class="text-light"></span> {{ item.archive_reset_show_date|date:"M d" }} </p>
+                        <p class='fs-5 text-center custom-font-octin text-shad-dark-back text-light'><span class="deep-red">{{ item.archive_reset_artist_name }}</span> w/ {{ item.archive_reset_support_names }} </p>
+<!--                        <p class='text-center deep-red custom-font-octin text-shad-dark-back'> {{ item.archive_reset_support_names }} </p>-->
+                            <p class='fs-5 text-center custom-font-octin text-shad-dark-back'><span class="text-light">{{ item.archive_reset_show_date|date:"M d" }}</span>  </p>
 
                         <div class='hover-future-cont'>
                             <p class="text-center text-shad-dark-back custom-font-octin"><a href="{{ item.archive_reset_artist_web }}">{{ item.archive_reset_artist_name }}'s Website</a> </p>

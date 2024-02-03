@@ -1,7 +1,8 @@
+import datetime
+
 import django
 
 django.setup()
-from typing import Any
 from django.views import View
 from django.views.generic import DetailView
 from django.shortcuts import render
@@ -11,11 +12,9 @@ from schedule.models import Music_artist_listing, Visual_artist_listing, Extra_c
 from schedule.forms import ContactForm
 from .signals import contact_form_saved
 from schedule.models import Archiveimagefiles, Archivedshowimagedata
-import os
-import vimeo
 from django.core.mail import EmailMessage
 from django.urls import reverse_lazy
-
+from datetime import datetime
 from django.db.models import Prefetch
 
 from django.shortcuts import get_object_or_404
@@ -26,7 +25,7 @@ from django.http import Http404
 # Define a custom signal
 class Contact_form_view(CreateView):
     form_class = ContactForm
-    template_name = 'schedule/ui_change_template/contact_full.html'
+    template_name = 'schedule/contact_index.html'
     success_url = reverse_lazy('contact-us-success/')
 
     def get_context_data(self, **kwargs):
@@ -199,16 +198,17 @@ class ArchivePageView(DetailView):
 class AnnexHomeView(TemplateView):
     template_name = 'schedule/master-new.html'
 
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        print("context 1")
+        current_datetime = datetime.now().strftime('%b %d')  # Format the date as 'M d'
         try:
-            context['range_reset'] = [str(i) for i in range(2, 10)]
-            print("context 2")
+
             context['gallery_listing'] = Visual_artist_listing.objects.all().values()
-            print("context 3")
+
             context['music_artist_listing'] = Music_artist_listing.objects.all().values()
-            print("context 4")
+
+
         except Exception as e:
             raise Http404(f"An error occurred: {e}")
 
