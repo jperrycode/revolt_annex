@@ -271,6 +271,14 @@ height:
 margin-top: 100px;
 }
 
+@media screen and (max-width: 550px) {
+
+#hero-front {
+margin-top: 60px;
+}
+
+}
+
 .link-hover:hover {
 color: yellow;
 }

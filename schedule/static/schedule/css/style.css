@@ -2336,7 +2336,7 @@ color: #f82249;
   margin: 0;
   overflow-y: scroll;
   background: url('../img/img-new/revolt_logo.png') center/contain no-repeat fixed; /* Background image */
-  background-size: 90% 80%;
+  background-size: 50% 40%;
   z-index: -1;
 
 }
@@ -2354,7 +2354,7 @@ color: #f82249;
 }
 
 .list-custom li {
-border-bottom: 5px groove #f82249;
+border-bottom: 2px groove #f82249;
 box-shadow: -15px 0px 10px -15px #111;
 }
 
