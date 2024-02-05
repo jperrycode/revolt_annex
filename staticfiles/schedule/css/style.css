@@ -2329,3 +2329,32 @@ color: #f82249;
 }
 
 
+
+.offcanvas-body {
+  color: #2f3138;
+  font-family: 'FreeMono', monospace;
+  margin: 0;
+  overflow-y: scroll;
+  background: url('../img/img-new/revolt_logo.png') center/contain no-repeat fixed; /* Background image */
+  background-size: 90% 80%;
+  z-index: -1;
+
+}
+
+.offcanvas-body:before {
+  content: "";
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Dark overlay */
+  z-index: -1;
+}
+
+.list-custom li {
+border-bottom: 5px groove #f82249;
+box-shadow: -15px 0px 10px -15px #111;
+}
+

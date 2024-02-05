@@ -4,9 +4,9 @@
 <div class="hero-container" data-aos="zoom-in" data-aos-delay="100">
   <div class="section-header p-3 p-md-5 text-center">
     <h1 class="mb-1 mt-4 pb-0 deep-red text-shad-dark-back">Reset Performing Arts</h1>
-    <p class="text-uppercase text-light custom-paragraph">Live Music and Classes</p>
+    <p class="text-uppercase custom-font-octin text-light custom-paragraph">Live Music and Classes</p>
 
-    <p class='fs-5 w-50 mx-auto mt-4 custom-font-octin text-shad-dark-back text-light'>
+    <p class='fs-5 mx-auto mt-3 custom-font-octin text-shad-dark-back text-light'>
       SINCE 2017, REVOLT HAS HOSTED MANY GALLERY SHOWS, MUSIC EVENTS, AND ART HAPPENINGS. LOCATED IN THE HIGH NEW MEXICO DESERT, REVOLT FLOURISHES IN THE VORTEX OF TAOS, NM AND WOULD BE NOTHING WITHOUT OUR LOCAL ARTIST PARTICIPATION OVER THE YEARS!
     </p>
   </div>
@@ -14,16 +14,16 @@
   <div class="row justify-content-center">
     {% if music_artist_listing %}
       <div class="col-lg-4 col-md-6 pb-3 pb-md-5" data-aos="fade-up" data-aos-delay="100">
-        <div class="hero-flyer-container">
+        <div class="hero-flyer-container p-3 mx-auto">
           <a href="{{ music_artist_listing.0.artist_music_page }}">
-            <img src="{{ music_artist_listing.0.artist_music_page }}" id="front-page-img-container" loading="lazy" class="shad m-1 img-fluid border border-danger-subtle">
+            <img src="https://live.staticflickr.com/{{ music_artist_listing.0.reset_flyer_serverID }}/{{ music_artist_listing.0.reset_flyer_img_id }}_{{ music_artist_listing.0.reset_flyer_img_secret }}.jpg" id="front-page-img-container" loading="lazy" class="shad m-1 img-fluid border border-danger-subtle">
           </a>
         </div>
       </div>
 
-      <div class="col-lg-4 col-md-6 pb-3 pb-md-5" data-aos="fade-up" data-aos-delay="100">
-        <div class="hero-flyer-container">
-          <p class='fs-3 mx-auto mt-4 custom-font-octin text-shad-dark-back text-light text-start border-bottom border-danger'>
+      <div class="col-lg-4 col-md-6 pb-3 pb-md-5 p-sm-2" data-aos="fade-up" data-aos-delay="100">
+        <div class="hero-flyer-container p-3 mx-auto">
+          <p class='fs-4 mx-auto mt-4 custom-font-octin text-shad-dark-back text-light text-start border-bottom border-danger'>
             {{ music_artist_listing.0.artist_name }}
           </p>
 
@@ -45,16 +45,13 @@
           </p>
         </div>
       </div>
-
-
-
     {% else %}
       <div class="col-12 mt-4 pb-4" data-aos="fade-up" data-aos-delay="100">
-        <h1 class="text-center mb-2 fs-1 text-shad-dark-back deep-red">RESET PERFORMING <span class="d-block d-lg-inline text-light">ARTS</span></h1>
+        <h2 class="text-center mb-2 text-shad-dark-back deep-red">No Shows on <span class="d-block d-lg-inline text-light">the Schedule</span></h2>
         <div class="text-center">
-          <h2 class="text-light text-shad-dark-back">NEXT SHOW WILL BE ANNOUNCED <span class="deep-red">HERE</span></h2>
-          <h3 class="text-light text-shad-dark-back">
-            Keep an eye out for announcements here and on our <a href="https://www.instagram.com/revolt_gallery/">Instagram</a>
+          <h2 class="text-light text-shad-dark-back">MORE INFO COMING <span class="deep-red">SOON</span></h2>
+          <h3 class="text-light text-shad-dark-back custom-font-octin p-2">
+            Check <a href="https://www.instagram.com/revolt_gallery/">Instagram</a>
           </h3>
         </div>
       </div>

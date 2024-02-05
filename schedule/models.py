@@ -26,6 +26,9 @@ class Music_artist_listing(models.Model):
     artist_website = models.CharField(max_length=255, blank=True, null=True)
     music_artist_image_url = models.URLField(max_length=200, null=True, blank=True)
     entry_price = models.FloatField(null=True)
+    reset_flyer_serverID = models.CharField(max_length=30, blank=True, null=True)
+    reset_flyer_img_id = models.CharField(max_length=30, blank=True, null=True)
+    reset_flyer_img_secret = models.CharField(max_length=30, blank=True, null=True)
 
     class Meta:
         verbose_name = "Musician"
@@ -50,7 +53,7 @@ class Visual_artist_listing(models.Model):
     vis_image_url = models.URLField(max_length=250, null=True, blank=True)
     visual_artist_image = models.ImageField(upload_to='media/', null=True, blank=True)
     flyer_server_id = models.CharField(max_length=100, null=True, blank=True)
-    flyer_img_id = models.CharField(max_length=100, null=True)
+    flyer_img_id = models.CharField(max_length=100, null=True, blank=True)
     flyer_img_secret = models.CharField(max_length=100, null=True, blank=True)
 
     class Meta:

@@ -77,7 +77,7 @@ class Fullarchiveform(admin.ModelAdmin):
     inlines = [Model2Inline]
     list_display = ('archive_show_name', 'archive_start_date', 'archive_end_date', 'archive_folder_id')
 
-    # Overriding save_model method to handle saving images from Flickr
+# Overriding save_model method to handle saving images from Flickr
     def save_model(self, request, obj, form, change, photo_height=None):
         try:
             # Extract form data

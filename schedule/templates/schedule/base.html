@@ -367,8 +367,9 @@
         <div id="mobile-nav-bar">
        <nav class="navbar bg-body-tertiary fixed-top">
       <div class="container-fluid">
-<a href="{% url 'annex_home' %}" data-bs-target="#carousel-id" data-bs-slide-to="0" class="custom-font-change"><span class="deep-red">Revolt </span> <span>|</span><span class="text-light">|</span><span> Reset</span></a>        <button
-          class="navbar-toggler"
+<a href="{% url 'annex_home' %}" data-bs-target="#carousel-id" data-bs-slide-to="0" class="custom-font-change"><span class="deep-red">Revolt </span> <span>|</span><span class="text-light">|</span><span> Reset</span></a>
+          <button
+          class="navbar-toggler me-3 bg-danger bg-opacity-25"
           type="button"
           data-bs-toggle="offcanvas"
           data-bs-target="#offcanvasNavbar"
@@ -378,7 +379,7 @@
           <span class="navbar-toggler-icon deep-red"></span>
         </button>
         <div
-          class="offcanvas offcanvas-end bg-dark bg-gradient"
+          class="offcanvas offcanvas-end bg-dark bg-opacity-25"
           tabindex="-1"
           id="offcanvasNavbar"
           aria-labelledby="offcanvasNavbarLabel"
@@ -399,35 +400,35 @@
               <li>
                 <a
                   id="gallery-link"
-                  class="nav-link custom-font-change fs-1"
+                  class="nav-link custom-font-octin"
                   href="{% url 'annex_home' %}"
-                  ><span class="deep-red">REVOLT</span></a
+                  ><span class="deep-red fs-1 text-shad-dark-back">REVOLT</span></a
                 >
               </li>
 
               <li>
                 <a
                   id="gallery-link"
-                  class="nav-link custom-font-change fs-1"
+                  class="nav-link custom-font-octin"
                   href="{% url 'hut' %}"
-                  ><span class="deep-red">THE HUT</span></a
+                  ><span class="deep-red fs-1 text-shad-dark-back">THE HUT</span></a
                 >
               </li>
 
               <li>
                 <a
                   id="venue-link"
-                  class="nav-link custom-font-change fs-1"
+                  class="nav-link custom-font-octin"
                   href="{% url 'music-reset' %}"
-                  >RESET EVENTS</a
+                  ><span class="deep-red fs-1 text-shad-dark-back">RESET EVENTS</span></a
                 >
               </li>
               <li>
                 <a
                   id="speakers-link"
-                  class="nav-link custom-font-change fs-1"
+                  class="nav-link custom-font-octin"
                   href="{% url 'contact-revolt' %}"
-                  >Contact</a
+                  ><span class="deep-red fs-1 text-shad-dark-back">CONTACT</span></a
                 >
               </li>
             </ul>
@@ -441,11 +442,18 @@
             <ul>
                 
 
-                <li><a id="gallery-link" class="nav-link" href="{% url 'gallery-revolt' %}"><span class='deep-red custom-font-change custom-glow-change'>Exhibits</span></a></li>
-                <li><a id="venue-link" class="nav-link" href="{% url 'hut' %}"><span class='custom-font-change'>HUT</span></a></li>
-                <li><a class="nav-link" href="{% url 'music-reset' %}"><span class='deep-red custom-font-change custom-glow-change'>RESET EVENTS</span></a></li>
+                <li><a id="gallery-link" class="nav-link" href="{% url 'gallery-revolt' %}">
+                    <span class="{% if request.path == '/revolt-art/' or request.path == '/revolt-gallery/' %}deep-red{% else %}text-light{% endif %} custom-font-change custom-glow-change">Exhibits</span>
+                </a>
+                </li>
+                <li>
+                    <a id="venue-link" class="nav-link" href="{% url 'hut' %}">
+                        <span class='{% if request.path == "/hut-out-front/" %}deep-red{% else %}text-light{% endif %} custom-glow-change custom-font-change'>HUT</span>
+                    </a>
+                </li>
+                <li><a class="nav-link" href="{% url 'music-reset' %}"><span class="{% if request.path == '/reset-performing-arts/' %}deep-red{% else %}text-light{% endif %} custom-font-change custom-glow-change">RESET EVENTS</span></a></li>
                 
-                <li><a id="music-reset" class="nav-link" href="{% url 'contact-revolt' %}"><span class='custom-font-change'>CONTACT</span></a></li>
+                <li><a id="music-reset" class="nav-link" href="{% url 'contact-revolt' %}"><span class="{% if request.path == '/contact-revolt/' %}deep-red{% else %}text-light{% endif %} custom-font-change custom-glow-change">CONTACT</span></a></li>
             </ul>
         </nav><!-- .navbar -->
     </div>
@@ -463,7 +471,7 @@
  {% if request.GET.hidefooter %}
 
 <div class="row">
-    <p>test</p>
+
 </div>
 {% else %}
   <footer id="footer">
@@ -471,7 +479,7 @@
         <div class="container-fluid">
             <div class="row">
 
-                <div class="col-lg-3 col-md-6 footer-links">
+                <div class="col-lg-3 col-md-6 ps-5 footer-links text-start">
                     <h4>Friends and Fam</h4>
                     <ul>
                         <li><i class="bi bi-chevron-right"></i> <a href="https://www.unmtaosart.com/">UNM Taos</a></li>
@@ -481,7 +489,7 @@
                     </ul>
                 </div>
 
-                <div class="col-lg-3 col-md-6 footer-contact">
+                <div class="col-lg-3 col-md-6 footer-contact ps-5">
                     <h4>Come See the Gallery</h4>
                     <p>
                         222 Paseo del Pueblo Norte <br>
