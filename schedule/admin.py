@@ -7,7 +7,7 @@ from .models import (
     Music_artist_listing, Visual_artist_listing, Extra_curriucular_listing,
     Receive_email_updates, Archiveimagefiles, Archivedshowimagedata, ArchivedResetData
 )
-
+from django.utils import timezone
 from revolt_annex import settings
 import os
 
@@ -37,27 +37,37 @@ class VisualSheduleAdmin(admin.ModelAdmin):
 
     def move_data_to_archive(self, request, queryset):
         for obj in queryset:
-            if obj.vis_show_date_end < date.today():
-                print(obj+'yes')
-                archived_data = Archivedshowimagedata.objects.create(
-                    archive_show_name = obj.visual_show_name,
-                    archive_artist_name = obj.vis_artist_name,
-                    archive_start_date = obj.vis_show_date_start,
-                    archive_end_date = obj.vis_show_date_end,
-                    archive_artist_web = obj.vis_artist_website,
-                    archive_folder_id = obj.image_folder_id
-                )
-                Archiveimagefiles.objects.create(
-                    archive_fk=archived_data,
-                )
-                # Trigger save_model function of Fullarchiveform
-                full_archive_form = Fullarchiveform(model=Archivedshowimagedata, admin_site=admin.site)
-                full_archive_form.save_model(request, archived_data, full_archive_form, False)
-                obj.delete()
+            try:
+                if obj.vis_show_date_end < timezone.now().date():
 
-        self.message_user(request,f'Selected rows copied to Archivedshowimagedata and Archiveimagefiles and deleted from Visual_artist_listing.')
+                    archived_data = Archivedshowimagedata(
+                        archive_show_name=obj.visual_show_name,
+                        archive_artist_name=obj.vis_artist_name,
+                        archive_start_date=obj.vis_show_date_start,
+                        archive_end_date=obj.vis_show_date_end,
+                        archive_artist_web=obj.vis_artist_website,
+                        archive_folder_id=obj.image_folder_id,
+                    )
+                    archived_data.save()  # Save the archived_data instance
+
+                    print('model 1 set up')
+
+                    archive_image = Archiveimagefiles(archive_fk=archived_data)
+                    archive_image.save()  # Save the Archiveimagefiles instance
+
+                    print('model 2 set up')
+
+                    obj.delete()
+                    print('deleted 1')
+
+            except Exception as e:
+                print(f'An error occurred: {str(e)}')
+
+        self.message_user(request,
+                          f'Selected rows copied to Archivedshowimagedata and Archiveimagefiles and deleted from Visual_artist_listing.')
 
     move_data_to_archive.short_description = 'move to archives'
+
 
 # Register Visual_artist_listing model with VisualSheduleAdmin
 admin.site.register(Visual_artist_listing, VisualSheduleAdmin)
