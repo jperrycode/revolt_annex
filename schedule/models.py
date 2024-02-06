@@ -55,6 +55,7 @@ class Visual_artist_listing(models.Model):
     flyer_server_id = models.CharField(max_length=100, null=True, blank=True)
     flyer_img_id = models.CharField(max_length=100, null=True, blank=True)
     flyer_img_secret = models.CharField(max_length=100, null=True, blank=True)
+    image_folder_id = models.CharField(max_length=100, null=True, blank=True)
 
     class Meta:
         ordering = ['vis_show_date_start']
@@ -105,7 +106,7 @@ class Archivedshowimagedata(models.Model):
     archive_artist_name = models.CharField(max_length=75, blank=True, null=True)
     archive_start_date = models.DateField(auto_now=False, auto_now_add=False, blank=True, null=True)
     archive_end_date = models.DateField(auto_now=False, auto_now_add=False, blank=True, null=True)
-    archive_folder_id = models.CharField(max_length=50)
+    archive_folder_id = models.CharField(max_length=50, blank=True, null=True)
     archive_artist_web = models.CharField(max_length=50, blank=True, null=True)
 
     class Meta:

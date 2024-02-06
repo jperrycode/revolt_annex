@@ -1,7 +1,7 @@
 from typing import Any
 from django.contrib import admin
 import flickrapi
-
+from datetime import date
 # Import necessary models and modules
 from .models import (
     Music_artist_listing, Visual_artist_listing, Extra_curriucular_listing,
@@ -33,10 +33,35 @@ admin.site.register(Music_artist_listing, MusicScheduleAdmin)
 # Define Visual Schedule Admin model
 class VisualSheduleAdmin(admin.ModelAdmin):
     list_display = ("vis_artist_name", "vis_show_date_start", "age_restriction",)
+    actions = ['move_data_to_archive']
 
+    def move_data_to_archive(self, request, queryset):
+        for obj in queryset:
+            if obj.vis_show_date_end < date.today():
+                print(obj+'yes')
+                archived_data = Archivedshowimagedata.objects.create(
+                    archive_show_name = obj.visual_show_name,
+                    archive_artist_name = obj.vis_artist_name,
+                    archive_start_date = obj.vis_show_date_start,
+                    archive_end_date = obj.vis_show_date_end,
+                    archive_artist_web = obj.vis_artist_website,
+                    archive_folder_id = obj.image_folder_id
+                )
+                Archiveimagefiles.objects.create(
+                    archive_fk=archived_data,
+                )
+                # Trigger save_model function of Fullarchiveform
+                full_archive_form = Fullarchiveform(model=Archivedshowimagedata, admin_site=admin.site)
+                full_archive_form.save_model(request, archived_data, full_archive_form, False)
+                obj.delete()
+
+        self.message_user(request,f'Selected rows copied to Archivedshowimagedata and Archiveimagefiles and deleted from Visual_artist_listing.')
+
+    move_data_to_archive.short_description = 'move to archives'
 
 # Register Visual_artist_listing model with VisualSheduleAdmin
 admin.site.register(Visual_artist_listing, VisualSheduleAdmin)
+
 
 
 # Define Extra Curricular Admin model
@@ -76,6 +101,7 @@ class Fullarchiveform(admin.ModelAdmin):
     model = Archivedshowimagedata
     inlines = [Model2Inline]
     list_display = ('archive_show_name', 'archive_start_date', 'archive_end_date', 'archive_folder_id')
+
 
 # Overriding save_model method to handle saving images from Flickr
     def save_model(self, request, obj, form, change, photo_height=None):
