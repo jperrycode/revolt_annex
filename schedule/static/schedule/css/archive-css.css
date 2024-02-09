@@ -214,26 +214,18 @@ display: flex;
 
 .gallery-update-container {
  background: radial-gradient(circle, rgba(255, 0, 0, 0.5), rgba(0, 0, 0, .2), rgba(0, 0, 0, 0.01));
-border: 5px ridge #643434;
-border-radius: 10px;
+
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 150% 150%;
-box-shadow: 11px 12px 0px -2px rgba(0,0,0,0.9);
--webkit-box-shadow: 11px 12px 0px -2px rgba(0,0,0,0.9);
--moz-box-shadow: 11px 12px 0px -2px rgba(0,0,0,0.9);
-}
-
-
-
-@media (max-width: 550px) {
-#front-page-img-container {
+  background-size: 120% 100%;
 
 
 }
 
-}
+
+
+
 
 
 
@@ -289,11 +281,14 @@ margin-top: 100px;
 margin-top: 60px;
 }
 
+
+
 }
 
 .link-hover:hover {
 color: yellow;
 }
+
 
 
 
