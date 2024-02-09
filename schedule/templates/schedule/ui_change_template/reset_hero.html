@@ -3,7 +3,7 @@
 
 <div class="hero-container" data-aos="zoom-in" data-aos-delay="100">
   <div class="section-header p-3 p-md-5 text-center">
-    <h1 class="mb-1 mt-4 pb-0 deep-red text-shad-dark-back">Reset Performing Arts</h1>
+    <h1 class="mb-1 mt-5 pt-3 pb-0 deep-red text-shad-dark-back">Reset Performing Arts</h1>
     <p class="text-uppercase custom-font-octin text-light custom-paragraph">Live Music and Classes</p>
 <div class="row">
   <div class="col-lg-8 col-sm-12 mx-auto">
@@ -14,10 +14,13 @@
 </div>
 
   </div>
+<div class="row w-25 mx-auto text-center">
+  <h3 class="custom-font-octin text-shad-dark-back fs-2 deep-red">Upcoming Show</h3>
 
-  <div class="row justify-content-center">
+</div>
+  <div class="row justify-content-center w-75 mx-auto">
     {% if music_artist_listing %}
-      <div class="col-lg-4 col-md-6 pb-3 pb-md-5" data-aos="fade-up" data-aos-delay="100">
+      <div class="col-lg-5 col-md-6 pb-3 pb-md-5" data-aos="fade-up" data-aos-delay="100">
         <div class="hero-flyer-container p-3 mx-auto">
           <a href="{{ music_artist_listing.0.artist_music_page }}">
             <img src="https://live.staticflickr.com/{{ music_artist_listing.0.reset_flyer_serverID }}/{{ music_artist_listing.0.reset_flyer_img_id }}_{{ music_artist_listing.0.reset_flyer_img_secret }}.jpg" id="front-page-img-container" loading="lazy" class="shad m-1 img-fluid border border-danger-subtle">
@@ -25,7 +28,7 @@
         </div>
       </div>
 
-      <div class="col-lg-4 col-md-6 pb-3 pb-md-5 p-sm-2" data-aos="fade-up" data-aos-delay="100">
+      <div class="col-lg-5 col-md-6 pb-3 pb-md-5 p-sm-2" data-aos="fade-up" data-aos-delay="100">
         <div class="hero-flyer-container p-3 mx-auto">
           <p class='fs-4 mx-auto mt-4 custom-font-octin text-shad-dark-back text-light text-start border-bottom border-danger'>
             {{ music_artist_listing.0.artist_name }}
@@ -55,7 +58,7 @@
         <div class="text-center">
           <h2 class="text-light text-shad-dark-back">MORE INFO COMING <span class="deep-red">SOON</span></h2>
           <h3 class="text-light text-shad-dark-back custom-font-octin link-hover p-2">
-            Check <a href="https://www.instagram.com/revolt_gallery/">Instagram</a>
+            Check <a href="https://www.instagram.com/revolt_gallery/"><span class="insta">Instagram</span></a>
           </h3>
         </div>
       </div>

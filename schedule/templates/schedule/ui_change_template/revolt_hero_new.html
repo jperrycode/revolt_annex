@@ -3,18 +3,18 @@
 
 <div class="hero-container" data-aos="zoom-in" data-aos-delay="100">
     <h1 id="hero-front" class="mb-1 mt-5 pb-0 pt-5 deep-red text-shad-dark-back">Gallery Exhibits</h1>
-    <p class="fs-3 custom-font-change text-shad-dark-back">Where Art Breaks Free from the System</p>
-    <div class="border-bottom border-danger w-50 mx-auto"></div>
-    <div class="container gallery-update-container mt-1 p-1">
+
+    <div class="w-50 mx-auto"></div>
+    <div class="container gallery-update-container mt-3 p-1">
         <h2 class="custom-font-octin deep-red mb-4 text-center">Current / Upcoming Exhibit</h2>
 
-        <div class="row mt-5">
+        <div class="row mt-1">
             {% if gallery_listing %}
                 {% with gallery_date=gallery_listing.0.vis_show_date_end|date:"Y-m-d" %}
                     {% if gallery_date > current_date %}
-                        <div class="col-lg-2 text-center p-4"></div>
+<!--                        <div class="col-lg-2 text-center p-4"></div>-->
 
-                        <div class="col-lg-8 pb-5" data-aos="fade-up" data-aos-delay="100">
+                        <div class="col-lg-8 pb-5 mx-auto" data-aos="fade-up" data-aos-delay="100">
                             <div class="hero-flyer-container mx-auto">
                                 <p class="text-shad-dark-back deep-red custom-font-octin fs-2 mt-4">{{ gallery_listing.0.visual_show_name }}</p>
                                 <a href="{% url 'gallery-revolt' %}">
@@ -32,10 +32,10 @@
 
                                                     </div>
 
-                        <div class="col-lg-2 text-center p-4">
+<!--                        <div class="col-lg-2 text-center p-4">-->
 
 
-                        </div>
+<!--                        </div>-->
 
 
             {% else %}

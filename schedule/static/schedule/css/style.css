@@ -339,7 +339,8 @@ h6 {
 * Desktop Navigation 
 */
 .navbar {
-  padding: 0;
+
+  padding-top: 100px;
 }
 
 
@@ -1587,7 +1588,9 @@ h6 {
 #contact .contact-info a:hover {
   color: yellow;
 }
-
+.insta:hover {
+color: yellow;
+}
 #contact .contact-address,
 #contact .contact-phone,
 #contact .contact-email {
@@ -2271,11 +2274,6 @@ font-size: 60px;
 
 }
 
-   .custom-paragraph {
-
-        font-family: 'Garamond', sans-serif; /* Specify your preferred font */
-        /* Add any additional styling if necessary */
-    }
 
 
    .moving-gradient {
@@ -2358,3 +2356,27 @@ border-bottom: 2px groove #f82249;
 box-shadow: -15px 0px 10px -15px #111;
 }
 
+/* nav slide tray */
+    /* Custom CSS for horizontal sliding dropdown */
+    .dropdown-menu {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+      z-index: 1000;
+      b-translucent;
+    }
+
+    .show.dropdown-menu {
+      transform: translateX(0);
+    }
+
+#navbar img {
+
+
+}
+
+#reset-nav-drop, #revolt-nav-drop {
+display: none;
+}
