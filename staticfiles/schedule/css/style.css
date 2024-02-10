@@ -80,7 +80,6 @@ body {
 
 #main-reset {
   color: #2f3138;
-  font-family: 'FreeMono', monospace;
   margin: 0;
   overflow-y: scroll; /* To enable scrolling */
 
@@ -368,7 +367,6 @@ h6 {
   align-items: center;
   justify-content: space-between;
   color: rgba(202, 206, 221, 0.8);
-  font-family: "Raleway", sans-serif;
   font-weight: 600;
   font-size: 20px;
   white-space: nowrap;
