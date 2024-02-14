@@ -1,52 +1,68 @@
-<ul class="list-group list-group-horizontal-lg">
-    <li class="list-group-item">
-        <div class="d-inline-block">
-                    <div class="item custom-font-octin text-end deep-red">
-                        <span class="nav-span">
-                            <a class="nav-link" href="{% url 'hut' %}" id="venue-link">
-                                <span class='{% if request.path == "/hut-out-front/" %}deep-red{% else %}text-light{% endif %} custom-glow-change custom-font-change'>HUT</span>
-                            </a>
-                        </span>
-                    </div>
-                    <div class="item custom-font-octin deep-red">
-                        <span class="nav-span">
-                            <a class="nav-link" href="{% url 'gallery-revolt' %}" id="gallery-link">
-                                <span class="{% if request.path == '/revolt-art/' or request.path == '/revolt-gallery/' %}deep-red{% else %}text-light{% endif %} custom-font-change custom-glow-change">Exhibits</span>
-                            </a>
-                        </span>
-                    </div>
-                </div>
-    </li>
-    <li class="list-group-item">
-        <div class="d-inline-block">
-                    <div class="label mx-auto custom-font-octin deep-red fs-1">
-                        <a href="{% url 'annex_home' %}" data-bs-target="#carousel-id" data-bs-slide-to="0">
-                            <img class='logo-schedule img-h' src='{% static "schedule/img/img-new/fist.png" %}' alt='logo' />
-                            <span class="{% if request.path == '/revolt-art/' or request.path == '/revolt-gallery/' %}text-danger{% else %}text-light{% endif %}">Revolt</span>
+<nav id="navbar" class="order-last order-lg-0 w-100 bg-transparent mt-2 text-center">
+    <div class="row">
+    <!-- <img class='logo-schedule img-h' src='{% static "schedule/img/img-new/fist.png" %}' alt='logo' /> -->
+    <div class="container mx-auto align-items-bottom">
+        <div class="d-flex justify-content-center mx-auto">
+            
+                <div class="text-center custom-font-octin deep-red align-text-bottom me-4">
+                    <span class="nav-span">
+                        <a class="nav-link" href="{% url 'hut' %}">
+                            <span class='{% if request.path == "/hut-out-front/" %}deep-red{% else %}text-light{% endif %} custom-glow-change custom-font-change'>HUT</span>
                         </a>
-                        <span class="text-danger">||</span>
-                        <a href="{% url 'music-reset' %}" data-bs-target="#carousel-id" data-bs-slide-to="0">
-                            <span class="{% if request.path == '/reset-performing-arts/' %}text-danger{% else %}text-light{% endif %}">RESET</span>
-                            <img class='logo-schedule img-h' src='{% static "schedule/img/img-new/fist.png" %}' alt='logo' />
-                        </a>
-                    </div>
+                    </span>
                 </div>
+            
+            
+                <div class="text-center custom-font-octin deep-red align-text-bottom me-4">
+                    <span class="nav-span">
+                        <a class="nav-link" href="{% url 'gallery-revolt' %}">
+                            <span class="{% if request.path == '/revolt-art/' or request.path == '/revolt-gallery/' %}deep-red{% else %}text-light{% endif %} custom-font-change custom-glow-change">Exhibits</span>
+                        </a>
+                    </span>
+                </div>
+            
 
-    </li>
-    <li class="list-group-item"><div class="d-inline-block">
-                    <div class="item custom-font-octin deep-red">
-                        <span class="nav-span">
-                            <a class="nav-link" href="{% url 'music-reset' %}">
-                                <span class="{% if request.path == '/reset-performing-arts/' %}deep-red{% else %}text-light{% endif %} custom-font-change custom-glow-change">RESET EVENTS</span>
-                            </a>
-                        </span>
-                    </div>
-                    <div class="item custom-font-octin deep-red">
-                        <span class="nav-span">
-                            <a class="nav-link" href="{% url 'contact-revolt' %}" id="music-reset">
-                                <span class="{% if request.path == '/contact-revolt/' %}deep-red{% else %}text-light{% endif %} custom-font-change custom-glow-change">CONTACT</span>
-                            </a>
-                        </span>
-                    </div>
-                </div></li>
-</ul>
+
+                <div class="text-center custom-font-octin deep-red ms-4">
+                    <span class="nav-span">
+                       <a href="{% url 'annex_home' %}" data-bs-target="#carousel-id" data-bs-slide-to="0">
+                        <span class="fs-1 {% if request.path == '/revolt-art/' or request.path == '/revolt-gallery/' %}text-danger{% else %}text-light{% endif %}">
+                            Revolt</span>
+                    </a>
+                    </span>
+                </div>
+            </div>
+            <span class="text-danger text-center fs-1">||</span>
+
+                <div class="text-center custom-font-octin deep-red me-4">
+                    <span class="nav-span">
+                        <a href="{% url 'music-reset' %}" data-bs-target="#carousel-id" data-bs-slide-to="0">
+                        <span class="fs-1 {% if request.path == '/reset-performing-arts/' %}text-danger{% else %}text-light{% endif %}">
+                            RESET</span>
+                    </a>
+                    </span>
+                </div>
+            </div>
+            
+                <div class="text-center custom-font-octin d-inline deep-red ms-4">
+                    <span class="nav-span">
+                        <a class="nav-link" href="{% url 'music-reset' %}">
+                            <span class="{% if request.path == '/reset-performing-arts/' %}deep-red{% else %}text-light{% endif %} custom-font-change custom-glow-change">RESET EVENTS</span>
+                        </a>
+                    </span>
+                </div>
+            
+            
+                <div class="custom-font-octin d-inline deep-red ms-4">
+                    <span class="nav-span">
+                        <a class="nav-link" href="{% url 'contact-revolt' %}">
+                            <span class="{% if request.path == '/contact-revolt/' %}deep-red{% else %}text-light{% endif %} custom-font-change custom-glow-change">CONTACT</span>
+                        </a>
+                    </span>
+                </div>
+            
+        </div>
+    </div>
+    <!-- <img class='logo-schedule img-h' src='{% static "schedule/img/img-new/fist.png" %}' alt='logo' /> -->
+        </div>
+</nav>

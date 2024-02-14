@@ -291,8 +291,13 @@ margin-top: 60px;
 color: yellow;
 }
 
+.nav-item-container {
+    width: 150px; /* Adjust the width as needed */
+}
 
-
+.nav-item-container-small {
+    width:120px; /* Adjust the width as needed */
+}
 
 
 

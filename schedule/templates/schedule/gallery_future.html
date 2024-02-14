@@ -1,9 +1,9 @@
 {% load static %}
 
 <div class="container future-custom-container mt-3 mb-5">
-    <h1 class="text-center mt-4 mb-2 text-light">THE <span class="text-danger">FUTURE</span></h1>
+    <h1 class="text-center mt-4 mb-2 text-light">THE <span class="deep-red">FUTURE</span></h1>
     <div class="text-center">
-        <h2>REVOLT GALLERY <span class="text-danger">SCHEDULE</span></h2>
+        <h2>REVOLT GALLERY <span class="deep-red">SCHEDULE</span></h2>
 
     </div>
 <div class="row">
@@ -18,13 +18,13 @@
                 <p class='text-center custom-font-change fs-4 text-shad-dark-back'>{{ item.visual_show_name }} </p>
                 {% else %}
                 {% endif %}
-                <p class='text-center custom-font-change text-shad-dark-back'><span class='h4 text-danger'>by</span> <span class='fs-5'>{{ item.vis_artist_name }}</span></p>
+                <p class='text-center custom-font-change text-shad-dark-back'><span class='h4 deep-red'>by</span> <span class='fs-5'>{{ item.vis_artist_name }}</span></p>
 
                 <div class='hover-future-cont'>
-                    <p class="text-center">{{item.vis_show_date_start|date:"M Y"}} <span class="text-danger">||</span> {{item.vis_show_date_end|date:"M Y"}}</p>
+                    <p class="text-center">{{item.vis_show_date_start|date:"M Y"}} <span class="deep-red">||</span> {{item.vis_show_date_end|date:"M Y"}}</p>
 
 
-                        <p class="text-center custom-font-change text-shad-dark-back"><a class='text-decoration-none text-danger' href='{{ item.vis_artist_website }}'>{{ item.vis_artist_name }}'s<span class="text-light"> Website</span></a></p>
+                        <p class="text-center custom-font-change text-shad-dark-back"><a class='text-decoration-none deep-red' href='{{ item.vis_artist_website }}'>{{ item.vis_artist_name }}'s<span class="text-light"> Website</span></a></p>
 
                 </div>
                 <!-- Add your custom content here -->
@@ -37,7 +37,7 @@
     {% endfor %}
     {% else %}
        <div class="container mt-5 pb-5" data-aos="fade-up" data-aos-delay="100">
-            <h1 class="text-center mb-2 fs-1 text-shad-dark-back text-danger">REVOLT GALLERY HAS <span class="d-block d-lg-inline text-light">NO SHOWS ON THE CALENDAR</span></h1>
+            <h1 class="text-center mb-2 fs-1 text-shad-dark-back deep-red">REVOLT GALLERY HAS <span class="d-block d-lg-inline text-light">NO SHOWS ON THE CALENDAR</span></h1>
             <div class="text-center">
                 <h2 class="text-light">THANK YOU <span class="text-light"></span></h2>
                 <h2 class="text-light text-shad-dark-back">New show Dropping in March 2024</h2>
