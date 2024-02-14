@@ -521,7 +521,7 @@
     <div class="container mx-auto align-items-bottom">
         <div class="d-flex justify-content-center mx-auto">
 
-                <div class="custom-font-octin h-25 my-auto d-inline deep-red me-4">
+                <div class="nav-hover custom-font-octin h-25 my-auto d-inline deep-red me-4">
                     <span class="nav-span">
                         <a class="nav-link" href="{% url 'hut' %}">
                             <span class='fs-3 {% if request.path == "/hut-out-front/" %}deep-red{% else %}text-light{% endif %} custom-glow-change'>THE HUT</span>
@@ -530,7 +530,7 @@
                 </div>
 
 
-                <div class="custom-font-octin h-25 my-auto d-inline deep-red me-4">
+                <div class="nav-hover custom-font-octin h-25 my-auto d-inline deep-red me-4">
                     <span class="nav-span">
                         <a class="nav-link" href="{% url 'gallery-revolt' %}">
                             <span class="fs-3 {% if request.path == '/revolt-art/' or request.path == '/revolt-gallery/' %}deep-red{% else %}text-light{% endif %} custom-glow-change">Exhibits</span>
@@ -540,20 +540,20 @@
 
 
 
-                <div class="text-end custom-font-octin deep-red ms-4">
+                <div class="nav-hover text-end custom-font-octin deep-red ms-4">
                     <span class="nav-span">
                        <a href="{% url 'annex_home' %}" data-bs-target="#carousel-id" data-bs-slide-to="0">
                         <span class="fs-1 custom-glow-change {% if request.path == '/revolt-art/' or request.path == '/revolt-gallery/' %}deep-red{% else %}text-light{% endif %}">
-                            Revolt</span>
+                            Revolt</span><span class="deep-red text-center fs-2 my-auto"> | </span>
                     </a>
                     </span>
                 </div>
 
-            <span class="deep-red text-center fs-2 my-auto">||</span>
+<!--            <span class="deep-red text-center fs-2 my-auto"> | </span><span class="text-light text-center fs-2 my-auto"> | </span>-->
 
-                <div class="text-start custom-font-octin deep-red me-4">
+                <div class="nav-hover text-start custom-font-octin deep-red me-4">
                     <span class="nav-span">
-                        <a href="{% url 'music-reset' %}" data-bs-target="#carousel-id" data-bs-slide-to="0">
+                        <a href="{% url 'music-reset' %}" data-bs-target="#carousel-id" data-bs-slide-to="0"><span class="text-light text-center fs-2 my-auto"> | </span>
                         <span class="fs-1 custom-glow-change {% if request.path == '/reset-performing-arts/' %}deep-red{% else %}text-light{% endif %}">
                             RESET</span>
                     </a>
@@ -561,7 +561,7 @@
                 </div>
 
 
-                <div class="custom-font-octin h-25 my-auto d-inline deep-red ms-4">
+                <div class="nav-hover custom-font-octin h-25 my-auto d-inline deep-red ms-4">
                     <span class="nav-span">
                         <a class="nav-link" href="{% url 'music-reset' %}">
                             <span class="fs-3 {% if request.path == '/reset-performing-arts/' %}deep-red{% else %}text-light{% endif %} custom-glow-change">RESET EVENTS</span>
@@ -570,7 +570,7 @@
                 </div>
 
 
-                <div class="custom-font-octin h-25 my-auto d-inline deep-red ms-4">
+                <div class="nav-hover custom-font-octin h-25 my-auto d-inline deep-red ms-4">
                     <span class="nav-span">
                         <a class="nav-link" href="{% url 'contact-revolt' %}">
                             <span class="fs-3 {% if request.path == '/contact-revolt/' %}deep-red{% else %}text-light{% endif %} custom-glow-change">CONTACT</span>

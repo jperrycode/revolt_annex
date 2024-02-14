@@ -299,7 +299,39 @@ color: yellow;
     width:120px; /* Adjust the width as needed */
 }
 
+.nav-hover:hover {
+  /* on hover - scale to this x,y size */
+  transform: scale(1.15,1.15);
+  /* property values: name, duration, iteration, timing-function */
+  animation: jiggle 0.5s infinite linear;
+  white 0.006em 0.006em 0.007em,
+    #9c9c9c 1px 1px 1px,
+    #9c9c9c 1px 2px 1px,
+    #9c9c9c 1px 3px 1px,
+    #9c9c9c 1px 4px 1px,
+    #9c9c9c 1px 5px 1px,
+    #9c9c9c 1px 6px 1px,
+    #9c9c9c 1px 7px 1px,
+    #9c9c9c 1px 8px 1px,
+    #9c9c9c 1px 9px 1px,
+    #9c9c9c 1px 10px 1px,
+    #9c9c9c 1px 11px 1px,
+    #9c9c9c 1px 12px 1px,
+    rgba(16, 16, 16, 0.4) 1px 18px 6px,
+    rgba(16, 16, 16, 0.2) 1px 22px 10px,
+    rgba(16, 16, 16, 0.2) 1px 26px 35px,
+    rgba(16, 16, 16, 0.4) 1px 30px 65px,
+    white -0.15em -0.1em 100px;
+}
 
 
 
-
+@keyframes jiggle {
+  /* start at 0deg and this scale size.
+     scale size is repeated here to maintain smooth scaling */
+  0% {transform: rotate(0deg) scale(1.15,1.15);}
+  /* midway rotate 2deg right */
+  50% {transform: rotate(2deg) scale(1.15,1.15);}
+  /* end rotate -2deg left */
+  100% {transform: rotate(-2deg) scale(1.15,1.15)}
+}
