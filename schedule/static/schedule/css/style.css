@@ -2378,3 +2378,25 @@ box-shadow: -15px 0px 10px -15px #111;
 #reset-nav-drop, #revolt-nav-drop {
 display: none;
 }
+
+
+#hero-reset {
+  color: #2f3138;
+  font-family: 'FreeMono', monospace;
+  margin: 0;
+  overflow-y: scroll; /* To enable scrolling */
+  position: relative; /* Add relative positioning to enable stacking */
+  background: url('../img/img-new/dark_neon_exterior_shot.jpg') center/cover fixed; /* Background image */
+  z-index: -1;
+}
+
+#hero-reset::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Dark overlay */
+  z-index: -1; /* Ensure overlay is above the background image */
+}
