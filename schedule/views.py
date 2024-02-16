@@ -136,7 +136,7 @@ class RevoltView(TemplateView):
 
             # Fetching data efficiently
             gallery_listing = Visual_artist_listing.objects.all()
-            gallery_listing = gallery_listing.filter(your_date_field__lte=date.today())
+            
 
             # Fetching Archivedshowimagedata instances and prefetching specific fields from related Archiveimagefiles instances
             image_show_data = (
