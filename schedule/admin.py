@@ -23,7 +23,7 @@ admin_site = MyAdminSite(name="admin")
 
 # Define Music Schedule Admin model
 class MusicScheduleAdmin(admin.ModelAdmin):
-    list_display = ("artist_name", "show_date", "entry_price", "music_artist_image_url")
+    list_display = ("artist_name", "show_date", "entry_price",)
 
 
 # Register Music_artist_listing model with MusicScheduleAdmin

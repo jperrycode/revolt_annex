@@ -1,30 +1,30 @@
 from django.db import models
 
-EVENT_GENRE_CHOICES = [
-    ('rap', 'Rap'),
-    ("Drum and Bass", 'Drum and Bass'),
-    ("House", 'House'),
-    ('Techno', 'Techno'),
-    ('Rock and Roll', 'Rock and Roll'),
-    ('Folk', 'Folk'),
-    ('Scheduled Class', 'Scheduled Class'),
-    ('Bass Music', 'Bass Music'),
-    ('Other', 'Other'),
-    ('UK Grime', 'UK Grime'),
-    ('Hip Hop', 'Hip Hop'),
-]
+# EVENT_GENRE_CHOICES = [
+#     ('rap', 'Rap'),
+#     ("Drum and Bass", 'Drum and Bass'),
+#     ("House", 'House'),
+#     ('Techno', 'Techno'),
+#     ('Rock and Roll', 'Rock and Roll'),
+#     ('Folk', 'Folk'),
+#     ('Scheduled Class', 'Scheduled Class'),
+#     ('Bass Music', 'Bass Music'),
+#     ('Other', 'Other'),
+#     ('UK Grime', 'UK Grime'),
+#     ('Hip Hop', 'Hip Hop'),
+# ]
 
 
 # artist information model
 class Music_artist_listing(models.Model):
+    music_show_name = models.CharField(max_length=255, default='', blank=True, null=False)
     artist_name = models.CharField(max_length=50, default='', blank=True, null=False)
-    artist_genre = models.CharField(max_length=255, choices=EVENT_GENRE_CHOICES, default='')
+    music_supporting_artist = models.TextField(default='', blank=True, null=False)
     show_date = models.DateField(auto_now=False, auto_now_add=False)
     show_time = models.TimeField(auto_now=False, auto_now_add=False)
     artist_bio = models.CharField(max_length=255, default='', blank=True, null=False)
     artist_insta = models.CharField(max_length=255, blank=True, null=True)
     artist_website = models.CharField(max_length=255, blank=True, null=True)
-    music_artist_image_url = models.URLField(max_length=200, null=True, blank=True)
     entry_price = models.FloatField(null=True)
     reset_flyer_serverID = models.CharField(max_length=30, blank=True, null=True)
     reset_flyer_img_id = models.CharField(max_length=30, blank=True, null=True)
@@ -146,7 +146,7 @@ class ArchivedResetData(models.Model):
     music_archive_soundcloud = models.URLField(max_length=75, blank=True, null=True)
     music_archive_social_url = models.URLField(max_length=75, blank=True, null=True)
     archive_reset_bio = models.CharField(max_length=252, blank=True, null=True)
-
+    archive_reset_vimeo_link = models.URLField(max_length=200, blank=True, null=True)
 
     class Meta:
         ordering = ['-archive_reset_show_date']
