@@ -335,3 +335,9 @@ color: yellow;
   /* end rotate -2deg left */
   100% {transform: rotate(-2deg) scale(1.15,1.15)}
 }
+
+.hero-flyer-container:hover {
+
+transform: scale(1.25);
+
+}

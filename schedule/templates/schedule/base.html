@@ -533,7 +533,7 @@
                 <div class="nav-hover custom-font-octin h-25 my-auto d-inline deep-red me-4">
                     <span class="nav-span">
                         <a class="nav-link" href="{% url 'gallery-revolt' %}">
-                            <span class="fs-3 {% if request.path == '/revolt-art/' %}deep-red{% else %}text-light{% endif %} custom-glow-change">Exhibits</span>
+                            <span class="fs-3 {% if request.path == '/revolt-gallery/' %}deep-red{% else %}text-light{% endif %} custom-glow-change">Exhibits</span>
                         </a>
                     </span>
                 </div>
@@ -543,7 +543,7 @@
                 <div class="nav-hover text-end custom-font-octin deep-red ms-4">
                     <span class="nav-span">
                        <a href="{% url 'annex_home' %}" data-bs-target="#carousel-id" data-bs-slide-to="0">
-                        <span class="fs-1 custom-glow-change {% if request.path == '/revolt-art/' or request.path == '/revolt-gallery/' %}deep-red{% else %}text-light{% endif %}">
+                        <span class="fs-1 custom-glow-change {% if request.path == '/revolt-art/' %}deep-red{% else %}text-light{% endif %}">
                             Revolt</span><span class="deep-red text-center fs-2 my-auto"> | </span>
                     </a>
                     </span>

@@ -23,38 +23,38 @@
 </div>
   <div class="row justify-content-center w-75 mx-auto">
     {% if music_artist_listing %}
-      <div class="col-lg-5 col-md-6 pb-3 pb-md-5" data-aos="fade-up" data-aos-delay="100">
-        <div class="hero-flyer-container p-3 mx-auto">
+      <div class="row" data-aos="fade-up" data-aos-delay="100">
+        <div class="hero-flyer-container gallery-update-container p-3 h-50 mx-auto text-center">
           <a href="{{ music_artist_listing.0.artist_music_page }}">
-            <img src="https://live.staticflickr.com/{{ music_artist_listing.0.reset_flyer_serverID }}/{{ music_artist_listing.0.reset_flyer_img_id }}_{{ music_artist_listing.0.reset_flyer_img_secret }}.jpg" id="front-page-img-container" loading="lazy" class="shad m-1 img-fluid border border-danger-subtle">
+            <img src="https://live.staticflickr.com/{{ music_artist_listing.0.reset_flyer_serverID }}/{{ music_artist_listing.0.reset_flyer_img_id }}_{{ music_artist_listing.0.reset_flyer_img_secret }}.jpg" id="front-page-img-container" loading="lazy" class="shad m-1 img-fluid mx-auto border border-danger-subtle">
           </a>
         </div>
       </div>
 
-      <div class="col-lg-5 col-md-6 pb-3 pb-md-5 p-sm-2" data-aos="fade-up" data-aos-delay="100">
-        <div class="hero-flyer-container p-3 mx-auto">
-          <p class='fs-4 mx-auto mt-4 custom-font-octin text-shad-dark-back text-light text-start border-bottom border-danger'>
-            {{ music_artist_listing.0.artist_name }}
-          </p>
+<!--      <div class="col-lg-5 col-md-6 pb-3 pb-md-5 p-sm-2" data-aos="fade-up" data-aos-delay="100">-->
+<!--        <div class="hero-flyer-container p-3 mx-auto">-->
+<!--          <p class='fs-3 mx-auto mt-4 custom-font-octin text-shad-dark-back text-light text-start border-bottom border-danger'>-->
+<!--            {{ music_artist_listing.0.artist_name }} <br> {{ music_artist_listing.0.music_show_name }}-->
+<!--          </p>-->
 
-          <p class='fs-5 mt-1 custom-font-octin text-shad-dark-back text-light text-start'>
-            {{ music_artist_listing.0.show_date|date:"M d" }} <span class="text-light">at</span> {{ music_artist_listing.0.show_time }}
-          </p>
+<!--          <p class='fs-5 mt-1 custom-font-octin text-shad-dark-back text-light text-start'>-->
+<!--            {{ music_artist_listing.0.show_date|date:"M d" }} <span class="text-light">at</span> {{ music_artist_listing.0.show_time }}-->
+<!--          </p>-->
 
-          <p class='fs-5 mx-auto custom-font-octin text-shad-dark-back text-light text-start'>
-            LOCATION:  <span class="text-light">at</span> RESET Performing Arts
-          </p>
+<!--          <p class='fs-5 mx-auto custom-font-octin text-shad-dark-back text-light text-start'>-->
+<!--            LOCATION:  <span class="text-light">at</span> RESET Performing Arts-->
+<!--          </p>-->
 
-          <p class='fs-5 mx-auto custom-font-octin text-shad-dark-back text-light text-start'>
-            About: {{music_artist_listing.0.artist_bio }}
-          </p>
+<!--          <p class='fs-5 mx-auto custom-font-octin text-shad-dark-back text-light text-start'>-->
+<!--            About: {{music_artist_listing.0.artist_bio }}-->
+<!--          </p>-->
 
-          <p class='fs-5 mx-auto custom-font-octin text-shad-dark-back text-light text-start'>
-            <a href="{{ music_artist_listing.0.artist_music_page }}"><span class="text-light">SoundCloud</span></a> |
-            <a href="{{ music_artist_listing.0.artist_insta }}"><span class="text-light">Instagram</span></a>
-          </p>
-        </div>
-      </div>
+<!--          <p class='fs-5 mx-auto custom-font-octin text-shad-dark-back text-light text-start'>-->
+<!--            <a href="{{ music_artist_listing.0.artist_music_page }}">Headliner SoundCloud</a>-->
+<!--            <a href="{{ music_artist_listing.0.artist_insta }}">Headliner Instagram</a>-->
+<!--          </p>-->
+<!--        </div>-->
+<!--      </div>-->
     {% else %}
       <div class="col-12 mt-4 pb-4" data-aos="fade-up" data-aos-delay="100">
         <h2 class="text-center mb-2 text-shad-dark-back deep-red">No Shows on <span class="d-block d-lg-inline text-light">the Schedule</span></h2>
