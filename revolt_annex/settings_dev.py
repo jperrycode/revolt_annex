@@ -102,9 +102,12 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+            'libraries': { # <----- add this
+                'filter_tags': 'schedule.template_tags.custom_filters'}
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'revolt_annex.wsgi.app'
 # WSGI_APPLICATION = 'revolt_annex.wsgi.application'

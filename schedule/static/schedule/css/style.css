@@ -116,6 +116,7 @@ a {
   color: #f82249;
   text-decoration: none;
   transition: 0.5s;
+
 }
 
 
@@ -835,7 +836,7 @@ h6 {
 }
 
 #about p {
-  font-size: 14px;
+  font-size: 16px;
   margin-bottom: 20px;
   color: #fff;
 }
@@ -2164,7 +2165,7 @@ font-family: 'Octin Spraypaint', sans-serif !important;
 
 .future-child-container:hover {
   transform: scale(1.1);
-  animation: glow 2s ease-in-out infinite;
+ /* animation: glow 2s ease-in-out infinite; */
   border: 1px solid red;
 }
 
@@ -2383,15 +2384,14 @@ display: none;
 
 #hero-reset {
   color: #2f3138;
-  font-family: "Roboto",sans-serif !important;
+  font-family: "Roboto", sans-serif !important;
   margin: 0;
-
   position: relative; /* Add relative positioning to enable stacking */
   background: url('../img/img-new/dark_neon_exterior_shot.jpg') center/cover fixed; /* Background image */
-  z-index: -1;
+  mix-blend-mode: lighten; /* Keep text and imagery unaffected */
 }
 
-#hero-reset::before {
+#hero-reset::after {
   content: "";
   position: absolute;
   top: 0;
@@ -2399,5 +2399,7 @@ display: none;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.7); /* Dark overlay */
-  z-index: -1; /* Ensure overlay is above the background image */
+  pointer-events: none; /* Allows click events to pass through the overlay to the links */
+  mix-blend-mode: multiply; /* Darken the background */
+  z-index: -4;
 }

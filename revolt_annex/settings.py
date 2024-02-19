@@ -101,6 +101,8 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+            'libraries': { # <----- add this
+                'filter_tags': 'schedule.custom_filters'}
         },
     },
 ]

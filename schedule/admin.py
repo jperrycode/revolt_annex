@@ -4,7 +4,7 @@ import flickrapi
 from datetime import date
 # Import necessary models and modules
 from .models import (
-    Music_artist_listing, Visual_artist_listing, Extra_curriucular_listing,
+    Music_artist_listing, Visual_artist_listing, Community_classes,
     Receive_email_updates, Archiveimagefiles, Archivedshowimagedata, ArchivedResetData
 )
 from django.utils import timezone
@@ -75,12 +75,12 @@ admin.site.register(Visual_artist_listing, VisualSheduleAdmin)
 
 
 # Define Extra Curricular Admin model
-class ExtraCurricularAdmin(admin.ModelAdmin):
+class CommunityClassesAdmin(admin.ModelAdmin):
     list_display = ("class_name", "class_day", "class_location")
 
 
 # Register Extra_curriucular_listing model with ExtraCurricularAdmin
-admin.site.register(Extra_curriucular_listing, ExtraCurricularAdmin)
+admin.site.register(Community_classes, CommunityClassesAdmin)
 
 
 # Define Email Consent Admin model

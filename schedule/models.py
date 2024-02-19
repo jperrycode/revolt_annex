@@ -1,18 +1,6 @@
 from django.db import models
 
-# EVENT_GENRE_CHOICES = [
-#     ('rap', 'Rap'),
-#     ("Drum and Bass", 'Drum and Bass'),
-#     ("House", 'House'),
-#     ('Techno', 'Techno'),
-#     ('Rock and Roll', 'Rock and Roll'),
-#     ('Folk', 'Folk'),
-#     ('Scheduled Class', 'Scheduled Class'),
-#     ('Bass Music', 'Bass Music'),
-#     ('Other', 'Other'),
-#     ('UK Grime', 'UK Grime'),
-#     ('Hip Hop', 'Hip Hop'),
-# ]
+
 
 
 # artist information model
@@ -63,7 +51,7 @@ class Visual_artist_listing(models.Model):
         verbose_name_plural = "Visual Artists"
 
 
-class Extra_curriucular_listing(models.Model):
+class Community_classes(models.Model):
     class_name = models.CharField(max_length=50, default='', blank=True, null=False)
     class_teacher = models.CharField(max_length=50, default="", blank=False, null=False)
     class_description = models.TextField(blank=False, null=False)
@@ -71,8 +59,8 @@ class Extra_curriucular_listing(models.Model):
     class_time = models.TimeField(auto_now=False, auto_now_add=False)
     class_location = models.CharField(max_length=50, default='Revolt Annex', null=False, blank=False)
     class_price = models.FloatField(null=True, blank=True)
-    image_url = models.URLField(max_length=250, null=True, blank=True)
-    class_artist_image = models.ImageField(upload_to='media/', null=True, blank=True)
+    teacher_site = models.CharField(max_length=100, null=True, blank=True)
+
 
     class Meta:
         verbose_name = "Class listing"

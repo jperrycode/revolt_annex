@@ -1,0 +1,50 @@
+{% load static %}
+<div id="about-forward" class="pt-3" data-aos="fade-up">
+    <h2 id='about-headline' class='text-center mt-4 mb-5 text-shad-dark-back'>Community Events <span class="deep-red">and classes</span></h2>
+    <div class="row justify-content-center">
+        <div class="col-lg-1"></div>
+        {% for item in community_classes %}
+        {% if forloop.first %}
+            <div class="col-lg-4 col-md-6">
+        {% elif forloop.counter0|divisibleby:3 %}
+            <div class="w-100"></div> <!-- Line break after every third entry -->
+            <div class="col-lg-4 col-md-6">
+        {% else %}
+            <div class="col-lg-4 col-md-6">
+        {% endif %}
+            <div class="text-white future-child-container pe-3 ps-3 rounded-4 shadow-lg bg-primary bg-opacity-25 p-2 text-center d-flex flex-column">
+
+    <h5 class="card-title text-center text-shad-dark-back custom-font-octin fw-bold mb-2">{{ item.class_name }} with <span class="deep-red">{{ item.class_teacher }}</span></h5>
+
+    <h6 class="card-subtitle text-shad-dark-back text-center mb-2">{{ item.class_day }} at {{ item.class_time }} || Class Price: ${{ item.class_price }}</h6>
+
+
+
+{% load filter_tags %}
+      {% with text=item.class_description %}
+  {% for sentence in text|split:'. ' %}
+   <p class="text-start text-shad-dark-back">{{ sentence }}{% if not forloop.last %}.{% endif %}</p> <!-- This will add a line break after each sentence -->
+  {% endfor %}
+{% endwith %}
+
+
+     {% if item.teacher_site %}
+    <div class=" text-decoration-none">
+      <a href='{{ item.teacher_site}}' class="text-decoration-none"><h5 class="mb-2 text-light">{{ item.class_teacher }}'s Website</h5></a>
+    </div>
+    {% else %}
+    {% endif %}
+
+  </div>
+
+        </div>
+        {% endfor %}
+
+
+        <div class="col-lg-1"></div>
+
+    </div>
+
+</div>
+    </div>
+</div>

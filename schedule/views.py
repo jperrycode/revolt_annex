@@ -6,7 +6,7 @@ from django.views.generic import DetailView
 from django.shortcuts import render
 from django.views.generic import TemplateView
 from django.views.generic.edit import CreateView
-from schedule.models import Music_artist_listing, Visual_artist_listing, Extra_curriucular_listing, ArchivedResetData
+from schedule.models import Music_artist_listing, Visual_artist_listing, Community_classes, ArchivedResetData
 from schedule.forms import ContactForm
 from .signals import contact_form_saved
 from schedule.models import Archiveimagefiles, Archivedshowimagedata
@@ -107,13 +107,7 @@ class ContactSuccessView(View):
         return context
 
 
-class ClassesView(TemplateView):
-    template_name = 'schedule/classes_section_index.html'
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['classes_data'] = Extra_curriucular_listing.objects.all()
-        return context
 
 
 class HutView(TemplateView):
@@ -162,6 +156,7 @@ class ResetView(TemplateView):
         context = super().get_context_data(**kwargs)
         context['music_artist_listing'] = Music_artist_listing.objects.all().values()
         context['music_archive'] = ArchivedResetData.objects.all()
+        context['community_classes'] = Community_classes.objects.all()
         # context['vimeo_video_data'] = self.get_vimeo_videos()
         return context
 
