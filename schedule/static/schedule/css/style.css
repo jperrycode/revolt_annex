@@ -10,6 +10,7 @@
 # General
 --------------------------------------------------------------*/
 html {
+font-family: "Roboto",sans-serif !important;
   height: 100%;
   margin: 0;
 }
@@ -28,9 +29,9 @@ h1, h2 {
 
 body {
   color: #2f3138;
-  font-family: 'FreeMono', monospace;
+
   margin: 0;
-  overflow-y: scroll; /* To enable scrolling */
+
 
   /* Set the background image with fixed attachment */
   background:
@@ -81,7 +82,7 @@ body {
 #main-reset {
   color: #2f3138;
   margin: 0;
-  overflow-y: scroll; /* To enable scrolling */
+
 
   /* Set the background image with fixed attachment */
   background:
@@ -145,7 +146,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: Garamond, serif !important;
+  font-family: "Roboto",sans-serif !important;
   font-weight: 400;
   margin: 0 0 20px 0;
   padding: 0;
@@ -641,7 +642,7 @@ h6 {
 
 #hero h1 {
 
-  font-family: "Raleway", sans-serif;
+  font-family: "Roboto",sans-serif !important;
   font-size: 56px;
   font-weight: 600;
   text-transform: uppercase;
@@ -735,7 +736,7 @@ h6 {
 }
 
 #hero .about-btn {
-  font-family: "Raleway", sans-serif;
+  font-family: "Roboto",sans-serif !important;
   font-weight: 500;
   font-size: 14px;
   letter-spacing: 1px;
@@ -1356,7 +1357,7 @@ h6 {
 #faq .faq-list .question {
   display: block;
   position: relative;
-  font-family: #f82249;
+  font-family: "Roboto",sans-serif !important;
   font-size: 18px;
   line-height: 24px;
   font-weight: 400;
@@ -1731,7 +1732,7 @@ color: yellow;
   margin: 0 0 20px 0;
   padding: 2px 0 2px 0;
   line-height: 1;
-  font-family: "Raleway", sans-serif;
+  font-family: "Roboto",sans-serif !important;
   font-weight: 700;
   color: #fff;
 }
@@ -1745,7 +1746,7 @@ color: yellow;
   font-size: 14px;
   line-height: 24px;
   margin-bottom: 0;
-  font-family: "Raleway", sans-serif;
+  font-family: "Roboto",sans-serif !important;
   color: #fff;
 }
 
@@ -2328,9 +2329,9 @@ color: #f82249;
 
 .offcanvas-body {
   color: #2f3138;
-  font-family: 'FreeMono', monospace;
+  font-family: "Roboto",sans-serif !important;
   margin: 0;
-  overflow-y: scroll;
+
   background: url('../img/img-new/revolt_logo.png') center/contain no-repeat fixed; /* Background image */
   background-size: 50% 40%;
   z-index: -1;
@@ -2382,9 +2383,9 @@ display: none;
 
 #hero-reset {
   color: #2f3138;
-  font-family: 'FreeMono', monospace;
+  font-family: "Roboto",sans-serif !important;
   margin: 0;
-  overflow-y: scroll; /* To enable scrolling */
+
   position: relative; /* Add relative positioning to enable stacking */
   background: url('../img/img-new/dark_neon_exterior_shot.jpg') center/cover fixed; /* Background image */
   z-index: -1;

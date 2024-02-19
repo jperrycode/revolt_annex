@@ -34,53 +34,52 @@
 
 <div class="album pt-2 pb-1">
     <div class="container-huge">
-    <div class="row g-3">
-       {% if music_archive %}
-       {% regroup music_archive by archive_reset_show_date.year as show_data_by_year %}
+        <div class="row g-3 justify-content-center">
+            {% if music_archive %}
+                {% regroup music_archive by archive_reset_show_date.year as show_data_by_year %}
 
-{% for year_group in show_data_by_year %}
-    <h2 class="text-center mb-2 mt-4 fs-1 text-shad-dark-back deep-red">{{ year_group.grouper }}</h2>
-    {% for item in year_group.list %}
-        <div class="col-lg-3 col-md-4 col-sm-6">
+                {% for year_group in show_data_by_year %}
+                    <h2 class="text-center mb-2 mt-4 fs-1 text-shad-dark-back deep-red">{{ year_group.grouper }}</h2>
+                    {% for item in year_group.list %}
+                        {% if forloop.first %}
+                            <div class="col-lg-4 col-md-6">
+                        {% elif forloop.counter0|divisibleby:3 %}
+                            <div class="w-100"></div> <!-- Line break after every third entry -->
+                            <div class="col-lg-4 col-md-6">
+                        {% else %}
+                            <div class="col-lg-4 col-md-6">
+                        {% endif %}
+                                <div class="p-3 future-child-container mb-5 mt-3 rounded-4 shadow-lg bg-primary bg-opacity-25 d-flex flex-column ratio ratio-16x9">
+                                    <div class="future-content-container p-3 flex-grow-1">
+                                        <p class='fs-5 text-center custom-font-octin text-shad-dark-back text-light'><span class="deep-red">{{ item.archive_reset_artist_name }}</span> w/ {{ item.archive_reset_support_names }} </p>
+                                        <p class='fs-5 text-center custom-font-octin text-shad-dark-back'><span class="text-light">{{ item.archive_reset_show_date|date:"M d" }}</span>  </p>
+                                        <div class='hover-future-cont'>
+                                            <p class="text-center text-shad-dark-back custom-font-octin"><a href="{{ item.archive_reset_artist_web }}">{{ item.archive_reset_artist_name }}'s Website</a> </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% if forloop.counter|divisibleby:3 and not forloop.last %}
+                            <div class="w-100"></div> <!-- Line break after every third entry -->
+                        {% endif %}
+                    {% endfor %}
+                {% endfor %}
 
-                <div class="p-3 future-child-container mb-5 mt-3 rounded-4 shadow-lg bg-primary bg-opacity-25 d-flex flex-column ratio ratio-16x9">
-                    <div class="future-content-container p-3 flex-grow-1">
-
-                        <p class='fs-5 text-center custom-font-octin text-shad-dark-back text-light'><span class="deep-red">{{ item.archive_reset_artist_name }}</span> w/ {{ item.archive_reset_support_names }} </p>
-<!--                        <p class='text-center deep-red custom-font-octin text-shad-dark-back'> {{ item.archive_reset_support_names }} </p>-->
-                            <p class='fs-5 text-center custom-font-octin text-shad-dark-back'><span class="text-light">{{ item.archive_reset_show_date|date:"M d" }}</span>  </p>
-
-                        <div class='hover-future-cont'>
-                            <p class="text-center text-shad-dark-back custom-font-octin"><a href="{{ item.archive_reset_artist_web }}">{{ item.archive_reset_artist_name }}'s Website</a> </p>
-                        </div>
+            {% else %}
+                <div class="container mt-5 pb-5" data-aos="fade-up" data-aos-delay="100">
+                    <h2 class="text-center mb-2 text-shad-dark-back custom-font-octin">
+                       <span class="d-block d-lg-inline deep-red"> RESET HAS NO SHOWS IN THE ARCHIVES</span>
+                    </h2>
+                    <div class="text-center">
+                        <h2 class="text-light">THANK YOU <span class="text-light"></span></h2>
+                        <h2 class="text-light text-shad-dark-back">New show Dropping in March 2024</h2>
+                        <h3 class="text-light custom-font-octin text-shad-dark-back">Keep an eye out for announcements here and on our <a href="https://www.instagram.com/revolt_gallery/">Instagram</a></h3>
                     </div>
                 </div>
-
+            {% endif %}
         </div>
-        {% if forloop.counter|divisibleby:2 and not forloop.last %}
-            <div class="w-100 d-md-none"></div>
-        {% elif forloop.counter|divisibleby:4 and not forloop.last %}
-            <div class="w-100 d-lg-none"></div>
-        {% endif %}
-    {% endfor %}
-{% endfor %}
-
-
-    {% else %}
-        <div class="container mt-5 pb-5" data-aos="fade-up" data-aos-delay="100">
-
-                <h2 class="text-center mb-2 text-shad-dark-back custom-font-octin">
-                   <span class="d-block d-lg-inline deep-red"> RESET HAS NO SHOWS IN THE ARCHIVES</span>
-                </h2>
-            <div class="text-center">
-                <h2 class="text-light">THANK YOU <span class="text-light"></span></h2>
-                <h2 class="text-light text-shad-dark-back">New show Dropping in March 2024</h2>
-             <h3 class="text-light custom-font-octin text-shad-dark-back">Keep an eye out for announcements here and on our <a href="https://www.instagram.com/revolt_gallery/">Instagram</a></h3>
-            </div>
-        </div>
-    {% endif %}
+    </div>
 </div>
-
     </div>
 </div>
 </section>
