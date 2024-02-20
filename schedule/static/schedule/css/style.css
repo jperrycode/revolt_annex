@@ -1929,6 +1929,9 @@ color: yellow;
 }
 .video-container:hover {
   transform: scale(1.1);
+  box-shadow: 0 0 10px 5px rgba(255, 0, 0, 0.5);
+
+
   
 }
 .quote-overlay:hover > p {
@@ -2161,7 +2164,9 @@ font-family: 'Octin Spraypaint', sans-serif !important;
 }
 
 
-
+.title-border-bottom {
+border-bottom: 1px solid #f82249;
+}
 
 .future-child-container:hover {
   transform: scale(1.1);
