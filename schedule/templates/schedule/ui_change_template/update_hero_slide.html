@@ -4,8 +4,8 @@
 
 
 <div class="hero-container" data-aos="zoom-in" data-aos-delay="100">
-    <h1 id="hero-front" class="mb-1 pb-0 deep-red text-shad-dark-back">Revolt Art Gallery</h1>
-    <p class="fs-3 custom-font-change text-shad-dark-back">Where Art Breaks Free from the System</p>
+    <h1 id="hero-front" class="mb-1 pb-0 deep-red"><span class="custom-font-octin text-shad-dark-back">Revolt Art Gallery</span></h1>
+    <p class="fs-3 custom-font-change text-light text-shad-dark-back">Where Art Breaks Free from the System</p>
     <div class="w-50 mx-auto"></div>
 
     <div class="container gallery-update-container rounded-circle mt-1 p-3">
@@ -19,15 +19,15 @@
 
                         <div class="col-lg-8 pb-5" data-aos="fade-up" data-aos-delay="100">
                             <div class="hero-flyer-container mx-auto">
-                                <p class="text-shad-dark-back deep-red custom-font-octin fs-2 mt-1">{{ gallery_listing.0.visual_show_name }}</p>
+                                <p class="text-shad-dark-back text-light custom-font-octin fs-2 mt-1">{{ gallery_listing.0.visual_show_name }}</p>
                                 <a href="{% url 'gallery-revolt' %}">
                                     <img src="https://live.staticflickr.com/{{ gallery_listing.0.flyer_server_id }}/{{ gallery_listing.0.flyer_img_id }}_{{ gallery_listing.0.flyer_img_secret }}.jpg" id="front-page-img-container" loading="lazy" class="shad m-1 img-fluid w-75 border border-danger-subtle">
                                 </a>
                                 <div class="text-shad-dark-back deep-red revolt-artist-text mt-4">
 
-                                    <p class="custom-paragraph">{{ gallery_listing.0.vis_show_date_start|date:"M d Y" }} <span class="deep-red">to</span> {{ gallery_listing.0.vis_show_date_end|date:"M Y" }}</p>
+                                    <p class="custom-paragraph text-light">{{ gallery_listing.0.vis_show_date_start|date:"M d Y" }} <span class="deep-red">to</span> {{ gallery_listing.0.vis_show_date_end|date:"M Y" }}</p>
 
-                                    <p class="custom-paragraph">Artists: {{ gallery_listing.0.vis_artist_bio }}</p>
+                                    <p class="custom-paragraph text-light">Artists: {{ gallery_listing.0.vis_artist_bio }}</p>
 
                             </div>
                                 <button id="expandButton" onclick="expandButtonAndRedirect('/revolt-gallery/')" class="button-89 deep-red custom-font-change shad">Future and Past Exhibits</button>

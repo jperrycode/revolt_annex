@@ -1,6 +1,6 @@
 {% load static %}
 <div id="about-forward" class="pt-3" data-aos="fade-up">
-    <h2 id='about-headline' class='text-center mt-4 pt-5 text-shad-dark-back'>Community Events <span class="deep-red">and classes</span></h2>
+    <h2 id='about-headline' class='text-center text-light mt-4 pt-5 text-shad-dark-back'>Community Events <span class="deep-red">and classes</span></h2>
    <div class="title-border-bottom w-25 mx-auto mb-5"></div>
     <div class="row justify-content-center">
         <div class="col-lg-1"></div>
@@ -17,7 +17,7 @@
 
     <h5 class="card-title text-center text-shad-dark-back custom-font-octin fw-bold mb-2">{{ item.class_name }} with <span class="deep-red">{{ item.class_teacher }}</span></h5>
 
-    <h6 class="card-subtitle text-shad-dark-back text-center mb-2">{{ item.class_day }} at {{ item.class_time }} || Class Price: ${{ item.class_price }}</h6>
+    <h6 class="card-subtitle text-shad-dark-back text-center mb-2">{{ item.class_day }} at {{ item.class_time }} || Class Price: ${{ item.class_price|floatformat:2 }}</h6>
 
 
 

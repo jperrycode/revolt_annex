@@ -606,6 +606,8 @@ h6 {
    #hero-front {
    font-size: 70px;}
   }
+
+
 }
 
 
@@ -643,9 +645,8 @@ h6 {
 
 #hero h1 {
 
-  font-family: "Roboto",sans-serif !important;
+
   font-size: 56px;
-  font-weight: 600;
   text-transform: uppercase;
 }
 
@@ -659,11 +660,7 @@ h6 {
   }
 }
 
-#hero p {
-  color: #ebebeb;
-  font-weight: 700;
-  font-size: 20px;
-}
+
 
 @media (max-width: 991px) {
   #hero p {
@@ -821,15 +818,13 @@ h6 {
 
 #about h2 {
   font-size: 36px;
-  font-weight: bold;
   margin-bottom: 10px;
-  color: #fff;
+
   margin-top: 5px;
 }
 
 #about h3 {
   font-size: 18px;
-  font-weight: bold;
   text-transform: uppercase;
   margin-bottom: 10px;
   color: #fff;
@@ -884,7 +879,7 @@ h6 {
 #speakers .speaker .details h3 {
   color: #fff;
   font-size: 22px;
-  font-weight: 600;
+
   margin-bottom: 5px;
 }
 
@@ -923,7 +918,7 @@ h6 {
 #speakers-details .details h2 {
   color: #112363;
   font-size: 28px;
-  font-weight: 700;
+
   margin-bottom: 10px;
 }
 
@@ -985,7 +980,7 @@ h6 {
 #schedule .nav-tabs a {
   border: none;
   border-radius: 50px;
-  font-weight: 600;
+
   background-color: #0e1b4d;
   color: #fff;
   padding: 10px 100px;
@@ -1065,7 +1060,7 @@ h6 {
 
 #schedule .schedule-item h4 {
   font-size: 18px;
-  font-weight: 600;
+
   margin-bottom: 5px;
 }
 
@@ -1155,7 +1150,7 @@ h6 {
 
 #venue .venue-info h3 {
   font-size: 36px;
-  font-weight: 700;
+
   color: #fff;
 }
 
@@ -1499,7 +1494,7 @@ h6 {
   margin: 10px 0;
   font-size: 14px;
   letter-spacing: 1px;
-  font-weight: bold;
+
 }
 
 #buy-tickets .card .card-price {
@@ -1576,7 +1571,7 @@ h6 {
 #contact .contact-info h3 {
   font-size: 18px;
   margin-bottom: 15px;
-  font-weight: bold;
+
   text-transform: uppercase;
   color: #112363;
 }
@@ -1734,7 +1729,7 @@ color: yellow;
   padding: 2px 0 2px 0;
   line-height: 1;
   font-family: "Roboto",sans-serif !important;
-  font-weight: 700;
+
   color: #fff;
 }
 
@@ -1778,7 +1773,6 @@ color: yellow;
 
 #footer .footer-top h4 {
   font-size: 14px;
-  font-weight: bold;
   color: #fff;
   text-transform: uppercase;
   position: relative;
