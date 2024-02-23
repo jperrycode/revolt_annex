@@ -11,8 +11,8 @@
     {% if gallery_listing %}
     {% for item in gallery_listing %}
     <div class="col-lg-4">
-        <div class="future-child-container p-3 mt-3 border border-dark rounded-4 shadow-lg mb-5 bg-danger bg-opacity-10">
-            <div class="future-content-container">
+        <div class="future-child-container p-3 mt-3 rounded-4 shadow-lg mb-5 bg-danger bg-opacity-25">
+            <div class="">
 <!--                <img class='logo-schedule img-h' src='{% static "schedule/img/img-new/revolt_logo.png" %}' alt='logo' />-->
               {% if my_variable|default:'Show Title' %}
                 <p class='text-center custom-font-change fs-4 text-shad-dark-back'>{{ item.visual_show_name }} </p>

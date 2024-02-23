@@ -6,7 +6,7 @@
 
     <div class="w-50 mx-auto"></div>
     <div class="container gallery-update-container mt-3 p-1">
-        <h2 class="custom-font-octin deep-red mb-4 text-center">Current / Upcoming Exhibit</h2>
+        <h2 class="custom-font-octin mb-4 text-center text-light">Current / Upcoming Exhibit</h2>
 
         <div class="row mt-1">
             {% if gallery_listing %}
@@ -20,11 +20,11 @@
                                 <a href="{% url 'gallery-revolt' %}">
                                     <img src="https://live.staticflickr.com/{{ gallery_listing.0.flyer_server_id }}/{{ gallery_listing.0.flyer_img_id }}_{{ gallery_listing.0.flyer_img_secret }}.jpg" id="front-page-img-container" loading="lazy" class="shad m-1 w-75 img-fluid border border-danger-subtle">
                                 </a>
-                                <div class="text-shad-dark-back deep-red revolt-artist-text mt-4">
+                                <div class="mt-4">
 
-                                    <p>{{ gallery_listing.0.vis_show_date_start|date:"M d Y" }} <span class="deep-red">to</span> {{ gallery_listing.0.vis_show_date_end|date:"M Y" }}</p>
+                                    <p class="fs-3 custom-font-octin text-shad-dark-back text-light revolt-artist-text">{{ gallery_listing.0.vis_show_date_start|date:"M d Y" }} <span class="deep-red">to</span> {{ gallery_listing.0.vis_show_date_end|date:"M Y" }}</p>
 
-                                    <p>Artists: {{ gallery_listing.0.vis_artist_bio }}</p>
+<!--                                    <p class="text-shad-dark-back custom-font-octin deep-red revolt-artist-text">Artists: {{ gallery_listing.0.vis_artist_bio }}</p>-->
 
                             </div>
 

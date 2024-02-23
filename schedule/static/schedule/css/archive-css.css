@@ -340,3 +340,9 @@ color: yellow;
 margin: 5px;
 }
 
+
+@media only screen and (max-width: 570px) {
+.mobile-font-30 {
+font-size: 30px;
+}
+}
