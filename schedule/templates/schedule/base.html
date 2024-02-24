@@ -473,7 +473,7 @@
                         class="nav-link custom-font-octin"
                         href="{% url 'gallery-revolt' %}"
                         id="gallery-link"
-                ><span class="deep-red fs-1 text-shad-dark-back">EXHIBITS</span></a
+                ><span class="{% if request.path == '/revolt-gallery/' %}deep-red{% else %}text-light{% endif %} fs-1 text-shad-dark-back">EXHIBITS</span></a
                 >
               </li>
 
@@ -482,7 +482,7 @@
                   id="gallery-link"
                   class="nav-link custom-font-octin"
                   href="{% url 'hut' %}"
-                  ><span class="deep-red fs-1 text-shad-dark-back">THE HUT</span></a
+                  ><span class='fs-1 {% if request.path == "/hut-out-front/" %}deep-red{% else %}text-light{% endif %} text-shad-dark-back'>THE HUT</span></a
                 >
               </li>
 
@@ -491,7 +491,7 @@
                   id="venue-link"
                   class="nav-link custom-font-octin"
                   href="{% url 'music-reset' %}"
-                  ><span class="deep-red fs-1 text-shad-dark-back">RESET EVENTS</span></a
+                  ><span class="{% if request.path == '/reset-performing-arts/' %}deep-red{% else %}text-light{% endif %} fs-1 text-shad-dark-back">RESET EVENTS</span></a
                 >
               </li>
               <li>
@@ -499,7 +499,7 @@
                   id="speakers-link"
                   class="nav-link custom-font-octin"
                   href="{% url 'contact-revolt' %}"
-                  ><span class="deep-red fs-1 text-shad-dark-back">CONTACT</span></a
+                  ><span class="{% if request.path == '/contact-revolt/' %}deep-red{% else %}text-light{% endif %} fs-1 text-shad-dark-back">CONTACT</span></a
                 >
               </li>
             </ul>

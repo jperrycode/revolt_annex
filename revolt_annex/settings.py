@@ -102,7 +102,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
             ],
             'libraries': { # <----- add this
-                'filter_tags': 'schedule.custom_filters'}
+                'filter_tags': 'schedule.template_tags.custom_filters'}
         },
     },
 ]

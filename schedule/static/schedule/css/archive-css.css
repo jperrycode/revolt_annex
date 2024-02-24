@@ -346,3 +346,29 @@ margin: 5px;
 font-size: 30px;
 }
 }
+
+@media only screen and (max-width: 570px) {
+
+.venue-mobile {display: block;
+font-size: 10px !important;}
+.quote-overlay {display: none;}
+}
+
+@media only screen and (min-width: 1000px) {
+
+#venue .venue-gallery:hover img {
+  transform: scale(1.1);
+}
+#venue .venue-gallery img {
+  transition: all ease-in-out 2s;
+}
+.venue-mobile {display: none;}
+.quote-overlay {display: block;}
+}
+
+@media (min-width: 970px) {
+#hero-reset {
+min-height: 100vh;
+}
+
+}
