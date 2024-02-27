@@ -31,15 +31,22 @@ admin.site.register(Music_artist_listing, MusicScheduleAdmin)
 
 
 # Define Visual Schedule Admin model
+# Creating a custom admin class for Visual_artist_listing model
 class VisualSheduleAdmin(admin.ModelAdmin):
+    # Define the fields to be displayed in the admin list view
     list_display = ("vis_artist_name", "vis_show_date_start", "age_restriction",)
+    # Define custom admin actions
     actions = ['move_data_to_archive']
 
+    # Custom admin action function to move data to archive
     def move_data_to_archive(self, request, queryset):
+        # Iterate through selected objects
         for obj in queryset:
             try:
+                # Check if the show end date is before the current date
                 if obj.vis_show_date_end < timezone.now().date():
 
+                    # Create Archivedshowimagedata instance with data from obj
                     archived_data = Archivedshowimagedata(
                         archive_show_name=obj.visual_show_name,
                         archive_artist_name=obj.vis_artist_name,
@@ -48,26 +55,31 @@ class VisualSheduleAdmin(admin.ModelAdmin):
                         archive_artist_web=obj.vis_artist_website,
                         archive_folder_id=obj.image_folder_id,
                     )
-                    archived_data.save()  # Save the archived_data instance
+                    archived_data.save()  # Save the Archivedshowimagedata instance
 
+                    # Print message to indicate successful setup of Archivedshowimagedata model
                     print('model 1 set up')
 
+                    # Create Archiveimagefiles instance associated with archived_data
                     archive_image = Archiveimagefiles(archive_fk=archived_data)
                     archive_image.save()  # Save the Archiveimagefiles instance
 
+                    # Print message to indicate successful setup of Archiveimagefiles model
                     print('model 2 set up')
 
+                    # Delete the original object from Visual_artist_listing
                     obj.delete()
                     print('deleted 1')
 
             except Exception as e:
                 print(f'An error occurred: {str(e)}')
 
+        # Display success message to the user
         self.message_user(request,
                           f'Selected rows copied to Archivedshowimagedata and Archiveimagefiles and deleted from Visual_artist_listing.')
 
+    # Set the short description for the custom admin action
     move_data_to_archive.short_description = 'move to archives'
-
 
 # Register Visual_artist_listing model with VisualSheduleAdmin
 admin.site.register(Visual_artist_listing, VisualSheduleAdmin)

@@ -15,7 +15,7 @@ urlpatterns = [
     path('reset-performing-arts/', ResetView.as_view(), name='music-reset'),
     path('revolt-gallery/', RevoltView.as_view(), name='gallery-revolt'),
     path('revolt-gallery/archive/<str:pk>/details/', ArchivePageView.as_view(), name='archive_details'),
-
+    path('down-for-pmnt/', Site_down.as_view(), name='site-down'),
 ]
 
 admin.site.site_header = 'Revolt Gallery - Reset Performing Arts'

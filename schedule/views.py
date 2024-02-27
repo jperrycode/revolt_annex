@@ -106,7 +106,14 @@ class ContactSuccessView(View):
         context['contact_form'] = ContactForm()
         return context
 
+class Site_down(TemplateView):
+    template_name = 'schedule/ui_change_template/site_down.html'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['gallery_listing'] = Visual_artist_listing.objects.all().values()
+        context['music_artist_listing'] = Music_artist_listing.objects.all().values()
+        return context
 
 
 
