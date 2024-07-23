@@ -37,7 +37,7 @@ class ContactUsView(View):
         contact_form = ContactForm(request.POST)
 
         if contact_form.is_valid():
-            print('isvalid')
+
             subject = contact_form.cleaned_data['emailform_subject']
             user_email = contact_form.cleaned_data['emailform_email']
             name = contact_form.cleaned_data['emailform_name']

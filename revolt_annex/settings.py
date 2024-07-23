@@ -31,7 +31,7 @@ SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 SECURE_HSTS_PRELOAD = True
 SECURE_CONTENT_TYPE_NOSNIFF = True
 SECURE_BROWSER_XSS_FILTER = True
-X_FRAME_OPTIONS = 'DENY' 
+X_FRAME_OPTIONS = 'DENY'
 SECURE_SSL_REDIRECT = True
 
 
@@ -51,7 +51,7 @@ SECRET_KEY = str(os.getenv('SECRET_KEY'))
 # SECURITY WARNING: don't run with debug turned on in production!
 
 DEBUG = False
-ALLOWED_HOSTS = ['revolt-staging-7ab3e7777ea7.herokuapp.com','revolt-gallery-ecf8df9a70f7.herokuapp.com/','www.taosrevolt.com', 'taosrevolt.com']
+ALLOWED_HOSTS = ['https://revolt-portfolio-86889e953723.herokuapp.com/']
 
 
 SITE_ID = 1
