@@ -792,17 +792,6 @@ files = [
 ]
 
 [[package]]
-name = "install"
-version = "1.3.5"
-description = "Install packages from within code"
-optional = false
-python-versions = ">=2.7, >=3.5"
-files = [
-    {file = "install-1.3.5-py3-none-any.whl", hash = "sha256:0d3fadf4aa62c95efe8d34757c8507eb46177f86c016c21c6551eafc6a53d5a9"},
-    {file = "install-1.3.5.tar.gz", hash = "sha256:e67c8a0be5ccf8cb4ffa17d090f3a61b6e820e6a7e21cd1d2c0f7bc59b18e647"},
-]
-
-[[package]]
 name = "kombu"
 version = "5.3.7"
 description = "Messaging library for Python."
@@ -1579,4 +1568,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "63ceca47822145b336fabde49ac1f65d2b94cff70d56684f586127da52b98687"
+content-hash = "61e98ac610eeca9d7c98fa9f5b7ecb572dfffc47d6abae68f597eb92180b6fc7"

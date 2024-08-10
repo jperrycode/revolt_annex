@@ -38,7 +38,7 @@ class Migration(migrations.Migration):
                 ('class_description', models.TextField()),
                 ('class_day', models.CharField(blank=True, max_length=30, null=True)),
                 ('class_time', models.TimeField()),
-                ('class_location', models.CharField(default='Revolt Annex', max_length=50)),
+                ('class_location', models.CharField(default='Underground Annex', max_length=50)),
                 ('class_price', models.FloatField(blank=True, null=True)),
                 ('image_url', models.URLField(blank=True, max_length=250, null=True)),
                 ('class_artist_image', models.ImageField(blank=True, null=True, upload_to='media/')),

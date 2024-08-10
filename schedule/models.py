@@ -57,7 +57,7 @@ class Community_classes(models.Model):
     class_description = models.TextField(blank=False, null=False)
     class_day = models.CharField(max_length=30, null=True, blank=True)
     class_time = models.TimeField(auto_now=False, auto_now_add=False)
-    class_location = models.CharField(max_length=50, default='Revolt Annex', null=False, blank=False)
+    class_location = models.CharField(max_length=50, default='Underground Annex', null=False, blank=False)
     class_price = models.FloatField(null=True, blank=True)
     teacher_site = models.CharField(max_length=100, null=True, blank=True)
 

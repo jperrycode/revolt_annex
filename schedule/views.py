@@ -127,7 +127,7 @@ class HutView(TemplateView):
         return context
 
 
-class RevoltView(TemplateView):
+class UndergroundView(TemplateView):
     template_name = 'schedule/ui_change_template/gallery_master_switcher.html'
 
     def get_context_data(self, **kwargs):

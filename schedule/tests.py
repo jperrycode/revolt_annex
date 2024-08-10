@@ -1,11 +1,11 @@
 from django.test import TestCase, RequestFactory
 from django.urls import reverse
-from schedule.views import RevoltView, ResetView
+from schedule.views import UndergroundView, ResetView
 
-class RevoltViewTestCase(TestCase):
+class UndergroundViewTestCase(TestCase):
     def test_revolt_view(self):
         request = RequestFactory().get('/revolt-gallery/')  # Replace with your actual URL
-        response = RevoltView.as_view()(request)
+        response = UndergroundView.as_view()(request)
         self.assertEqual(response.status_code, 200)  # Check if the response is successful
         # Add more assertions to check for specific context data, if needed
 

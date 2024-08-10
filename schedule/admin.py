@@ -14,7 +14,7 @@ import os
 
 # Customizing admin site header
 class MyAdminSite(admin.AdminSite):
-    site_header = "Revolt/Reset Admin"
+    site_header = "Underground/Reset Admin"
 
 
 # Creating an instance of the customized admin site
